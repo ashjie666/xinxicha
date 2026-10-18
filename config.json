@@ -36,12 +36,12 @@
     }
   },
   "collection": {
-    "budget_seconds": 60,
+    "budget_seconds": 300,
     "network_probe_url": "https://www.reddit.com/r/gaming/search.json?q=game&limit=1",
     "network_probe_url_p2": "https://www.bing.com/news/search?q=game&format=RSS",
     "network_probe_timeout": 3,
     "request_timeout": 8,
-    "min_interval_sec": 2,
+    "min_interval_sec": 3,
     "cache_ttl_hours": 12,
     "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) xinxicha-monitor/0.1",
     "failure_policy": {

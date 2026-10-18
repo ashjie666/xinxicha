@@ -163,48 +163,29 @@ class Collector(object):
             self._skip('reddit')
             return unavailable('Reddit', 'Fallback: Discord/F5Bot', '预算不足，跳过调用')
         query = game.get('name_en') or game.get('name_cn')
-        quoted = urllib.parse.quote(query)
         cfg = self.config['collection']
         degrade = cfg['failure_policy']['degrade_after_consecutive_failures']
-        # Reddit 自 2023 年起收紧未认证访问：浏览器伪装 UA 的 .json 端点常被 403，
-        # 故改为「合规 UA 的 .json → 合规 UA 的 .rss」两级回退，并把每步真实结果记进 error 便于排障
-        compliance_ua = 'xinxicha-monitor/0.1 (by /u/xinxicha)'
-        attempts = []
-
-        result = http.fetch_json(
-            'https://www.reddit.com/search.json?q={}&sort=new&limit=50&t=day'.format(quoted),
+        # 实测（2026-10-18，GitHub runner）：未认证的 .json 端点恒返回 403（与 UA 无关），
+        # 而 .rss 端点本身可用，只在短时间连续请求时被 429 限流；
+        # 故只用 .rss，并在每次请求前按 min_interval_sec 降速。
+        interval = float(cfg.get('min_interval_sec') or 0)
+        if interval > 0:
+            time.sleep(interval)
+        result = http.fetch(
+            'https://www.reddit.com/search.rss?q={}&sort=new&t=day'.format(urllib.parse.quote(query)),
             timeout=cfg['request_timeout'],
-            user_agent=compliance_ua,
+            user_agent='xinxicha-monitor/0.1 (by /u/xinxicha)',
             use_cache=not self.no_cache,
             ttl_hours=cfg['cache_ttl_hours'])
-        if result.get('ok'):
-            children = ((result.get('data') or {}).get('data') or {}).get('children') or []
-            count = len(children)
-            self._count('reddit', True)
-            state_mod.record(self.state, 'reddit', True, value=count, degrade_after=degrade)
-            return fresh('Reddit', 'P1 主源（.json / 合规 UA）', count)
-        attempts.append('.json/合规UA:{}'.format(result.get('error')))
-
-        if self.budget_left() >= 4:
-            result = http.fetch(
-                'https://www.reddit.com/search.rss?q={}&sort=new&t=day'.format(quoted),
-                timeout=cfg['request_timeout'],
-                user_agent=compliance_ua,
-                use_cache=not self.no_cache,
-                ttl_hours=cfg['cache_ttl_hours'])
-            if result.get('ok'):
-                count = rss_item_count(result.get('text') or '')
-                self._count('reddit', True)
-                state_mod.record(self.state, 'reddit', True, value=count, degrade_after=degrade)
-                return fresh('Reddit', 'P1 主源（.rss / 合规 UA）', count)
-            attempts.append('.rss/合规UA:{}'.format(result.get('error')))
-        else:
-            attempts.append('.rss:预算不足，未尝试')
-
-        detail = ' | '.join(attempts)
-        self._count('reddit', False)
-        state_mod.record(self.state, 'reddit', False, error='Reddit: {}'.format(detail), degrade_after=degrade)
-        return unavailable('Reddit', 'Fallback: Discord/F5Bot', 'Reddit: {}'.format(detail))
+        if not result.get('ok'):
+            self._count('reddit', False)
+            state_mod.record(self.state, 'reddit', False, error='Reddit: {}'.format(result.get('error')),
+                             degrade_after=degrade)
+            return unavailable('Reddit', 'Fallback: Discord/F5Bot', 'Reddit: {}'.format(result.get('error')))
+        count = rss_item_count(result.get('text') or '')
+        self._count('reddit', True)
+        state_mod.record(self.state, 'reddit', True, value=count, degrade_after=degrade)
+        return fresh('Reddit', 'P1 主源（.rss）', count)
 
     def _x_twitter(self, game):
         """无凭据：按规格走 P2 回退——Bing News RSS（公开、免凭据、stdlib 可解析）。
