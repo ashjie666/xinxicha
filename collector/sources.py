@@ -166,8 +166,9 @@ class Collector(object):
         cfg = self.config['collection']
         degrade = cfg['failure_policy']['degrade_after_consecutive_failures']
         # 实测（2026-10-18，GitHub runner）：未认证的 .json 端点恒返回 403（与 UA 无关），
-        # 而 .rss 端点本身可用，只在短时间连续请求时被 429 限流；
-        # 故只用 .rss，并在每次请求前按 min_interval_sec 降速。
+        # 而 .rss 端点本身可用，但对机房 IP 是按「漏桶」限流——3s 间隔时 20 次里仅 3 次成功
+        # （起始放行约 2 次，之后约每 40s 才再放行 1 次），其余 429。
+        # 故只用 .rss，并把间隔放宽到 min_interval_sec（现 14s）以落在可持续速率以内。
         interval = float(cfg.get('min_interval_sec') or 0)
         if interval > 0:
             time.sleep(interval)
