@@ -4,13 +4,13 @@ window.XC_GAMES = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-18 20:48:04",
+    "generated_at_cst": "2026-10-18 21:28:18",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 0.4,
+    "duration_sec": 0.6,
     "counts": {
       "games": 20,
       "p0": 2,
@@ -198,9 +198,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -351,7 +351,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 11 条"
       ],
@@ -393,9 +393,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -546,7 +546,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 12 条"
       ],
@@ -588,9 +588,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -741,7 +741,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 12 条"
       ],
@@ -783,9 +783,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -936,7 +936,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 12 条"
       ],
@@ -978,9 +978,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -1131,7 +1131,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 11 条"
       ],
@@ -1173,9 +1173,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -1326,7 +1326,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 12 条"
       ],
@@ -1368,9 +1368,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -1521,7 +1521,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 11 条"
       ],
@@ -1563,9 +1563,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -1716,7 +1716,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 11 条"
       ],
@@ -1758,9 +1758,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -1911,7 +1911,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 11 条"
       ],
@@ -1953,9 +1953,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -2106,7 +2106,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 11 条"
       ],
@@ -2148,9 +2148,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -2301,7 +2301,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 12 条"
       ],
@@ -2343,9 +2343,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -2496,7 +2496,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 11 条"
       ],
@@ -2538,9 +2538,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -2691,7 +2691,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 11 条"
       ],
@@ -2733,9 +2733,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -2886,7 +2886,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 12 条"
       ],
@@ -2928,9 +2928,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -3081,7 +3081,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 12 条"
       ],
@@ -3123,9 +3123,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -3276,7 +3276,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 12 条"
       ],
@@ -3318,9 +3318,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -3471,7 +3471,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 12 条"
       ],
@@ -3513,9 +3513,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -3666,7 +3666,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 12 条"
       ],
@@ -3708,9 +3708,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -3861,7 +3861,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 11 条"
       ],
@@ -3903,9 +3903,9 @@ window.XC_GAMES = {
           "available": false,
           "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源（未安装 pytrends）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+          "error": "网络不可达，跳过调用"
         },
         "reddit": {
           "available": false,
@@ -4056,7 +4056,7 @@ window.XC_GAMES = {
         "P2·X"
       ],
       "fallbacks": [
-        "P1 主源（未安装 pytrends）",
+        "Fallback: Google Search",
         "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 12 条"
       ],
