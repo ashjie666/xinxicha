@@ -4,13 +4,13 @@
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-19 01:26:24",
+    "generated_at_cst": "2026-10-19 03:24:36",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 616.0,
+    "duration_sec": 615.7,
     "counts": {
       "games": 20,
       "p0": 2,
@@ -377,7 +377,7 @@
       "launch_date": "2026-10-29",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -14.1,
+      "trends_7d": -50.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -390,7 +390,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -14.1,
+          "value": -50.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -571,7 +571,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "高",
-      "trends_7d": -14.1,
+      "trends_7d": -50.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -584,7 +584,7 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -14.1,
+          "value": -50.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -767,7 +767,7 @@
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": 6.8,
+      "trends_7d": -50.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -775,17 +775,16 @@
       "priority": "P1",
       "note": "生活模拟类，海外未上线，提前建内容库",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-19",
       "signals": {
         "trends": {
-          "available": true,
-          "value": 6.8,
+          "available": false,
+          "value": -50.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         "reddit": {
           "available": true,
@@ -934,20 +933,23 @@
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
+      "stale_sources": [
+        "trends"
+      ],
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 3,
-      "stale": false
+      "stale": true
     },
     {
       "id": "project-origin",
@@ -1545,7 +1547,7 @@
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": 54.5,
+      "trends_7d": 31.1,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1558,7 +1560,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": 54.5,
+          "value": 31.1,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1739,7 +1741,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": 12.9,
+      "trends_7d": 3.1,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1752,7 +1754,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": 12.9,
+          "value": 3.1,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1933,7 +1935,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -26.8,
+      "trends_7d": 3.1,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1941,17 +1943,16 @@
       "priority": "P2",
       "note": "8月收入环比增37%，赛季制更新频繁",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-19",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -26.8,
+          "available": false,
+          "value": 3.1,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         "reddit": {
           "available": true,
@@ -2100,20 +2101,23 @@
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
-      "stale_sources": [],
+      "stale_sources": [
+        "trends"
+      ],
       "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 0,
-      "stale": false
+      "stale": true
     },
     {
       "id": "clash-of-critters",
@@ -2127,7 +2131,7 @@
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "中",
-      "trends_7d": -28.6,
+      "trends_7d": -40.3,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2140,7 +2144,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -28.6,
+          "value": -40.3,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2321,7 +2325,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -28.6,
+      "trends_7d": -40.3,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2334,7 +2338,7 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -28.6,
+          "value": -40.3,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -2517,7 +2521,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -28.6,
+      "trends_7d": -40.3,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2530,7 +2534,7 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -28.6,
+          "value": -40.3,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -2713,7 +2717,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -12.2,
+      "trends_7d": -31.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2726,7 +2730,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -12.2,
+          "value": -31.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2907,7 +2911,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -3.0,
+      "trends_7d": -25.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2920,7 +2924,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -3.0,
+          "value": -25.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3101,7 +3105,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -9.9,
+      "trends_7d": -18.2,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3114,7 +3118,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -9.9,
+          "value": -18.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3295,7 +3299,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -18.4,
+      "trends_7d": 31.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3308,7 +3312,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -18.4,
+          "value": 31.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3489,7 +3493,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": 57.7,
+      "trends_7d": 46.2,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3502,7 +3506,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": 57.7,
+          "value": 46.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3683,7 +3687,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -21.1,
+      "trends_7d": 48.1,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3696,7 +3700,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -21.1,
+          "value": 48.1,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3877,7 +3881,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -12.6,
+      "trends_7d": -22.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3890,7 +3894,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -12.6,
+          "value": -22.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
