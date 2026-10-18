@@ -5,7 +5,7 @@
 # （现 12）只需 ≤ cron 间隔（24h）即可，无需同步调整。
 #
 # 与 wordseeker 的差异：
-#   - 采集器只用标准库，无需 pip install
+#   - 采集器主体只用标准库；Google Trends（P1 主源）走可选依赖 pytrends，故 collect job 会先装它
 #   - 数据源免凭据（Steam 官方接口 + Bing News RSS），无 SerpApi/代理需求
 #   - 网络采集有硬预算（config.json collect.budget_seconds=60），单次运行约 1-3 分钟
 #   - P1 源不可达时自动走 P2（Bing News RSS）/P3（历史值降权）回退链，站点不会空转
@@ -55,7 +55,11 @@ jobs:
           restore-keys: |
             xinxicha-data-
 
-      # 采集器只用标准库，无需安装任何依赖
+      # pytrends 是 Google Trends 主源（P1）的唯一依赖；装上后 runner 才会真正请求 Trends。
+      # 其余采集逻辑仍只用标准库。
+      - name: Install pytrends (Google Trends P1)
+        run: python -m pip install --quiet pytrends
+
       - name: Collect
         run: python -m collector.update
 
