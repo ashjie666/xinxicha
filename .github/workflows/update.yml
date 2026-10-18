@@ -7,8 +7,9 @@
 # 与 wordseeker 的差异：
 #   - 采集器主体只用标准库；Google Trends（P1 主源）走可选依赖 pytrends，故 collect job 会先装它
 #   - 数据源免凭据（Steam 官方接口 + Bing News RSS），无 SerpApi/代理需求
-#   - 网络采集有硬预算（config.json collect.budget_seconds=420），单次运行约 5-8 分钟
-#     （Reddit 对机房 IP 按漏桶限流，min_interval_sec=14 降速以免连续 429）
+#   - 网络采集有硬预算（config.json collect.budget_seconds=1500），单次运行约 10-25 分钟
+#     （Reddit 对机房 IP 按漏桶限流；以「每天这 1 次先拿到数据」为优先：
+#      基础间隔 min_interval_sec=30s 降速，遇 429 再退避 60s 重试一次）
 #   - P1 源不可达时自动走 P2（Bing News RSS）/P3（历史值降权）回退链，站点不会空转
 #
 # 部署拆成两个互不影响的 job，二者都 needs: collect，任一失败不阻塞另一个：

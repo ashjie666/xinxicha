@@ -159,25 +159,42 @@ class Collector(object):
         if not (self.network or self.p2_network):
             self._skip('reddit')
             return unavailable('Reddit', 'Fallback: Discord/F5Bot', '网络不可达，跳过调用')
-        if self.budget_left() < 5:
-            self._skip('reddit')
-            return unavailable('Reddit', 'Fallback: Discord/F5Bot', '预算不足，跳过调用')
-        query = game.get('name_en') or game.get('name_cn')
         cfg = self.config['collection']
+        reserve = float(cfg.get('budget_reserve_sec') or 0)
+        if self.budget_left() < max(5.0, reserve):
+            self._skip('reddit')
+            return unavailable('Reddit', 'Fallback: Discord/F5Bot',
+                               '预算接近用尽（预留给其余源），跳过调用')
+        query = game.get('name_en') or game.get('name_cn')
         degrade = cfg['failure_policy']['degrade_after_consecutive_failures']
-        # 实测（2026-10-18，GitHub runner）：未认证的 .json 端点恒返回 403（与 UA 无关），
-        # 而 .rss 端点本身可用，但对机房 IP 是按「漏桶」限流——3s 间隔时 20 次里仅 3 次成功
+        # 实测（2026-10-18，GitHub runner）：未认证的 .json 端点恒返回 403（与 UA 无关）；
+        # 而 .rss 端点可用，但对机房 IP 按「漏桶」限流——3s 间隔时 20 次里仅 3 次成功
         # （起始放行约 2 次，之后约每 40s 才再放行 1 次），其余 429。
-        # 故只用 .rss，并把间隔放宽到 min_interval_sec（现 14s）以落在可持续速率以内。
+        # 站点每天只需 1 次成功更新，故以「先拿到数据」为优先：
+        #   - 基础间隔放宽到 min_interval_sec（现 30s），落在可持续速率以内
+        #   - 遇 429（限流）再退避 reddit_retry_wait_sec（现 60s）重试，最多 reddit_max_attempts 次
         interval = float(cfg.get('min_interval_sec') or 0)
-        if interval > 0:
-            time.sleep(interval)
-        result = http.fetch(
-            'https://www.reddit.com/search.rss?q={}&sort=new&t=day'.format(urllib.parse.quote(query)),
-            timeout=cfg['request_timeout'],
-            user_agent='xinxicha-monitor/0.1 (by /u/xinxicha)',
-            use_cache=not self.no_cache,
-            ttl_hours=cfg['cache_ttl_hours'])
+        retry_wait = float(cfg.get('reddit_retry_wait_sec') or 0)
+        attempts = max(1, int(cfg.get('reddit_max_attempts') or 1))
+        url = 'https://www.reddit.com/search.rss?q={}&sort=new&t=day'.format(urllib.parse.quote(query))
+        result = {'ok': False, 'status': 0, 'error': '未发起请求'}
+        for attempt in range(attempts):
+            if interval > 0:
+                time.sleep(interval)
+            result = http.fetch(
+                url,
+                timeout=cfg['request_timeout'],
+                user_agent='xinxicha-monitor/0.1 (by /u/xinxicha)',
+                use_cache=not self.no_cache,
+                ttl_hours=cfg['cache_ttl_hours'])
+            if result.get('ok'):
+                break
+            # 只有 429（限流）值得退避重试；403 / 超时等重试无益，直接返回走 stale 兜底
+            if result.get('status') != 429 or attempt + 1 >= attempts:
+                break
+            if self.budget_left() < retry_wait + max(5.0, reserve):
+                break
+            time.sleep(retry_wait)
         if not result.get('ok'):
             self._count('reddit', False)
             state_mod.record(self.state, 'reddit', False, error='Reddit: {}'.format(result.get('error')),
