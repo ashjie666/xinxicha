@@ -163,25 +163,48 @@ class Collector(object):
             self._skip('reddit')
             return unavailable('Reddit', 'Fallback: Discord/F5Bot', '预算不足，跳过调用')
         query = game.get('name_en') or game.get('name_cn')
-        url = 'https://www.reddit.com/search.json?q={}&sort=new&limit=50&t=day'.format(
-            urllib.parse.quote(query))
+        quoted = urllib.parse.quote(query)
+        cfg = self.config['collection']
+        degrade = cfg['failure_policy']['degrade_after_consecutive_failures']
+        # Reddit 自 2023 年起收紧未认证访问：浏览器伪装 UA 的 .json 端点常被 403，
+        # 故改为「合规 UA 的 .json → 合规 UA 的 .rss」两级回退，并把每步真实结果记进 error 便于排障
+        compliance_ua = 'xinxicha-monitor/0.1 (by /u/xinxicha)'
+        attempts = []
+
         result = http.fetch_json(
-            url,
-            timeout=self.config['collection']['request_timeout'],
-            user_agent=self.config['collection']['user_agent'],
+            'https://www.reddit.com/search.json?q={}&sort=new&limit=50&t=day'.format(quoted),
+            timeout=cfg['request_timeout'],
+            user_agent=compliance_ua,
             use_cache=not self.no_cache,
-            ttl_hours=self.config['collection']['cache_ttl_hours'])
-        degrade = self.config['collection']['failure_policy']['degrade_after_consecutive_failures']
-        if not result.get('ok'):
-            self._count('reddit', False)
-            state_mod.record(self.state, 'reddit', False, error='Reddit: {}'.format(result.get('error')),
-                             degrade_after=degrade)
-            return unavailable('Reddit', 'Fallback: Discord/F5Bot', 'Reddit: {}'.format(result.get('error')))
-        children = ((result.get('data') or {}).get('data') or {}).get('children') or []
-        count = len(children)
-        self._count('reddit', True)
-        state_mod.record(self.state, 'reddit', True, value=count, degrade_after=degrade)
-        return fresh('Reddit', 'P1 主源', count)
+            ttl_hours=cfg['cache_ttl_hours'])
+        if result.get('ok'):
+            children = ((result.get('data') or {}).get('data') or {}).get('children') or []
+            count = len(children)
+            self._count('reddit', True)
+            state_mod.record(self.state, 'reddit', True, value=count, degrade_after=degrade)
+            return fresh('Reddit', 'P1 主源（.json / 合规 UA）', count)
+        attempts.append('.json/合规UA:{}'.format(result.get('error')))
+
+        if self.budget_left() >= 4:
+            result = http.fetch(
+                'https://www.reddit.com/search.rss?q={}&sort=new&t=day'.format(quoted),
+                timeout=cfg['request_timeout'],
+                user_agent=compliance_ua,
+                use_cache=not self.no_cache,
+                ttl_hours=cfg['cache_ttl_hours'])
+            if result.get('ok'):
+                count = rss_item_count(result.get('text') or '')
+                self._count('reddit', True)
+                state_mod.record(self.state, 'reddit', True, value=count, degrade_after=degrade)
+                return fresh('Reddit', 'P1 主源（.rss / 合规 UA）', count)
+            attempts.append('.rss/合规UA:{}'.format(result.get('error')))
+        else:
+            attempts.append('.rss:预算不足，未尝试')
+
+        detail = ' | '.join(attempts)
+        self._count('reddit', False)
+        state_mod.record(self.state, 'reddit', False, error='Reddit: {}'.format(detail), degrade_after=degrade)
+        return unavailable('Reddit', 'Fallback: Discord/F5Bot', 'Reddit: {}'.format(detail))
 
     def _x_twitter(self, game):
         """无凭据：按规格走 P2 回退——Bing News RSS（公开、免凭据、stdlib 可解析）。
