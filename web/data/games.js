@@ -4,13 +4,13 @@ window.XC_GAMES = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-19 00:26:08",
+    "generated_at_cst": "2026-10-19 01:26:24",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 615.6,
+    "duration_sec": 616.0,
     "counts": {
       "games": 20,
       "p0": 2,
@@ -377,7 +377,7 @@ window.XC_GAMES = {
       "launch_date": "2026-10-29",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -21.7,
+      "trends_7d": -14.1,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -390,7 +390,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -21.7,
+          "value": -14.1,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -571,7 +571,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "高",
-      "trends_7d": -21.7,
+      "trends_7d": -14.1,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -584,7 +584,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -21.7,
+          "value": -14.1,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -767,7 +767,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": -10.3,
+      "trends_7d": 6.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -780,7 +780,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -10.3,
+          "value": 6.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1545,7 +1545,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": 82.4,
+      "trends_7d": 54.5,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1558,7 +1558,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 82.4,
+          "value": 54.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1739,7 +1739,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": 5.5,
+      "trends_7d": 12.9,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1752,7 +1752,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 5.5,
+          "value": 12.9,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1933,7 +1933,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -35.1,
+      "trends_7d": -26.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1946,7 +1946,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -35.1,
+          "value": -26.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2127,7 +2127,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "中",
-      "trends_7d": -27.0,
+      "trends_7d": -28.6,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2140,7 +2140,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -27.0,
+          "value": -28.6,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2321,7 +2321,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -27.0,
+      "trends_7d": -28.6,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2334,7 +2334,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -27.0,
+          "value": -28.6,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -2517,7 +2517,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -27.0,
+      "trends_7d": -28.6,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2530,7 +2530,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -27.0,
+          "value": -28.6,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -2713,7 +2713,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -25.3,
+      "trends_7d": -12.2,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2726,7 +2726,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -25.3,
+          "value": -12.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2907,7 +2907,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": 7.6,
+      "trends_7d": -3.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2920,7 +2920,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 7.6,
+          "value": -3.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3101,7 +3101,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -22.0,
+      "trends_7d": -9.9,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3114,7 +3114,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -22.0,
+          "value": -9.9,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3295,7 +3295,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": 80.0,
+      "trends_7d": -18.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3308,7 +3308,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 80.0,
+          "value": -18.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3489,7 +3489,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": 37.0,
+      "trends_7d": 57.7,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3502,7 +3502,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 37.0,
+          "value": 57.7,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3683,7 +3683,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": 37.0,
+      "trends_7d": -21.1,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3691,16 +3691,17 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "莉莉丝发行能力强但英文供给充足",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-19",
       "signals": {
         "trends": {
-          "available": false,
-          "value": 37.0,
+          "available": true,
+          "value": -21.1,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
           "available": true,
@@ -3849,23 +3850,20 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "rise-of-kingdoms",
@@ -3879,7 +3877,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -9.3,
+      "trends_7d": -12.6,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3892,7 +3890,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -9.3,
+          "value": -12.6,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
