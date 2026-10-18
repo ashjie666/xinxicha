@@ -211,10 +211,56 @@ const XC = (function () {
     }).join('');
   }
 
+  /* ---------- 表格顶部镜像滚动条 ----------
+     宽表横向溢出时，底部滚动条必须先滚到表格末尾才拖得到；这里在每张表上方
+     再放一个只含滚动条的空条，与 .table-scroll 双向同步 scrollLeft。
+     内容不溢出（窄表 / 窄屏卡片模式）时自动隐藏，不影响原布局。 */
+
+  function bindTopScrollbars() {
+    document.querySelectorAll('.table-scroll').forEach(function (box) {
+      const previous = box.previousElementSibling;
+      if (previous && previous.classList.contains('scroll-top')) return;
+
+      const bar = el('div', { class: 'scroll-top', 'aria-hidden': 'true' }, [
+        el('div', { class: 'scroll-top-track' }),
+      ]);
+      box.parentNode.insertBefore(bar, box);
+
+      const track = bar.firstElementChild;
+      const table = box.querySelector('table');
+
+      function syncWidth() {
+        const overflowX = getComputedStyle(box).overflowX;
+        const scrollable = overflowX === 'auto' || overflowX === 'scroll';
+        const width = table ? table.scrollWidth : box.scrollWidth;
+        track.style.width = width + 'px';
+        bar.hidden = !scrollable || !box.clientWidth || width <= box.clientWidth + 1;
+        if (!bar.hidden) bar.scrollLeft = box.scrollLeft;
+      }
+
+      bar.addEventListener('scroll', function () {
+        if (box.scrollLeft !== bar.scrollLeft) box.scrollLeft = bar.scrollLeft;
+      });
+      box.addEventListener('scroll', function () {
+        if (bar.scrollLeft !== box.scrollLeft) bar.scrollLeft = box.scrollLeft;
+      });
+
+      if (window.ResizeObserver) {
+        const observer = new ResizeObserver(syncWidth);
+        observer.observe(box);
+        if (table) observer.observe(table);
+      }
+      window.addEventListener('resize', syncWidth);
+      syncWidth();
+      setTimeout(syncWidth, 300); /* 数据/字体渲染后再校一次宽度 */
+    });
+  }
+
   /* ---------- 通用初始化 ---------- */
 
   function initPage() {
     bindThemeToggle();
+    bindTopScrollbars();
     document.querySelectorAll('.year').forEach(function (node) { node.textContent = new Date().getFullYear(); });
   }
 
@@ -232,6 +278,6 @@ const XC = (function () {
     bindThemeToggle: bindThemeToggle, loadData: loadData, renderMeta: renderMeta,
     scoreClass: scoreClass, deltaHtml: deltaHtml, scoreCell: scoreCell,
     actionBadge: actionBadge, confBadge: confBadge, signalTag: signalTag, prioTag: prioTag,
-    healthRowsHtml: healthRowsHtml, initPage: initPage, fail: fail,
+    healthRowsHtml: healthRowsHtml, bindTopScrollbars: bindTopScrollbars, initPage: initPage, fail: fail,
   };
 })();
