@@ -124,7 +124,9 @@ class Collector(object):
             self._skip('trends')
             return unavailable('Google Trends', 'P1 主源（未安装 pytrends）',
                                self.trends_error or 'pytrends 不可用')
-        if not self.network:
+        # 门禁用「外网任一探针可达」而非单独的 P1 探针：不同源的可达性互不相同，
+        # 机房 IP 常见 Reddit 不通但 Google 通，按 P1 探针门控会让 Trends 永不被请求
+        if not (self.network or self.p2_network):
             self._skip('trends')
             return unavailable('Google Trends', 'Fallback: Google Search', '网络不可达，跳过调用')
         if self.budget_left() < 8:
@@ -153,7 +155,8 @@ class Collector(object):
             return unavailable('Google Trends', 'Fallback: Google Search', 'Trends 限流/异常：{}'.format(error))
 
     def _reddit(self, game):
-        if not self.network:
+        # 同上：外网任一探针可达即尝试（Reddit 对机房 IP 常 403，失败会快速返回而非等超时）
+        if not (self.network or self.p2_network):
             self._skip('reddit')
             return unavailable('Reddit', 'Fallback: Discord/F5Bot', '网络不可达，跳过调用')
         if self.budget_left() < 5:
