@@ -4,13 +4,13 @@
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-18 21:43:58",
+    "generated_at_cst": "2026-10-18 21:57:23",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 16.4,
+    "duration_sec": 70.2,
     "counts": {
       "games": 20,
       "p0": 2,
@@ -183,7 +183,7 @@
       "launch_date": "2026-10-29",
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": 2.4,
+      "trends_7d": 12.2,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -196,7 +196,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": 2.4,
+          "value": 12.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -207,7 +207,7 @@
           "available": true,
           "value": 0,
           "origin": "Reddit",
-          "kind": "P1 主源（.rss / 合规 UA）",
+          "kind": "P1 主源（.rss）",
           "stale": false,
           "error": null,
           "tier": "P1"
@@ -243,7 +243,7 @@
           "weighted": 0.0,
           "value": 0,
           "origin": "Reddit",
-          "kind": "P1 主源（.rss / 合规 UA）",
+          "kind": "P1 主源（.rss）",
           "stale": false,
           "note": ""
         },
@@ -377,7 +377,7 @@
       "launch_date": "2026-10-29",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -32.8,
+      "trends_7d": -34.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -385,12 +385,12 @@
       "priority": "P0",
       "note": "PC/PS5买断，发售期爆发，长尾有限",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
           "available": true,
-          "value": -32.8,
+          "value": -34.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -398,12 +398,13 @@
           "tier": "P1"
         },
         "reddit": {
-          "available": false,
+          "available": true,
           "value": 0,
           "origin": "Reddit",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "x_twitter": {
           "available": true,
@@ -436,9 +437,9 @@
           "weighted": 0.0,
           "value": 0,
           "origin": "Reddit",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "x_official",
@@ -544,22 +545,19 @@
       ],
       "sources_used": [
         "P1·Trends",
-        "Reddit（stale）",
+        "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "reddit"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 6,
       "launch_days": 11,
       "overseas_supply": null,
       "keywords_count": 7,
-      "stale": true
+      "stale": false
     },
     {
       "id": "roco-kingdom-world",
@@ -573,7 +571,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "高",
-      "trends_7d": -32.8,
+      "trends_7d": -34.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -586,7 +584,7 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -32.8,
+          "value": -34.4,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -598,7 +596,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -633,7 +631,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -770,7 +768,7 @@
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": 2.3,
+      "trends_7d": 9.3,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -783,7 +781,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": 2.3,
+          "value": 9.3,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -796,7 +794,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -831,7 +829,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -966,7 +964,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": -100.0,
+      "trends_7d": 9.3,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -978,13 +976,12 @@
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -100.0,
+          "available": false,
+          "value": 9.3,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         "reddit": {
           "available": false,
@@ -992,7 +989,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -1027,7 +1024,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -1112,8 +1109,8 @@
           "key": "x_dead",
           "label": "X/Twitter 失活",
           "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
           "stale_sources": [
             "x_twitter"
           ]
@@ -1132,15 +1129,17 @@
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
+        "trends",
         "reddit"
       ],
       "x_state": "player_only",
@@ -1162,7 +1161,7 @@
       "launch_date": "2027-01-15",
       "cn_guide_score": 1,
       "gap_level": "高",
-      "trends_7d": -100.0,
+      "trends_7d": 9.3,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1175,7 +1174,7 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -100.0,
+          "value": 9.3,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -1187,7 +1186,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -1222,7 +1221,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -1385,7 +1384,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -1420,7 +1419,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -1555,7 +1554,7 @@
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": 38.5,
+      "trends_7d": 15.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1568,7 +1567,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": 38.5,
+          "value": 15.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1581,7 +1580,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -1616,7 +1615,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -1777,7 +1776,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -1812,7 +1811,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -1947,7 +1946,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": 15.2,
+      "trends_7d": 10.9,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1960,7 +1959,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": 15.2,
+          "value": 10.9,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1973,7 +1972,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -2008,7 +2007,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -2143,7 +2142,7 @@
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "中",
-      "trends_7d": -11.1,
+      "trends_7d": -14.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2156,7 +2155,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -11.1,
+          "value": -14.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2169,7 +2168,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -2204,7 +2203,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -2339,7 +2338,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -11.1,
+      "trends_7d": -14.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2352,7 +2351,7 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -11.1,
+          "value": -14.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -2364,7 +2363,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -2399,7 +2398,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -2536,7 +2535,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -11.1,
+      "trends_7d": -14.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2549,7 +2548,7 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -11.1,
+          "value": -14.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -2561,7 +2560,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -2596,7 +2595,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -2733,7 +2732,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -19.0,
+      "trends_7d": -16.5,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2741,12 +2740,12 @@
       "priority": "P3",
       "note": "搜索量大但英文站已饱和",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
           "available": true,
-          "value": -19.0,
+          "value": -16.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2754,12 +2753,13 @@
           "tier": "P1"
         },
         "reddit": {
-          "available": false,
+          "available": true,
           "value": 0,
           "origin": "Reddit",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "x_twitter": {
           "available": true,
@@ -2792,9 +2792,9 @@
           "weighted": 0.0,
           "value": 0,
           "origin": "Reddit",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "x_official",
@@ -2900,22 +2900,19 @@
       ],
       "sources_used": [
         "P1·Trends",
-        "Reddit（stale）",
+        "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "reddit"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "honkai-star-rail",
@@ -2955,7 +2952,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -2990,7 +2987,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -3125,7 +3122,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -29.9,
+      "trends_7d": -24.1,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3138,7 +3135,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -29.9,
+          "value": -24.1,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3151,7 +3148,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -3186,7 +3183,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -3321,7 +3318,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -29.2,
+      "trends_7d": -23.6,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3334,7 +3331,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -29.2,
+          "value": -23.6,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3347,7 +3344,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -3382,7 +3379,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -3543,7 +3540,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -3578,7 +3575,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -3713,7 +3710,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -4.9,
+      "trends_7d": -1.6,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3726,7 +3723,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -4.9,
+          "value": -1.6,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3739,7 +3736,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -3774,7 +3771,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
@@ -3909,7 +3906,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -28.2,
+      "trends_7d": -20.5,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3922,7 +3919,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -28.2,
+          "value": -20.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3935,7 +3932,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -3970,7 +3967,7 @@
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
