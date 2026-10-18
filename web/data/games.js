@@ -4,13 +4,13 @@ window.XC_GAMES = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-18 21:34:08",
+    "generated_at_cst": "2026-10-18 21:43:58",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 11.9,
+    "duration_sec": 16.4,
     "counts": {
       "games": 20,
       "p0": 2,
@@ -183,20 +183,20 @@ window.XC_GAMES = {
       "launch_date": "2026-10-29",
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": -2.4,
-      "reddit_daily": null,
+      "trends_7d": 2.4,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "抢首发攻略",
       "priority": "P0",
       "note": "国际服先上线，国服2027+，时间窗口最干净",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
           "available": true,
-          "value": -2.4,
+          "value": 2.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -204,12 +204,13 @@ window.XC_GAMES = {
           "tier": "P1"
         },
         "reddit": {
-          "available": false,
-          "value": null,
+          "available": true,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
-          "stale": true,
-          "error": "Reddit: HTTP 403"
+          "kind": "P1 主源（.rss / 合规 UA）",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "x_twitter": {
           "available": true,
@@ -240,11 +241,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
-          "stale": true,
-          "note": "Reddit: HTTP 403"
+          "kind": "P1 主源（.rss / 合规 UA）",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "x_official",
@@ -350,21 +351,19 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
         "Bing News RSS 命中 11 条"
       ],
-      "stale_sources": [
-        "reddit"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": 11,
       "overseas_supply": null,
       "keywords_count": 13,
-      "stale": true
+      "stale": false
     },
     {
       "id": "phantom-blade-zero",
@@ -378,8 +377,8 @@ window.XC_GAMES = {
       "launch_date": "2026-10-29",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -39.3,
-      "reddit_daily": null,
+      "trends_7d": -32.8,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "做发售期专题",
@@ -391,7 +390,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -39.3,
+          "value": -32.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -400,11 +399,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -435,11 +434,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -545,10 +544,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
@@ -573,8 +573,8 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "高",
-      "trends_7d": -39.3,
-      "reddit_daily": null,
+      "trends_7d": -32.8,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "做预约/测试攻略",
@@ -586,7 +586,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -39.3,
+          "value": -32.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -594,11 +594,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -629,11 +629,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -739,11 +739,12 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "Trends（stale）",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
         "Fallback: Trends（沿用上次值）",
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
@@ -769,8 +770,8 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": 0.0,
-      "reddit_daily": null,
+      "trends_7d": 2.3,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "提前占词占位",
@@ -782,7 +783,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 0.0,
+          "value": 2.3,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -791,11 +792,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -826,11 +827,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -936,10 +937,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
@@ -965,7 +967,7 @@ window.XC_GAMES = {
       "cn_guide_score": 2,
       "gap_level": "高",
       "trends_7d": -100.0,
-      "reddit_daily": null,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "做预约占位页",
@@ -986,11 +988,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -1021,11 +1023,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -1131,10 +1133,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
@@ -1160,7 +1163,7 @@ window.XC_GAMES = {
       "cn_guide_score": 1,
       "gap_level": "高",
       "trends_7d": -100.0,
-      "reddit_daily": null,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "提前占词占位",
@@ -1180,11 +1183,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -1215,11 +1218,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -1325,11 +1328,12 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "Trends（stale）",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
         "Fallback: Trends（沿用上次值）",
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
@@ -1356,7 +1360,7 @@ window.XC_GAMES = {
       "cn_guide_score": 5,
       "gap_level": "高",
       "trends_7d": -100.0,
-      "reddit_daily": null,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "占关键词建预约站",
@@ -1377,11 +1381,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -1412,11 +1416,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -1522,10 +1526,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
@@ -1550,8 +1555,8 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": 15.4,
-      "reddit_daily": null,
+      "trends_7d": 38.5,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "做机制/连招攻略",
@@ -1563,7 +1568,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 15.4,
+          "value": 38.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1572,11 +1577,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -1607,11 +1612,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -1717,10 +1722,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
@@ -1745,8 +1751,8 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": 0.0,
-      "reddit_daily": null,
+      "trends_7d": 5.8,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "补英文攻略",
@@ -1758,7 +1764,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 0.0,
+          "value": 5.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1767,11 +1773,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -1802,11 +1808,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -1912,10 +1918,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
@@ -1941,7 +1948,7 @@ window.XC_GAMES = {
       "cn_guide_score": 2,
       "gap_level": "中",
       "trends_7d": 15.2,
-      "reddit_daily": null,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "做赛季攻略",
@@ -1962,11 +1969,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -1997,11 +2004,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -2107,10 +2114,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
@@ -2136,7 +2144,7 @@ window.XC_GAMES = {
       "cn_guide_score": 1,
       "gap_level": "中",
       "trends_7d": -11.1,
-      "reddit_daily": null,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "做新手攻略",
@@ -2157,11 +2165,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -2192,11 +2200,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -2302,10 +2310,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
@@ -2331,7 +2340,7 @@ window.XC_GAMES = {
       "cn_guide_score": 2,
       "gap_level": "中",
       "trends_7d": -11.1,
-      "reddit_daily": null,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "做关卡攻略",
@@ -2351,11 +2360,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -2386,11 +2395,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -2496,11 +2505,12 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "Trends（stale）",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
         "Fallback: Trends（沿用上次值）",
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
@@ -2527,7 +2537,7 @@ window.XC_GAMES = {
       "cn_guide_score": 2,
       "gap_level": "中",
       "trends_7d": -11.1,
-      "reddit_daily": null,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "做资源攻略",
@@ -2547,11 +2557,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -2582,11 +2592,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -2692,11 +2702,12 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "Trends（stale）",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
         "Fallback: Trends（沿用上次值）",
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
@@ -2723,7 +2734,7 @@ window.XC_GAMES = {
       "cn_guide_score": 5,
       "gap_level": "低",
       "trends_7d": -19.0,
-      "reddit_daily": null,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "竞争激烈不建议",
@@ -2744,11 +2755,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -2779,11 +2790,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -2889,10 +2900,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
@@ -2917,8 +2929,8 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -3.0,
-      "reddit_daily": null,
+      "trends_7d": -4.5,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "竞争激烈不建议",
@@ -2930,7 +2942,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -3.0,
+          "value": -4.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2939,11 +2951,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -2974,11 +2986,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -3084,10 +3096,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
@@ -3112,8 +3125,8 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -23.3,
-      "reddit_daily": null,
+      "trends_7d": -29.9,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "做差异化内容",
@@ -3125,7 +3138,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -23.3,
+          "value": -29.9,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3134,11 +3147,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -3169,11 +3182,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -3279,10 +3292,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
@@ -3307,8 +3321,8 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -15.3,
-      "reddit_daily": null,
+      "trends_7d": -29.2,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "赛事/英雄更新压力大",
@@ -3320,7 +3334,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -15.3,
+          "value": -29.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3329,11 +3343,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -3364,11 +3378,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -3474,10 +3488,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
@@ -3502,8 +3517,8 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": 48.3,
-      "reddit_daily": null,
+      "trends_7d": 41.4,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "竞争激烈",
@@ -3515,7 +3530,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 48.3,
+          "value": 41.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3524,11 +3539,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -3559,11 +3574,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -3669,10 +3684,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
@@ -3697,8 +3713,8 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": 18.0,
-      "reddit_daily": null,
+      "trends_7d": -4.9,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "竞争较激烈",
@@ -3710,7 +3726,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 18.0,
+          "value": -4.9,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3719,11 +3735,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -3754,11 +3770,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -3864,10 +3880,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
@@ -3893,7 +3910,7 @@ window.XC_GAMES = {
       "cn_guide_score": 5,
       "gap_level": "低",
       "trends_7d": -28.2,
-      "reddit_daily": null,
+      "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
       "action_manual": "老牌产品增长平稳",
@@ -3914,11 +3931,11 @@ window.XC_GAMES = {
         },
         "reddit": {
           "available": false,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 403"
+          "error": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         "x_twitter": {
           "available": true,
@@ -3949,11 +3966,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 20,
           "weighted": 0.0,
-          "value": null,
+          "value": 0,
           "origin": "Reddit",
-          "kind": "Fallback: Discord/F5Bot",
+          "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 403"
+          "note": "Reddit: .json/合规UA:HTTP 403 | .rss/合规UA:HTTP 429"
         },
         {
           "key": "x_official",
@@ -4059,10 +4076,11 @@ window.XC_GAMES = {
       ],
       "sources_used": [
         "P1·Trends",
+        "Reddit（stale）",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Discord/F5Bot",
+        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
