@@ -149,7 +149,7 @@
   <section class="panel" aria-label="数据源健康">
     <div class="panel-head">
       <h2 class="panel-title">数据源健康（P1 主源 → P2 回退 → P3 兜底）</h2>
-      <span class="panel-note">连续 3 次失败即降级该源；单次失败保留上次有效值并标 stale</span>
+      <span class="panel-note">连续 3 次失败即降级该源；单次失败保留上次有效值并标 stale；「人工基线 · 待自动化」表示该源暂未接入自动采集，取值来自人工维护的基线数据</span>
     </div>
     <div class="table-scroll">
       <table class="cmp-table table-compact">
@@ -181,7 +181,7 @@
 <script src="data/games.js"></script>
 <script src="data/keywords.js"></script>
 <script src="data/ops.js"></script>
-<script src="core.js?v=2"></script>
+<script src="core.js?v=3"></script>
 <script src="app.js?v=1"></script>
 </body>
 </html>

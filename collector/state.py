@@ -84,6 +84,7 @@ def health_rows(state, config):
             'label': source['label'],
             'priority': source['priority'],
             'enabled': source['enabled'],
+            'manual': source.get('mode') == 'manual-baseline',
             'signal': source['signal'],
             'fallback': source['fallback'],
             'consecutive_failures': entry['consecutive_failures'],
@@ -108,6 +109,10 @@ def status_text(source, entry, degrade_after):
         return '正常'
     if entry['last_attempt_at']:
         return '尚无可信数据'
+    if source.get('mode') == 'manual-baseline':
+        # 这类源设计上就不做自动采集（取值来自人工维护的基线数据），
+        # 如实标明「待自动化」，避免被误读成采集故障
+        return '人工基线 · 待自动化'
     return '未探测'
 
 

@@ -197,6 +197,7 @@ const XC = (function () {
     return (rows || []).map(function (row) {
       let tag;
       if (!row.enabled) tag = '<span class="src src-none">未启用</span>';
+      else if (row.manual) tag = '<span class="src src-none">' + escapeHtml(row.status) + '</span>';
       else if (row.degraded) tag = '<span class="src src-fallback">' + escapeHtml(row.status) + '</span>';
       else if (row.stale) tag = '<span class="src src-stale">' + escapeHtml(row.status) + '</span>';
       else tag = '<span class="src src-p1">' + escapeHtml(row.status) + '</span>';

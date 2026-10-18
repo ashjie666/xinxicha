@@ -240,6 +240,40 @@ class Collector(object):
         state_mod.record(self.state, 'x_twitter', True, value=value, degrade_after=degrade)
         return fresh('Bing News RSS', note, value, tier='P2')
 
+    def _rss(self, game):
+        """P3「官方公告兜底」：Bing News RSS（免凭据、stdlib 可解析）。
+
+        与 x_twitter 的 P2 回退用同一 URL，第二次调用命中 HTTP 缓存（ttl_hours），
+        因此不产生额外网络流量。命中条目数只写进 state 供健康表/回退记录，
+        不参与 6 项评分（评分维度里没有这一项）。
+        """
+        kind = 'P3 兜底（Bing News RSS）'
+        if not self.p2_network:
+            self._skip('rss')
+            return unavailable('RSS / 新闻聚合', kind, 'P2 网络不可达，跳过调用')
+        if self.budget_left() < 5:
+            self._skip('rss')
+            return unavailable('RSS / 新闻聚合', kind, '预算不足，跳过调用')
+        query = game.get('name_en') or game.get('name_cn')
+        url = ('https://www.bing.com/news/search?q={}&qft=sortbydate%3d%221%22&format=rss'
+               .format(urllib.parse.quote(query)))
+        result = http.fetch(
+            url,
+            timeout=self.config['collection']['request_timeout'],
+            user_agent=self.config['collection']['user_agent'],
+            use_cache=not self.no_cache,
+            ttl_hours=self.config['collection']['cache_ttl_hours'])
+        degrade = self.config['collection']['failure_policy']['degrade_after_consecutive_failures']
+        if not result.get('ok'):
+            self._count('rss', False)
+            state_mod.record(self.state, 'rss', False,
+                             error='RSS: {}'.format(result.get('error')), degrade_after=degrade)
+            return unavailable('RSS / 新闻聚合', kind, 'RSS: {}'.format(result.get('error')))
+        count = rss_item_count(result.get('text') or '')
+        self._count('rss', True)
+        state_mod.record(self.state, 'rss', True, value=count, degrade_after=degrade)
+        return fresh('Bing News RSS', 'P3 兜底（新闻聚合命中 {} 条）'.format(count), count, tier='P3')
+
     # ---------- 汇总 ----------
 
     def _with_fallback(self, key, signal, label):
@@ -263,6 +297,8 @@ class Collector(object):
         trends = self._with_fallback('trends', self._trends(game), 'Trends')
         reddit = self._with_fallback('reddit', self._reddit(game), 'Reddit')
         x_twitter = self._with_fallback('x_twitter', self._x_twitter(game), 'X')
+        # P3 兜底源：只做健康记账、不参与评分；放在 X 之后以便命中其 HTTP 缓存
+        self._rss(game)
 
         signals = {'trends': trends, 'reddit': reddit, 'x_twitter': x_twitter}
 

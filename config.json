@@ -123,7 +123,7 @@
       "signal": "官方公告兜底",
       "fallback": "手动检查",
       "enabled": true,
-      "mode": "manual-baseline"
+      "mode": "bing-news-rss（免凭据，复用 P2 新闻聚合抓取）"
     }
   ]
 }
