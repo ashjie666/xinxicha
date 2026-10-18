@@ -4,13 +4,13 @@
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-18 18:35:52",
-    "data_mode": "fallback",
+    "generated_at_cst": "2026-10-18 20:31:58",
+    "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
-    "probe_detail": "--offline 强制离线",
-    "alert": "今日海外信号不足，建议人工复核",
-    "duration_sec": 0.0,
+    "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
+    "alert": null,
+    "duration_sec": 4.9,
     "counts": {
       "games": 20,
       "p0": 2,
@@ -191,7 +191,7 @@
       "priority": "P0",
       "note": "国际服先上线，国服2027+，时间窗口最干净",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -211,12 +211,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -296,8 +297,8 @@
       "total": 24.5,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -307,8 +308,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 24.5,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -317,8 +318,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 24.5,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -346,18 +347,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 9,
       "launch_days": 11,
       "overseas_supply": null,
@@ -384,7 +386,7 @@
       "priority": "P0",
       "note": "PC/PS5买断，发售期爆发，长尾有限",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -404,12 +406,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -489,8 +492,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -500,8 +503,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -510,8 +513,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -539,18 +542,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 6,
       "launch_days": 11,
       "overseas_supply": null,
@@ -577,7 +581,7 @@
       "priority": "P1",
       "note": "国际服首测中，正式服节奏未定",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -597,12 +601,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -682,8 +687,8 @@
       "total": 23.5,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -693,8 +698,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 23.5,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -703,8 +708,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 23.5,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -732,18 +737,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
@@ -770,7 +776,7 @@
       "priority": "P1",
       "note": "生活模拟类，海外未上线，提前建内容库",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -790,12 +796,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -875,8 +882,8 @@
       "total": 21.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -886,8 +893,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 21.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -896,8 +903,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 21.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -925,18 +932,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
@@ -963,7 +971,7 @@
       "priority": "P1",
       "note": "写实奇幻共斗新作，全球预约已开",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -983,12 +991,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -1068,8 +1077,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -1079,8 +1088,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -1089,8 +1098,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -1118,18 +1127,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
@@ -1156,7 +1166,7 @@
       "priority": "P1",
       "note": "都市开放世界RPG，定档明确",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -1176,12 +1186,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -1261,8 +1272,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -1272,8 +1283,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -1282,8 +1293,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -1311,18 +1322,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 9,
       "launch_days": 89,
       "overseas_supply": null,
@@ -1349,7 +1361,7 @@
       "priority": "P1",
       "note": "国内运营10年攻略极成熟，海外刚宣布",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -1369,12 +1381,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -1454,8 +1467,8 @@
       "total": 26.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -1465,8 +1478,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 26.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -1475,8 +1488,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 26.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -1504,18 +1517,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
@@ -1542,7 +1556,7 @@
       "priority": "P1",
       "note": "11月4日终局测试，国内预约3000万+",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -1562,12 +1576,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -1647,8 +1662,8 @@
       "total": 21.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -1658,8 +1673,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 21.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -1668,8 +1683,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 21.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -1697,18 +1712,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
@@ -1735,7 +1751,7 @@
       "priority": "P2",
       "note": "海外已上线但英文攻略深度不够",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -1755,12 +1771,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -1840,8 +1857,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -1851,8 +1868,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -1861,8 +1878,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -1890,18 +1907,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
       "overseas_supply": null,
@@ -1928,7 +1946,7 @@
       "priority": "P2",
       "note": "8月收入环比增37%，赛季制更新频繁",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -1948,12 +1966,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -2033,8 +2052,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -2044,8 +2063,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -2054,8 +2073,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -2083,18 +2102,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
       "overseas_supply": null,
@@ -2121,7 +2141,7 @@
       "priority": "P2",
       "note": "MAU增长明显，英文供给仍在建立",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -2141,12 +2161,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -2226,8 +2247,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -2237,8 +2258,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -2247,8 +2268,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -2276,18 +2297,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
       "overseas_supply": null,
@@ -2314,7 +2336,7 @@
       "priority": "P2",
       "note": "合成+模拟经营，海外收入创新高",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -2334,12 +2356,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -2419,8 +2442,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -2430,8 +2453,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -2440,8 +2463,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -2469,18 +2492,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
       "overseas_supply": null,
@@ -2507,7 +2531,7 @@
       "priority": "P2",
       "note": "合并+旅行经营类，攻略内容少",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -2527,12 +2551,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -2612,8 +2637,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -2623,8 +2648,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -2633,8 +2658,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -2662,18 +2687,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
       "overseas_supply": null,
@@ -2700,7 +2726,7 @@
       "priority": "P3",
       "note": "搜索量大但英文站已饱和",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -2720,12 +2746,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -2805,8 +2832,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -2816,8 +2843,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -2826,8 +2853,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -2855,18 +2882,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
@@ -2893,7 +2921,7 @@
       "priority": "P3",
       "note": "同上",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -2913,12 +2941,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -2998,8 +3027,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -3009,8 +3038,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -3019,8 +3048,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -3048,18 +3077,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
@@ -3086,7 +3116,7 @@
       "priority": "P3",
       "note": "Steam在线稳定但大站已覆盖",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -3106,12 +3136,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -3191,8 +3222,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -3202,8 +3233,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -3212,8 +3243,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -3241,18 +3272,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
@@ -3279,7 +3311,7 @@
       "priority": "P3",
       "note": "下载增长明显但英文攻略站已有",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -3299,12 +3331,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -3384,8 +3417,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -3395,8 +3428,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -3405,8 +3438,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -3434,18 +3467,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
@@ -3472,7 +3506,7 @@
       "priority": "P3",
       "note": "英文社区成熟，攻略站多",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -3492,12 +3526,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -3577,8 +3612,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -3588,8 +3623,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -3598,8 +3633,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -3627,18 +3662,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
@@ -3665,7 +3701,7 @@
       "priority": "P3",
       "note": "莉莉丝发行能力强但英文供给充足",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -3685,12 +3721,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -3770,8 +3807,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -3781,8 +3818,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -3791,8 +3828,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -3820,18 +3857,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
@@ -3858,7 +3896,7 @@
       "priority": "P3",
       "note": "英文市场成熟，增量有限",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "低",
+      "confidence": "中",
       "last_update": "2026-10-18",
       "signals": {
         "trends": {
@@ -3878,12 +3916,13 @@
           "error": "网络不可达，跳过调用"
         },
         "x_twitter": {
-          "available": false,
-          "value": null,
-          "origin": "X/Twitter",
-          "kind": "Fallback: RSS/厂商官网公告",
-          "stale": true,
-          "error": "网络不可达，跳过调用"
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
         }
       },
       "components": [
@@ -3963,8 +4002,8 @@
       "total": 20.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "人工复核（P1 全部不可用）",
-      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
       "base_score_applied": true,
       "days_tracked": 1,
       "ranking_eligible": false,
@@ -3974,8 +4013,8 @@
           "key": "trends_dead",
           "label": "Google Trends 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "trends"
           ]
@@ -3984,8 +4023,8 @@
           "key": "reddit_dead",
           "label": "Reddit 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "reddit"
           ]
@@ -4013,18 +4052,19 @@
           ]
         }
       ],
-      "sources_used": [],
+      "sources_used": [
+        "P2·X"
+      ],
       "fallbacks": [
         "P1 主源（未安装 pytrends）",
         "Fallback: Discord/F5Bot",
-        "Fallback: RSS/厂商官网公告"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends",
-        "reddit",
-        "x_twitter"
+        "reddit"
       ],
-      "x_state": null,
+      "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
