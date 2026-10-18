@@ -147,7 +147,11 @@ def main(argv):
 
     ranked = sorted(scored.items(), key=lambda item: item[1]['total'], reverse=True)
     print('生成时间 : {} (CST)'.format(run_info['generated_at_cst']))
-    print('数据模式 : {}  网络: {}  {}'.format(data_mode, '可达' if collector.network else '不可达', collector.probe_detail))
+    print('数据模式 : {}  P1网络: {}  P2网络: {}  {}'.format(
+        data_mode,
+        '可达' if collector.network else '不可达',
+        '可达' if collector.p2_network else '不可达',
+        collector.probe_detail))
     print('跟踪天数 : {} 天（满 {} 天参与正式排名）'.format(days_tracked, config['scoring']['min_days_for_ranking']))
     print('源调用   : {}'.format(', '.join(
         '{}={}/{}/{}'.format(key, bucket['ok'], bucket['failed'], bucket['skipped'])

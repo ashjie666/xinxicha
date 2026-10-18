@@ -2,7 +2,8 @@
 """数据源采集 + P1→P2→P3 回退链。
 
 设计要点（规格表「自动化说明」+「回退逻辑说明」）：
-  - 开局先做一次轻量网络探测；不通即进离线分支，全流程秒级完成、不刷失败日志
+  - 开局先做两级网络探测（P1 代理失败后再探 P2 Bing RSS）；两级都不通才进离线分支，
+    全流程秒级完成、不刷失败日志；仅 P1 不通时仍允许 x_twitter 走 P2 回退
   - P1（Trends / Reddit / X）先试：能拿到就写真实值；拿不到则按规则 1 沿用上次有效值并标 stale
   - 无历史值 → 记 0 分（不重分配权重）
   - 每次调用都写进 state（连续失败计数、降级、last_success_at）
@@ -59,6 +60,7 @@ class Collector(object):
         self.no_cache = no_cache
         self.deadline = time.time() + max(10, int(budget_seconds))
         self.network = False
+        self.p2_network = False
         self.probe_detail = '未探测'
         self.calls = {}
         self.trends_client = None
@@ -92,13 +94,28 @@ class Collector(object):
     def probe(self):
         if self.offline:
             self.network = False
+            self.p2_network = False
             self.probe_detail = '--offline 强制离线'
             return False
         url = self.config['collection']['network_probe_url']
         timeout = self.config['collection']['network_probe_timeout']
         self.network = http.probe_network(url, timeout=timeout)
-        self.probe_detail = '可达' if self.network else '不可达（{}s 探测超时被拒）'.format(timeout)
-        return self.network
+        if self.network:
+            self.p2_network = True
+            self.probe_detail = '可达'
+            return True
+        # P1 代理不可达时再用 P2 代理（Bing News RSS）探测：
+        # 境内服务器常见「P1 全墙、P2 可达」，此时仍应让 x_twitter 走 P2 回退，
+        # 而不是一刀切进离线分支导致 P2 永远轮不到。
+        url_p2 = self.config['collection'].get('network_probe_url_p2')
+        self.p2_network = bool(url_p2) and http.probe_network(
+            url_p2, timeout=max(5, timeout))
+        if self.p2_network:
+            self.probe_detail = ('P1 不可达（{}s 探测超时被拒），P2 可达（Bing News RSS）'
+                                 .format(timeout))
+        else:
+            self.probe_detail = '不可达（{}s 探测超时被拒）'.format(timeout)
+        return self.p2_network
 
     # ---------- 各源 ----------
 
@@ -170,9 +187,9 @@ class Collector(object):
         保守映射到 x_official 档位 player_only（60 分）；0 条 → none（0 分）。
         """
         kind = 'Fallback: RSS/厂商官网公告'
-        if not self.network:
+        if not self.p2_network:
             self._skip('x_twitter')
-            return unavailable('X/Twitter', kind, '网络不可达，跳过调用')
+            return unavailable('X/Twitter', kind, 'P1/P2 网络均不可达，跳过调用')
         if self.budget_left() < 5:
             self._skip('x_twitter')
             return unavailable('X/Twitter', kind, '预算不足，跳过调用')

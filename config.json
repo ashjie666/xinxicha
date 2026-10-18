@@ -38,6 +38,7 @@
   "collection": {
     "budget_seconds": 60,
     "network_probe_url": "https://www.reddit.com/r/gaming/search.json?q=game&limit=1",
+    "network_probe_url_p2": "https://www.bing.com/news/search?q=game&format=RSS",
     "network_probe_timeout": 3,
     "request_timeout": 8,
     "min_interval_sec": 2,
