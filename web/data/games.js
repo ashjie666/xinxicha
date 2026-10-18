@@ -1,0 +1,4035 @@
+window.XC_GAMES = {
+  "meta": {
+    "site": "xinxicha",
+    "title": "中国游戏厂商海外信息差监控",
+    "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
+    "schema_version": 1,
+    "generated_at_cst": "2026-10-18 18:35:52",
+    "data_mode": "fallback",
+    "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
+    "network": false,
+    "probe_detail": "--offline 强制离线",
+    "alert": "今日海外信号不足，建议人工复核",
+    "duration_sec": 0.0,
+    "counts": {
+      "games": 20,
+      "p0": 2,
+      "p1_priority": 6
+    },
+    "scoring_note": "权重取规格表「回退逻辑说明」的评分权重（30/20/15/15/10/10）；规格表「MVP字段表」F13 的 5×20% 旧公式已废弃"
+  },
+  "field_dict": [
+    {
+      "code": "F01",
+      "name": "游戏名称(中文)",
+      "desc": "游戏的中文名称",
+      "type": "文本",
+      "freq": "每日",
+      "source": "爬虫/手动录入",
+      "rule": ""
+    },
+    {
+      "code": "F02",
+      "name": "游戏名称(英文)",
+      "desc": "游戏的海外发行英文名",
+      "type": "文本",
+      "freq": "每日",
+      "source": "爬虫/手动录入",
+      "rule": "用于英文SEO关键词匹配"
+    },
+    {
+      "code": "F03",
+      "name": "厂商/发行商",
+      "desc": "研发商或海外发行商",
+      "type": "文本",
+      "freq": "每周",
+      "source": "手动录入",
+      "rule": "判断是否中国厂商"
+    },
+    {
+      "code": "F04",
+      "name": "游戏类型",
+      "desc": "手游/PC/主机/跨端",
+      "type": "文本",
+      "freq": "首次录入",
+      "source": "手动录入",
+      "rule": ""
+    },
+    {
+      "code": "F05",
+      "name": "海外上线状态",
+      "desc": "未上线/测试中/已上线/下架",
+      "type": "文本",
+      "freq": "每日",
+      "source": "官网/TapTap/Steam",
+      "rule": "状态变化触发通知"
+    },
+    {
+      "code": "F06",
+      "name": "海外上线日期",
+      "desc": "确定的上线日期或窗口",
+      "type": "日期",
+      "freq": "每周",
+      "source": "官网/游戏日历",
+      "rule": "距上线天数=上线日期-今天"
+    },
+    {
+      "code": "F07",
+      "name": "国内攻略成熟度",
+      "desc": "1-5分，1=无攻略，5=非常完备",
+      "type": "数字",
+      "freq": "每周",
+      "source": "手动评估+B站/NGA搜索",
+      "rule": "5分=已有角色表/掉落表/配装/活动攻略等结构化内容"
+    },
+    {
+      "code": "F08",
+      "name": "海外攻略供给量",
+      "desc": "英文攻略站覆盖数量",
+      "type": "数字",
+      "freq": "每周",
+      "source": "Google搜英文关键词",
+      "rule": "1分=几乎无英文攻略，5分=已被Game8/IGN等全覆盖"
+    },
+    {
+      "code": "F09",
+      "name": "海外供给缺口分",
+      "desc": "10 - 海外攻略供给量(加权)",
+      "type": "数字",
+      "freq": "每周",
+      "source": "计算字段=F08衍生",
+      "rule": "供给越少分数越高，>6分值得跟进"
+    },
+    {
+      "code": "F10",
+      "name": "Google Trends 7日变化",
+      "desc": "英文关键词搜索趋势7日变化率",
+      "type": "数字(%)",
+      "freq": "每日",
+      "source": "pytrends/Google Trends API",
+      "rule": "正增长>20%标记为上升"
+    },
+    {
+      "code": "F11",
+      "name": "Reddit讨论量",
+      "desc": "相关子版块提及次数",
+      "type": "数字",
+      "freq": "每日",
+      "source": "F5Bot/Reddit JSON API",
+      "rule": "单日新增>5条标记为活跃"
+    },
+    {
+      "code": "F12",
+      "name": "X/Twitter讨论量",
+      "desc": "相关推文提及次数",
+      "type": "数字",
+      "freq": "每日",
+      "source": "Apify/Nitter",
+      "rule": "官方账号发推或玩家求助帖"
+    },
+    {
+      "code": "F13",
+      "name": "信息差总分",
+      "desc": "综合评分(加权汇总)",
+      "type": "数字",
+      "freq": "每日",
+      "source": "计算字段",
+      "rule": ""
+    },
+    {
+      "code": "F14",
+      "name": "建议动作",
+      "desc": "根据分数给出的操作建议",
+      "type": "文本",
+      "freq": "每日",
+      "source": "规则引擎",
+      "rule": ">=80=抢首发攻略 / 60-79=做数据表占位 / 40-59=监控不投入 / <40=暂不投入"
+    },
+    {
+      "code": "F15",
+      "name": "目标关键词数",
+      "desc": "该游戏关联的英文SEO关键词数量",
+      "type": "数字",
+      "freq": "每周",
+      "source": "关键词表关联",
+      "rule": ""
+    },
+    {
+      "code": "F16",
+      "name": "最近更新日期",
+      "desc": "最后监控更新日期",
+      "type": "日期",
+      "freq": "每日",
+      "source": "自动",
+      "rule": ""
+    }
+  ],
+  "signal_notes": [
+    "信号来源说明:",
+    "P1(主源): Google Trends + Reddit + X/Twitter — 最实时准确的海外信号",
+    "P2(回退): Google Search结果数 + Discord/官方社区 + 厂商官网/Steam — P1失败时启用",
+    "P3(兜底): Sensor Tower/游戏社日历 + TapTap/B站/微博 + RSS/新闻聚合 — 补充信号，不单独触发高分"
+  ],
+  "games": [
+    {
+      "id": "monster-hunter-outlanders",
+      "seq": 1,
+      "name_cn": "怪物猎人：旅人",
+      "name_en": "Monster Hunter Outlanders",
+      "publisher": "腾讯/天美/Grezzo",
+      "type": "手游",
+      "status": "即将上线",
+      "launch_date_raw": "2026-10-29",
+      "launch_date": "2026-10-29",
+      "cn_guide_score": 2,
+      "gap_level": "高",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "抢首发攻略",
+      "priority": "P0",
+      "note": "国际服先上线，国服2027+，时间窗口最干净",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 100,
+          "weight": 15,
+          "weighted": 15.0,
+          "value": 9,
+          "origin": "人工基线（缺口评估 高）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 25.0,
+          "weight": 10,
+          "weighted": 2.5,
+          "value": 2,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 70,
+          "weight": 10,
+          "weighted": 7.0,
+          "value": 11,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "距上线 11 天"
+        }
+      ],
+      "total": 24.5,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": false,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 24.5,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 24.5,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 24.5,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 24.5,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 9,
+      "launch_days": 11,
+      "overseas_supply": null,
+      "keywords_count": 13,
+      "stale": true
+    },
+    {
+      "id": "phantom-blade-zero",
+      "seq": 2,
+      "name_cn": "影之刃零",
+      "name_en": "Phantom Blade Zero",
+      "publisher": "灵游坊",
+      "type": "PC/PS5",
+      "status": "即将上线",
+      "launch_date_raw": "2026-10-29",
+      "launch_date": "2026-10-29",
+      "cn_guide_score": 4,
+      "gap_level": "中",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "做发售期专题",
+      "priority": "P0",
+      "note": "PC/PS5买断，发售期爆发，长尾有限",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 25.0,
+          "weight": 15,
+          "weighted": 3.75,
+          "value": 6,
+          "origin": "人工基线（缺口评估 中）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 75.0,
+          "weight": 10,
+          "weighted": 7.5,
+          "value": 4,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 70,
+          "weight": 10,
+          "weighted": 7.0,
+          "value": 11,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "距上线 11 天"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 6,
+      "launch_days": 11,
+      "overseas_supply": null,
+      "keywords_count": 7,
+      "stale": true
+    },
+    {
+      "id": "roco-kingdom-world",
+      "seq": 3,
+      "name_cn": "洛克王国：世界",
+      "name_en": "Roco Kingdom World",
+      "publisher": "腾讯魔方",
+      "type": "跨端",
+      "status": "测试中",
+      "launch_date_raw": "2026-10-27(首测)",
+      "launch_date": null,
+      "cn_guide_score": 4,
+      "gap_level": "高",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "做预约/测试攻略",
+      "priority": "P1",
+      "note": "国际服首测中，正式服节奏未定",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 100,
+          "weight": 15,
+          "weighted": 15.0,
+          "value": 9,
+          "origin": "人工基线（缺口评估 高）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 75.0,
+          "weight": 10,
+          "weighted": 7.5,
+          "value": 4,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 23.5,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": false,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 23.5,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 23.5,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 23.5,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 23.5,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 9,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 3,
+      "stale": true
+    },
+    {
+      "id": "star-valley",
+      "seq": 4,
+      "name_cn": "星布谷地",
+      "name_en": "Star Valley",
+      "publisher": "米哈游",
+      "type": "PC/手游",
+      "status": "未上线",
+      "launch_date_raw": "2026冬季(预估)",
+      "launch_date": null,
+      "cn_guide_score": 3,
+      "gap_level": "高",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "提前占词占位",
+      "priority": "P1",
+      "note": "生活模拟类，海外未上线，提前建内容库",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 100,
+          "weight": 15,
+          "weighted": 15.0,
+          "value": 9,
+          "origin": "人工基线（缺口评估 高）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 50.0,
+          "weight": 10,
+          "weighted": 5.0,
+          "value": 3,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 21.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": false,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 21.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 21.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 21.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 21.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 9,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 3,
+      "stale": true
+    },
+    {
+      "id": "project-origin",
+      "seq": 5,
+      "name_cn": "源初之结",
+      "name_en": "Project Origin",
+      "publisher": "米哈游",
+      "type": "PC/主机",
+      "status": "未上线",
+      "launch_date_raw": "未公布",
+      "launch_date": null,
+      "cn_guide_score": 2,
+      "gap_level": "高",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "做预约占位页",
+      "priority": "P1",
+      "note": "写实奇幻共斗新作，全球预约已开",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 100,
+          "weight": 15,
+          "weighted": 15.0,
+          "value": 9,
+          "origin": "人工基线（缺口评估 高）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 25.0,
+          "weight": 10,
+          "weighted": 2.5,
+          "value": 2,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 9,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": true
+    },
+    {
+      "id": "project-mugen-neverness",
+      "seq": 6,
+      "name_cn": "无限大",
+      "name_en": "Project Mugen / Neverness",
+      "publisher": "网易",
+      "type": "PC/主机/手游",
+      "status": "未上线",
+      "launch_date_raw": "2027-01-15",
+      "launch_date": "2027-01-15",
+      "cn_guide_score": 1,
+      "gap_level": "高",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "提前占词占位",
+      "priority": "P1",
+      "note": "都市开放世界RPG，定档明确",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 100,
+          "weight": 15,
+          "weighted": 15.0,
+          "value": 9,
+          "origin": "人工基线（缺口评估 高）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 0,
+          "weight": 10,
+          "weighted": 0.0,
+          "value": 1,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 40,
+          "weight": 10,
+          "weighted": 4.0,
+          "value": 89,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "距上线 89 天"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 9,
+      "launch_days": 89,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": true
+    },
+    {
+      "id": "naruto-mobile-global",
+      "seq": 7,
+      "name_cn": "火影忍者手游",
+      "name_en": "Naruto Mobile Global",
+      "publisher": "腾讯",
+      "type": "手游",
+      "status": "宣布发行",
+      "launch_date_raw": "未公布",
+      "launch_date": null,
+      "cn_guide_score": 5,
+      "gap_level": "高",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "占关键词建预约站",
+      "priority": "P1",
+      "note": "国内运营10年攻略极成熟，海外刚宣布",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 100,
+          "weight": 15,
+          "weighted": 15.0,
+          "value": 9,
+          "origin": "人工基线（缺口评估 高）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 100,
+          "weight": 10,
+          "weighted": 10.0,
+          "value": 5,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 26.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": false,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 26.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 26.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 26.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 26.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 9,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 3,
+      "stale": true
+    },
+    {
+      "id": "the-outcast",
+      "seq": 8,
+      "name_cn": "异人之下",
+      "name_en": "The Outcast",
+      "publisher": "腾讯魔方",
+      "type": "格斗手游",
+      "status": "测试中",
+      "launch_date_raw": "2026-12(预估)",
+      "launch_date": null,
+      "cn_guide_score": 3,
+      "gap_level": "高",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "做机制/连招攻略",
+      "priority": "P1",
+      "note": "11月4日终局测试，国内预约3000万+",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 100,
+          "weight": 15,
+          "weighted": 15.0,
+          "value": 9,
+          "origin": "人工基线（缺口评估 高）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 50.0,
+          "weight": 10,
+          "weighted": 5.0,
+          "value": 3,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 21.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": false,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 21.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 21.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 21.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 21.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 9,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 2,
+      "stale": true
+    },
+    {
+      "id": "where-winds-meet",
+      "seq": 9,
+      "name_cn": "燕云十六声",
+      "name_en": "Where Winds Meet",
+      "publisher": "网易",
+      "type": "PC/手游",
+      "status": "已上线(部分)",
+      "launch_date_raw": "2025-11(全球)",
+      "launch_date": null,
+      "cn_guide_score": 4,
+      "gap_level": "中",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "补英文攻略",
+      "priority": "P2",
+      "note": "海外已上线但英文攻略深度不够",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 25.0,
+          "weight": 15,
+          "weighted": 3.75,
+          "value": 6,
+          "origin": "人工基线（缺口评估 中）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 75.0,
+          "weight": 10,
+          "weighted": 7.5,
+          "value": 4,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 6,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 2,
+      "stale": true
+    },
+    {
+      "id": "last-asylum-plague",
+      "seq": 10,
+      "name_cn": "Last Asylum: Plague",
+      "name_en": "Last Asylum: Plague",
+      "publisher": "三七互娱",
+      "type": "手游SLG",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 2,
+      "gap_level": "中",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "做赛季攻略",
+      "priority": "P2",
+      "note": "8月收入环比增37%，赛季制更新频繁",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 25.0,
+          "weight": 15,
+          "weighted": 3.75,
+          "value": 6,
+          "origin": "人工基线（缺口评估 中）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 25.0,
+          "weight": 10,
+          "weighted": 2.5,
+          "value": 2,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 6,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 0,
+      "stale": true
+    },
+    {
+      "id": "clash-of-critters",
+      "seq": 11,
+      "name_cn": "Clash of Critters",
+      "name_en": "Clash of Critters",
+      "publisher": "莉莉丝",
+      "type": "手游",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 1,
+      "gap_level": "中",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "做新手攻略",
+      "priority": "P2",
+      "note": "MAU增长明显，英文供给仍在建立",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 25.0,
+          "weight": 15,
+          "weighted": 3.75,
+          "value": 6,
+          "origin": "人工基线（缺口评估 中）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 0,
+          "weight": 10,
+          "weighted": 0.0,
+          "value": 1,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 6,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 2,
+      "stale": true
+    },
+    {
+      "id": "flamb-merge-cook",
+      "seq": 12,
+      "name_cn": "Flambé: Merge & Cook",
+      "name_en": "Flambé: Merge & Cook",
+      "publisher": "柠檬微趣",
+      "type": "手游休闲",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 2,
+      "gap_level": "中",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "做关卡攻略",
+      "priority": "P2",
+      "note": "合成+模拟经营，海外收入创新高",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 25.0,
+          "weight": 15,
+          "weighted": 3.75,
+          "value": 6,
+          "origin": "人工基线（缺口评估 中）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 25.0,
+          "weight": 10,
+          "weighted": 2.5,
+          "value": 2,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 6,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 0,
+      "stale": true
+    },
+    {
+      "id": "tasty-travels-merge-game",
+      "seq": 13,
+      "name_cn": "Tasty Travels",
+      "name_en": "Tasty Travels: Merge Game",
+      "publisher": "点点互动",
+      "type": "手游休闲",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 2,
+      "gap_level": "中",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "做资源攻略",
+      "priority": "P2",
+      "note": "合并+旅行经营类，攻略内容少",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 25.0,
+          "weight": 15,
+          "weighted": 3.75,
+          "value": 6,
+          "origin": "人工基线（缺口评估 中）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 25.0,
+          "weight": 10,
+          "weighted": 2.5,
+          "value": 2,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 6,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": true
+    },
+    {
+      "id": "genshin-impact",
+      "seq": 14,
+      "name_cn": "原神",
+      "name_en": "Genshin Impact",
+      "publisher": "米哈游/HoYoverse",
+      "type": "跨端",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 5,
+      "gap_level": "低",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "竞争激烈不建议",
+      "priority": "P3",
+      "note": "搜索量大但英文站已饱和",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 100,
+          "weight": 10,
+          "weighted": 10.0,
+          "value": 5,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": true
+    },
+    {
+      "id": "honkai-star-rail",
+      "seq": 15,
+      "name_cn": "崩坏：星穹铁道",
+      "name_en": "Honkai: Star Rail",
+      "publisher": "米哈游/HoYoverse",
+      "type": "跨端",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 5,
+      "gap_level": "低",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "竞争激烈不建议",
+      "priority": "P3",
+      "note": "同上",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 100,
+          "weight": 10,
+          "weighted": 10.0,
+          "value": 5,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": true
+    },
+    {
+      "id": "wuthering-waves",
+      "seq": 16,
+      "name_cn": "鸣潮",
+      "name_en": "Wuthering Waves",
+      "publisher": "库洛游戏",
+      "type": "跨端",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 4,
+      "gap_level": "低",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "做差异化内容",
+      "priority": "P3",
+      "note": "Steam在线稳定但大站已覆盖",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 75.0,
+          "weight": 10,
+          "weighted": 7.5,
+          "value": 4,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": true
+    },
+    {
+      "id": "honor-of-kings",
+      "seq": 17,
+      "name_cn": "王者荣耀国际服",
+      "name_en": "Honor of Kings",
+      "publisher": "腾讯/Level Infinite",
+      "type": "手游",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 4,
+      "gap_level": "低",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "赛事/英雄更新压力大",
+      "priority": "P3",
+      "note": "下载增长明显但英文攻略站已有",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 75.0,
+          "weight": 10,
+          "weighted": 7.5,
+          "value": 4,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": true
+    },
+    {
+      "id": "arknights",
+      "seq": 18,
+      "name_cn": "明日方舟",
+      "name_en": "Arknights",
+      "publisher": "鹰角网络",
+      "type": "手游",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 5,
+      "gap_level": "低",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "竞争激烈",
+      "priority": "P3",
+      "note": "英文社区成熟，攻略站多",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 100,
+          "weight": 10,
+          "weighted": 10.0,
+          "value": 5,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": true
+    },
+    {
+      "id": "afk-journey",
+      "seq": 19,
+      "name_cn": "剑与远征：启程",
+      "name_en": "AFK Journey",
+      "publisher": "莉莉丝/Farlight",
+      "type": "手游",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 4,
+      "gap_level": "低",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "竞争较激烈",
+      "priority": "P3",
+      "note": "莉莉丝发行能力强但英文供给充足",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 75.0,
+          "weight": 10,
+          "weighted": 7.5,
+          "value": 4,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": true
+    },
+    {
+      "id": "rise-of-kingdoms",
+      "seq": 20,
+      "name_cn": "万国觉醒",
+      "name_en": "Rise of Kingdoms",
+      "publisher": "莉莉丝/Farlight",
+      "type": "手游SLG",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 5,
+      "gap_level": "低",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "老牌产品增长平稳",
+      "priority": "P3",
+      "note": "英文市场成熟，增量有限",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-18",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": null,
+          "origin": "Google Trends",
+          "kind": "P1 主源（未安装 pytrends）",
+          "stale": true,
+          "error": "未安装 pytrends（可选依赖）：ModuleNotFoundError"
+        },
+        "reddit": {
+          "available": false,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        },
+        "x_twitter": {
+          "available": false,
+          "value": null,
+          "origin": "X/Twitter",
+          "kind": "Fallback: RSS/厂商官网公告",
+          "stale": true,
+          "error": "网络不可达，跳过调用"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Trends 上升",
+          "kind": "Fallback: Google Search",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "Reddit",
+          "kind": "Fallback: Discord/F5Bot",
+          "stale": true,
+          "note": "网络不可达，跳过调用"
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": null,
+          "origin": "X 官方公告",
+          "kind": "Fallback: RSS/官网",
+          "stale": false,
+          "note": "源不可用且无历史值，记 0 分（不重分配权重）"
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 100,
+          "weight": 10,
+          "weighted": 10.0,
+          "value": 5,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": null,
+      "delta": null,
+      "action_engine": "人工复核（P1 全部不可用）",
+      "action_basis": "规则引擎（置信度低，按失败规则 3 建议人工复核）",
+      "base_score_applied": true,
+      "days_tracked": 1,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 1/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [],
+      "fallbacks": [
+        "P1 主源（未安装 pytrends）",
+        "Fallback: Discord/F5Bot",
+        "Fallback: RSS/厂商官网公告"
+      ],
+      "stale_sources": [
+        "trends",
+        "reddit",
+        "x_twitter"
+      ],
+      "x_state": null,
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": true
+    }
+  ]
+};

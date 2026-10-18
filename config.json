@@ -1,0 +1,125 @@
+{
+  "site": {
+    "name": "xinxicha",
+    "title": "中国游戏厂商海外信息差监控",
+    "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
+    "server_path": "/xinxicha/",
+    "preview_port": 8323,
+    "theme_key": "xinxicha:theme",
+    "schema_version": 1
+  },
+  "scoring": {
+    "note": "权重取规格表「回退逻辑说明」的评分权重（30/20/15/15/10/10）；规格表「MVP字段表」F13 的 5×20% 旧公式已废弃",
+    "weights": {
+      "trends_rise": 30,
+      "reddit": 20,
+      "x_official": 15,
+      "supply_gap": 15,
+      "cn_maturity": 10,
+      "launch_window": 10
+    },
+    "bands": {
+      "trends_7d": [[0, 5, 30], [5, 20, 60], [20, null, 100]],
+      "reddit_daily": [[0, 0, 0], [1, 2, 40], [3, 5, 70], [5, null, 100]],
+      "launch_window_days": [[7, 100], [30, 70], [90, 40]],
+      "launch_window_fallback": { "live": 20, "unknown": 10 },
+      "x_official": { "official": 100, "player_only": 60, "none": 0 }
+    },
+    "gap_level_to_gap_score": { "高": 9, "中": 6, "低": 2 },
+    "thresholds": [[80, "抢首发攻略"], [60, "做数据表占位"], [40, "监控不投入"], [0, "暂不投入"]],
+    "base_score_new_game": 20,
+    "min_days_for_ranking": 3,
+    "confidence_rules": {
+      "高": "全部 P1 源正常",
+      "中": "部分 P1 失败走 P2 回退",
+      "低": "P1 全部失败仅 P3 兜底"
+    }
+  },
+  "collection": {
+    "budget_seconds": 60,
+    "network_probe_url": "https://www.reddit.com/r/gaming/search.json?q=game&limit=1",
+    "network_probe_timeout": 3,
+    "request_timeout": 8,
+    "min_interval_sec": 2,
+    "cache_ttl_hours": 12,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) xinxicha-monitor/0.1",
+    "failure_policy": {
+      "keep_last_value_on_single_failure": true,
+      "degrade_after_consecutive_failures": 3,
+      "retry_after_rate_limit_minutes": 60,
+      "p1_all_dead_alert": "今日海外信号不足，建议人工复核"
+    }
+  },
+  "sources": [
+    {
+      "key": "trends",
+      "priority": "P1",
+      "label": "Google Trends",
+      "weight_key": "trends_rise",
+      "signal": "海外搜索热度变化",
+      "fallback": "Google Search 结果数估算（P2）",
+      "enabled": true,
+      "mode": "optional-pytrends"
+    },
+    {
+      "key": "reddit",
+      "priority": "P1",
+      "label": "Reddit",
+      "weight_key": "reddit",
+      "signal": "玩家讨论、问题类型",
+      "fallback": "Discord 公开频道 / F5Bot（P2）",
+      "enabled": true,
+      "mode": "public-json-api"
+    },
+    {
+      "key": "x_twitter",
+      "priority": "P1",
+      "label": "X/Twitter",
+      "weight_key": "x_official",
+      "signal": "官方公告、测试、维护、上线",
+      "fallback": "RSS 订阅 / 厂商官网公告（P2）",
+      "enabled": true,
+      "mode": "rss-fallback（Bing News RSS，免凭据；P1 不可达时的 P2 回退）"
+    },
+    {
+      "key": "search_count",
+      "priority": "P2",
+      "label": "Google Search 结果数",
+      "weight_key": "supply_gap",
+      "signal": "英文供给是否不足（代理指标）",
+      "fallback": "Bing / DuckDuckGo（P2 备选）",
+      "enabled": false,
+      "mode": "html-scrape（默认关闭：结果数抓取不稳定）"
+    },
+    {
+      "key": "official",
+      "priority": "P2",
+      "label": "厂商官网 / 预约页 / Steam",
+      "weight_key": null,
+      "signal": "上线状态、版本更新",
+      "fallback": "Discord 公告频道（P2）",
+      "enabled": true,
+      "mode": "manual-baseline"
+    },
+    {
+      "key": "cn_signal",
+      "priority": "P3",
+      "label": "TapTap / B站 / 微博 / 公众号",
+      "weight_key": "cn_maturity",
+      "signal": "国内攻略成熟度",
+      "fallback": "手动搜索 + 社区评估",
+      "enabled": true,
+      "mode": "manual-baseline"
+    },
+    {
+      "key": "rss",
+      "priority": "P3",
+      "label": "RSS / 新闻聚合",
+      "weight_key": null,
+      "signal": "官方公告兜底",
+      "fallback": "手动检查",
+      "enabled": true,
+      "mode": "manual-baseline"
+    }
+  ]
+}

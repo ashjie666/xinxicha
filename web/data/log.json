@@ -1,0 +1,1370 @@
+{
+  "meta": {
+    "site": "xinxicha",
+    "title": "中国游戏厂商海外信息差监控",
+    "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
+    "schema_version": 1,
+    "generated_at_cst": "2026-10-18 18:35:52",
+    "data_mode": "fallback",
+    "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
+    "network": false,
+    "probe_detail": "--offline 强制离线",
+    "alert": "今日海外信号不足，建议人工复核",
+    "duration_sec": 0.0,
+    "counts": {
+      "days": 1,
+      "games_logged": 20
+    },
+    "scoring_note": "权重取规格表「回退逻辑说明」的评分权重（30/20/15/15/10/10）；规格表「MVP字段表」F13 的 5×20% 旧公式已废弃",
+    "days_tracked": 1
+  },
+  "days": [
+    {
+      "date": "2026-10-18",
+      "runs": [
+        {
+          "at": "2026-10-18 17:58:14",
+          "network": false,
+          "probe_detail": "不可达（3s 探测超时被拒）",
+          "data_mode": "fallback",
+          "duration_sec": 6.1,
+          "alert": "今日海外信号不足，建议人工复核",
+          "calls": {
+            "trends": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 20
+            },
+            "reddit": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 20
+            },
+            "x_twitter": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 20
+            }
+          },
+          "games": [
+            {
+              "id": "monster-hunter-outlanders",
+              "name_cn": "怪物猎人：旅人",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "phantom-blade-zero",
+              "name_cn": "影之刃零",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "roco-kingdom-world",
+              "name_cn": "洛克王国：世界",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "star-valley",
+              "name_cn": "星布谷地",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "project-origin",
+              "name_cn": "源初之结",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "project-mugen-neverness",
+              "name_cn": "无限大",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "naruto-mobile-global",
+              "name_cn": "火影忍者手游",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "the-outcast",
+              "name_cn": "异人之下",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "where-winds-meet",
+              "name_cn": "燕云十六声",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "last-asylum-plague",
+              "name_cn": "Last Asylum: Plague",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "clash-of-critters",
+              "name_cn": "Clash of Critters",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "flamb-merge-cook",
+              "name_cn": "Flambé: Merge & Cook",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "tasty-travels-merge-game",
+              "name_cn": "Tasty Travels",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "genshin-impact",
+              "name_cn": "原神",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "honkai-star-rail",
+              "name_cn": "崩坏：星穹铁道",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "wuthering-waves",
+              "name_cn": "鸣潮",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "honor-of-kings",
+              "name_cn": "王者荣耀国际服",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "arknights",
+              "name_cn": "明日方舟",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "afk-journey",
+              "name_cn": "剑与远征：启程",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "rise-of-kingdoms",
+              "name_cn": "万国觉醒",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            }
+          ]
+        },
+        {
+          "at": "2026-10-18 18:11:03",
+          "network": false,
+          "probe_detail": "--offline 强制离线",
+          "data_mode": "fallback",
+          "duration_sec": 0.0,
+          "alert": "今日海外信号不足，建议人工复核",
+          "calls": {
+            "trends": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 20
+            },
+            "reddit": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 20
+            },
+            "x_twitter": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 20
+            }
+          },
+          "games": [
+            {
+              "id": "monster-hunter-outlanders",
+              "name_cn": "怪物猎人：旅人",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "phantom-blade-zero",
+              "name_cn": "影之刃零",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "roco-kingdom-world",
+              "name_cn": "洛克王国：世界",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "star-valley",
+              "name_cn": "星布谷地",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "project-origin",
+              "name_cn": "源初之结",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "project-mugen-neverness",
+              "name_cn": "无限大",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "naruto-mobile-global",
+              "name_cn": "火影忍者手游",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "the-outcast",
+              "name_cn": "异人之下",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "where-winds-meet",
+              "name_cn": "燕云十六声",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "last-asylum-plague",
+              "name_cn": "Last Asylum: Plague",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "clash-of-critters",
+              "name_cn": "Clash of Critters",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "flamb-merge-cook",
+              "name_cn": "Flambé: Merge & Cook",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "tasty-travels-merge-game",
+              "name_cn": "Tasty Travels",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "genshin-impact",
+              "name_cn": "原神",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "honkai-star-rail",
+              "name_cn": "崩坏：星穹铁道",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "wuthering-waves",
+              "name_cn": "鸣潮",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "honor-of-kings",
+              "name_cn": "王者荣耀国际服",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "arknights",
+              "name_cn": "明日方舟",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "afk-journey",
+              "name_cn": "剑与远征：启程",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "rise-of-kingdoms",
+              "name_cn": "万国觉醒",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            }
+          ]
+        },
+        {
+          "at": "2026-10-18 18:28:28",
+          "network": false,
+          "probe_detail": "--offline 强制离线",
+          "data_mode": "fallback",
+          "duration_sec": 0.0,
+          "alert": "今日海外信号不足，建议人工复核",
+          "calls": {
+            "trends": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 20
+            },
+            "reddit": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 20
+            },
+            "x_twitter": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 20
+            }
+          },
+          "games": [
+            {
+              "id": "monster-hunter-outlanders",
+              "name_cn": "怪物猎人：旅人",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "phantom-blade-zero",
+              "name_cn": "影之刃零",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "roco-kingdom-world",
+              "name_cn": "洛克王国：世界",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "star-valley",
+              "name_cn": "星布谷地",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "project-origin",
+              "name_cn": "源初之结",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "project-mugen-neverness",
+              "name_cn": "无限大",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "naruto-mobile-global",
+              "name_cn": "火影忍者手游",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "the-outcast",
+              "name_cn": "异人之下",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "where-winds-meet",
+              "name_cn": "燕云十六声",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "last-asylum-plague",
+              "name_cn": "Last Asylum: Plague",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "clash-of-critters",
+              "name_cn": "Clash of Critters",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "flamb-merge-cook",
+              "name_cn": "Flambé: Merge & Cook",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "tasty-travels-merge-game",
+              "name_cn": "Tasty Travels",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "genshin-impact",
+              "name_cn": "原神",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "honkai-star-rail",
+              "name_cn": "崩坏：星穹铁道",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "wuthering-waves",
+              "name_cn": "鸣潮",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "honor-of-kings",
+              "name_cn": "王者荣耀国际服",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "arknights",
+              "name_cn": "明日方舟",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "afk-journey",
+              "name_cn": "剑与远征：启程",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            },
+            {
+              "id": "rise-of-kingdoms",
+              "name_cn": "万国觉醒",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "未配置 X/Twitter 凭据（Nitter 已大面积失效）"
+              }
+            }
+          ]
+        },
+        {
+          "at": "2026-10-18 18:35:52",
+          "network": false,
+          "probe_detail": "--offline 强制离线",
+          "data_mode": "fallback",
+          "duration_sec": 0.0,
+          "alert": "今日海外信号不足，建议人工复核",
+          "calls": {
+            "trends": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 20
+            },
+            "reddit": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 20
+            },
+            "x_twitter": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 20
+            }
+          },
+          "games": [
+            {
+              "id": "monster-hunter-outlanders",
+              "name_cn": "怪物猎人：旅人",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "phantom-blade-zero",
+              "name_cn": "影之刃零",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "roco-kingdom-world",
+              "name_cn": "洛克王国：世界",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "star-valley",
+              "name_cn": "星布谷地",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "project-origin",
+              "name_cn": "源初之结",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "project-mugen-neverness",
+              "name_cn": "无限大",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "naruto-mobile-global",
+              "name_cn": "火影忍者手游",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "the-outcast",
+              "name_cn": "异人之下",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "where-winds-meet",
+              "name_cn": "燕云十六声",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "last-asylum-plague",
+              "name_cn": "Last Asylum: Plague",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "clash-of-critters",
+              "name_cn": "Clash of Critters",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "flamb-merge-cook",
+              "name_cn": "Flambé: Merge & Cook",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "tasty-travels-merge-game",
+              "name_cn": "Tasty Travels",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "genshin-impact",
+              "name_cn": "原神",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "honkai-star-rail",
+              "name_cn": "崩坏：星穹铁道",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "wuthering-waves",
+              "name_cn": "鸣潮",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "honor-of-kings",
+              "name_cn": "王者荣耀国际服",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "arknights",
+              "name_cn": "明日方舟",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "afk-journey",
+              "name_cn": "剑与远征：启程",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            },
+            {
+              "id": "rise-of-kingdoms",
+              "name_cn": "万国觉醒",
+              "used": [],
+              "fallbacks": [
+                "P1 主源（未安装 pytrends）",
+                "Fallback: Discord/F5Bot",
+                "Fallback: RSS/厂商官网公告"
+              ],
+              "detail": {
+                "trends": "未安装 pytrends（可选依赖）：ModuleNotFoundError",
+                "reddit": "网络不可达，跳过调用",
+                "x_twitter": "网络不可达，跳过调用"
+              }
+            }
+          ]
+        }
+      ],
+      "totals": {
+        "monster-hunter-outlanders": 24.5,
+        "phantom-blade-zero": 20.0,
+        "roco-kingdom-world": 23.5,
+        "star-valley": 21.0,
+        "project-origin": 20.0,
+        "project-mugen-neverness": 20.0,
+        "naruto-mobile-global": 26.0,
+        "the-outcast": 21.0,
+        "where-winds-meet": 20.0,
+        "last-asylum-plague": 20.0,
+        "clash-of-critters": 20.0,
+        "flamb-merge-cook": 20.0,
+        "tasty-travels-merge-game": 20.0,
+        "genshin-impact": 20.0,
+        "honkai-star-rail": 20.0,
+        "wuthering-waves": 20.0,
+        "honor-of-kings": 20.0,
+        "arknights": 20.0,
+        "afk-journey": 20.0,
+        "rise-of-kingdoms": 20.0
+      }
+    }
+  ]
+}

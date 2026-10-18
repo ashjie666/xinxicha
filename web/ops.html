@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>运维与回退逻辑 · xinxicha</title>
+<meta name="description" content="xinxicha 的评分权重、分档阈值、P1→P2→P3 回退规则与回退源表、每日任务清单、自动化模块、实施路线图、字段字典，以及每日运行日志。">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('xinxicha:theme');
+    document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+  } catch (error) { /* 隐私模式下保持默认 */ }
+})();
+</script>
+<link rel="stylesheet" href="styles.css?v=1">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16v6H4zM4 14h16v6H4z"></path>
+          <path d="M8 7h.01M8 17h.01"></path>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>xinxicha</h1>
+        <p>运维与回退逻辑 · 评分权重 / 回退链 / 任务清单 / 运行日志</p>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <span class="chip chip-quiet" id="updated-at">正在载入数据…</span>
+      <span class="chip chip-quiet" id="mode-chip" hidden></span>
+      <nav class="site-nav" aria-label="同服务器的其他站点">
+        <a href="http://101.132.195.92/gameseek/">新游雷达</a>
+        <span class="sep">·</span>
+        <a href="http://101.132.195.92/gameqker/">出海军情表</a>
+        <span class="sep">·</span>
+        <a href="http://101.132.195.92/appseeker/">AppSeeker</a>
+        <span class="sep">·</span>
+        <a href="http://101.132.195.92/wordseeker/">WordSeeker</a>
+        <span class="sep">·</span>
+        <a href="http://101.132.195.92/">站点导航</a>
+      </nav>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换配色">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"></path>
+          <circle cx="12" cy="12" r="4"></circle>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="shell">
+
+  <div class="mode-banner" id="mode-banner" hidden></div>
+
+  <nav class="panel page-tabs" aria-label="站内页签">
+    <a href="index.html">总览</a>
+    <a href="detail.html">游戏详情</a>
+    <a href="keywords.html">关键词矩阵</a>
+    <a href="ops.html" aria-current="page">运维与回退逻辑</a>
+  </nav>
+
+  <section class="panel" aria-label="评分模型">
+    <div class="panel-head">
+      <h2 class="panel-title">评分模型（6 分项加权）</h2>
+      <span class="panel-note" id="scoring-note"></span>
+    </div>
+    <div class="table-scroll">
+      <table class="cmp-table table-compact">
+        <thead>
+          <tr class="col-row">
+            <th class="col-first">信号</th>
+            <th>权重</th>
+            <th>为什么算这个信号</th>
+          </tr>
+        </thead>
+        <tbody id="weights-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="分档与阈值">
+    <div class="panel-head">
+      <h2 class="panel-title">分档阈值与取值规则</h2>
+      <span class="panel-note">总分 → 建议动作；分项原始值 → 0-100 分</span>
+    </div>
+    <div class="panel-body">
+      <ul class="kv" id="threshold-body"></ul>
+    </div>
+    <div class="panel-head"><h3 class="panel-title" style="font-size:13px">分项取值带（band）</h3></div>
+    <div class="panel-body">
+      <ul class="kv" id="bands-body"></ul>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="回退规则">
+    <div class="panel-head">
+      <h2 class="panel-title">回退规则（接力规则 1-6）</h2>
+      <span class="panel-note">单次失败不置 0 · 连续 3 次降级 · P1 全失败告警 · 新游戏基础分</span>
+    </div>
+    <div class="panel-body">
+      <ol class="kv" id="rules-body" style="padding-left:20px"></ol>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="回退源表">
+    <div class="panel-head">
+      <h2 class="panel-title">回退源表（P1 → P2 → P3）</h2>
+      <span class="panel-note">回退源数据在表内用黄色标签标注：Fallback: xxx</span>
+    </div>
+    <div class="table-scroll">
+      <table class="cmp-table table-mid">
+        <thead>
+          <tr class="col-row">
+            <th class="col-first">优先级</th>
+            <th>数据源</th>
+            <th>用途</th>
+            <th>触发条件</th>
+            <th>回退目标</th>
+            <th>权重</th>
+            <th>处理策略</th>
+          </tr>
+        </thead>
+        <tbody id="fallback-sources-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="每日任务">
+    <div class="panel-head">
+      <h2 class="panel-title">每日任务清单（人工 SOP）</h2>
+      <span class="panel-note">每项都带 P1 主源 / 回退条件 / P2 回退 / P3 兜底</span>
+    </div>
+    <div class="timeline" id="tasks-body"></div>
+  </section>
+
+  <section class="panel" aria-label="自动化模块">
+    <div class="panel-head">
+      <h2 class="panel-title">自动化模块规划</h2>
+      <span class="panel-note">MVP 阶段先跑采集 + 评分，页面自动生成后置</span>
+    </div>
+    <div class="table-scroll">
+      <table class="cmp-table table-mid">
+        <thead>
+          <tr class="col-row">
+            <th class="col-first">模块</th>
+            <th>方案 / 工具</th>
+            <th>难度</th>
+            <th>优先级</th>
+            <th>说明</th>
+            <th>数据源定位</th>
+            <th>回退目标</th>
+          </tr>
+        </thead>
+        <tbody id="automation-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="实施路线图">
+    <div class="panel-head">
+      <h2 class="panel-title">实施路线图</h2>
+      <span class="panel-note">每阶段的交付物与验收标准</span>
+    </div>
+    <div class="timeline" id="roadmap-body"></div>
+  </section>
+
+  <section class="panel" aria-label="数据源清单">
+    <div class="panel-head">
+      <h2 class="panel-title">数据源清单与信号说明</h2>
+      <span class="panel-note">与 <code>config.json</code> 的 <code>sources</code> 一致</span>
+    </div>
+    <div class="table-scroll">
+      <table class="cmp-table table-mid">
+        <thead>
+          <tr class="col-row">
+            <th class="col-first">数据源</th>
+            <th>优先级</th>
+            <th>信号</th>
+            <th>回退目标</th>
+            <th>接入方式</th>
+          </tr>
+        </thead>
+        <tbody id="sources-body"></tbody>
+      </table>
+    </div>
+    <div class="panel-body">
+      <ul class="kv" id="signal-notes-body"></ul>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="数据源健康">
+    <div class="panel-head">
+      <h2 class="panel-title">数据源健康表</h2>
+      <span class="panel-note" id="health-note"></span>
+    </div>
+    <div class="table-scroll">
+      <table class="cmp-table table-compact">
+        <thead>
+          <tr class="col-row">
+            <th class="col-first">数据源</th>
+            <th>状态</th>
+            <th>上次成功</th>
+            <th>最近错误</th>
+            <th>回退目标</th>
+          </tr>
+        </thead>
+        <tbody id="health-body"></tbody>
+      </table>
+    </div>
+    <div class="panel-head"><h3 class="panel-title" style="font-size:13px">失败处理策略</h3></div>
+    <div class="panel-body">
+      <ul class="kv" id="policy-body"></ul>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="运行日志">
+    <div class="panel-head">
+      <h2 class="panel-title">每日运行日志</h2>
+      <span class="panel-note" id="log-note"></span>
+    </div>
+    <div class="run-list" id="log-body"></div>
+  </section>
+
+  <section class="panel" aria-label="字段字典">
+    <div class="panel-head">
+      <h2 class="panel-title">字段字典（spec F01-F16）</h2>
+      <span class="panel-note">字段含义、更新频率与取数来源</span>
+    </div>
+    <div class="field-grid" id="field-body"></div>
+  </section>
+
+  <section class="panel empty-state" id="empty-state" hidden></section>
+
+  <footer class="site-footer">
+    <p>
+      本页的评分权重、回退规则、回退源表、任务清单、自动化模块、路线图与字段字典均由 <code>tools/import_spec.py</code>
+      从规格表固化到 <code>data/seed_ops.json</code>，再由 <code>collector</code> 投影进 <code>web/data/ops.json</code>；
+      运行日志由 <code>collector/update.py</code> 每次巡检追加，保留最近 30 天。
+    </p>
+    <p class="footer-meta" id="footer-meta"></p>
+  </footer>
+
+</main>
+
+<script src="data/ops.js"></script>
+<script src="core.js?v=1"></script>
+<script src="ops.js?v=1"></script>
+</body>
+</html>

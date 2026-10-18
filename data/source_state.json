@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "sources": {
+    "trends": {
+      "consecutive_failures": 0,
+      "total_failures": 0,
+      "total_success": 0,
+      "degraded": false,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "last_error": null,
+      "last_value": null,
+      "stale": false
+    },
+    "reddit": {
+      "consecutive_failures": 0,
+      "total_failures": 0,
+      "total_success": 0,
+      "degraded": false,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "last_error": null,
+      "last_value": null,
+      "stale": false
+    },
+    "x_twitter": {
+      "consecutive_failures": 60,
+      "total_failures": 60,
+      "total_success": 0,
+      "degraded": true,
+      "last_attempt_at": "2026-10-18 18:28:28",
+      "last_success_at": null,
+      "last_error": "未配置 X/Twitter 凭据（Nitter 已大面积失效）",
+      "last_value": null,
+      "stale": true
+    },
+    "search_count": {
+      "consecutive_failures": 0,
+      "total_failures": 0,
+      "total_success": 0,
+      "degraded": false,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "last_error": null,
+      "last_value": null,
+      "stale": false
+    },
+    "official": {
+      "consecutive_failures": 0,
+      "total_failures": 0,
+      "total_success": 0,
+      "degraded": false,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "last_error": null,
+      "last_value": null,
+      "stale": false
+    },
+    "cn_signal": {
+      "consecutive_failures": 0,
+      "total_failures": 0,
+      "total_success": 0,
+      "degraded": false,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "last_error": null,
+      "last_value": null,
+      "stale": false
+    },
+    "rss": {
+      "consecutive_failures": 0,
+      "total_failures": 0,
+      "total_success": 0,
+      "degraded": false,
+      "last_attempt_at": null,
+      "last_success_at": null,
+      "last_error": null,
+      "last_value": null,
+      "stale": false
+    }
+  }
+}
