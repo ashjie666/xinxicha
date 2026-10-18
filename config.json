@@ -36,15 +36,15 @@
     }
   },
   "collection": {
-    "budget_seconds": 1500,
+    "budget_seconds": 1800,
     "network_probe_url": "https://www.reddit.com/r/gaming/search.json?q=game&limit=1",
     "network_probe_url_p2": "https://www.bing.com/news/search?q=game&format=RSS",
     "network_probe_timeout": 3,
     "request_timeout": 8,
     "min_interval_sec": 30,
     "reddit_max_attempts": 2,
-    "reddit_retry_wait_sec": 60,
-    "budget_reserve_sec": 240,
+    "reddit_retry_wait_sec": 90,
+    "budget_reserve_sec": 120,
     "cache_ttl_hours": 12,
     "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) xinxicha-monitor/0.1",
     "failure_policy": {
