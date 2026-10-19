@@ -640,6 +640,30 @@
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
       "last_update": "2026-10-18"
+    },
+    {
+      "id": "hunger",
+      "seq": 21,
+      "name_cn": "HUNGER",
+      "name_en": "HUNGER",
+      "publisher": "待确认",
+      "type": "PC",
+      "status": "测试中",
+      "cn_status": "待确认",
+      "launch_date_raw": "待确认",
+      "launch_date": null,
+      "cn_guide_score": 1,
+      "gap_level": "高",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "待人工评估（信号未积累）",
+      "priority": "P2",
+      "note": "2026-10-19 Steam 开启测试（末日搜打撤生存）；厂商 / 国服状态 / 上线档期均待确认 —— 本条来自新游候选发现层的人工确认",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-20"
     }
   ],
   "signal_notes": [

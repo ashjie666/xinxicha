@@ -48,6 +48,20 @@ def days_tracked_from(existing_log, today):
     return len(dates)
 
 
+def days_tracked_for(existing_log, game_id, today):
+    """该游戏在 log 里有记录的日期数（含今天），新入库游戏从 1 起算
+
+    规格回退规则④：新游戏无历史 → 基础分 20，跑满 3 天才参与排名。观察期必须
+    按「每款游戏各自的天数」算——若沿用全站天数，新入库游戏会直接继承 ≥3 天、
+    一上来就进正式排名（2026-10-20 入库 HUNGER 时实测到此问题）。
+    """
+    days = [day for day in (existing_log or {}).get('days', [])
+            if game_id in (day.get('totals') or {})]
+    dates = set(day.get('date') for day in days)
+    dates.add(today)
+    return len(dates)
+
+
 def prev_totals_from(existing_log, today):
     days = [day for day in (existing_log or {}).get('days', []) if day.get('date') != today and day.get('totals')]
     days.sort(key=lambda item: item.get('date') or '')
@@ -103,13 +117,14 @@ def main(argv):
         for key in ('trends', 'reddit', 'x_twitter'):
             if signals[key]['available']:
                 fresh_p1 = True
-        result = scoring.compute_game(game, signals, config, today, days_tracked)
+        game_days = days_tracked_for(existing_log, game['id'], http.today_cst())
+        result = scoring.compute_game(game, signals, config, today, game_days)
         result['signals'] = signals
         result['log_row'] = log_row
         result['launch_days'] = scoring.days_until(game.get('launch_date'), today)
         result['keywords_count'] = keyword_counts.get(game['name_cn'], 0)
         result['stale_sources'] = [key for key in ('trends', 'reddit', 'x_twitter') if signals[key]['stale']]
-        result['scenarios'] = scoring.scenario_map(game, signals, config, today, days_tracked)
+        result['scenarios'] = scoring.scenario_map(game, signals, config, today, game_days)
         result['prev_total'] = prev_totals.get(game['id'])
         result['delta'] = None if result['prev_total'] is None else round(result['total'] - result['prev_total'], 1)
         scored[game['id']] = result
@@ -165,7 +180,8 @@ def main(argv):
         '可达' if collector.network else '不可达',
         '可达' if collector.p2_network else '不可达',
         collector.probe_detail))
-    print('跟踪天数 : {} 天（满 {} 天参与正式排名）'.format(days_tracked, config['scoring']['min_days_for_ranking']))
+    print('跟踪天数 : 全站 {} 天（观察期按每款游戏各自天数计，满 {} 天参与正式排名）'.format(
+        days_tracked, config['scoring']['min_days_for_ranking']))
     print('源调用   : {}'.format(', '.join(
         '{}={}/{}/{}'.format(key, bucket['ok'], bucket['failed'], bucket['skipped'])
         for key, bucket in collector.calls.items()) or '无'))
