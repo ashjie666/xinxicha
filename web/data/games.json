@@ -4,13 +4,13 @@
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-19 21:16:25",
+    "generated_at_cst": "2026-10-19 22:18:23",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 611.5,
+    "duration_sec": 619.3,
     "counts": {
       "games": 20,
       "p0": 2,
@@ -214,9 +214,9 @@
         },
         "x_twitter": {
           "available": true,
-          "value": "none",
+          "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 无相关新闻",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -250,12 +250,12 @@
         {
           "key": "x_official",
           "label": "X 官方公告",
-          "score": 0,
+          "score": 60,
           "weight": 15,
-          "weighted": 0.0,
-          "value": "none",
+          "weighted": 9.0,
+          "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 无相关新闻",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "note": ""
         },
@@ -296,9 +296,9 @@
           "note": "距上线 10 天"
         }
       ],
-      "total": 24.5,
+      "total": 33.5,
       "prev_total": 24.5,
-      "delta": 0.0,
+      "delta": 9.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -309,7 +309,7 @@
         {
           "key": "trends_dead",
           "label": "Google Trends 失活",
-          "total": 24.5,
+          "total": 33.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -319,7 +319,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 24.5,
+          "total": 33.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -355,10 +355,10 @@
         "P2·X"
       ],
       "fallbacks": [
-        "Bing News RSS 无相关新闻"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [],
-      "x_state": "none",
+      "x_state": "player_only",
       "gap_score": 9,
       "launch_days": 10,
       "overseas_supply": null,
@@ -377,7 +377,7 @@
       "launch_date": "2026-10-29",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -28.2,
+      "trends_7d": -26.9,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -390,7 +390,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -28.2,
+          "value": -26.9,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -410,7 +410,7 @@
           "available": true,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -423,7 +423,7 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -28.2,
+          "value": -26.9,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -449,7 +449,7 @@
           "weighted": 9.0,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "note": ""
         },
@@ -549,7 +549,7 @@
         "P2·X"
       ],
       "fallbacks": [
-        "Bing News RSS 命中 11 条"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [],
       "x_state": "player_only",
@@ -571,7 +571,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "高",
-      "trends_7d": -28.2,
+      "trends_7d": -26.9,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -584,11 +584,11 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -28.2,
+          "value": -26.9,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Trends 数据不足（7 日内非零数据点 3 个，少于 3 个不计算变化率）"
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         "reddit": {
           "available": true,
@@ -616,11 +616,11 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -28.2,
+          "value": -26.9,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 数据不足（7 日内非零数据点 3 个，少于 3 个不计算变化率）"
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -767,7 +767,7 @@
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": -100.0,
+      "trends_7d": -35.2,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -780,7 +780,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -100.0,
+          "value": -35.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -813,7 +813,7 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -100.0,
+          "value": -35.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1172,7 +1172,7 @@
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Trends 数据不足（7 日内非零数据点 1 个，少于 3 个不计算变化率）"
+          "error": "Trends 数据不足（7 日内有效数据点不足 2 个）"
         },
         "reddit": {
           "available": true,
@@ -1187,7 +1187,7 @@
           "available": true,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 2 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -1204,7 +1204,7 @@
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 数据不足（7 日内非零数据点 1 个，少于 3 个不计算变化率）"
+          "note": "Trends 数据不足（7 日内有效数据点不足 2 个）"
         },
         {
           "key": "reddit",
@@ -1226,7 +1226,7 @@
           "weighted": 9.0,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 2 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "note": ""
         },
@@ -1327,7 +1327,7 @@
       ],
       "fallbacks": [
         "Fallback: Trends（沿用上次值）",
-        "Bing News RSS 命中 2 条"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends"
@@ -1359,16 +1359,17 @@
       "priority": "P1",
       "note": "国内运营10年攻略极成熟，海外刚宣布",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-19",
       "signals": {
         "trends": {
-          "available": false,
+          "available": true,
           "value": -100.0,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
           "available": true,
@@ -1383,7 +1384,7 @@
           "available": true,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 12 条",
+          "kind": "Bing News RSS 命中 11 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -1398,9 +1399,9 @@
           "weighted": 0.0,
           "value": -100.0,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -1422,7 +1423,7 @@
           "weighted": 9.0,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 12 条",
+          "kind": "Bing News RSS 命中 11 条",
           "stale": false,
           "note": ""
         },
@@ -1517,23 +1518,20 @@
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
-        "Bing News RSS 命中 12 条"
+        "Bing News RSS 命中 11 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 3,
-      "stale": true
+      "stale": false
     },
     {
       "id": "the-outcast",
@@ -1547,7 +1545,7 @@
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": -100.0,
+      "trends_7d": -1.7,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1560,7 +1558,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -100.0,
+          "value": -1.7,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1580,7 +1578,7 @@
           "available": true,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -1590,10 +1588,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 4.5,
+          "value": -1.7,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1619,7 +1617,7 @@
           "weighted": 9.0,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "note": ""
         },
@@ -1660,9 +1658,9 @@
           "note": "无确定档期"
         }
       ],
-      "total": 30.0,
+      "total": 34.5,
       "prev_total": 21.0,
-      "delta": 9.0,
+      "delta": 13.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -1683,7 +1681,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 30.0,
+          "total": 34.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1693,7 +1691,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 21.0,
+          "total": 25.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1719,7 +1717,7 @@
         "P2·X"
       ],
       "fallbacks": [
-        "Bing News RSS 命中 11 条"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [],
       "x_state": "player_only",
@@ -1741,7 +1739,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -24.2,
+      "trends_7d": -1.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1754,7 +1752,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -24.2,
+          "value": -1.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1774,7 +1772,7 @@
           "available": true,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 12 条",
+          "kind": "Bing News RSS 命中 11 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -1784,10 +1782,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -24.2,
+          "weighted": 4.5,
+          "value": -1.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1813,7 +1811,7 @@
           "weighted": 9.0,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 12 条",
+          "kind": "Bing News RSS 命中 11 条",
           "stale": false,
           "note": ""
         },
@@ -1854,9 +1852,9 @@
           "note": "无确定档期"
         }
       ],
-      "total": 21.2,
+      "total": 25.8,
       "prev_total": 20.0,
-      "delta": 1.2,
+      "delta": 5.8,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -1877,7 +1875,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 21.2,
+          "total": 25.8,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1913,7 +1911,7 @@
         "P2·X"
       ],
       "fallbacks": [
-        "Bing News RSS 命中 12 条"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [],
       "x_state": "player_only",
@@ -1935,7 +1933,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -24.2,
+      "trends_7d": -100.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1943,16 +1941,17 @@
       "priority": "P2",
       "note": "8月收入环比增37%，赛季制更新频繁",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-19",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -24.2,
+          "available": true,
+          "value": -100.0,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
           "available": true,
@@ -1967,7 +1966,7 @@
           "available": true,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -1980,11 +1979,11 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -24.2,
+          "value": -100.0,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -2006,7 +2005,7 @@
           "weighted": 9.0,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "note": ""
         },
@@ -2101,23 +2100,20 @@
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
-        "Bing News RSS 命中 11 条"
+        "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 0,
-      "stale": true
+      "stale": false
     },
     {
       "id": "clash-of-critters",
@@ -2131,7 +2127,7 @@
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "中",
-      "trends_7d": -15.4,
+      "trends_7d": -26.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2144,7 +2140,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -15.4,
+          "value": -26.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2164,7 +2160,7 @@
           "available": true,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 12 条",
+          "kind": "Bing News RSS 命中 11 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -2174,10 +2170,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -15.4,
+          "weighted": 0.0,
+          "value": -26.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2203,7 +2199,7 @@
           "weighted": 9.0,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 12 条",
+          "kind": "Bing News RSS 命中 11 条",
           "stale": false,
           "note": ""
         },
@@ -2303,7 +2299,7 @@
         "P2·X"
       ],
       "fallbacks": [
-        "Bing News RSS 命中 12 条"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [],
       "x_state": "player_only",
@@ -2325,7 +2321,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -15.4,
+      "trends_7d": -26.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2338,11 +2334,11 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -15.4,
+          "value": -26.4,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Trends 数据不足（7 日内非零数据点 1 个，少于 3 个不计算变化率）"
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         "reddit": {
           "available": true,
@@ -2357,7 +2353,7 @@
           "available": true,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 4 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -2367,14 +2363,14 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -15.4,
+          "weighted": 0.0,
+          "value": -26.4,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 数据不足（7 日内非零数据点 1 个，少于 3 个不计算变化率）"
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -2396,7 +2392,7 @@
           "weighted": 9.0,
           "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 4 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "note": ""
         },
@@ -2437,12 +2433,12 @@
           "note": "无确定档期"
         }
       ],
-      "total": 20.8,
+      "total": 20.0,
       "prev_total": 20.0,
-      "delta": 0.8,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": false,
+      "base_score_applied": true,
       "days_tracked": 2,
       "ranking_eligible": false,
       "ranking_note": "观察期（第 2/3 天）",
@@ -2460,7 +2456,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.8,
+          "total": 20.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2497,7 +2493,7 @@
       ],
       "fallbacks": [
         "Fallback: Trends（沿用上次值）",
-        "Bing News RSS 命中 4 条"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends"
@@ -2521,7 +2517,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -15.4,
+      "trends_7d": -26.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2534,11 +2530,11 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -15.4,
+          "value": -26.4,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Trends 数据不足（7 日内非零数据点 0 个，少于 3 个不计算变化率）"
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         "reddit": {
           "available": true,
@@ -2563,14 +2559,14 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -15.4,
+          "weighted": 0.0,
+          "value": -26.4,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 数据不足（7 日内非零数据点 0 个，少于 3 个不计算变化率）"
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -2633,12 +2629,12 @@
           "note": "无确定档期"
         }
       ],
-      "total": 20.8,
+      "total": 20.0,
       "prev_total": 20.0,
-      "delta": 0.8,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": false,
+      "base_score_applied": true,
       "days_tracked": 2,
       "ranking_eligible": false,
       "ranking_note": "观察期（第 2/3 天）",
@@ -2656,7 +2652,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.8,
+          "total": 20.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2717,7 +2713,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -41.2,
+      "trends_7d": -18.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2730,201 +2726,7 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -41.2,
-          "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
-        },
-        "reddit": {
-          "available": true,
-          "value": 0,
-          "origin": "Reddit",
-          "kind": "P1 主源（.rss）",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
-        },
-        "x_twitter": {
-          "available": true,
-          "value": "none",
-          "origin": "Bing News RSS",
-          "kind": "Bing News RSS 无相关新闻",
-          "stale": false,
-          "error": null,
-          "tier": "P2"
-        }
-      },
-      "components": [
-        {
-          "key": "trends_rise",
-          "label": "Trends 上升",
-          "score": 0,
-          "weight": 30,
-          "weighted": 0.0,
-          "value": -41.2,
-          "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "reddit",
-          "label": "Reddit 讨论量",
-          "score": 0,
-          "weight": 20,
-          "weighted": 0.0,
-          "value": 0,
-          "origin": "Reddit",
-          "kind": "P1 主源（.rss）",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "x_official",
-          "label": "X 官方公告",
-          "score": 0,
-          "weight": 15,
-          "weighted": 0.0,
-          "value": "none",
-          "origin": "Bing News RSS",
-          "kind": "Bing News RSS 无相关新闻",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "supply_gap",
-          "label": "海外供给不足",
-          "score": 0,
-          "weight": 15,
-          "weighted": 0.0,
-          "value": 2,
-          "origin": "人工基线（缺口评估 低）",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "cn_maturity",
-          "label": "国内攻略成熟度",
-          "score": 100,
-          "weight": 10,
-          "weighted": 10.0,
-          "value": 5,
-          "origin": "TapTap/B站/NGA 人工评估",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "launch_window",
-          "label": "上线窗口近",
-          "score": 10,
-          "weight": 10,
-          "weighted": 1.0,
-          "value": null,
-          "origin": "官网/游戏日历",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": "无确定档期"
-        }
-      ],
-      "total": 20.0,
-      "prev_total": 20.0,
-      "delta": 0.0,
-      "action_engine": "暂不投入",
-      "action_basis": "规则引擎",
-      "base_score_applied": true,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
-      "scenarios": [
-        {
-          "key": "trends_dead",
-          "label": "Google Trends 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "trends"
-          ]
-        },
-        {
-          "key": "reddit_dead",
-          "label": "Reddit 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "reddit"
-          ]
-        },
-        {
-          "key": "x_dead",
-          "label": "X/Twitter 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "x_twitter"
-          ]
-        },
-        {
-          "key": "p1_all_dead",
-          "label": "P1 全部失败",
-          "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
-          "stale_sources": [
-            "trends",
-            "reddit",
-            "x_twitter"
-          ]
-        }
-      ],
-      "sources_used": [
-        "P1·Trends",
-        "P1·Reddit",
-        "P2·X"
-      ],
-      "fallbacks": [
-        "Bing News RSS 无相关新闻"
-      ],
-      "stale_sources": [],
-      "x_state": "none",
-      "gap_score": 2,
-      "launch_days": null,
-      "overseas_supply": null,
-      "keywords_count": 1,
-      "stale": false
-    },
-    {
-      "id": "honkai-star-rail",
-      "seq": 15,
-      "name_cn": "崩坏：星穹铁道",
-      "name_en": "Honkai: Star Rail",
-      "publisher": "米哈游/HoYoverse",
-      "type": "跨端",
-      "status": "已上线",
-      "launch_date_raw": "已上线",
-      "launch_date": null,
-      "cn_guide_score": 5,
-      "gap_level": "低",
-      "trends_7d": -12.3,
-      "reddit_daily": 0,
-      "x_mentions": null,
-      "total_score": null,
-      "action_manual": "竞争激烈不建议",
-      "priority": "P3",
-      "note": "同上",
-      "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
-      "last_update": "2026-10-19",
-      "signals": {
-        "trends": {
-          "available": true,
-          "value": -12.3,
+          "value": -18.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2957,7 +2759,7 @@
           "score": 15,
           "weight": 30,
           "weighted": 4.5,
-          "value": -12.3,
+          "value": -18.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3094,31 +2896,31 @@
       "stale": false
     },
     {
-      "id": "wuthering-waves",
-      "seq": 16,
-      "name_cn": "鸣潮",
-      "name_en": "Wuthering Waves",
-      "publisher": "库洛游戏",
+      "id": "honkai-star-rail",
+      "seq": 15,
+      "name_cn": "崩坏：星穹铁道",
+      "name_en": "Honkai: Star Rail",
+      "publisher": "米哈游/HoYoverse",
       "type": "跨端",
       "status": "已上线",
       "launch_date_raw": "已上线",
       "launch_date": null,
-      "cn_guide_score": 4,
+      "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -34.3,
+      "trends_7d": 11.3,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
-      "action_manual": "做差异化内容",
+      "action_manual": "竞争激烈不建议",
       "priority": "P3",
-      "note": "Steam在线稳定但大站已覆盖",
+      "note": "同上",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
       "last_update": "2026-10-19",
       "signals": {
         "trends": {
           "available": true,
-          "value": -34.3,
+          "value": 11.3,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3136,9 +2938,9 @@
         },
         "x_twitter": {
           "available": true,
-          "value": "none",
+          "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 无相关新闻",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -3148,10 +2950,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 60,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -34.3,
+          "weighted": 18.0,
+          "value": 11.3,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3172,12 +2974,206 @@
         {
           "key": "x_official",
           "label": "X 官方公告",
+          "score": 60,
+          "weight": 15,
+          "weighted": 9.0,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
           "score": 0,
           "weight": 15,
           "weighted": 0.0,
-          "value": "none",
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 100,
+          "weight": 10,
+          "weighted": 10.0,
+          "value": 5,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 38.0,
+      "prev_total": 20.0,
+      "delta": 18.0,
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
+      "base_score_applied": false,
+      "days_tracked": 2,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 2/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 38.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 29.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [
+        "P1·Trends",
+        "P1·Reddit",
+        "P2·X"
+      ],
+      "fallbacks": [
+        "Bing News RSS 命中 12 条"
+      ],
+      "stale_sources": [],
+      "x_state": "player_only",
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": false
+    },
+    {
+      "id": "wuthering-waves",
+      "seq": 16,
+      "name_cn": "鸣潮",
+      "name_en": "Wuthering Waves",
+      "publisher": "库洛游戏",
+      "type": "跨端",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 4,
+      "gap_level": "低",
+      "trends_7d": -31.8,
+      "reddit_daily": 0,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "做差异化内容",
+      "priority": "P3",
+      "note": "Steam在线稳定但大站已覆盖",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "高",
+      "last_update": "2026-10-19",
+      "signals": {
+        "trends": {
+          "available": true,
+          "value": -31.8,
+          "origin": "Google Trends",
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
+        },
+        "reddit": {
+          "available": true,
+          "value": 0,
+          "origin": "Reddit",
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
+        },
+        "x_twitter": {
+          "available": true,
+          "value": "player_only",
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 无相关新闻",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": -31.8,
+          "origin": "Google Trends",
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": 0,
+          "origin": "Reddit",
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 60,
+          "weight": 15,
+          "weighted": 9.0,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "note": ""
         },
@@ -3277,10 +3273,10 @@
         "P2·X"
       ],
       "fallbacks": [
-        "Bing News RSS 无相关新闻"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [],
-      "x_state": "none",
+      "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
@@ -3299,7 +3295,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -34.3,
+      "trends_7d": -39.7,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3307,16 +3303,17 @@
       "priority": "P3",
       "note": "下载增长明显但英文攻略站已有",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-19",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -34.3,
+          "available": true,
+          "value": -39.7,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
           "available": true,
@@ -3344,11 +3341,11 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -34.3,
+          "value": -39.7,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -3417,6 +3414,587 @@
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": true,
+      "days_tracked": 2,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 2/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [
+        "P1·Trends",
+        "P1·Reddit",
+        "P2·X"
+      ],
+      "fallbacks": [
+        "Bing News RSS 命中 12 条"
+      ],
+      "stale_sources": [],
+      "x_state": "player_only",
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": false
+    },
+    {
+      "id": "arknights",
+      "seq": 18,
+      "name_cn": "明日方舟",
+      "name_en": "Arknights",
+      "publisher": "鹰角网络",
+      "type": "手游",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 5,
+      "gap_level": "低",
+      "trends_7d": 19.2,
+      "reddit_daily": 0,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "竞争激烈",
+      "priority": "P3",
+      "note": "英文社区成熟，攻略站多",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "高",
+      "last_update": "2026-10-19",
+      "signals": {
+        "trends": {
+          "available": true,
+          "value": 19.2,
+          "origin": "Google Trends",
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
+        },
+        "reddit": {
+          "available": true,
+          "value": 0,
+          "origin": "Reddit",
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
+        },
+        "x_twitter": {
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 60,
+          "weight": 30,
+          "weighted": 18.0,
+          "value": 19.2,
+          "origin": "Google Trends",
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": 0,
+          "origin": "Reddit",
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 60,
+          "weight": 15,
+          "weighted": 9.0,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 100,
+          "weight": 10,
+          "weighted": 10.0,
+          "value": 5,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 38.0,
+      "prev_total": 20.0,
+      "delta": 18.0,
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
+      "base_score_applied": false,
+      "days_tracked": 2,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 2/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 38.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 29.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [
+        "P1·Trends",
+        "P1·Reddit",
+        "P2·X"
+      ],
+      "fallbacks": [
+        "Bing News RSS 命中 12 条"
+      ],
+      "stale_sources": [],
+      "x_state": "player_only",
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": false
+    },
+    {
+      "id": "afk-journey",
+      "seq": 19,
+      "name_cn": "剑与远征：启程",
+      "name_en": "AFK Journey",
+      "publisher": "莉莉丝/Farlight",
+      "type": "手游",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 4,
+      "gap_level": "低",
+      "trends_7d": -100.0,
+      "reddit_daily": 0,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "竞争较激烈",
+      "priority": "P3",
+      "note": "莉莉丝发行能力强但英文供给充足",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "高",
+      "last_update": "2026-10-19",
+      "signals": {
+        "trends": {
+          "available": true,
+          "value": -100.0,
+          "origin": "Google Trends",
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
+        },
+        "reddit": {
+          "available": true,
+          "value": 0,
+          "origin": "Reddit",
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
+        },
+        "x_twitter": {
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": -100.0,
+          "origin": "Google Trends",
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": 0,
+          "origin": "Reddit",
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 60,
+          "weight": 15,
+          "weighted": 9.0,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 75.0,
+          "weight": 10,
+          "weighted": 7.5,
+          "value": 4,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": 20.0,
+      "delta": 0.0,
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
+      "base_score_applied": true,
+      "days_tracked": 2,
+      "ranking_eligible": false,
+      "ranking_note": "观察期（第 2/3 天）",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 20.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 20.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [
+        "P1·Trends",
+        "P1·Reddit",
+        "P2·X"
+      ],
+      "fallbacks": [
+        "Bing News RSS 命中 11 条"
+      ],
+      "stale_sources": [],
+      "x_state": "player_only",
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": false
+    },
+    {
+      "id": "rise-of-kingdoms",
+      "seq": 20,
+      "name_cn": "万国觉醒",
+      "name_en": "Rise of Kingdoms",
+      "publisher": "莉莉丝/Farlight",
+      "type": "手游SLG",
+      "status": "已上线",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 5,
+      "gap_level": "低",
+      "trends_7d": -100.0,
+      "reddit_daily": 0,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "老牌产品增长平稳",
+      "priority": "P3",
+      "note": "英文市场成熟，增量有限",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "中",
+      "last_update": "2026-10-19",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": -100.0,
+          "origin": "Google Trends",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+        },
+        "reddit": {
+          "available": true,
+          "value": 0,
+          "origin": "Reddit",
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
+        },
+        "x_twitter": {
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 0,
+          "weight": 30,
+          "weighted": 0.0,
+          "value": -100.0,
+          "origin": "Google Trends",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": 0,
+          "origin": "Reddit",
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 60,
+          "weight": 15,
+          "weighted": 9.0,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 100,
+          "weight": 10,
+          "weighted": 10.0,
+          "value": 5,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 20.0,
+      "prev_total": 20.0,
+      "delta": 0.0,
+      "action_engine": "暂不投入",
+      "action_basis": "规则引擎",
+      "base_score_applied": false,
       "days_tracked": 2,
       "ranking_eligible": false,
       "ranking_note": "观察期（第 2/3 天）",
@@ -3482,588 +4060,6 @@
       "overseas_supply": null,
       "keywords_count": 1,
       "stale": true
-    },
-    {
-      "id": "arknights",
-      "seq": 18,
-      "name_cn": "明日方舟",
-      "name_en": "Arknights",
-      "publisher": "鹰角网络",
-      "type": "手游",
-      "status": "已上线",
-      "launch_date_raw": "已上线",
-      "launch_date": null,
-      "cn_guide_score": 5,
-      "gap_level": "低",
-      "trends_7d": 11.1,
-      "reddit_daily": 0,
-      "x_mentions": null,
-      "total_score": null,
-      "action_manual": "竞争激烈",
-      "priority": "P3",
-      "note": "英文社区成熟，攻略站多",
-      "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
-      "last_update": "2026-10-19",
-      "signals": {
-        "trends": {
-          "available": true,
-          "value": 11.1,
-          "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
-        },
-        "reddit": {
-          "available": true,
-          "value": 0,
-          "origin": "Reddit",
-          "kind": "P1 主源（.rss）",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
-        },
-        "x_twitter": {
-          "available": true,
-          "value": "none",
-          "origin": "Bing News RSS",
-          "kind": "Bing News RSS 无相关新闻",
-          "stale": false,
-          "error": null,
-          "tier": "P2"
-        }
-      },
-      "components": [
-        {
-          "key": "trends_rise",
-          "label": "Trends 上升",
-          "score": 60,
-          "weight": 30,
-          "weighted": 18.0,
-          "value": 11.1,
-          "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "reddit",
-          "label": "Reddit 讨论量",
-          "score": 0,
-          "weight": 20,
-          "weighted": 0.0,
-          "value": 0,
-          "origin": "Reddit",
-          "kind": "P1 主源（.rss）",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "x_official",
-          "label": "X 官方公告",
-          "score": 0,
-          "weight": 15,
-          "weighted": 0.0,
-          "value": "none",
-          "origin": "Bing News RSS",
-          "kind": "Bing News RSS 无相关新闻",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "supply_gap",
-          "label": "海外供给不足",
-          "score": 0,
-          "weight": 15,
-          "weighted": 0.0,
-          "value": 2,
-          "origin": "人工基线（缺口评估 低）",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "cn_maturity",
-          "label": "国内攻略成熟度",
-          "score": 100,
-          "weight": 10,
-          "weighted": 10.0,
-          "value": 5,
-          "origin": "TapTap/B站/NGA 人工评估",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "launch_window",
-          "label": "上线窗口近",
-          "score": 10,
-          "weight": 10,
-          "weighted": 1.0,
-          "value": null,
-          "origin": "官网/游戏日历",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": "无确定档期"
-        }
-      ],
-      "total": 29.0,
-      "prev_total": 20.0,
-      "delta": 9.0,
-      "action_engine": "暂不投入",
-      "action_basis": "规则引擎",
-      "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
-      "scenarios": [
-        {
-          "key": "trends_dead",
-          "label": "Google Trends 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "trends"
-          ]
-        },
-        {
-          "key": "reddit_dead",
-          "label": "Reddit 失活",
-          "total": 29.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "reddit"
-          ]
-        },
-        {
-          "key": "x_dead",
-          "label": "X/Twitter 失活",
-          "total": 29.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "x_twitter"
-          ]
-        },
-        {
-          "key": "p1_all_dead",
-          "label": "P1 全部失败",
-          "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
-          "stale_sources": [
-            "trends",
-            "reddit",
-            "x_twitter"
-          ]
-        }
-      ],
-      "sources_used": [
-        "P1·Trends",
-        "P1·Reddit",
-        "P2·X"
-      ],
-      "fallbacks": [
-        "Bing News RSS 无相关新闻"
-      ],
-      "stale_sources": [],
-      "x_state": "none",
-      "gap_score": 2,
-      "launch_days": null,
-      "overseas_supply": null,
-      "keywords_count": 1,
-      "stale": false
-    },
-    {
-      "id": "afk-journey",
-      "seq": 19,
-      "name_cn": "剑与远征：启程",
-      "name_en": "AFK Journey",
-      "publisher": "莉莉丝/Farlight",
-      "type": "手游",
-      "status": "已上线",
-      "launch_date_raw": "已上线",
-      "launch_date": null,
-      "cn_guide_score": 4,
-      "gap_level": "低",
-      "trends_7d": -100.0,
-      "reddit_daily": 0,
-      "x_mentions": null,
-      "total_score": null,
-      "action_manual": "竞争较激烈",
-      "priority": "P3",
-      "note": "莉莉丝发行能力强但英文供给充足",
-      "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
-      "last_update": "2026-10-19",
-      "signals": {
-        "trends": {
-          "available": true,
-          "value": -100.0,
-          "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
-        },
-        "reddit": {
-          "available": true,
-          "value": 0,
-          "origin": "Reddit",
-          "kind": "P1 主源（.rss）",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
-        },
-        "x_twitter": {
-          "available": true,
-          "value": "player_only",
-          "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 10 条",
-          "stale": false,
-          "error": null,
-          "tier": "P2"
-        }
-      },
-      "components": [
-        {
-          "key": "trends_rise",
-          "label": "Trends 上升",
-          "score": 0,
-          "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
-          "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "reddit",
-          "label": "Reddit 讨论量",
-          "score": 0,
-          "weight": 20,
-          "weighted": 0.0,
-          "value": 0,
-          "origin": "Reddit",
-          "kind": "P1 主源（.rss）",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "x_official",
-          "label": "X 官方公告",
-          "score": 60,
-          "weight": 15,
-          "weighted": 9.0,
-          "value": "player_only",
-          "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 10 条",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "supply_gap",
-          "label": "海外供给不足",
-          "score": 0,
-          "weight": 15,
-          "weighted": 0.0,
-          "value": 2,
-          "origin": "人工基线（缺口评估 低）",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "cn_maturity",
-          "label": "国内攻略成熟度",
-          "score": 75.0,
-          "weight": 10,
-          "weighted": 7.5,
-          "value": 4,
-          "origin": "TapTap/B站/NGA 人工评估",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "launch_window",
-          "label": "上线窗口近",
-          "score": 10,
-          "weight": 10,
-          "weighted": 1.0,
-          "value": null,
-          "origin": "官网/游戏日历",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": "无确定档期"
-        }
-      ],
-      "total": 20.0,
-      "prev_total": 20.0,
-      "delta": 0.0,
-      "action_engine": "暂不投入",
-      "action_basis": "规则引擎",
-      "base_score_applied": true,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
-      "scenarios": [
-        {
-          "key": "trends_dead",
-          "label": "Google Trends 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "trends"
-          ]
-        },
-        {
-          "key": "reddit_dead",
-          "label": "Reddit 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "reddit"
-          ]
-        },
-        {
-          "key": "x_dead",
-          "label": "X/Twitter 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "x_twitter"
-          ]
-        },
-        {
-          "key": "p1_all_dead",
-          "label": "P1 全部失败",
-          "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
-          "stale_sources": [
-            "trends",
-            "reddit",
-            "x_twitter"
-          ]
-        }
-      ],
-      "sources_used": [
-        "P1·Trends",
-        "P1·Reddit",
-        "P2·X"
-      ],
-      "fallbacks": [
-        "Bing News RSS 命中 10 条"
-      ],
-      "stale_sources": [],
-      "x_state": "player_only",
-      "gap_score": 2,
-      "launch_days": null,
-      "overseas_supply": null,
-      "keywords_count": 1,
-      "stale": false
-    },
-    {
-      "id": "rise-of-kingdoms",
-      "seq": 20,
-      "name_cn": "万国觉醒",
-      "name_en": "Rise of Kingdoms",
-      "publisher": "莉莉丝/Farlight",
-      "type": "手游SLG",
-      "status": "已上线",
-      "launch_date_raw": "已上线",
-      "launch_date": null,
-      "cn_guide_score": 5,
-      "gap_level": "低",
-      "trends_7d": -3.2,
-      "reddit_daily": 0,
-      "x_mentions": null,
-      "total_score": null,
-      "action_manual": "老牌产品增长平稳",
-      "priority": "P3",
-      "note": "英文市场成熟，增量有限",
-      "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
-      "last_update": "2026-10-19",
-      "signals": {
-        "trends": {
-          "available": true,
-          "value": -3.2,
-          "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
-        },
-        "reddit": {
-          "available": true,
-          "value": 0,
-          "origin": "Reddit",
-          "kind": "P1 主源（.rss）",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
-        },
-        "x_twitter": {
-          "available": true,
-          "value": "player_only",
-          "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 12 条",
-          "stale": false,
-          "error": null,
-          "tier": "P2"
-        }
-      },
-      "components": [
-        {
-          "key": "trends_rise",
-          "label": "Trends 上升",
-          "score": 15,
-          "weight": 30,
-          "weighted": 4.5,
-          "value": -3.2,
-          "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "reddit",
-          "label": "Reddit 讨论量",
-          "score": 0,
-          "weight": 20,
-          "weighted": 0.0,
-          "value": 0,
-          "origin": "Reddit",
-          "kind": "P1 主源（.rss）",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "x_official",
-          "label": "X 官方公告",
-          "score": 60,
-          "weight": 15,
-          "weighted": 9.0,
-          "value": "player_only",
-          "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 12 条",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "supply_gap",
-          "label": "海外供给不足",
-          "score": 0,
-          "weight": 15,
-          "weighted": 0.0,
-          "value": 2,
-          "origin": "人工基线（缺口评估 低）",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "cn_maturity",
-          "label": "国内攻略成熟度",
-          "score": 100,
-          "weight": 10,
-          "weighted": 10.0,
-          "value": 5,
-          "origin": "TapTap/B站/NGA 人工评估",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "launch_window",
-          "label": "上线窗口近",
-          "score": 10,
-          "weight": 10,
-          "weighted": 1.0,
-          "value": null,
-          "origin": "官网/游戏日历",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": "无确定档期"
-        }
-      ],
-      "total": 24.5,
-      "prev_total": 20.0,
-      "delta": 4.5,
-      "action_engine": "暂不投入",
-      "action_basis": "规则引擎",
-      "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
-      "scenarios": [
-        {
-          "key": "trends_dead",
-          "label": "Google Trends 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "trends"
-          ]
-        },
-        {
-          "key": "reddit_dead",
-          "label": "Reddit 失活",
-          "total": 24.5,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "reddit"
-          ]
-        },
-        {
-          "key": "x_dead",
-          "label": "X/Twitter 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "x_twitter"
-          ]
-        },
-        {
-          "key": "p1_all_dead",
-          "label": "P1 全部失败",
-          "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
-          "stale_sources": [
-            "trends",
-            "reddit",
-            "x_twitter"
-          ]
-        }
-      ],
-      "sources_used": [
-        "P1·Trends",
-        "P1·Reddit",
-        "P2·X"
-      ],
-      "fallbacks": [
-        "Bing News RSS 命中 12 条"
-      ],
-      "stale_sources": [],
-      "x_state": "player_only",
-      "gap_score": 2,
-      "launch_days": null,
-      "overseas_supply": null,
-      "keywords_count": 1,
-      "stale": false
     }
   ]
 }
