@@ -231,21 +231,19 @@ class Collector(object):
             self._skip('x_twitter')
             return unavailable('X/Twitter', kind, '预算不足，跳过调用')
         query = game.get('name_en') or game.get('name_cn')
-        url = ('https://www.bing.com/news/search?q={}&qft=sortbydate%3d%221%22&format=rss'
-               .format(urllib.parse.quote(query)))
-        result = http.fetch(
-            url,
+        feed = http.fetch_bing_news(
+            query,
             timeout=self.config['collection']['request_timeout'],
             user_agent=self.config['collection']['user_agent'],
             use_cache=not self.no_cache,
             ttl_hours=self.config['collection']['cache_ttl_hours'])
         degrade = self.config['collection']['failure_policy']['degrade_after_consecutive_failures']
-        if not result.get('ok'):
+        if not feed.get('ok'):
             self._count('x_twitter', False)
             state_mod.record(self.state, 'x_twitter', False,
-                             error='RSS: {}'.format(result.get('error')), degrade_after=degrade)
-            return unavailable('X/Twitter', kind, 'RSS: {}'.format(result.get('error')))
-        count = rss_item_count(result.get('text') or '')
+                             error='RSS: {}'.format(feed.get('error')), degrade_after=degrade)
+            return unavailable('X/Twitter', kind, 'RSS: {}'.format(feed.get('error')))
+        count = rss_item_count(feed.get('text') or '')
         self._count('x_twitter', True)
         value = 'player_only' if count else 'none'
         note = 'Bing News RSS 命中 {} 条'.format(count) if count else 'Bing News RSS 无相关新闻'
@@ -267,21 +265,19 @@ class Collector(object):
             self._skip('rss')
             return unavailable('RSS / 新闻聚合', kind, '预算不足，跳过调用')
         query = game.get('name_en') or game.get('name_cn')
-        url = ('https://www.bing.com/news/search?q={}&qft=sortbydate%3d%221%22&format=rss'
-               .format(urllib.parse.quote(query)))
-        result = http.fetch(
-            url,
+        feed = http.fetch_bing_news(
+            query,
             timeout=self.config['collection']['request_timeout'],
             user_agent=self.config['collection']['user_agent'],
             use_cache=not self.no_cache,
             ttl_hours=self.config['collection']['cache_ttl_hours'])
         degrade = self.config['collection']['failure_policy']['degrade_after_consecutive_failures']
-        if not result.get('ok'):
+        if not feed.get('ok'):
             self._count('rss', False)
             state_mod.record(self.state, 'rss', False,
-                             error='RSS: {}'.format(result.get('error')), degrade_after=degrade)
-            return unavailable('RSS / 新闻聚合', kind, 'RSS: {}'.format(result.get('error')))
-        count = rss_item_count(result.get('text') or '')
+                             error='RSS: {}'.format(feed.get('error')), degrade_after=degrade)
+            return unavailable('RSS / 新闻聚合', kind, 'RSS: {}'.format(feed.get('error')))
+        count = rss_item_count(feed.get('text') or '')
         self._count('rss', True)
         state_mod.record(self.state, 'rss', True, value=count, degrade_after=degrade)
         return fresh('Bing News RSS', 'P3 兜底（新闻聚合命中 {} 条）'.format(count), count, tier='P3')

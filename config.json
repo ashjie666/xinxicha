@@ -88,7 +88,7 @@
       { "label": "点点互动", "kind": "publisher", "category": "合成休闲", "query": "点点互动 新游", "match": ["点点互动", "Diandian", "Century Games"] },
       { "label": "灵游坊", "kind": "publisher", "category": "动作 / 单机", "query": "灵游坊 新游", "match": ["灵游坊", "S-Game", "影之刃"] },
       { "label": "二次元开放世界新游", "kind": "category", "category": "二次元开放世界", "query": "二次元开放世界 新游", "match": ["二次元", "开放世界", "anime", "open world"] },
-      { "label": "合成休闲出海新品", "kind": "category", "category": "合成休闲", "query": "合成休闲 手游 出海", "match": ["合成", "休闲", "merge", "casual"] },
+      { "label": "合成休闲出海新品", "kind": "category", "category": "合成休闲", "query": "合成游戏 出海 新品", "match": ["合成", "二合", "三消", "休闲", "merge", "casual"] },
       { "label": "搜打撤生存新游", "kind": "category", "category": "搜打撤生存", "query": "搜打撤 生存 新游", "match": ["搜打撤", "生存", "extraction", "survival"] },
       { "label": "休闲塔防新游", "kind": "category", "category": "休闲塔防", "query": "休闲塔防 新游", "match": ["休闲", "塔防", "tower defense", "casual"] },
       { "label": "SLG出海新作", "kind": "category", "category": "SLG", "query": "SLG 手游 出海 新作", "match": ["SLG", "strategy"] }

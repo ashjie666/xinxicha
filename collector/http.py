@@ -7,6 +7,7 @@ import json
 import os
 import time
 import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime, timedelta
 
@@ -130,6 +131,44 @@ def fetch_json(url, **kwargs):
         result['ok'] = False
         result['error'] = 'JSON 解析失败: {}'.format(error)
     return result
+
+
+# Bing News RSS 的区域跳转：中国大陆 IP 访问 www.bing.com 会被 302 到 cn.bing.com，
+# 而 cn.bing.com 不提供该订阅源（继续 302 回首页 HTML）。global.bing.com 解析到微软
+# 全球边缘节点，只要带上锁定美国市场的 Cookie 就能拿到真正的 XML。海外机房（CI）
+# 走第一顺位即可，无需回退。
+BING_NEWS_HOSTS = ('www.bing.com', 'global.bing.com')
+BING_NEWS_COOKIE = '_EDGE_S=mkt=en-us'
+BING_NEWS_URL = ('https://{host}/news/search?q={query}'
+                 '&qft=sortbydate%3d%221%22&format=rss')
+
+
+def looks_like_rss(text):
+    """轻量判定响应是不是 RSS：真订阅源一定是 XML 开头，被重定向时给的是 HTML 首页"""
+    head = (text or '').lstrip()[:200].lower()
+    return head.startswith('<?xml') or head.startswith('<rss')
+
+
+def fetch_bing_news(query, timeout=8, user_agent=None, use_cache=True, ttl_hours=12):
+    """按 BING_NEWS_HOSTS 顺序取 Bing News RSS，返回 {ok, text, host, cached, error}
+
+    ok 为 True 表示「拿到了 RSS 文本」而不只是「HTTP 200」——被重定向到网页 HTML 时
+    记成错误，避免把「源已失效」静默当成「无相关新闻」。任何异常都被吸收，不抛出。
+    """
+    last_error = '未发起请求'
+    for host in BING_NEWS_HOSTS:
+        url = BING_NEWS_URL.format(host=host, query=urllib.parse.quote(query or ''))
+        result = fetch(url, timeout=timeout, user_agent=user_agent, use_cache=use_cache,
+                       ttl_hours=ttl_hours, headers={'Cookie': BING_NEWS_COOKIE})
+        if not result.get('ok'):
+            last_error = result.get('error') or '请求失败'
+            continue
+        if not looks_like_rss(result.get('text')):
+            last_error = '{} 返回非 RSS 内容（被重定向到网页）'.format(host)
+            continue
+        return {'ok': True, 'text': result.get('text') or '', 'host': host,
+                'cached': result.get('cached'), 'error': None}
+    return {'ok': False, 'text': '', 'host': '', 'cached': False, 'error': last_error}
 
 
 def probe_network(url, timeout=3):
