@@ -4,21 +4,21 @@ window.XC_DISCOVER = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-20 01:01:59",
+    "generated_at_cst": "2026-10-20 02:05:43",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 614.8,
+    "duration_sec": 614.0,
     "counts": {
       "candidates": 32,
       "targets": 15,
       "targets_ok": 15,
       "known_games": 20,
-      "dropped_target": 97,
+      "dropped_target": 100,
       "dropped_theme": 11,
-      "dropped_total": 108
+      "dropped_total": 111
     },
     "scoring_note": "权重取规格表「回退逻辑说明」的评分权重（30/20/15/15/10/10）；规格表「MVP字段表」F13 的 5×20% 旧公式已废弃"
   },
@@ -339,10 +339,10 @@ window.XC_DISCOVER = {
       "label": "合成休闲出海新品",
       "kind": "category",
       "category": "合成休闲",
-      "query": "合成休闲 手游 出海",
+      "query": "合成游戏 出海 新品",
       "ok": true,
-      "hits": 10,
-      "dropped_target": 7,
+      "hits": 12,
+      "dropped_target": 10,
       "dropped_theme": 0,
       "new": 2,
       "error": null
@@ -750,17 +750,17 @@ window.XC_DISCOVER = {
       "hit_theme": "SLG"
     },
     {
-      "title": "休闲游戏出海：AI本地化与全生命周期投放实战指南",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad64d1549994125843f488b9eca947f&url=https%3a%2f%2fblog.csdn.net%2fweixin_32075843%2farticle%2fdetails%2f166039027&c=11454788243082036947&mkt=en-us",
-      "published": "2026-09-19 13:58",
-      "pub_raw": "Sat, 19 Sep 2026 05:58:00 GMT",
-      "summary": "本内容遵循CC 4.0 BY-SA版权协议 休闲游戏出海这件事，早几年还能靠“换皮+买量”的粗放打法吃到红利，现在这套逻辑基本走不通了。我身边不少做超休闲、混合休闲的团队，2023年之后普遍遇到 ...",
+      "title": "伽马 8 月报告：自研出海同比增 20.87%，合成与策略双线兑现",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad65c02cfb24180b125949c9ad4684e&url=https%3a%2f%2fm.163.com%2fnews%2farticle%2fL74DE1NQ051489O2.html&c=223002653353826662&mkt=en-us",
+      "published": "2026-09-18 17:10",
+      "pub_raw": "Fri, 18 Sep 2026 09:10:00 GMT",
+      "summary": "作为中国音像与数字出版协会主管的中国游戏产业研究专家委员会的战略合作伙伴，伽马数据发布了《2026年8月中国游戏产业月度报告》。 数据显示， 2026年8月，中国国内游戏市场实际销售收入 ...",
       "target": "合成休闲出海新品",
       "kind": "category",
       "category": "合成休闲",
-      "query": "合成休闲 手游 出海",
-      "hit_target": "休闲",
-      "hit_theme": "游戏"
+      "query": "合成游戏 出海 新品",
+      "hit_target": "合成",
+      "hit_theme": "出海"
     },
     {
       "title": "北京帮SLG老大，正式开战柠檬微趣",
@@ -789,15 +789,15 @@ window.XC_DISCOVER = {
       "hit_theme": "游戏"
     },
     {
-      "title": "休闲游戏出海：AI驱动的全生命周期本地化投放",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad64d1549994125843f488b9eca947f&url=https%3a%2f%2fblog.csdn.net%2fweixin_26899879%2farticle%2fdetails%2f165578303&c=6301608032082121161&mkt=en-us",
-      "published": "2026-09-15 13:28",
-      "pub_raw": "Tue, 15 Sep 2026 05:28:00 GMT",
-      "summary": "本内容遵循CC 4.0 BY-SA版权协议 最近三个月，我帮三家中小游戏工作室做了海外投放复盘，发现一个扎心的事实：同一款消除类小游戏，在东南亚日均买量成本从$0.18涨到$0.32，用户次日留存却掉 ...",
+      "title": "休闲游戏出海：全生命周期AI本地化投放实战指南",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad65c02cfb24180b125949c9ad4684e&url=https%3a%2f%2fblog.csdn.net%2fweixin_29053067%2farticle%2fdetails%2f165222814&c=13452948274151016011&mkt=en-us",
+      "published": "2026-09-12 17:46",
+      "pub_raw": "Sat, 12 Sep 2026 09:46:00 GMT",
+      "summary": "原创 最新推荐文章于 2026-09-12 16:46:07 发布 · 192 阅读 “休闲游戏出海”这六个字，听上去轻松——消消乐、合成类、放置挂机，美术成本低、开发周期短、上线快。但过去三年我带团队操盘过17 ...",
       "target": "合成休闲出海新品",
       "kind": "category",
       "category": "合成休闲",
-      "query": "合成休闲 手游 出海",
+      "query": "合成游戏 出海 新品",
       "hit_target": "休闲",
       "hit_theme": "游戏"
     }
