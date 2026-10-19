@@ -232,6 +232,7 @@
         '<td>' + XC.prioTag(game.priority) + '<div class="cell-sub">#' + XC.fmtInt(game.seq) + '</div></td>' +
         '<td><div class="cell-title">' + esc(game.status || '—') + '</div>' +
           '<div class="cell-sub">' + esc(game.launch_date_raw || '') + '</div></td>' +
+        '<td><div class="cell-title">' + esc(game.cn_status || '—') + '</div></td>' +
         '<td>' + launchCell(game) + '</td>' +
         '<td>' + componentCell(componentOf(game, 'trends_rise')) + '</td>' +
         '<td>' + componentCell(componentOf(game, 'reddit')) + '</td>' +
