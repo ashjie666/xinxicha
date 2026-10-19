@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>xinxicha · 新游候选发现层</title>
+<meta name="description" content="新游候选发现层：复用 Bing News RSS，按已知厂商名与品类词检索，候选只提示、不入库、不参与评分，人工确认后才加入监控清单。">
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem('xinxicha:theme');
+    document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+  } catch (error) { /* 隐私模式下保持默认 */ }
+})();
+</script>
+<link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="9"></circle>
+          <path d="M3 12h18M12 3c2.6 3 2.6 15 0 18M12 3c-2.6 3-2.6 15 0 18"></path>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>xinxicha</h1>
+        <p>中国游戏厂商海外信息差监控 · 每日巡检 · 含 P1→P2→P3 回退逻辑</p>
+      </div>
+    </div>
+
+    <div class="topbar-actions">
+      <span class="chip chip-quiet" id="updated-at">正在载入数据…</span>
+      <span class="chip chip-quiet" id="mode-chip" hidden></span>
+      <span class="chip chip-alert" id="alert-chip" hidden></span>
+      <nav class="site-nav" aria-label="同服务器的其他站点">
+        <a href="http://101.132.195.92/gameseek/">新游雷达</a>
+        <span class="sep">·</span>
+        <a href="http://101.132.195.92/gameqker/">出海军情表</a>
+        <span class="sep">·</span>
+        <a href="http://101.132.195.92/appseeker/">AppSeeker</a>
+        <span class="sep">·</span>
+        <a href="http://101.132.195.92/wordseeker/">WordSeeker</a>
+        <span class="sep">·</span>
+        <a href="http://101.132.195.92/">站点导航</a>
+      </nav>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="切换配色">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"></path>
+          <circle cx="12" cy="12" r="4"></circle>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main class="shell">
+
+  <div class="mode-banner" id="mode-banner" hidden></div>
+
+  <nav class="panel page-tabs" aria-label="站内页签">
+    <a href="index.html">总览</a>
+    <a href="detail.html">游戏详情</a>
+    <a href="keywords.html">关键词矩阵</a>
+    <a href="discover.html" aria-current="page">新游候选</a>
+    <a href="ops.html">运维与回退逻辑</a>
+  </nav>
+
+  <section class="panel" aria-label="关键指标">
+    <div class="panel-head">
+      <h2 class="panel-title">关键指标</h2>
+      <span class="panel-note" id="kpi-note"></span>
+    </div>
+    <div class="kpi-grid" id="kpi-grid"></div>
+  </section>
+
+  <section class="panel table-panel" aria-label="候选清单">
+    <div class="panel-head">
+      <h2 class="panel-title">新游候选清单</h2>
+      <span class="panel-note" id="cand-note">候选只提示、不入库、不参与评分；人工确认后才写进 <code>data/seed_games.json</code></span>
+    </div>
+    <div class="table-scroll">
+      <table class="cmp-table table-compact">
+        <thead>
+          <tr class="col-row">
+            <th class="col-first">时间</th>
+            <th>标题</th>
+            <th>关联</th>
+            <th>来源查询</th>
+          </tr>
+        </thead>
+        <tbody id="cand-body"></tbody>
+      </table>
+    </div>
+    <div class="empty-state" id="cand-empty" hidden>本次巡检没有发现新候选（已知的 20 款已自动过滤）</div>
+  </section>
+
+  <section class="panel table-panel" aria-label="扫描目标与命中">
+    <div class="panel-head">
+      <h2 class="panel-title">扫描目标与命中</h2>
+      <span class="panel-note">厂商名 + 品类词共 15 个检索目标，逐个走 Bing News RSS；「新增」= 已在监控清单过滤后的去重候选数</span>
+    </div>
+    <div class="table-scroll">
+      <table class="cmp-table table-compact">
+        <thead>
+          <tr class="col-row">
+            <th class="col-first">目标</th>
+            <th>类型</th>
+            <th>品类</th>
+            <th>查询词</th>
+            <th>命中</th>
+            <th>新增</th>
+            <th>状态</th>
+          </tr>
+        </thead>
+        <tbody id="target-body"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel" aria-label="已在监控">
+    <div class="panel-head">
+      <h2 class="panel-title">已在监控的游戏（已自动过滤）</h2>
+      <span class="panel-note">候选标题里出现以下任一款名称的条目已被丢弃，避免把已知游戏当成新机会</span>
+    </div>
+    <div class="chips" id="known-chips"></div>
+  </section>
+
+  <footer class="site-footer">
+    <p>
+      「新游候选发现层」由 <code>collector/discover.py</code> 每日巡检时顺带抓取：复用 Bing News RSS（免凭据、stdlib 可解析），
+      按 15 个「厂商名 + 品类词」检索，过滤掉已在监控的 20 款后按发布时间倒序取前若干条。
+      候选只作提示用途，<strong>不入库、不参与评分</strong>——确认有价值后由人工加入 <code>data/seed_games.json</code> 才进入正式监控与评分。
+    </p>
+    <p class="footer-meta" id="footer-meta"></p>
+  </footer>
+
+</main>
+
+<script src="data/discover.js"></script>
+<script src="core.js?v=3"></script>
+<script src="discover.js?v=1"></script>
+</body>
+</html>

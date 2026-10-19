@@ -13,6 +13,7 @@ GLOBALS = {
     'keywords': 'XC_KEYWORDS',
     'ops': 'XC_OPS',
     'log': 'XC_LOG',
+    'discover': 'XC_DISCOVER',
 }
 
 

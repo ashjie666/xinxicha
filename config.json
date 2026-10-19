@@ -54,6 +54,31 @@
       "p1_all_dead_alert": "今日海外信号不足，建议人工复核"
     }
   },
+  "discovery": {
+    "enabled": true,
+    "note": "新游候选发现层：复用 Bing News RSS（免凭据、stdlib 可解析），按已知厂商名与品类词检索。候选只提示、不入库、不参与评分；人工确认后才加入 data/seed_games.json。",
+    "max_candidates": 40,
+    "per_query_max": 8,
+    "request_interval_sec": 1,
+    "budget_seconds": 180,
+    "targets": [
+      { "label": "米哈游", "kind": "publisher", "category": "二次元开放世界", "query": "米哈游 新游 二次元" },
+      { "label": "网易", "kind": "publisher", "category": "开放世界 / MMO", "query": "网易 新游 开放世界" },
+      { "label": "腾讯", "kind": "publisher", "category": "综合 / 天美 / 魔方 / Level Infinite", "query": "腾讯 新游 出海" },
+      { "label": "莉莉丝", "kind": "publisher", "category": "休闲 / 塔防 / SLG", "query": "莉莉丝 新游" },
+      { "label": "库洛游戏", "kind": "publisher", "category": "二次元动作", "query": "库洛游戏 新游 二次元" },
+      { "label": "鹰角网络", "kind": "publisher", "category": "塔防 / 二次元", "query": "鹰角网络 新游" },
+      { "label": "三七互娱", "kind": "publisher", "category": "SLG", "query": "三七互娱 新游 SLG" },
+      { "label": "柠檬微趣", "kind": "publisher", "category": "合成休闲", "query": "柠檬微趣 新游 合成" },
+      { "label": "点点互动", "kind": "publisher", "category": "合成休闲", "query": "点点互动 新游" },
+      { "label": "灵游坊", "kind": "publisher", "category": "动作 / 单机", "query": "灵游坊 新游" },
+      { "label": "二次元开放世界新游", "kind": "category", "category": "二次元开放世界", "query": "二次元开放世界 新游" },
+      { "label": "合成休闲出海新品", "kind": "category", "category": "合成休闲", "query": "合成休闲 手游 出海" },
+      { "label": "搜打撤生存新游", "kind": "category", "category": "搜打撤生存", "query": "搜打撤 生存 新游" },
+      { "label": "休闲塔防新游", "kind": "category", "category": "休闲塔防", "query": "休闲塔防 新游" },
+      { "label": "SLG出海新作", "kind": "category", "category": "SLG", "query": "SLG 手游 出海 新作" }
+    ]
+  },
   "sources": [
     {
       "key": "trends",

@@ -6,6 +6,7 @@
   --offline          强制离线（不发任何网络请求，全走 P1→P2→P3 回退）
   --no-cache         忽略本地 HTTP 缓存
   --budget-seconds N 网络采集中途的硬预算（默认取 config.collection.budget_seconds）
+  --skip-discover    跳过「新游候选发现层」（不发发现层检索请求）
 
 任何数据源失败都不会让进程失败：离线也应退出码 0 并写出 stale / fallback 状态。
 """
@@ -16,6 +17,7 @@ import sys
 import time
 import traceback
 
+from . import discover
 from . import emit
 from . import http
 from . import scoring
@@ -59,6 +61,7 @@ def main(argv):
     parser.add_argument('--offline', action='store_true')
     parser.add_argument('--no-cache', action='store_true')
     parser.add_argument('--budget-seconds', type=int, default=0)
+    parser.add_argument('--skip-discover', action='store_true')
     args = parser.parse_args(argv)
 
     started = time.time()
@@ -136,6 +139,14 @@ def main(argv):
     log_payload = emit.build_log(config, existing_log, run_info, log_rows, totals)
     ops_payload = emit.build_ops(config, seed_ops, seed_games, health_rows, log_payload, run_info, scoring)
 
+    discover_payload = None
+    if args.skip_discover or not config.get('discovery', {}).get('enabled', True):
+        print('新游候选 : 已跳过（--skip-discover 或 config.discovery.enabled=false）')
+    else:
+        discover_payload = discover.build(config, seed_games, run_info,
+                                          p2_network=collector.p2_network,
+                                          offline=args.offline)
+
     if args.dry_run:
         print('--dry-run：跑通流程但不写文件。')
     else:
@@ -143,6 +154,8 @@ def main(argv):
         emit.write_pair('keywords', keywords_payload)
         emit.write_pair('ops', ops_payload)
         emit.write_pair('log', log_payload)
+        if discover_payload is not None:
+            emit.write_pair('discover', discover_payload)
         state_mod.save(state)
 
     ranked = sorted(scored.items(), key=lambda item: item[1]['total'], reverse=True)
@@ -162,10 +175,19 @@ def main(argv):
     for game_id, result in ranked[:5]:
         name = [g['name_cn'] for g in seed_games['games'] if g['id'] == game_id][0]
         print('  {:<22}{:>6}  {}  {}'.format(name, result['total'], result['action_engine'], result['confidence']))
+    if discover_payload is not None:
+        counts = discover_payload['meta']['counts']
+        busiest = sorted(discover_payload['targets'], key=lambda row: row['new'], reverse=True)[:3]
+        print('新游候选 : {} 条（目标 OK {}/{}，已监控 {} 款已过滤）'.format(
+            counts['candidates'], counts['targets_ok'], counts['targets'], counts['known_games']))
+        if busiest and busiest[0]['new']:
+            print('  命中最多: {}'.format('、'.join(
+                '{}={}'.format(row['label'], row['new']) for row in busiest if row['new'])))
     if args.dry_run:
         print('（未写入 web/data）')
     else:
-        print('已写入   : web/data/games|keywords|ops|log (.json + .js)')
+        written = 'games|keywords|ops|log' + ('|discover' if discover_payload is not None else '')
+        print('已写入   : web/data/{} (.json + .js)'.format(written))
     return 0
 
 

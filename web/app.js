@@ -324,6 +324,22 @@
     XC.$('health-body').innerHTML = XC.healthRowsHtml(OPS.health);
   }
 
+  /* ---------- 新游候选入口（发现层缺失时静默，不影响总览） ---------- */
+
+  async function loadDiscover() {
+    try {
+      const data = await XC.loadData('discover', 'XC_DISCOVER');
+      const chip = XC.$('cand-chip');
+      if (!chip) return;
+      const counts = (data.meta && data.meta.counts) || {};
+      const count = XC.isNum(counts.candidates) ? counts.candidates : (data.candidates || []).length;
+      chip.textContent = '新游候选 ' + XC.fmtInt(count);
+      chip.hidden = false;
+    } catch (error) {
+      /* 发现层数据缺失不阻断总览 */
+    }
+  }
+
   /* ---------- 启动 ---------- */
 
   async function boot() {
@@ -348,6 +364,7 @@
     setupControls();
     renderTable();
     renderHealth();
+    loadDiscover();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);

@@ -1,0 +1,279 @@
+{
+  "meta": {
+    "site": "xinxicha",
+    "title": "中国游戏厂商海外信息差监控",
+    "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
+    "schema_version": 1,
+    "generated_at_cst": "2026-10-19 23:58:22",
+    "data_mode": "live",
+    "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
+    "network": false,
+    "probe_detail": "本地 CLI 单独运行",
+    "alert": null,
+    "duration_sec": 0.0,
+    "counts": {
+      "candidates": 0,
+      "targets": 15,
+      "targets_ok": 0,
+      "known_games": 20
+    },
+    "scoring_note": "权重取规格表「回退逻辑说明」的评分权重（30/20/15/15/10/10）；规格表「MVP字段表」F13 的 5×20% 旧公式已废弃"
+  },
+  "note": "新游候选发现层：复用 Bing News RSS（免凭据、stdlib 可解析），按已知厂商名与品类词检索。候选只提示、不入库、不参与评分；人工确认后才加入 data/seed_games.json。",
+  "truncated": false,
+  "known_games": [
+    {
+      "id": "monster-hunter-outlanders",
+      "name_cn": "怪物猎人：旅人",
+      "name_en": "Monster Hunter Outlanders"
+    },
+    {
+      "id": "phantom-blade-zero",
+      "name_cn": "影之刃零",
+      "name_en": "Phantom Blade Zero"
+    },
+    {
+      "id": "roco-kingdom-world",
+      "name_cn": "洛克王国：世界",
+      "name_en": "Roco Kingdom World"
+    },
+    {
+      "id": "star-valley",
+      "name_cn": "星布谷地",
+      "name_en": "Star Valley"
+    },
+    {
+      "id": "project-origin",
+      "name_cn": "源初之结",
+      "name_en": "Project Origin"
+    },
+    {
+      "id": "project-mugen-neverness",
+      "name_cn": "无限大",
+      "name_en": "Project Mugen / Neverness"
+    },
+    {
+      "id": "naruto-mobile-global",
+      "name_cn": "火影忍者手游",
+      "name_en": "Naruto Mobile Global"
+    },
+    {
+      "id": "the-outcast",
+      "name_cn": "异人之下",
+      "name_en": "The Outcast"
+    },
+    {
+      "id": "where-winds-meet",
+      "name_cn": "燕云十六声",
+      "name_en": "Where Winds Meet"
+    },
+    {
+      "id": "last-asylum-plague",
+      "name_cn": "Last Asylum: Plague",
+      "name_en": "Last Asylum: Plague"
+    },
+    {
+      "id": "clash-of-critters",
+      "name_cn": "Clash of Critters",
+      "name_en": "Clash of Critters"
+    },
+    {
+      "id": "flamb-merge-cook",
+      "name_cn": "Flambé: Merge & Cook",
+      "name_en": "Flambé: Merge & Cook"
+    },
+    {
+      "id": "tasty-travels-merge-game",
+      "name_cn": "Tasty Travels",
+      "name_en": "Tasty Travels: Merge Game"
+    },
+    {
+      "id": "genshin-impact",
+      "name_cn": "原神",
+      "name_en": "Genshin Impact"
+    },
+    {
+      "id": "honkai-star-rail",
+      "name_cn": "崩坏：星穹铁道",
+      "name_en": "Honkai: Star Rail"
+    },
+    {
+      "id": "wuthering-waves",
+      "name_cn": "鸣潮",
+      "name_en": "Wuthering Waves"
+    },
+    {
+      "id": "honor-of-kings",
+      "name_cn": "王者荣耀国际服",
+      "name_en": "Honor of Kings"
+    },
+    {
+      "id": "arknights",
+      "name_cn": "明日方舟",
+      "name_en": "Arknights"
+    },
+    {
+      "id": "afk-journey",
+      "name_cn": "剑与远征：启程",
+      "name_en": "AFK Journey"
+    },
+    {
+      "id": "rise-of-kingdoms",
+      "name_cn": "万国觉醒",
+      "name_en": "Rise of Kingdoms"
+    }
+  ],
+  "targets": [
+    {
+      "label": "米哈游",
+      "kind": "publisher",
+      "category": "二次元开放世界",
+      "query": "米哈游 新游 二次元",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "网易",
+      "kind": "publisher",
+      "category": "开放世界 / MMO",
+      "query": "网易 新游 开放世界",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "腾讯",
+      "kind": "publisher",
+      "category": "综合 / 天美 / 魔方 / Level Infinite",
+      "query": "腾讯 新游 出海",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "莉莉丝",
+      "kind": "publisher",
+      "category": "休闲 / 塔防 / SLG",
+      "query": "莉莉丝 新游",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "库洛游戏",
+      "kind": "publisher",
+      "category": "二次元动作",
+      "query": "库洛游戏 新游 二次元",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "鹰角网络",
+      "kind": "publisher",
+      "category": "塔防 / 二次元",
+      "query": "鹰角网络 新游",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "三七互娱",
+      "kind": "publisher",
+      "category": "SLG",
+      "query": "三七互娱 新游 SLG",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "柠檬微趣",
+      "kind": "publisher",
+      "category": "合成休闲",
+      "query": "柠檬微趣 新游 合成",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "点点互动",
+      "kind": "publisher",
+      "category": "合成休闲",
+      "query": "点点互动 新游",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "灵游坊",
+      "kind": "publisher",
+      "category": "动作 / 单机",
+      "query": "灵游坊 新游",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "二次元开放世界新游",
+      "kind": "category",
+      "category": "二次元开放世界",
+      "query": "二次元开放世界 新游",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "合成休闲出海新品",
+      "kind": "category",
+      "category": "合成休闲",
+      "query": "合成休闲 手游 出海",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "搜打撤生存新游",
+      "kind": "category",
+      "category": "搜打撤生存",
+      "query": "搜打撤 生存 新游",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "休闲塔防新游",
+      "kind": "category",
+      "category": "休闲塔防",
+      "query": "休闲塔防 新游",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    },
+    {
+      "label": "SLG出海新作",
+      "kind": "category",
+      "category": "SLG",
+      "query": "SLG 手游 出海 新作",
+      "ok": false,
+      "hits": 0,
+      "new": 0,
+      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+    }
+  ],
+  "candidates": []
+}
