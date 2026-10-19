@@ -59,7 +59,12 @@ jobs:
       - name: Restore collector cache
         uses: actions/cache@v4
         with:
-          path: data
+          # 只缓存运行时状态与 HTTP 缓存，不含 data/seed_*.json —— 人工基线必须随
+          # 仓库提交走。若整体缓存 data/，恢复时会用上一轮缓存里的旧 seed 覆盖本轮
+          # checkout 出的新 seed（2026-10-20 实测：第 21 款 HUNGER 因此未上线）。
+          path: |
+            data/source_state.json
+            data/cache
           key: xinxicha-data-${{ github.run_id }}
           restore-keys: |
             xinxicha-data-
