@@ -7,6 +7,10 @@
 网络侧见 FEED_HOSTS：www.bing.com 对中国大陆 IP 会跳转到 cn.bing.com（该站不提供
 News RSS），故按顺序回退到 global.bing.com 并带上锁定美国市场的 Cookie。
 
+相关性过滤见 config.discovery.relevance：中文检索词的 Bing News 结果会混进大量无关
+内容（景区上新、文化旅游节之类），故要求标题同时命中「目标词」（target.match）与
+「游戏类词」（relevance.game_terms）才留下；两者各自的丢弃数记在目标行上。
+
 CLI 便于本地单独验证（不写盘用 --dry-run）：
     python -m collector.discover [--limit N] [--offline] [--dry-run]
 """
@@ -35,6 +39,7 @@ URL_TEMPLATE = ('https://{host}/news/search?q={query}'
 TAG_RE = re.compile(r'<[^>]+>')
 WS_RE = re.compile(r'\s+')
 NORM_RE = re.compile(r'[\s\W_]+', re.UNICODE)
+ASCII_TERM_RE = re.compile(r'[a-z0-9][a-z0-9 .\-]*')
 CST = timezone(timedelta(hours=8))
 
 
@@ -144,9 +149,51 @@ def is_known(title, names):
     return False
 
 
+def term_hits(title_low, term):
+    """单个词是否命中标题。
+
+    纯英文（数字）词按词边界匹配，否则 mmo 会命中 commonplace；含中文的词直接做
+    子串匹配——中文没有词边界，且关键词本身就是完整词组。
+    """
+    term = (term or '').strip().lower()
+    if not term:
+        return False
+    if ASCII_TERM_RE.fullmatch(term):
+        pattern = r'(?<![a-z0-9])' + re.escape(term) + r'(?![a-z0-9])'
+        return re.search(pattern, title_low) is not None
+    return term in title_low
+
+
+def target_terms(target):
+    """target 的目标词：优先取 config 的 match；缺失时按厂商名 / 品类分词兜底"""
+    terms = [term for term in (target.get('match') or []) if term]
+    if terms:
+        return terms
+    if target.get('kind') == 'publisher':
+        return [target.get('label') or '']
+    return [part for part in re.split(r'[\s/、]+', target.get('category') or '') if part]
+
+
+def relevance(title, terms, game_terms):
+    """返回 (命中的目标词, 命中的游戏类词)；任一为空即判定为无关
+
+    游戏类词里排除掉本 target 自己的 match 词：品类目标的 match 本身就是领域词
+    （休闲 / 塔防 / SLG），不去掉的话「休闲」一个词就同时凑满两个命中，过滤失效。
+    """
+    low = (title or '').lower()
+    own = set((term or '').strip().lower() for term in terms)
+    hit_target = next((term for term in terms if term_hits(low, term)), '')
+    hit_theme = next((term for term in game_terms
+                      if (term or '').strip().lower() not in own and term_hits(low, term)), '')
+    return hit_target, hit_theme
+
+
 def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0):
-    """逐 target 检索 → 过滤已知游戏 → 去重 → 按时间倒序截断，返回 discover payload"""
+    """逐 target 检索 → 过滤已知游戏 → 相关性过滤 → 去重 → 按时间倒序截断，返回 discover payload"""
     cfg = config.get('discovery') or {}
+    relevance_cfg = cfg.get('relevance') or {}
+    game_terms = [term for term in (relevance_cfg.get('game_terms') or []) if term]
+    relevance_on = bool(relevance_cfg.get('enabled', True)) and bool(game_terms)
     targets = list(cfg.get('targets') or [])
     if limit and limit > 0:
         targets = targets[:limit]
@@ -173,6 +220,8 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
             'query': target.get('query') or '',
             'ok': False,
             'hits': 0,
+            'dropped_target': 0,
+            'dropped_theme': 0,
             'new': 0,
             'error': None,
         }
@@ -193,10 +242,20 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
         row['ok'] = True
         row['hits'] = len(items)
 
+        terms = target_terms(target)
         fresh = []
         for item in items:
             if not item['title'] or is_known(item['title'], names):
                 continue
+            hit_target = hit_theme = ''
+            if relevance_on:
+                hit_target, hit_theme = relevance(item['title'], terms, game_terms)
+                if not hit_target:
+                    row['dropped_target'] += 1
+                    continue
+                if not hit_theme:
+                    row['dropped_theme'] += 1
+                    continue
             # 不能去掉 query 再当去重键：Bing News RSS 把所有链接都包成同一条
             # apiclick.aspx?…&tid=xxx 跳转地址，只有 query 部分能区分文章。
             key_url = (item['url'] or '').strip()
@@ -211,6 +270,8 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
                 'kind': row['kind'],
                 'category': row['category'],
                 'query': row['query'],
+                'hit_target': hit_target,
+                'hit_theme': hit_theme,
             })
             fresh.append(record)
 
@@ -234,10 +295,18 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
         'targets': len(target_rows),
         'targets_ok': len([row for row in target_rows if row['ok']]),
         'known_games': len(seed_games.get('games', [])),
+        'dropped_target': sum(row['dropped_target'] for row in target_rows),
+        'dropped_theme': sum(row['dropped_theme'] for row in target_rows),
     }
+    counts['dropped_total'] = counts['dropped_target'] + counts['dropped_theme']
     return {
         'meta': emit.build_meta(config, run_info, counts),
         'note': cfg.get('note') or '',
+        'relevance': {
+            'enabled': relevance_on,
+            'note': relevance_cfg.get('note') or '',
+            'game_terms': game_terms,
+        },
         'truncated': truncated,
         'known_games': [{
             'id': game['id'],
@@ -273,17 +342,22 @@ def main(argv):
     payload = build(config, seed_games, run_info,
                     p2_network=not args.offline, offline=args.offline, limit=args.limit)
 
-    print('{:<28}{:<10}{:>6}{:>6}  {}'.format('检索目标', '类型', '命中', '新增', '状态'))
+    print('{:<28}{:<10}{:>6}{:>8}{:>6}  {}'.format(
+        '检索目标', '类型', '命中', '已过滤', '新增', '状态'))
     for row in payload['targets']:
-        print('{:<28}{:<10}{:>6}{:>6}  {}'.format(
+        print('{:<28}{:<10}{:>6}{:>8}{:>6}  {}'.format(
             row['label'], '厂商' if row['kind'] == 'publisher' else '品类',
-            row['hits'], row['new'], 'OK' if row['ok'] else (row['error'] or '失败')))
+            row['hits'], row['dropped_target'] + row['dropped_theme'], row['new'],
+            'OK' if row['ok'] else (row['error'] or '失败')))
     counts = payload['meta']['counts']
-    print('\n候选合计 {} 条（截断:{}）· 目标 OK {}/{} · 已监控 {} 款已过滤'.format(
+    print('\n候选合计 {} 条（截断:{}）· 目标 OK {}/{} · 已监控 {} 款已过滤 · 相关性剔除 {} 条（未命中目标词 {} / 未命中游戏类词 {}）'.format(
         counts['candidates'], '是' if payload['truncated'] else '否',
-        counts['targets_ok'], counts['targets'], counts['known_games']))
+        counts['targets_ok'], counts['targets'], counts['known_games'],
+        counts['dropped_total'], counts['dropped_target'], counts['dropped_theme']))
     for record in payload['candidates'][:10]:
-        print('  [{}] {} ← {}'.format(record['published'] or '时间未知', record['title'], record['target']))
+        print('  [{}] {} ← {}（命中 {} + {}）'.format(
+            record['published'] or '时间未知', record['title'], record['target'],
+            record.get('hit_target') or '—', record.get('hit_theme') or '—'))
 
     if args.dry_run:
         print('（--dry-run，未写入 web/data）')

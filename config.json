@@ -61,22 +61,37 @@
     "per_query_max": 8,
     "request_interval_sec": 1,
     "budget_seconds": 180,
+    "relevance": {
+      "enabled": true,
+      "note": "候选相关性过滤：标题必须同时命中「目标词」（每个 target 的 match，厂商名及常用英文名 / 品类分词）与「游戏类词」（game_terms 任一词），任一未命中即丢弃，避免「景区上新」「文化旅游节」这类无关结果混进候选。三条判定说明：① 纯英文词按词边界匹配（防止 mmo 命中 commonplace），含中文的词按子串匹配；② 某词若已在本 target 的 match 里，判定游戏类词时会被排除——否则品类目标的「休闲 / 塔防」自己就能凑满两个命中，等于没过滤；③ 品类词（二次元 / 塔防 / SLG 等）仍留在词表里，是为了让厂商目标的标题（如「点点互动…休闲 SLG 双支柱」）能被认出来。",
+      "game_terms": [
+        "新游", "新作", "新游戏", "游戏", "手游", "网游", "端游", "页游", "单机",
+        "公测", "内测", "首测", "版号", "开服", "玩法", "实机", "首曝", "预告",
+        "联动", "赛季", "抽卡", "角色扮演", "副本", "联机", "电竞", "卡牌",
+        "模拟经营", "乙女", "肉鸽", "独立游戏", "主机", "掌机", "出海",
+        "工作室", "制作人", "策划", "玩家", "皮肤", "战令", "试玩", "发布会",
+        "参展", "攻略", "流水", "买量", "小游戏", "三消",
+        "二次元", "开放世界", "塔防", "合成", "生存", "休闲", "策略", "SLG",
+        "game", "games", "gaming", "gameplay", "gacha", "rpg", "arpg", "mmo",
+        "moba", "fps", "roguelike", "steam", "beta", "pre-registration", "demo"
+      ]
+    },
     "targets": [
-      { "label": "米哈游", "kind": "publisher", "category": "二次元开放世界", "query": "米哈游 新游 二次元" },
-      { "label": "网易", "kind": "publisher", "category": "开放世界 / MMO", "query": "网易 新游 开放世界" },
-      { "label": "腾讯", "kind": "publisher", "category": "综合 / 天美 / 魔方 / Level Infinite", "query": "腾讯 新游 出海" },
-      { "label": "莉莉丝", "kind": "publisher", "category": "休闲 / 塔防 / SLG", "query": "莉莉丝 新游" },
-      { "label": "库洛游戏", "kind": "publisher", "category": "二次元动作", "query": "库洛游戏 新游 二次元" },
-      { "label": "鹰角网络", "kind": "publisher", "category": "塔防 / 二次元", "query": "鹰角网络 新游" },
-      { "label": "三七互娱", "kind": "publisher", "category": "SLG", "query": "三七互娱 新游 SLG" },
-      { "label": "柠檬微趣", "kind": "publisher", "category": "合成休闲", "query": "柠檬微趣 新游 合成" },
-      { "label": "点点互动", "kind": "publisher", "category": "合成休闲", "query": "点点互动 新游" },
-      { "label": "灵游坊", "kind": "publisher", "category": "动作 / 单机", "query": "灵游坊 新游" },
-      { "label": "二次元开放世界新游", "kind": "category", "category": "二次元开放世界", "query": "二次元开放世界 新游" },
-      { "label": "合成休闲出海新品", "kind": "category", "category": "合成休闲", "query": "合成休闲 手游 出海" },
-      { "label": "搜打撤生存新游", "kind": "category", "category": "搜打撤生存", "query": "搜打撤 生存 新游" },
-      { "label": "休闲塔防新游", "kind": "category", "category": "休闲塔防", "query": "休闲塔防 新游" },
-      { "label": "SLG出海新作", "kind": "category", "category": "SLG", "query": "SLG 手游 出海 新作" }
+      { "label": "米哈游", "kind": "publisher", "category": "二次元开放世界", "query": "米哈游 新游 二次元", "match": ["米哈游", "miHoYo", "HoYoverse"] },
+      { "label": "网易", "kind": "publisher", "category": "开放世界 / MMO", "query": "网易 新游 开放世界", "match": ["网易", "NetEase"] },
+      { "label": "腾讯", "kind": "publisher", "category": "综合 / 天美 / 魔方 / Level Infinite", "query": "腾讯 新游 出海", "match": ["腾讯", "Tencent", "天美", "TiMi", "魔方工作室", "Level Infinite"] },
+      { "label": "莉莉丝", "kind": "publisher", "category": "休闲 / 塔防 / SLG", "query": "莉莉丝 新游", "match": ["莉莉丝", "Lilith", "Farlight"] },
+      { "label": "库洛游戏", "kind": "publisher", "category": "二次元动作", "query": "库洛游戏 新游 二次元", "match": ["库洛", "Kuro Games", "Kuro"] },
+      { "label": "鹰角网络", "kind": "publisher", "category": "塔防 / 二次元", "query": "鹰角网络 新游", "match": ["鹰角", "Hypergryph", "明日方舟", "Arknights"] },
+      { "label": "三七互娱", "kind": "publisher", "category": "SLG", "query": "三七互娱 新游 SLG", "match": ["三七互娱", "三七", "37 Interactive", "37Games"] },
+      { "label": "柠檬微趣", "kind": "publisher", "category": "合成休闲", "query": "柠檬微趣 新游 合成", "match": ["柠檬微趣", "Microfun"] },
+      { "label": "点点互动", "kind": "publisher", "category": "合成休闲", "query": "点点互动 新游", "match": ["点点互动", "Diandian", "Century Games"] },
+      { "label": "灵游坊", "kind": "publisher", "category": "动作 / 单机", "query": "灵游坊 新游", "match": ["灵游坊", "S-Game", "影之刃"] },
+      { "label": "二次元开放世界新游", "kind": "category", "category": "二次元开放世界", "query": "二次元开放世界 新游", "match": ["二次元", "开放世界", "anime", "open world"] },
+      { "label": "合成休闲出海新品", "kind": "category", "category": "合成休闲", "query": "合成休闲 手游 出海", "match": ["合成", "休闲", "merge", "casual"] },
+      { "label": "搜打撤生存新游", "kind": "category", "category": "搜打撤生存", "query": "搜打撤 生存 新游", "match": ["搜打撤", "生存", "extraction", "survival"] },
+      { "label": "休闲塔防新游", "kind": "category", "category": "休闲塔防", "query": "休闲塔防 新游", "match": ["休闲", "塔防", "tower defense", "casual"] },
+      { "label": "SLG出海新作", "kind": "category", "category": "SLG", "query": "SLG 手游 出海 新作", "match": ["SLG", "strategy"] }
     ]
   },
   "sources": [

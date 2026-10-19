@@ -23,14 +23,17 @@
 
   function renderKpi() {
     const counts = (DATA.meta && DATA.meta.counts) || {};
+    const rel = DATA.relevance || {};
     const candidates = DATA.candidates || [];
     const targets = DATA.targets || [];
     const failed = targets.filter(function (row) { return !row.ok; });
     const okCls = failed.length === 0 ? 'kpi-good' : (failed.length === targets.length ? 'kpi-bad' : 'kpi-warn');
+    const candSub = (DATA.truncated ? '已按上限截断 · ' : '') + (rel.enabled
+      ? '相关性剔除 ' + XC.fmtInt(counts.dropped_total || 0) + ' 条'
+      : '已过滤已知 20 款');
 
     XC.$('kpi-grid').innerHTML = [
-      kpi('新游候选', XC.fmtInt(candidates.length), '条',
-        DATA.truncated ? '已按上限截断' : '已过滤已知 20 款', candidates.length ? 'kpi-good' : ''),
+      kpi('新游候选', XC.fmtInt(candidates.length), '条', candSub, candidates.length ? 'kpi-good' : ''),
       kpi('扫描目标可用', XC.fmtInt(counts.targets_ok), ' / ' + XC.fmtInt(counts.targets),
         failed.length ? XC.fmtInt(failed.length) + ' 个目标未取到数据' : '全部目标正常', okCls),
       kpi('已在监控', XC.fmtInt(counts.known_games), '款', '标题命中即自动过滤', ''),
@@ -40,6 +43,11 @@
 
     const note = XC.$('kpi-note');
     if (note) note.textContent = '数据模式 ' + (DATA.meta.data_mode || '—') + ' · 生成于 ' + (DATA.meta.generated_at_cst || '—') + ' CST';
+
+    const candNote = XC.$('cand-note');
+    if (candNote && rel.enabled) {
+      candNote.innerHTML += ' · 相关性过滤已启用（目标词 + ' + XC.fmtInt((rel.game_terms || []).length) + ' 个游戏类词）';
+    }
   }
 
   /* ---------- 候选清单 ---------- */
@@ -47,6 +55,11 @@
   function kindTag(kind) {
     const isPub = kind === 'publisher';
     return '<span class="src ' + (isPub ? 'src-p1' : 'src-p2') + '">' + (isPub ? '厂商' : '品类') + '</span>';
+  }
+
+  function hitCell(record) {
+    if (!record.hit_target && !record.hit_theme) return '<span class="cell-sub">未启用</span>';
+    return esc(record.hit_target || '—') + '<span class="cell-sub"> + </span>' + esc(record.hit_theme || '—');
   }
 
   function renderCandidates() {
@@ -60,6 +73,7 @@
         '<td class="col-first"><span class="cell-sub">' + esc(record.published || '时间未知') + '</span></td>' +
         '<td>' + link + (record.summary ? '<div class="cell-sub">' + esc(record.summary) + '</div>' : '') + '</td>' +
         '<td>' + kindTag(record.kind) + '<div class="cell-sub">' + esc(record.category || '—') + '</div></td>' +
+        '<td>' + hitCell(record) + '</td>' +
         '<td><div class="cell-title">' + esc(record.query || '—') + '</div>' +
           '<div class="cell-sub">' + esc(record.target || '') + '</div></td>' +
         '</tr>';
@@ -80,6 +94,7 @@
         '<td><span class="cell-sub">' + esc(row.category || '—') + '</span></td>' +
         '<td><span class="cell-title">' + esc(row.query || '—') + '</span></td>' +
         '<td>' + XC.fmtInt(row.hits) + '</td>' +
+        '<td>' + XC.fmtInt(row.dropped_target) + ' / ' + XC.fmtInt(row.dropped_theme) + '</td>' +
         '<td>' + XC.fmtInt(row.new) + '</td>' +
         '<td>' + status + '</td>' +
         '</tr>';
