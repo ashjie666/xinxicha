@@ -138,11 +138,15 @@ class Collector(object):
             client.build_payload([keyword], timeframe='now 7-d', geo='')
             frame = client.interest_over_time()
             series = [int(v) for v in frame[keyword].tolist()] if keyword in frame else []
-            if len(series) < 2 or series[0] == 0:
+            nonzero = len([v for v in series if v > 0])
+            # 变化率用首末两点计算：数据点过少时首末两点极易失真为极端值
+            # （实测出现过 -100%：7 日窗口内只有个别点位有量），故要求至少 3 个非零数据点
+            if len(series) < 2 or series[0] == 0 or nonzero < 3:
                 self._count('trends', False)
-                state_mod.record(self.state, 'trends', False, error='Trends 无有效数据',
+                error = 'Trends 数据不足（7 日内非零数据点 {} 个，少于 3 个不计算变化率）'.format(nonzero)
+                state_mod.record(self.state, 'trends', False, error=error,
                                  degrade_after=self.config['collection']['failure_policy']['degrade_after_consecutive_failures'])
-                return unavailable('Google Trends', 'Fallback: Google Search', 'Trends 无有效数据')
+                return unavailable('Google Trends', 'Fallback: Google Search', error)
             change = (series[-1] - series[0]) / float(series[0]) * 100.0
             self._count('trends', True)
             state_mod.record(self.state, 'trends', True, value=round(change, 1),
