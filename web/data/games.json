@@ -4,13 +4,13 @@
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-19 22:18:23",
+    "generated_at_cst": "2026-10-20 01:01:59",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 619.3,
+    "duration_sec": 614.8,
     "counts": {
       "games": 20,
       "p0": 2,
@@ -183,7 +183,7 @@
       "launch_date": "2026-10-29",
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": -100.0,
+      "trends_7d": -25.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -192,11 +192,11 @@
       "note": "国际服先上线，国服2027+，时间窗口最干净",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
-          "value": -100.0,
+          "value": -25.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -229,7 +229,7 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -100.0,
+          "value": -25.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -289,22 +289,22 @@
           "score": 70,
           "weight": 10,
           "weighted": 7.0,
-          "value": 10,
+          "value": 9,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
-          "note": "距上线 10 天"
+          "note": "距上线 9 天"
         }
       ],
       "total": 33.5,
-      "prev_total": 24.5,
-      "delta": 9.0,
+      "prev_total": 33.5,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -360,7 +360,7 @@
       "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 9,
-      "launch_days": 10,
+      "launch_days": 9,
       "overseas_supply": null,
       "keywords_count": 13,
       "stale": false
@@ -377,7 +377,7 @@
       "launch_date": "2026-10-29",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -26.9,
+      "trends_7d": -47.2,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -386,11 +386,11 @@
       "note": "PC/PS5买断，发售期爆发，长尾有限",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
-          "value": -26.9,
+          "value": -47.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -423,7 +423,7 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -26.9,
+          "value": -47.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -483,22 +483,22 @@
           "score": 70,
           "weight": 10,
           "weighted": 7.0,
-          "value": 10,
+          "value": 9,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
-          "note": "距上线 10 天"
+          "note": "距上线 9 天"
         }
       ],
       "total": 27.2,
-      "prev_total": 20.0,
-      "delta": 7.2,
+      "prev_total": 27.2,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -554,7 +554,7 @@
       "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 6,
-      "launch_days": 10,
+      "launch_days": 9,
       "overseas_supply": null,
       "keywords_count": 7,
       "stale": false
@@ -571,7 +571,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "高",
-      "trends_7d": -26.9,
+      "trends_7d": -47.2,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -580,11 +580,11 @@
       "note": "国际服首测中，正式服节奏未定",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": false,
-          "value": -26.9,
+          "value": -47.2,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -616,7 +616,7 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -26.9,
+          "value": -47.2,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -684,14 +684,14 @@
         }
       ],
       "total": 32.5,
-      "prev_total": 23.5,
-      "delta": 9.0,
+      "prev_total": 32.5,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -767,7 +767,7 @@
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": -35.2,
+      "trends_7d": 3.7,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -776,11 +776,11 @@
       "note": "生活模拟类，海外未上线，提前建内容库",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
-          "value": -35.2,
+          "value": 3.7,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -810,10 +810,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 30,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -35.2,
+          "weighted": 9.0,
+          "value": 3.7,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -880,15 +880,15 @@
           "note": "无确定档期"
         }
       ],
-      "total": 30.0,
-      "prev_total": 21.0,
+      "total": 39.0,
+      "prev_total": 30.0,
       "delta": 9.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -903,7 +903,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 30.0,
+          "total": 39.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -913,7 +913,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 21.0,
+          "total": 30.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -961,7 +961,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": -100.0,
+      "trends_7d": -9.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -970,11 +970,11 @@
       "note": "写实奇幻共斗新作，全球预约已开",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
-          "value": -100.0,
+          "value": -9.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1004,10 +1004,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 4.5,
+          "value": -9.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1074,15 +1074,15 @@
           "note": "无确定档期"
         }
       ],
-      "total": 27.5,
-      "prev_total": 20.0,
-      "delta": 7.5,
+      "total": 32.0,
+      "prev_total": 27.5,
+      "delta": 4.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -1097,7 +1097,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 27.5,
+          "total": 32.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1107,7 +1107,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
+          "total": 23.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1155,7 +1155,7 @@
       "launch_date": "2027-01-15",
       "cn_guide_score": 1,
       "gap_level": "高",
-      "trends_7d": -100.0,
+      "trends_7d": -9.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1164,15 +1164,15 @@
       "note": "都市开放世界RPG，定档明确",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": false,
-          "value": -100.0,
+          "value": -9.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Trends 数据不足（7 日内有效数据点不足 2 个）"
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         "reddit": {
           "available": true,
@@ -1197,14 +1197,14 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 4.5,
+          "value": -9.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 数据不足（7 日内有效数据点不足 2 个）"
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -1260,22 +1260,22 @@
           "score": 40,
           "weight": 10,
           "weighted": 4.0,
-          "value": 88,
+          "value": 87,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
-          "note": "距上线 88 天"
+          "note": "距上线 87 天"
         }
       ],
-      "total": 28.0,
-      "prev_total": 20.0,
-      "delta": 8.0,
+      "total": 32.5,
+      "prev_total": 28.0,
+      "delta": 4.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -1290,7 +1290,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 28.0,
+          "total": 32.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1300,7 +1300,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
+          "total": 23.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1334,7 +1334,7 @@
       ],
       "x_state": "player_only",
       "gap_score": 9,
-      "launch_days": 88,
+      "launch_days": 87,
       "overseas_supply": null,
       "keywords_count": 1,
       "stale": true
@@ -1360,7 +1360,7 @@
       "note": "国内运营10年攻略极成熟，海外刚宣布",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
@@ -1465,14 +1465,14 @@
         }
       ],
       "total": 35.0,
-      "prev_total": 26.0,
-      "delta": 9.0,
+      "prev_total": 35.0,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -1545,7 +1545,7 @@
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": -1.7,
+      "trends_7d": 2.7,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1554,11 +1554,11 @@
       "note": "11月4日终局测试，国内预约3000万+",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
-          "value": -1.7,
+          "value": 2.7,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1588,10 +1588,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 30,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -1.7,
+          "weighted": 9.0,
+          "value": 2.7,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1658,15 +1658,15 @@
           "note": "无确定档期"
         }
       ],
-      "total": 34.5,
-      "prev_total": 21.0,
-      "delta": 13.5,
+      "total": 39.0,
+      "prev_total": 34.5,
+      "delta": 4.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -1681,7 +1681,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 34.5,
+          "total": 39.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1691,7 +1691,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 25.5,
+          "total": 30.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1739,7 +1739,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -1.8,
+      "trends_7d": -13.6,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1748,11 +1748,11 @@
       "note": "海外已上线但英文攻略深度不够",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
-          "value": -1.8,
+          "value": -13.6,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1785,7 +1785,7 @@
           "score": 15,
           "weight": 30,
           "weighted": 4.5,
-          "value": -1.8,
+          "value": -13.6,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1853,14 +1853,14 @@
         }
       ],
       "total": 25.8,
-      "prev_total": 20.0,
-      "delta": 5.8,
+      "prev_total": 25.8,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -1933,7 +1933,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -100.0,
+      "trends_7d": -26.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1942,11 +1942,11 @@
       "note": "8月收入环比增37%，赛季制更新频繁",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
-          "value": -100.0,
+          "value": -26.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1979,7 +1979,7 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -100.0,
+          "value": -26.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2052,9 +2052,9 @@
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": true,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -2127,7 +2127,7 @@
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "中",
-      "trends_7d": -26.4,
+      "trends_7d": -22.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2136,11 +2136,11 @@
       "note": "MAU增长明显，英文供给仍在建立",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
-          "value": -26.4,
+          "value": -22.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2173,7 +2173,7 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -26.4,
+          "value": -22.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2246,9 +2246,9 @@
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": true,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -2321,7 +2321,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -26.4,
+      "trends_7d": -22.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2330,15 +2330,15 @@
       "note": "合成+模拟经营，海外收入创新高",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": false,
-          "value": -26.4,
+          "value": -22.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "error": "Trends 数据不足（7 日内有效数据点不足 2 个）"
         },
         "reddit": {
           "available": true,
@@ -2366,11 +2366,11 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -26.4,
+          "value": -22.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "note": "Trends 数据不足（7 日内有效数据点不足 2 个）"
         },
         {
           "key": "reddit",
@@ -2439,9 +2439,9 @@
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": true,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -2517,7 +2517,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -26.4,
+      "trends_7d": -22.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2526,11 +2526,11 @@
       "note": "合并+旅行经营类，攻略内容少",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": false,
-          "value": -26.4,
+          "value": -22.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -2562,7 +2562,7 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -26.4,
+          "value": -22.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -2635,9 +2635,9 @@
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": true,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -2713,7 +2713,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -18.8,
+      "trends_7d": -22.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2721,17 +2721,16 @@
       "priority": "P3",
       "note": "搜索量大但英文站已饱和",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
-      "last_update": "2026-10-19",
+      "confidence": "中",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -18.8,
+          "available": false,
+          "value": -22.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         "reddit": {
           "available": true,
@@ -2756,14 +2755,14 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -18.8,
+          "weighted": 0.0,
+          "value": -22.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -2826,15 +2825,15 @@
           "note": "无确定档期"
         }
       ],
-      "total": 24.5,
-      "prev_total": 20.0,
-      "delta": 4.5,
+      "total": 20.0,
+      "prev_total": 24.5,
+      "delta": -4.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -2849,7 +2848,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 24.5,
+          "total": 20.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2880,20 +2879,23 @@
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
+      "stale_sources": [
+        "trends"
+      ],
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": false
+      "stale": true
     },
     {
       "id": "honkai-star-rail",
@@ -2907,7 +2909,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": 11.3,
+      "trends_7d": -25.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2916,11 +2918,11 @@
       "note": "同上",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
-          "value": 11.3,
+          "value": -25.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2950,10 +2952,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 60,
+          "score": 0,
           "weight": 30,
-          "weighted": 18.0,
-          "value": 11.3,
+          "weighted": 0.0,
+          "value": -25.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3020,15 +3022,15 @@
           "note": "无确定档期"
         }
       ],
-      "total": 38.0,
-      "prev_total": 20.0,
-      "delta": 18.0,
+      "total": 20.0,
+      "prev_total": 38.0,
+      "delta": -18.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -3043,7 +3045,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 38.0,
+          "total": 20.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3053,7 +3055,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 29.0,
+          "total": 20.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3101,7 +3103,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -31.8,
+      "trends_7d": -15.5,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3110,11 +3112,11 @@
       "note": "Steam在线稳定但大站已覆盖",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
-          "value": -31.8,
+          "value": -15.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3144,10 +3146,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -31.8,
+          "weighted": 4.5,
+          "value": -15.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3214,15 +3216,15 @@
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 22.0,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 2.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": true,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "base_score_applied": false,
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -3237,7 +3239,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 22.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3295,7 +3297,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -39.7,
+      "trends_7d": -30.5,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3304,11 +3306,11 @@
       "note": "下载增长明显但英文攻略站已有",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
-          "value": -39.7,
+          "value": -30.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3341,7 +3343,7 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -39.7,
+          "value": -30.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3414,9 +3416,9 @@
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": true,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -3489,7 +3491,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": 19.2,
+      "trends_7d": 14.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3498,11 +3500,11 @@
       "note": "英文社区成熟，攻略站多",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "高",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": true,
-          "value": 19.2,
+          "value": 14.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3535,7 +3537,7 @@
           "score": 60,
           "weight": 30,
           "weighted": 18.0,
-          "value": 19.2,
+          "value": 14.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3603,14 +3605,14 @@
         }
       ],
       "total": 38.0,
-      "prev_total": 20.0,
-      "delta": 18.0,
+      "prev_total": 38.0,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -3683,7 +3685,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -100.0,
+      "trends_7d": 14.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3691,17 +3693,16 @@
       "priority": "P3",
       "note": "莉莉丝发行能力强但英文供给充足",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
-      "last_update": "2026-10-19",
+      "confidence": "中",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -100.0,
+          "available": false,
+          "value": 14.8,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         "reddit": {
           "available": true,
@@ -3726,14 +3727,14 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 60,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 18.0,
+          "value": 14.8,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -3796,15 +3797,15 @@
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 35.5,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 15.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": true,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "base_score_applied": false,
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -3819,7 +3820,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 35.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3829,7 +3830,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
+          "total": 26.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3850,20 +3851,23 @@
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
-      "stale_sources": [],
+      "stale_sources": [
+        "trends"
+      ],
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": false
+      "stale": true
     },
     {
       "id": "rise-of-kingdoms",
@@ -3877,7 +3881,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -100.0,
+      "trends_7d": 14.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3886,11 +3890,11 @@
       "note": "英文市场成熟，增量有限",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-10-19",
+      "last_update": "2026-10-20",
       "signals": {
         "trends": {
           "available": false,
-          "value": -100.0,
+          "value": 14.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -3919,10 +3923,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 60,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 18.0,
+          "value": 14.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -3989,15 +3993,15 @@
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 38.0,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 18.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 2,
-      "ranking_eligible": false,
-      "ranking_note": "观察期（第 2/3 天）",
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
@@ -4012,7 +4016,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 38.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4022,7 +4026,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
+          "total": 29.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
