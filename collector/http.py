@@ -89,8 +89,12 @@ def cache_put(url, text, status):
     })
 
 
-def fetch(url, timeout=8, user_agent=None, use_cache=True, ttl_hours=12):
-    """返回 {ok, status, text, cached, error}；任何异常都被吸收，不抛出"""
+def fetch(url, timeout=8, user_agent=None, use_cache=True, ttl_hours=12, headers=None):
+    """返回 {ok, status, text, cached, error}；任何异常都被吸收，不抛出
+
+    headers 为追加的自定义请求头（如 Cookie: _EDGE_S=mkt=en-us 用于绕开
+    Bing 对中国大陆 IP 的区域跳转），默认头不受影响。
+    """
     if use_cache:
         cached = cache_get(url, ttl_hours)
         if cached is not None:
@@ -99,6 +103,8 @@ def fetch(url, timeout=8, user_agent=None, use_cache=True, ttl_hours=12):
     request = urllib.request.Request(url)
     request.add_header('User-Agent', user_agent or 'Mozilla/5.0 (compatible; xinxicha-monitor/0.1)')
     request.add_header('Accept', 'application/json,text/html;q=0.9,*/*;q=0.8')
+    for name, value in (headers or {}).items():
+        request.add_header(name, value)
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
             body = response.read().decode('utf-8', 'replace')

@@ -4,7 +4,7 @@
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-19 23:58:22",
+    "generated_at_cst": "2026-10-20 00:30:49",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
@@ -12,15 +12,15 @@
     "alert": null,
     "duration_sec": 0.0,
     "counts": {
-      "candidates": 0,
+      "candidates": 40,
       "targets": 15,
-      "targets_ok": 0,
+      "targets_ok": 15,
       "known_games": 20
     },
     "scoring_note": "权重取规格表「回退逻辑说明」的评分权重（30/20/15/15/10/10）；规格表「MVP字段表」F13 的 5×20% 旧公式已废弃"
   },
   "note": "新游候选发现层：复用 Bing News RSS（免凭据、stdlib 可解析），按已知厂商名与品类词检索。候选只提示、不入库、不参与评分；人工确认后才加入 data/seed_games.json。",
-  "truncated": false,
+  "truncated": true,
   "known_games": [
     {
       "id": "monster-hunter-outlanders",
@@ -129,151 +129,592 @@
       "kind": "publisher",
       "category": "二次元开放世界",
       "query": "米哈游 新游 二次元",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 12,
+      "new": 8,
+      "error": null
     },
     {
       "label": "网易",
       "kind": "publisher",
       "category": "开放世界 / MMO",
       "query": "网易 新游 开放世界",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 11,
+      "new": 8,
+      "error": null
     },
     {
       "label": "腾讯",
       "kind": "publisher",
       "category": "综合 / 天美 / 魔方 / Level Infinite",
       "query": "腾讯 新游 出海",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 12,
+      "new": 8,
+      "error": null
     },
     {
       "label": "莉莉丝",
       "kind": "publisher",
       "category": "休闲 / 塔防 / SLG",
       "query": "莉莉丝 新游",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 12,
+      "new": 8,
+      "error": null
     },
     {
       "label": "库洛游戏",
       "kind": "publisher",
       "category": "二次元动作",
       "query": "库洛游戏 新游 二次元",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 12,
+      "new": 8,
+      "error": null
     },
     {
       "label": "鹰角网络",
       "kind": "publisher",
       "category": "塔防 / 二次元",
       "query": "鹰角网络 新游",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 12,
+      "new": 6,
+      "error": null
     },
     {
       "label": "三七互娱",
       "kind": "publisher",
       "category": "SLG",
       "query": "三七互娱 新游 SLG",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 11,
+      "new": 8,
+      "error": null
     },
     {
       "label": "柠檬微趣",
       "kind": "publisher",
       "category": "合成休闲",
       "query": "柠檬微趣 新游 合成",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 11,
+      "new": 8,
+      "error": null
     },
     {
       "label": "点点互动",
       "kind": "publisher",
       "category": "合成休闲",
       "query": "点点互动 新游",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 11,
+      "new": 8,
+      "error": null
     },
     {
       "label": "灵游坊",
       "kind": "publisher",
       "category": "动作 / 单机",
       "query": "灵游坊 新游",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 12,
+      "new": 5,
+      "error": null
     },
     {
       "label": "二次元开放世界新游",
       "kind": "category",
       "category": "二次元开放世界",
       "query": "二次元开放世界 新游",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 12,
+      "new": 8,
+      "error": null
     },
     {
       "label": "合成休闲出海新品",
       "kind": "category",
       "category": "合成休闲",
       "query": "合成休闲 手游 出海",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 10,
+      "new": 8,
+      "error": null
     },
     {
       "label": "搜打撤生存新游",
       "kind": "category",
       "category": "搜打撤生存",
       "query": "搜打撤 生存 新游",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 11,
+      "new": 8,
+      "error": null
     },
     {
       "label": "休闲塔防新游",
       "kind": "category",
       "category": "休闲塔防",
       "query": "休闲塔防 新游",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 11,
+      "new": 8,
+      "error": null
     },
     {
       "label": "SLG出海新作",
       "kind": "category",
       "category": "SLG",
       "query": "SLG 手游 出海 新作",
-      "ok": false,
-      "hits": 0,
-      "new": 0,
-      "error": "返回非 RSS 内容（Bing 可能重定向到网页）"
+      "ok": true,
+      "hits": 11,
+      "new": 8,
+      "error": null
     }
   ],
-  "candidates": []
+  "candidates": [
+    {
+      "title": "MemSilicon完成超4亿元A轮融资，卢涛出任CEO",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6455dc5d24174a218e9714e78f53b&url=https%3a%2f%2fwww.163.com%2ftech%2farticle%2fL9K6ULTV00097U7R.html&c=10318624027670973798&mkt=en-us",
+      "published": "2026-10-19 16:13",
+      "pub_raw": "Mon, 19 Oct 2026 08:13:00 GMT",
+      "summary": "MemSilicon完成超4亿元A轮融资，卢涛出任CEO,MemSilicon,AI ...",
+      "target": "米哈游",
+      "kind": "publisher",
+      "category": "二次元开放世界",
+      "query": "米哈游 新游 二次元"
+    },
+    {
+      "title": "宁波高品质景区上新！9家入选，你去过吗？",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6457519004b8294e94a6f9f53455b&url=https%3a%2f%2fwww.sohu.com%2fa%2f1089724378_121117596&c=11025304817515202523&mkt=en-us",
+      "published": "2026-10-19 15:35",
+      "pub_raw": "Mon, 19 Oct 2026 07:35:00 GMT",
+      "summary": "近日，宁波市旅游景区质量等级评定委员会公布第二批高品质特色旅游景区名单，五龙潭风景名胜区等9家景区成功入选。 自《宁波市旅游景区转型提质行动计划（2025—2027年）》出台以来，宁波制定建设指南及专项资金管理政策，大力培育以“龙头”“标杆…",
+      "target": "休闲塔防新游",
+      "kind": "category",
+      "category": "休闲塔防",
+      "query": "休闲塔防 新游"
+    },
+    {
+      "title": "《阴阳师》流水暴涨170%，莉莉丝收入创年内新高，4399黑马杀出——9月大战_Top_发行商_手游",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645620b5d4a42b90e74ae90bdb193&url=https%3a%2f%2fwww.sohu.com%2fa%2f1089518127_100087490&c=15959565897926934618&mkt=en-us",
+      "published": "2026-10-19 15:24",
+      "pub_raw": "Mon, 19 Oct 2026 07:24:00 GMT",
+      "summary": "最近，Sensor Tower发布了2026年9月中国手游发行商在全球App Store和Google Play的收入排行Top30（下称Top30，仅统计发行商收入，且不包括中国地区第三方安卓渠道）。 简单来看，本期Top30头部格局稳固…",
+      "target": "莉莉丝",
+      "kind": "publisher",
+      "category": "休闲 / 塔防 / SLG",
+      "query": "莉莉丝 新游"
+    },
+    {
+      "title": "数百场精彩活动、超139万人次游普陀！第六届“半马苏河”文化旅游节圆满收官",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6456d0b3e460380b650fea1bf8290&url=https%3a%2f%2ffinance.sina.com.cn%2fjjxw%2f2026-10-19%2fdoc-inivumai6156039.shtml&c=13240206205690281450&mkt=en-us",
+      "published": "2026-10-19 14:32",
+      "pub_raw": "Mon, 19 Oct 2026 06:32:00 GMT",
+      "summary": "秋意浸染苏河，盛会辉映水岸。随着2026全民电竞嘉年华暨第七届电竞全民锦标赛的冠军加冕，第六届“半马苏河”文化旅游节圆满收官。本届文化旅游节持续聚焦“半马苏河”文旅品牌，围绕“欢乐水岸 魅力普陀”主题，以文商旅体展联动为重点，形成持续不断的…",
+      "target": "灵游坊",
+      "kind": "publisher",
+      "category": "动作 / 单机",
+      "query": "灵游坊 新游"
+    },
+    {
+      "title": "时隔两年，这个二次元游戏厂牌，终于走到了台前？",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6456f18e64bb3bf22f138dd0ee622&url=https%3a%2f%2fwww.sohu.com%2fa%2f1089671620_118576&c=5089704418122440660&mkt=en-us",
+      "published": "2026-10-19 14:32",
+      "pub_raw": "Mon, 19 Oct 2026 06:32:00 GMT",
+      "summary": "时隔2年，腾讯旗下那个“纯血”二次元厂牌终于是走到了台前。 前些天的RED LAND 2026上，游戏日报在萨罗斯相关展区驻足许久，眼前一个是开放世界新游《归环》，一个是战术射击端游《命运扳机》，同时亮相。尽管两款游戏都属于萨罗斯旗下，但分…",
+      "target": "二次元开放世界新游",
+      "kind": "category",
+      "category": "二次元开放世界",
+      "query": "二次元开放世界 新游"
+    },
+    {
+      "title": "DeepSeek发布自研搜索API，5元定价重塑AI开发格局",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6456f18e64bb3bf22f138dd0ee622&url=https%3a%2f%2fwww.msn.cn%2fzh-cn%2fnews%2fother%2fdeepseek%25E5%258F%2591%25E5%25B8%2583%25E8%2587%25AA%25E7%25A0%2594%25E6%2590%259C%25E7%25B4%25A2api-5%25E5%2585%2583%25E5%25AE%259A%25E4%25BB%25B7%25E9%2587%258D%25E5%25A1%2591ai%25E5%25BC%2580%25E5%258F%2591%25E6%25A0%25BC%25E5%25B1%2580%2far-AA2fzp20&c=15267222745519413243&mkt=en-us",
+      "published": "2026-10-19 14:07",
+      "pub_raw": "Mon, 19 Oct 2026 06:07:43 GMT",
+      "summary": "10月19日，深度求索（DeepSeek）正式发布其V4．1－Flash－1017版本配套的全新自研搜索API。这并非一次常规的模型迭代，而是对当前全球大模型服务定价体系的一次剧烈搅动。",
+      "target": "二次元开放世界新游",
+      "kind": "category",
+      "category": "二次元开放世界",
+      "query": "二次元开放世界 新游"
+    },
+    {
+      "title": "图个好游戏：富二代投资，米哈游网易老手操刀！能卷赢小众赛道吗",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6455dc5d24174a218e9714e78f53b&url=https%3a%2f%2fnews.qq.com%2frain%2fa%2f20261019A05JNC00&c=15270506161171787397&mkt=en-us",
+      "published": "2026-10-19 12:29",
+      "pub_raw": "Mon, 19 Oct 2026 04:29:00 GMT",
+      "summary": "又到了我们看图挑游戏的日子，小弟只给大家推荐那些够炸裂、够吸睛、够有视觉冲击力的好游戏！每周锁定这里，让你大饱眼福！今天要给大家介绍的是《绿梦：时空之声》。提起这款新上线的产品，它的背景也算是有些来头。游戏背后的研发商竹子互联网，其创始人正…",
+      "target": "米哈游",
+      "kind": "publisher",
+      "category": "二次元开放世界",
+      "query": "米哈游 新游 二次元"
+    },
+    {
+      "title": "高风险高回报，活着才能带走一切！《HUNGER》Steam测试开启：末日搜打撤",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad64573ea8149418889929148c0971d&url=https%3a%2f%2fnews.17173.com%2fcontent%2f10192026%2f102922108.shtml&c=9144227298936852685&mkt=en-us",
+      "published": "2026-10-19 11:29",
+      "pub_raw": "Mon, 19 Oct 2026 03:29:00 GMT",
+      "summary": "今日，由GOODFUNCORPORATION开发发行、融合恐怖生存与RPG养成的PvPvE撤离掠宝游戏《HUNGER》正式在Steam开启限时Playtest封闭测试，测试周期为10月19日至10月26日，玩家前往Steam商店页提交申请即…",
+      "target": "搜打撤生存新游",
+      "kind": "category",
+      "category": "搜打撤生存",
+      "query": "搜打撤 生存 新游"
+    },
+    {
+      "title": "越南团队两月拿下500万安装、登顶美国模拟榜：“Obby玩法”正在被手游厂商批量接收？",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6456b8e5c4bd0820e7235b41c934c&url=https%3a%2f%2feu.36kr.com%2fzh%2fp%2f4032158701195652&c=4610071132034431813&mkt=en-us",
+      "published": "2026-10-19 11:09",
+      "pub_raw": "Mon, 19 Oct 2026 03:09:00 GMT",
+      "summary": "探索Roblox玩法库的隐藏宝藏：这款全球热门的UGC沙盒平台凭借低门槛创作工具与海量用户生成内容，构建了覆盖休闲闯关、硬核RPG、模拟经营、教育实训等多元品类的玩法生态，无数小众创意玩法、细分垂类互动体验仍待玩家挖掘，解锁Roblox玩法…",
+      "target": "点点互动",
+      "kind": "publisher",
+      "category": "合成休闲",
+      "query": "点点互动 新游"
+    },
+    {
+      "title": "小游戏畅销榜产品分析：从肉鸽塔防到轻量SLG，《冲突小队》把肉鸽+塔防+卡牌进行了玩法融合",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6457519004b8294e94a6f9f53455b&url=https%3a%2f%2fnews.qq.com%2frain%2fa%2f20261019A0EDGK00&c=13644055407165897416&mkt=en-us",
+      "published": "2026-10-19 10:23",
+      "pub_raw": "Mon, 19 Oct 2026 02:23:00 GMT",
+      "summary": "文/ET自《卡皮巴拉》及《ThroneFall》两类游戏受到极大市场关注之后，国内游戏市场真正跑通两类游戏玩法的游戏其实整体较少。在近期微信小游戏上，《冲突小队》则是为数不多能够将两类游戏玩法设计“吃透”且保持不俗游戏成绩的游戏—— ...",
+      "target": "休闲塔防新游",
+      "kind": "category",
+      "category": "休闲塔防",
+      "query": "休闲塔防 新游"
+    },
+    {
+      "title": "徒步忆长征，标语寻红迹！10.17的新山村，涌动“红色热浪”，传承长征精神",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6456b8e5c4bd0820e7235b41c934c&url=https%3a%2f%2fhainan.ifeng.com%2fc%2f8xLxbeq4lfm&c=11168416304982186238&mkt=en-us",
+      "published": "2026-10-19 05:32",
+      "pub_raw": "Sun, 18 Oct 2026 21:32:00 GMT",
+      "summary": "（免责声明：此文内容为本网站刊发或转载企业宣传资讯，仅代表作者个人观点，与本网无关。仅供读者参考，并请自行核实相关内容。） ...",
+      "target": "点点互动",
+      "kind": "publisher",
+      "category": "合成休闲",
+      "query": "点点互动 新游"
+    },
+    {
+      "title": "《阴阳师》流水暴涨 170%, 莉莉丝收入创年内新高 ,4399 黑马杀出",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645620b5d4a42b90e74ae90bdb193&url=https%3a%2f%2fwww.myzaker.com%2farticle%2f6ad588a48e9f0927a170da67&c=1416893453258647632&mkt=en-us",
+      "published": "2026-10-19 00:59",
+      "pub_raw": "Sun, 18 Oct 2026 16:59:00 GMT",
+      "summary": "中腰部发行商的表现也很突出，哔哩哔哩凭借新游《闪耀吧！噜咪》9 月全球上线，本期收入环比增长 36%，排名上升 7 位至榜单 Top14；Joy Games 9 月手游收入环比增长 30%，排名提升 10 位至榜单 Top19；益世界、游酷…",
+      "target": "莉莉丝",
+      "kind": "publisher",
+      "category": "休闲 / 塔防 / SLG",
+      "query": "莉莉丝 新游"
+    },
+    {
+      "title": "库克又去了米哈游：一部折叠屏 iPhone，还有一些值得琢磨的事",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6455dc5d24174a218e9714e78f53b&url=https%3a%2f%2fwww.msn.cn%2fzh-cn%2fnews%2fother%2f%25E5%25BA%2593%25E5%2585%258B%25E5%258F%2588%25E5%258E%25BB%25E4%25BA%2586%25E7%25B1%25B3%25E5%2593%2588%25E6%25B8%25B8-%25E4%25B8%2580%25E9%2583%25A8%25E6%258A%2598%25E5%258F%25A0%25E5%25B1%258F-iphone-%25E8%25BF%2598%25E6%259C%2589%25E4%25B8%2580%25E4%25BA%259B%25E5%2580%25BC%25E5%25BE%2597%25E7%2590%25A2%25E7%25A3%25A8%25E7%259A%2584%25E4%25BA%258B%2far-AA2fy8Ev&c=3871526632146718492&mkt=en-us",
+      "published": "2026-10-19 00:31",
+      "pub_raw": "Sun, 18 Oct 2026 16:31:54 GMT",
+      "summary": "10月16日下午，蒂姆·库克来到了米哈游上海总部。 这位苹果执行董事长在这里停留了大约30分钟，由米哈游联合创始人刘伟（大伟哥）全程接待。根据现场信息，库克体验了《绝区零》在苹果首款折叠屏手机 iPhone Duo 上的优化表现，还了解了米…",
+      "target": "米哈游",
+      "kind": "publisher",
+      "category": "二次元开放世界",
+      "query": "米哈游 新游 二次元"
+    },
+    {
+      "title": "盐都大纵湖日间游湖夜间观演，水乡夜经济持续激活假日文旅新消费",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6456b8e5c4bd0820e7235b41c934c&url=https%3a%2f%2fwww.sohu.com%2fa%2f1088563613_122942852&c=9325773579754630056&mkt=en-us",
+      "published": "2026-10-18 22:11",
+      "pub_raw": "Sun, 18 Oct 2026 14:11:00 GMT",
+      "summary": "刚刚落幕的国庆黄金周，江苏盐城盐都区以一场场兼具潮流活力与人文底蕴的文旅活动，交出亮眼答卷。大纵湖湖畔斗舞、金曲夜唱、曲艺展演接连出圈，草房子、蟒蛇河、龙冈桃花源多点开花，全区累计接待游客二十四点七五万人次，旅游收入突破千万元大关。假日的热…",
+      "target": "点点互动",
+      "kind": "publisher",
+      "category": "合成休闲",
+      "query": "点点互动 新游"
+    },
+    {
+      "title": "米哈游《绝区零》游戏 3.3 版本将适配苹果 iPhone Duo",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6455dc5d24174a218e9714e78f53b&url=https%3a%2f%2fwww.ithome.com%2f1%2f014%2f520.htm&c=13382186444062930181&mkt=en-us",
+      "published": "2026-10-18 16:48",
+      "pub_raw": "Sun, 18 Oct 2026 08:48:00 GMT",
+      "summary": "IT之家 10 月 18 日消息，米哈游前天宣布，官方将在《绝区零》游戏 3.3 版期间推出苹果 iPhone Duo 机型相关适配。 IT之家注意到，这是库克时隔 3 年再次公开前往米哈游总部。库克曾在 2023 年 3 月进行了一次中国…",
+      "target": "米哈游",
+      "kind": "publisher",
+      "category": "二次元开放世界",
+      "query": "米哈游 新游 二次元"
+    },
+    {
+      "title": "苹果CEO库克再访米哈游总部 百万粉丝女Coser六二二同学参与接待并晒出同框照",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6455dc5d24174a218e9714e78f53b&url=https%3a%2f%2fwww.gamersky.com%2fnews%2f202610%2f2230317.shtml&c=15953113395071677150&mkt=en-us",
+      "published": "2026-10-18 16:01",
+      "pub_raw": "Sun, 18 Oct 2026 08:01:00 GMT",
+      "summary": "10月16日，苹果公司执行董事长蒂姆·库克现身上海，再度到访米哈游总部，米哈游创始人刘伟带队迎接，现场气氛轻松热烈。从现场画面看，库克当日身着灰色衬衫搭配深色长裤，不仅对着镜头比出“耶”的手势，还主动与现场的二次元Coser合影留念。这是他…",
+      "target": "米哈游",
+      "kind": "publisher",
+      "category": "二次元开放世界",
+      "query": "米哈游 新游 二次元"
+    },
+    {
+      "title": "米哈游与库克再度会晤，游戏新作引发期待",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6455dc5d24174a218e9714e78f53b&url=https%3a%2f%2fwww.sohu.com%2fa%2f1089257224_122004016&c=7521355174514843330&mkt=en-us",
+      "published": "2026-10-18 11:20",
+      "pub_raw": "Sun, 18 Oct 2026 03:20:00 GMT",
+      "summary": "近日，苹果前CEO、现任执行董事长蒂姆·库克再次造访米哈游，这一消息在社交平台引发热议。库克的到访不仅彰显了米哈游在游戏行业的影响力，也为其未来的发展方向增添了更多期待。现场画面显示，大伟哥亲自陪同库克，展示了包括《绝区零》《星布谷地》和《…",
+      "target": "米哈游",
+      "kind": "publisher",
+      "category": "二次元开放世界",
+      "query": "米哈游 新游 二次元"
+    },
+    {
+      "title": "育碧宣布《彩虹六号》手游 2027 年 1 月停运；前 Reddit 首席产品官将出任 Mojang 新 CEO",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6456d0b3e460380b650fea1bf8290&url=https%3a%2f%2fwww.myzaker.com%2farticle%2f6acdb7bcb15ec04cfa255d0c&c=8761878961656897213&mkt=en-us",
+      "published": "2026-10-18 01:00",
+      "pub_raw": "Sat, 17 Oct 2026 17:00:00 GMT",
+      "summary": "10 月 10 日消息，育碧宣布《彩虹六号》手游将于 2027 年 1 月 15 日停止运营，距离游戏全球正式上线不到一年。该作于 2023 年在部分地区开启试运营，2026 年 2 月才面向全球正式推出，至今共走过 15 个赛季。育碧在公…",
+      "target": "灵游坊",
+      "kind": "publisher",
+      "category": "动作 / 单机",
+      "query": "灵游坊 新游"
+    },
+    {
+      "title": "小游快爆",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6457519004b8294e94a6f9f53455b&url=https%3a%2f%2fview.inews.qq.com%2fa%2f20261017A0CFYC00&c=12912280947745339780&mkt=en-us",
+      "published": "2026-10-17 21:22",
+      "pub_raw": "Sat, 17 Oct 2026 13:22:00 GMT",
+      "summary": "10月16日微信小游戏畅销榜Top100：向僵尸开炮连续第9天霸榜，仙剑奇侠传：新的开始新入榜，塔防精灵新入榜。榜首向僵尸开炮，连续第9天位列榜首日变化仙剑奇侠传：新的开始#37 新入榜、海盗来了#36 较昨日升20名周变化塔防精灵#48…",
+      "target": "休闲塔防新游",
+      "kind": "category",
+      "category": "休闲塔防",
+      "query": "休闲塔防 新游"
+    },
+    {
+      "title": "游戏成实业增长“引擎”，2026腾讯游戏人生大会释放三大增长信号",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645608939433b9433822531669ba3&url=https%3a%2f%2fwww.dzwww.com%2fxinwen%2fjishixinwen%2f202610%2ft20261017_18212852.htm&c=5507367153046162207&mkt=en-us",
+      "published": "2026-10-17 19:22",
+      "pub_raw": "Sat, 17 Oct 2026 11:22:00 GMT",
+      "summary": "10月15日，“助力实业 创·享新机遇”2026腾讯游戏人生全球合作伙伴大会以线上直播的形式成功举办。 基于“助力实业 创·享新机遇”这一主题，腾讯游戏人生从出海打开增量、AI 提升效率、场景能力升级三大维度出发，围绕场景营销合作、大众赛事…",
+      "target": "腾讯",
+      "kind": "publisher",
+      "category": "综合 / 天美 / 魔方 / Level Infinite",
+      "query": "腾讯 新游 出海"
+    },
+    {
+      "title": "“雄奇山水 新韵重庆”又出圈！重庆获选微博“最具影响力国内游城市”",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6455fb4714e4895b47e87f8a9ca8f&url=https%3a%2f%2fm.163.com%2fnews%2farticle%2fL9F1SDT4042199EF.html&c=10126507037292522244&mkt=en-us",
+      "published": "2026-10-17 16:51",
+      "pub_raw": "Sat, 17 Oct 2026 08:51:00 GMT",
+      "summary": "10月16日，2026微博旅游之夜在河南开封隆重举行。微博“2025-2026年度最具影响力国内游城市”榜单揭晓，重庆从众多热门旅游城市中脱颖而出，成功获选。图说：微博“2025-2026年度最具影响力国内游城市”颁奖现场微博旅游之夜是微博…",
+      "target": "网易",
+      "kind": "publisher",
+      "category": "开放世界 / MMO",
+      "query": "网易 新游 开放世界"
+    },
+    {
+      "title": "“拼电影”、直播比赛、开放团建派对……电影院玩法持续“上新”",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6456f18e64bb3bf22f138dd0ee622&url=https%3a%2f%2fm.163.com%2fnews%2farticle%2fL9EL9QTL0530WJIN.html&c=1221781545887632183&mkt=en-us",
+      "published": "2026-10-17 13:11",
+      "pub_raw": "Sat, 17 Oct 2026 05:11:00 GMT",
+      "summary": "近日，国家电影局、体育总局联合印发《关于开展“跟着电影去运动”行动 推动电影与体育双向赋能的通知》。《通知》提出“鼓励在电影院设置体育主题影厅，打造观赛‘第二现场’，利用 电影院 空闲时段开展重大体育赛事直播”。",
+      "target": "二次元开放世界新游",
+      "kind": "category",
+      "category": "二次元开放世界",
+      "query": "二次元开放世界 新游"
+    },
+    {
+      "title": "腾讯网易停运的游戏陆续复活，仿佛雨后春笋：都怪AI？",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6455fb4714e4895b47e87f8a9ca8f&url=https%3a%2f%2fwww.huxiu.com%2farticle%2f4898284.html&c=11340472252665953357&mkt=en-us",
+      "published": "2026-10-17 03:09",
+      "pub_raw": "Fri, 16 Oct 2026 19:09:00 GMT",
+      "summary": "近期B站出现大量UP主利用AI复活停运游戏的视频与可运行项目，涉及《扩散性百万亚瑟王》等二游，并引发运维成本与版权风险讨论。10月14日，微软Xbox宣布成立Xbox Labs，探索游戏反编译、跨平台运行和玩家参与创作。",
+      "target": "网易",
+      "kind": "publisher",
+      "category": "开放世界 / MMO",
+      "query": "网易 新游 开放世界"
+    },
+    {
+      "title": "半年狂揽 316 亿 , 微信小游戏还是你认识的跳一跳吗 ?",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645670eaf4763bb6d64e822297109&url=https%3a%2f%2fwww.myzaker.com%2farticle%2f6ad2ebc88e9f0974f271c511&c=12353167082479859991&mkt=en-us",
+      "published": "2026-10-17 01:00",
+      "pub_raw": "Fri, 16 Oct 2026 17:00:00 GMT",
+      "summary": "三七互娱《寻道大千》近两月蝉联微信小游戏畅销榜第 1，《叫我大掌柜》稳居前 30。吉比特《道友来挖宝》今年上半年流水 5.89 亿元，去年同期只有 0.45 亿元——同比增长超过 12 倍。",
+      "target": "三七互娱",
+      "kind": "publisher",
+      "category": "SLG",
+      "query": "三七互娱 新游 SLG"
+    },
+    {
+      "title": "库克又来米哈游了，大伟哥一口气展示了3款游戏",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645620b5d4a42b90e74ae90bdb193&url=https%3a%2f%2fm.163.com%2fnews%2farticle%2fL9COFNS30511CVBI.html&c=16548525442449461704&mkt=en-us",
+      "published": "2026-10-16 19:28",
+      "pub_raw": "Fri, 16 Oct 2026 11:28:00 GMT",
+      "summary": "绝区零制作人赠送库克手办库克又来米哈游了。今日，社交平台流出的现场视频显示，库克走进米哈游大楼，大伟哥在一旁陪同接待。大厅里，不少人举起手机记录这一幕。在场约45分钟里，库克逐一体验了折叠屏iPhoneDuo真机，并由《绝区零》制作人振宇在…",
+      "target": "莉莉丝",
+      "kind": "publisher",
+      "category": "休闲 / 塔防 / SLG",
+      "query": "莉莉丝 新游"
+    },
+    {
+      "title": "“等等党”败北：游戏主机涨价未止，产业链成本承压丨游值洞察",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6455fb4714e4895b47e87f8a9ca8f&url=https%3a%2f%2fwap.stockstar.com%2fdetail%2fIG2026101600028086&c=11894093093769516821&mkt=en-us",
+      "published": "2026-10-16 17:39",
+      "pub_raw": "Fri, 16 Oct 2026 09:39:00 GMT",
+      "summary": "微软方面也曾表示，整个消费电子行业都在应对零部件供应危机，但游戏主机受到的冲击尤为严重。与手机、电脑等产品不同，游戏主机通常不以盈利为目的进行销售，售价往往低于制造成本。因此，在核心零部件价格持续上涨的情况下，主机硬件更难消化成本压力。",
+      "target": "网易",
+      "kind": "publisher",
+      "category": "开放世界 / MMO",
+      "query": "网易 新游 开放世界"
+    },
+    {
+      "title": "【短讯】《绿梦：时空之声》正式公测丨郭敬明官宣任《第一序列》导演丨EPIC优化界面逻辑丨高达新游官宣",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645642a9c4defad578b58dd2f2f95&url=https%3a%2f%2fview.inews.qq.com%2fa%2f20261015A0E81V00&c=17520108329345323062&mkt=en-us",
+      "published": "2026-10-16 00:00",
+      "pub_raw": "Thu, 15 Oct 2026 16:00:00 GMT",
+      "summary": "文丨郑朽排版丨鹿九01《绿梦：时空之声》正式公测迎战侵蚀，守护明天！今日，3D二次元横版ACT游戏《绿梦：时空之声》正式迎来全平台公测，安卓、iOS、PC三端同步开放下载，全渠道同服、全设备互通。历经多轮测试打磨，《绿梦：时空之声》这款融合…",
+      "target": "库洛游戏",
+      "kind": "publisher",
+      "category": "二次元动作",
+      "query": "库洛游戏 新游 二次元"
+    },
+    {
+      "title": "二游过节?《终末地》畅销榜第4，“绿皇”二游《绿梦》公测，异环「明音凛」实装",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645642a9c4defad578b58dd2f2f95&url=https%3a%2f%2fnews.qq.com%2frain%2fa%2f20261015A0E71500&c=9079717789564342582&mkt=en-us",
+      "published": "2026-10-15 23:57",
+      "pub_raw": "Thu, 15 Oct 2026 15:57:00 GMT",
+      "summary": "在今年上半年，鹰角《明日方舟终末地》与完美《异环》相继上线以后，国内能够称得上旗舰级产品的二游就已经达到了6款（米哈游《原神》《崩铁》《绝区零》，库洛《鸣潮》）。而随着这些大体量二游产品越来越多，各大二游“撞档期”就越来越频繁。 理论上来说…",
+      "target": "库洛游戏",
+      "kind": "publisher",
+      "category": "二次元动作",
+      "query": "库洛游戏 新游 二次元"
+    },
+    {
+      "title": "全国敬老月 中国科技馆推出“银龄益智坊·时光邮局”科普体验空间",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6456d0b3e460380b650fea1bf8290&url=https%3a%2f%2ffinance.sina.com.cn%2froll%2f2026-10-15%2fdoc-iniviksh4758804.shtml&c=107204372071577092&mkt=en-us",
+      "published": "2026-10-15 14:37",
+      "pub_raw": "Thu, 15 Oct 2026 06:37:00 GMT",
+      "summary": "10月20-22日上海黄浦江畔，2026可持续全球领导者大会再度来袭。诺奖、图灵奖得主现场讲述科技未来与趋势，更有“解救”焦虑、内卷时代的网红教授——麦克法兰与项飙现场对话！ 名额有限，手慢无。让我们共赴可持续之约！【点击报名】 中新网北京…",
+      "target": "灵游坊",
+      "kind": "publisher",
+      "category": "动作 / 单机",
+      "query": "灵游坊 新游"
+    },
+    {
+      "title": "库洛首次投资AI公司，整个中国游戏圈都在加注AI？",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645642a9c4defad578b58dd2f2f95&url=https%3a%2f%2fwww.sohu.com%2fa%2f1087983373_121119410&c=15749074039174418620&mkt=en-us",
+      "published": "2026-10-15 11:48",
+      "pub_raw": "Thu, 15 Oct 2026 03:48:00 GMT",
+      "summary": "最近几年，自从AI热潮席卷全行业以后，游戏产品作为自带强交互性质的虚拟场景，天然地就适合作为AI应用的场景，也正因如此整个游戏圈过去两年对AI的热情也十分之高，大厂在考虑利用AI重塑生产管线，或是利用AI创造全新体验，引领游戏产业变革，中小…",
+      "target": "库洛游戏",
+      "kind": "publisher",
+      "category": "二次元动作",
+      "query": "库洛游戏 新游 二次元"
+    },
+    {
+      "title": "Steam新游推荐：多款独立游戏将于10月15日上线｜#游戏资讯# #Steam新游# #独立游戏发布#",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6457519004b8294e94a6f9f53455b&url=https%3a%2f%2fwww.sohu.com%2fa%2f1087906883_122598898&c=8561120957919723510&mkt=en-us",
+      "published": "2026-10-15 09:11",
+      "pub_raw": "Thu, 15 Oct 2026 01:11:00 GMT",
+      "summary": "在即将到来的10月15日，Steam平台将上线多款备受期待的独立游戏，涵盖了各种类型，从冒险解谜到塔防策略，丰富的选择将吸引各类玩家的关注。 多样化的游戏类型 新上线的游戏包括《不朽遗志（Valor Mortis）》，这是一款由《幽灵行者》…",
+      "target": "休闲塔防新游",
+      "kind": "category",
+      "category": "休闲塔防",
+      "query": "休闲塔防 新游"
+    },
+    {
+      "title": "美团 2026 国庆假期消费洞察 : 长线游预订同比增 25%, 哈尔滨等 10 城市成为长线游目的地热门 Top10",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6457519004b8294e94a6f9f53455b&url=https%3a%2f%2fwww.myzaker.com%2farticle%2f6ac6fa098e9f090f321061bd&c=16578200925550751647&mkt=en-us",
+      "published": "2026-10-15 01:00",
+      "pub_raw": "Wed, 14 Oct 2026 17:00:00 GMT",
+      "summary": "黑龙江网讯（记者 王忠岩）\" 十一 \" 假期进入尾声，不少游客踏上返程。10 月 7 日，根据《美团 2026 国庆消费洞察报告》（以下简称：报告），800 公里以上的长线游订单同比增长 25%，31% 的用户在一个目的地停留 3 天及以上…",
+      "target": "休闲塔防新游",
+      "kind": "category",
+      "category": "休闲塔防",
+      "query": "休闲塔防 新游"
+    },
+    {
+      "title": "库洛科技2亿入股AI企业，二次元游戏新未来！",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645642a9c4defad578b58dd2f2f95&url=https%3a%2f%2fwww.sohu.com%2fa%2f1087749299_122004016&c=15052000720137000744&mkt=en-us",
+      "published": "2026-10-14 19:46",
+      "pub_raw": "Wed, 14 Oct 2026 11:46:00 GMT",
+      "summary": "在二次元游戏领域，广州库洛科技有限公司（简称“库洛”）的最新投资动作引发了广泛关注。10月14日，南都N视频记者报道，库洛已正式入股言之域科技（深圳）有限公司，持股比例达15%。这笔投资对应估值约为2亿元，是库洛首次在AI领域进行公开布局。…",
+      "target": "库洛游戏",
+      "kind": "publisher",
+      "category": "二次元动作",
+      "query": "库洛游戏 新游 二次元"
+    },
+    {
+      "title": "二次元的NPC们，在这座岛成了“主角”",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6456f18e64bb3bf22f138dd0ee622&url=https%3a%2f%2fview.inews.qq.com%2fa%2f20261014A0BQ0900&c=13208662551139635844&mkt=en-us",
+      "published": "2026-10-14 19:46",
+      "pub_raw": "Wed, 14 Oct 2026 11:46:00 GMT",
+      "summary": "在北大，麦芽是一名研究AI与医学交叉领域的学者。他的微信头像是一艘航空母舰，朋友圈干净得像课题申报书。 教师节那天，同事收到了学生送的红酒和钱包。他拆开裹得严严实实的箱子——是一套硕大的原神手办。办公室里哄堂大笑，同事们调侃，“原来你是深藏…",
+      "target": "二次元开放世界新游",
+      "kind": "category",
+      "category": "二次元开放世界",
+      "query": "二次元开放世界 新游"
+    },
+    {
+      "title": "腾讯掏出2.3亿投资土耳其公司：半个月内2次出手",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645608939433b9433822531669ba3&url=https%3a%2f%2feu.36kr.com%2fzh%2fp%2f4025417187381125&c=6998214201549851286&mkt=en-us",
+      "published": "2026-10-14 17:46",
+      "pub_raw": "Wed, 14 Oct 2026 09:46:00 GMT",
+      "summary": "这是一支由行业资深老兵强强联合、经验丰富的“老炮重组”全新创业团队，核心成员均深耕相关领域多年，具备成熟的项目实操经验、深厚的行业资源积淀与极强的协同作战能力，凭借过往沉淀的硬核专业能力与行业洞察力，以全新团队架构开启新赛道布局。",
+      "target": "腾讯",
+      "kind": "publisher",
+      "category": "综合 / 天美 / 魔方 / Level Infinite",
+      "query": "腾讯 新游 出海"
+    },
+    {
+      "title": "投资2亿，占15%股权：库洛押注一家让角色“会呼吸”的AI公司",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645642a9c4defad578b58dd2f2f95&url=https%3a%2f%2fcj.sina.com.cn%2farticles%2fview%2f2953054937%2fb0040ad900101qo1w&c=5375085241263538020&mkt=en-us",
+      "published": "2026-10-14 16:56",
+      "pub_raw": "Wed, 14 Oct 2026 08:56:00 GMT",
+      "summary": "伽马数据《2026中国游戏产业AI发展报告》显示， 2026年上半年，中国游戏收入TOP50企业累计投资AI企业108宗，已超过2025年全年的89宗，是2022年全年52宗的两倍有余； 上半年游戏行业投融资中，AI相关项目占比超过70%。",
+      "target": "库洛游戏",
+      "kind": "publisher",
+      "category": "二次元动作",
+      "query": "库洛游戏 新游 二次元"
+    },
+    {
+      "title": "三七互娱：出海十四年，从产品到文化的三级跳",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645670eaf4763bb6d64e822297109&url=https%3a%2f%2fwww.sohu.com%2fa%2f1087657749_122800725&c=7131380854776121235&mkt=en-us",
+      "published": "2026-10-14 16:29",
+      "pub_raw": "Wed, 14 Oct 2026 08:29:00 GMT",
+      "summary": "2026年8月，三七互娱披露半年度报告：上半年实现营业收入72.75亿元，归母净利润17.66亿元，同比增长26.14%；其中境外营业收入30.21亿元，同比增长10.90%，占总营收比重升至41.53%。公司全球最高月活跃用户超过1.6亿…",
+      "target": "三七互娱",
+      "kind": "publisher",
+      "category": "SLG",
+      "query": "三七互娱 新游 SLG"
+    },
+    {
+      "title": "端游暴涨28%后，《魔兽世界：无限》撞上《剑侠世界4：无限》| 游戏干线",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad6455fb4714e4895b47e87f8a9ca8f&url=https%3a%2f%2fwww.msn.cn%2fzh-cn%2fnews%2fother%2f%25E7%25AB%25AF%25E6%25B8%25B8%25E6%259A%25B4%25E6%25B6%25A828-%25E5%2590%258E-%25E9%25AD%2594%25E5%2585%25BD%25E4%25B8%2596%25E7%2595%258C-%25E6%2597%25A0%25E9%2599%2590-%25E6%2592%259E%25E4%25B8%258A-%25E5%2589%2591%25E4%25BE%25A0%25E4%25B8%2596%25E7%2595%258C4-%25E6%2597%25A0%25E9%2599%2590-%25E6%25B8%25B8%25E6%2588%258F%25E5%25B9%25B2%25E7%25BA%25BF%2far-AA2ee9j6&c=3612805655228459872&mkt=en-us",
+      "published": "2026-10-14 15:20",
+      "pub_raw": "Wed, 14 Oct 2026 07:20:30 GMT",
+      "summary": "端游回来了——而且是以一种近乎蛮横的姿态。2026年7月30日，中国音数协游戏工委在CDEC大会上发布了一份令整个行业侧目的报告：2026年上半年，国内客户端游戏收入达452.88亿元，同比增长27.92%，增速是移动端游戏（7.9%）的近…",
+      "target": "网易",
+      "kind": "publisher",
+      "category": "开放世界 / MMO",
+      "query": "网易 新游 开放世界"
+    },
+    {
+      "title": "国际服+新方向，这款腾讯十年长青“老兵”的下一程才刚刚开始",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645608939433b9433822531669ba3&url=https%3a%2f%2fwww.sohu.com%2fa%2f1087578049_470230&c=4588903732787585949&mkt=en-us",
+      "published": "2026-10-14 13:57",
+      "pub_raw": "Wed, 14 Oct 2026 05:57:00 GMT",
+      "summary": "由万代南梦宫授权、腾讯魔方工作室群研发的《火影忍者》手游近期又曝出了新动作，不过这次的动作不在国内，而是全球。 2026年10月10日，纽约动漫展《火影忍者》专场舞台接连放出重磅企划。 由原作岸本齐史亲自执笔绘制的全新漫画《NARUTO-鸣…",
+      "target": "腾讯",
+      "kind": "publisher",
+      "category": "综合 / 天美 / 魔方 / Level Infinite",
+      "query": "腾讯 新游 出海"
+    },
+    {
+      "title": "十年了，从草莽到红海，二游第四个拐点要来了?",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad645642a9c4defad578b58dd2f2f95&url=https%3a%2f%2fwww.msn.cn%2fzh-cn%2fentertainment%2f%25E9%2580%259A%25E7%2594%25A8%2f%25E5%258D%2581%25E5%25B9%25B4%25E4%25BA%2586-%25E4%25BB%258E%25E8%258D%2589%25E8%258E%25BD%25E5%2588%25B0%25E7%25BA%25A2%25E6%25B5%25B7-%25E4%25BA%258C%25E6%25B8%25B8%25E7%25AC%25AC%25E5%259B%259B%25E4%25B8%25AA%25E6%258B%2590%25E7%2582%25B9%25E8%25A6%2581%25E6%259D%25A5%25E4%25BA%2586%2far-AA2ef8yq&c=13393481390092812184&mkt=en-us",
+      "published": "2026-10-14 11:48",
+      "pub_raw": "Wed, 14 Oct 2026 03:48:34 GMT",
+      "summary": "最近，一批老二游“过年”了。 上个月，《阴阳师》在广州大办十周年线下活动，广州塔广场内，有出cos的，有换无料的，年轻人很多，带着孩子、一家三口来的也不少，周年版本登上畅销榜top2。再往前，上上个月，《FGO》在上海搞嘉年华，在各大地铁站…",
+      "target": "库洛游戏",
+      "kind": "publisher",
+      "category": "二次元动作",
+      "query": "库洛游戏 新游 二次元"
+    }
+  ]
 }

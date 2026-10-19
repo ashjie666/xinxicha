@@ -4,6 +4,9 @@
 候选**只提示、不入库、不参与评分**——人工确认后才由人写进 data/seed_games.json。
 因此本模块不触碰评分模型，也不改 20 款清单本身。
 
+网络侧见 FEED_HOSTS：www.bing.com 对中国大陆 IP 会跳转到 cn.bing.com（该站不提供
+News RSS），故按顺序回退到 global.bing.com 并带上锁定美国市场的 Cookie。
+
 CLI 便于本地单独验证（不写盘用 --dry-run）：
     python -m collector.discover [--limit N] [--offline] [--dry-run]
 """
@@ -22,7 +25,12 @@ from xml.etree import ElementTree as ET
 from . import emit
 from . import http
 
-URL_TEMPLATE = ('https://www.bing.com/news/search?q={query}'
+# 中国大陆 IP 访问 www.bing.com 会被 302 到 cn.bing.com，而 cn.bing.com 的
+# /news/search?format=rss 不提供订阅源（直接 302 回首页 HTML）。global.bing.com
+# 解析到微软全球边缘节点，只要带上锁定美国市场的 Cookie 就能拿到真正的 RSS。
+FEED_HOSTS = ('www.bing.com', 'global.bing.com')
+MARKET_COOKIE = '_EDGE_S=mkt=en-us'
+URL_TEMPLATE = ('https://{host}/news/search?q={query}'
                 '&qft=sortbydate%3d%221%22&format=rss')
 TAG_RE = re.compile(r'<[^>]+>')
 WS_RE = re.compile(r'\s+')
@@ -91,6 +99,32 @@ def parse_rss(text):
     return items
 
 
+def fetch_items(collection, query):
+    """按 FEED_HOSTS 顺序取 RSS，返回 (items, error)。
+
+    items 为列表（允许为空）= 该 host 解析成功；全部 host 都失败时 items 为 None。
+    先在 www.bing.com 试（海外机房可直连），失败再走 global.bing.com + 市场 Cookie。
+    """
+    last_error = '未发起请求'
+    for host in FEED_HOSTS:
+        url = URL_TEMPLATE.format(host=host, query=urllib.parse.quote(query or ''))
+        result = http.fetch(url,
+                            timeout=collection.get('request_timeout', 8),
+                            user_agent=collection.get('user_agent'),
+                            use_cache=True,
+                            ttl_hours=collection.get('cache_ttl_hours', 12),
+                            headers={'Cookie': MARKET_COOKIE})
+        if not result.get('ok'):
+            last_error = result.get('error') or '请求失败'
+            continue
+        items = parse_rss(result.get('text') or '')
+        if items is None:
+            last_error = '{} 返回非 RSS 内容（被重定向到网页）'.format(host)
+            continue
+        return items, None
+    return None, last_error
+
+
 def known_names(seed_games):
     """已监控游戏的 name_cn / name_en（小写），用于过滤候选"""
     names = set()
@@ -151,20 +185,9 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
             target_rows.append(row)
             continue
 
-        url = URL_TEMPLATE.format(query=urllib.parse.quote(row['query']))
-        result = http.fetch(url,
-                            timeout=collection.get('request_timeout', 8),
-                            user_agent=collection.get('user_agent'),
-                            use_cache=True,
-                            ttl_hours=collection.get('cache_ttl_hours', 12))
-        if not result.get('ok'):
-            row['error'] = result.get('error') or '请求失败'
-            target_rows.append(row)
-            continue
-
-        items = parse_rss(result.get('text') or '')
+        items, error = fetch_items(collection, row['query'])
         if items is None:
-            row['error'] = '返回非 RSS 内容（Bing 可能重定向到网页）'
+            row['error'] = error
             target_rows.append(row)
             continue
         row['ok'] = True
@@ -174,7 +197,9 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
         for item in items:
             if not item['title'] or is_known(item['title'], names):
                 continue
-            key_url = (item['url'] or '').split('?')[0]
+            # 不能去掉 query 再当去重键：Bing News RSS 把所有链接都包成同一条
+            # apiclick.aspx?…&tid=xxx 跳转地址，只有 query 部分能区分文章。
+            key_url = (item['url'] or '').strip()
             if normalize(item['title']) in seen_title or (key_url and key_url in seen_url):
                 continue
             seen_title.add(normalize(item['title']))
