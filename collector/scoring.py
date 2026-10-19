@@ -98,8 +98,8 @@ def component_rows(game, signals, config, today):
             'note': note,
         })
 
-    def p1_row(key, label, bands_key, fallback_kind):
-        source = signals.get(key, {})
+    def p1_row(key, label, source_key, bands_key, fallback_kind):
+        source = signals.get(source_key, {})
         value = source.get('value')
         stale = bool(source.get('stale')) or not source.get('available')
         if value is not None:
@@ -114,11 +114,11 @@ def component_rows(game, signals, config, today):
                  source.get('error') or '源不可用且无历史值，记 0 分（不重分配权重）')
 
     # 1) Trends 上升 30%
-    p1_row('trends_rise', 'Trends 上升', 'trends_7d', 'Fallback: Google Search')
+    p1_row('trends_rise', 'Trends 上升', 'trends', 'trends_7d', 'Fallback: Google Search')
     # 2) Reddit 20%
-    p1_row('reddit', 'Reddit 讨论量', 'reddit_daily', 'Fallback: Discord/Forum')
+    p1_row('reddit', 'Reddit 讨论量', 'reddit', 'reddit_daily', 'Fallback: Discord/Forum')
     # 3) X 官方公告 15%
-    p1_row('x_official', 'X 官方公告', 'x_official', 'Fallback: RSS/官网')
+    p1_row('x_official', 'X 官方公告', 'x_twitter', 'x_official', 'Fallback: RSS/官网')
 
     # 4) 海外供给不足 15%
     score, gap = supply_gap_score(game, config)

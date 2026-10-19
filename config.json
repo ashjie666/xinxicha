@@ -19,7 +19,7 @@
       "launch_window": 10
     },
     "bands": {
-      "trends_7d": [[0, 5, 30], [5, 20, 60], [20, null, 100]],
+      "trends_7d": [[-100, -20, 0], [-20, 0, 15], [0, 5, 30], [5, 20, 60], [20, null, 100]],
       "reddit_daily": [[0, 0, 0], [1, 2, 40], [3, 5, 70], [5, null, 100]],
       "launch_window_days": [[7, 100], [30, 70], [90, 40]],
       "launch_window_fallback": { "live": 20, "unknown": 10 },

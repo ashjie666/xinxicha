@@ -78,7 +78,7 @@
         '<span class="comp-bar"><span class="comp-fill' + (comp.stale ? ' is-stale' : '') +
           '" style="width:' + pct + '%"></span></span>' +
         '<span class="comp-val">' + XC.fmt(comp.score, 1) + ' × ' + XC.fmtInt(comp.weight) + '% = ' + XC.fmt(comp.weighted, 2) + '</span>' +
-        '<span class="comp-src">' + esc(source) + '</span>' +
+        '<span class="comp-src" title="' + esc(source) + '">' + esc(source) + '</span>' +
         '</li>';
     }).join('');
   }
