@@ -140,10 +140,18 @@ class Collector(object):
             series = [int(v) for v in frame[keyword].tolist()] if keyword in frame else []
             nonzero = len([v for v in series if v > 0])
             # 变化率用首末两点计算：数据点过少时首末两点极易失真为极端值
-            # （实测出现过 -100%：7 日窗口内只有个别点位有量），故要求至少 3 个非零数据点
-            if len(series) < 2 or series[0] == 0 or nonzero < 3:
+            # （实测出现过 -100%：7 日窗口内只有个别点位有量），故要求至少 3 个非零数据点。
+            # 三种触发原因分别说明：否则「非零点 N 个，少于 3 个」在 N=3（实际因首点为 0 触发）时自相矛盾
+            reason = ''
+            if len(series) < 2:
+                reason = '7 日内有效数据点不足 2 个'
+            elif series[0] == 0:
+                reason = '7 日窗口首点无搜索量，无法计算变化率'
+            elif nonzero < 3:
+                reason = '7 日内非零数据点 {} 个，少于 3 个不计算变化率'.format(nonzero)
+            if reason:
                 self._count('trends', False)
-                error = 'Trends 数据不足（7 日内非零数据点 {} 个，少于 3 个不计算变化率）'.format(nonzero)
+                error = 'Trends 数据不足（{}）'.format(reason)
                 state_mod.record(self.state, 'trends', False, error=error,
                                  degrade_after=self.config['collection']['failure_policy']['degrade_after_consecutive_failures'])
                 return unavailable('Google Trends', 'Fallback: Google Search', error)
