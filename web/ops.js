@@ -74,6 +74,14 @@
     items.push(kv('海外供给缺口', '缺口分 = 10 - 海外供给量（或人工缺口等级映射：高 9 / 中 6 / 低 2）；得分 = (缺口分 - 5) / 4 × 100，区间裁剪到 0-100'));
     items.push(kv('国内攻略成熟度', '得分 = (国内成熟度 - 1) / 4 × 100（1-5 分制线性映射）'));
     items.push(kv('缺失源处理', '源不可用且无历史值 → 记 0 分，不重分配权重；有历史值 → 沿用上次有效值并标 stale'));
+    const anchor = OPS.trends_anchor || {};
+    if (anchor.term) {
+      items.push(kv('搜索水位（展示用 · 不参与评分）',
+        '锚点词「' + anchor.term + '」定标 ' + XC.fmtInt(anchor.target) +
+        '：每次 Trends 额外带上锚点词，按「定标值 ÷ 锚点同批实测值」把该批 0-100 相对指数折算成跨批次、跨游戏可比的水位，' +
+        '超过 ' + XC.fmtInt(anchor.max_level) + ' 按上限截断；取不到时沿用上次水位并标 stale，无历史则留空。' +
+        '水位不进入上面任何权重与阈值。'));
+    }
     XC.$('bands-body').innerHTML = items.join('');
   }
 

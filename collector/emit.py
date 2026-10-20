@@ -49,6 +49,7 @@ def build_meta(config, run_info, counts):
         'alert': run_info['alert'],
         'duration_sec': run_info['duration_sec'],
         'counts': counts,
+        'trends_anchor': config.get('trends_anchor') or {},
         'scoring_note': config['scoring']['note'],
     }
 
@@ -57,6 +58,7 @@ def build_games(config, seed_games, scored, run_info):
     games = []
     for game in seed_games['games']:
         result = scored[game['id']]
+        level = (result['signals'].get('trends') or {}).get('level') or {}
         item = dict(game)
         item.update({
             'signals': result['signals'],
@@ -76,6 +78,13 @@ def build_games(config, seed_games, scored, run_info):
             'fallbacks': result['log_row']['fallbacks'],
             'stale_sources': result['stale_sources'],
             'trends_7d': result['signals']['trends'].get('value'),
+            'trends_level': level.get('value'),
+            'trends_level_raw': level.get('raw'),
+            'trends_level_note': level.get('note') or '',
+            'trends_level_stale': bool(level.get('stale')),
+            'trends_anchor_term': level.get('anchor_term'),
+            'trends_anchor_raw': level.get('anchor_raw'),
+            'trends_anchor_target': level.get('target'),
             'reddit_daily': result['signals']['reddit'].get('value'),
             'x_state': result['signals']['x_twitter'].get('value'),
             'gap_score': _gap(game, config),
@@ -155,6 +164,7 @@ def build_ops(config, seed_ops, seed_games, health_rows, log_payload, run_info, 
             'confidence_rules': config['scoring']['confidence_rules'],
             'note': config['scoring']['note'],
         },
+        'trends_anchor': config.get('trends_anchor') or {},
         'weights_table': scoring_module.weights_table(config),
         'components_order': [row[0] for row in scoring_module.COMPONENTS],
         'component_labels': {row[0]: row[1] for row in scoring_module.COMPONENTS},

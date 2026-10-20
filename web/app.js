@@ -196,6 +196,22 @@
     return '<div class="cell-title">' + esc(game.launch_date) + '</div><div class="cell-sub">' + esc(sub) + '</div>';
   }
 
+  /* 搜索水位：展示用现状指标（Trends 相对指数按锚点词校准），不参与评分 */
+  function levelCell(game) {
+    const value = game.trends_level;
+    const note = game.trends_level_note || '水位不可用';
+    if (!num(value)) {
+      return '<div class="cell-title">—</div><div class="cell-sub">' + esc(note) + '</div>';
+    }
+    const anchor = game.trends_anchor_term ? '锚点 ' + game.trends_anchor_term : '';
+    return '<div class="score-cell">' +
+      '<span class="score-num" style="font-size:15px">' + esc(XC.fmt(value, 1)) + '</span>' +
+      '<span class="score-bar"><span class="score-bar-fill ' + (game.trends_level_stale ? 'lv-c' : 'lv-b') +
+        '" style="width:' + XC.clamp(value, 0, 100) + '%"></span></span>' +
+      '<span class="cell-sub" title="' + esc(anchor + ' · ' + note) + '">' + esc(note) + '</span>' +
+      '</div>';
+  }
+
   function sourceCell(game) {
     const parts = [];
     (game.sources_used || []).slice(0, 2).forEach(function (text) {
@@ -234,6 +250,7 @@
           '<div class="cell-sub">' + esc(game.launch_date_raw || '') + '</div></td>' +
         '<td><div class="cell-title">' + esc(game.cn_status || '—') + '</div></td>' +
         '<td>' + launchCell(game) + '</td>' +
+        '<td>' + levelCell(game) + '</td>' +
         '<td>' + componentCell(componentOf(game, 'trends_rise')) + '</td>' +
         '<td>' + componentCell(componentOf(game, 'reddit')) + '</td>' +
         '<td>' + componentCell(componentOf(game, 'x_official')) + '</td>' +
