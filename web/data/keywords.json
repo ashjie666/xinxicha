@@ -4,18 +4,26 @@
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-20 09:47:07",
+    "generated_at_cst": "2026-10-20 10:53:07",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 648.5,
+    "duration_sec": 683.0,
     "counts": {
       "keywords": 50,
       "covered": 0,
       "not_covered": 50,
       "high_competition": 7
+    },
+    "trends_anchor": {
+      "enabled": true,
+      "term": "gacha game",
+      "target": 60,
+      "max_level": 100,
+      "interval_sec": 3,
+      "note": "搜索水位（展示用，不参与评分）：Google Trends 每批都会把该批最高值归一成 100，不校准就无法跨批次、跨游戏比较。这里每次额外带上锚点词，按「定标值 target ÷ 锚点同批实测值」把该批的 0-100 相对指数折算成可比水位，再裁剪到 max_level。与评分用的变化率分两次请求——批次里混入锚点词会改变归一化基准，整数截断后小量级游戏的 7 日变化率会被压成 0/1 噪声（该分项占 30% 权重，不能冒这个险），所以评分链路仍走「仅游戏词」的原批次，水位单独再发一次（interval_sec 为两次请求之间的间隔，减少限流）。term 需是英文、稳定、量级与监控游戏接近的词；若水位普遍贴 0 或普遍顶格，改这里即可，备选 mobile game / Steam。"
     },
     "scoring_note": "权重取规格表「回退逻辑说明」的评分权重（30/20/15/15/10/10）；规格表「MVP字段表」F13 的 5×20% 旧公式已废弃"
   },
