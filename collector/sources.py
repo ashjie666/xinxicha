@@ -162,6 +162,7 @@ class Collector(object):
         self.calls = {}
         self.trends_client = None
         self.trends_error = None
+        self._trends_shared = {}   # prefetch_trends 批量预取结果：game_id -> DataFrame 或 Exception
         self._init_trends()
 
     # ---------- 基础设施 ----------
@@ -216,8 +217,55 @@ class Collector(object):
 
     # ---------- 各源 ----------
 
-    def _trends(self, game):
-        """Trends 单批取源：批次为 [游戏词, 冷锚点, 热锚点]（未配置锚点时只传游戏词）。
+    def prefetch_trends(self, games):
+        """批量预取 Trends：把 N 款游戏按 collection.trends_batch_size 分组，每组发一次请求。
+
+        批次＝[若干游戏词 + 冷锚点 + 热锚点]（pytrends 单批上限 5 词，故每组游戏词数
+        会被两个锚点挤占），请求数由「每款 1 次」（21 次）降到约 21 / batch_size 次，
+        直接缓解 Google 窗口配额触发的 429（2026-10-20 实测逐款 21 次会让占 30% 权重的
+        trends_rise 分项有 3~6 款 stale）。取数结果挂在 self._trends_shared
+        （game_id -> DataFrame 或 Exception），随后逐款 _trends(game) 直接复用；
+        「记账 / state / 降级文案」仍在 _trends 里逐款执行，口径与单款路径完全一致。
+        不可用（离线 / 未装 pytrends / 网络不可达）时不预取，由逐款 _trends 各自降级；
+        预算不足则中断预取，剩余款同样落到逐款路径。
+        """
+        conf = self.config.get('trends_anchor') or {}
+        enabled = conf.get('enabled', True)
+        anchor_terms = [term for term in ((conf.get('low') if enabled else None),
+                                          (conf.get('high') if enabled else None)) if term]
+        size = max(1, int((self.config.get('collection') or {}).get('trends_batch_size') or 1))
+        self._trends_shared = {}
+        if self.offline or not self.trends_client or not (self.network or self.p2_network):
+            return
+        pending = [(game.get('id'), game.get('name_en') or game.get('name_cn')) for game in games]
+        for start in range(0, len(pending), size):
+            chunk = pending[start:start + size]
+            if self.budget_left() < 8:
+                break  # 预算不足：剩余款交给逐款 _trends，各自记「预算不足，跳过调用」
+            terms = []
+            for _game_id, keyword in chunk:
+                if keyword and keyword not in terms:
+                    terms.append(keyword)
+            for term in anchor_terms:
+                if term not in terms:
+                    terms.append(term)
+            terms = terms[:5]
+            try:
+                client = self.trends_client(hl='en-US', tz=0)
+                client.build_payload(terms, timeframe='now 7-d', geo='')
+                frame = client.interest_over_time()
+            except Exception as error:  # noqa: BLE001 - 整批失败，组内各款复用同一异常
+                for game_id, _keyword in chunk:
+                    self._trends_shared[game_id] = error
+                continue
+            for game_id, _keyword in chunk:
+                self._trends_shared[game_id] = frame
+
+    def _trends(self, game, shared=None):
+        """Trends 取源：批次为 [游戏词, 冷锚点, 热锚点]（未配置锚点时只传游戏词）。
+
+        shared 由 prefetch_trends 传入（该款所在的同批 DataFrame，或该批的 Exception）；
+        为 None 时本方法自行发一次单款请求（未预取 / 预算耗尽时的兜底路径）。
 
         同一批次同时产出两个量：
           - 变化率（评分用，占 30% 权重）：游戏词列首末两点，判据与口径保持不变
@@ -267,16 +315,21 @@ class Collector(object):
             return attach(unavailable('Google Trends', 'Fallback: Google Search', '预算不足，跳过调用'),
                           blank_level('水位不可用：预算不足，未请求'))
         keyword = game.get('name_en') or game.get('name_cn')
-        # 批次＝游戏词 + 冷锚点 + 热锚点（去重、剔除与游戏词同名者）；单批最多 3 词，请求数不变
-        terms = [keyword]
-        for term in (low_term, high_term):
-            if term and term != keyword and term not in terms:
-                terms.append(term)
         degrade = self.config['collection']['failure_policy']['degrade_after_consecutive_failures']
         try:
-            client = self.trends_client(hl='en-US', tz=0)
-            client.build_payload(terms, timeframe='now 7-d', geo='')
-            frame = client.interest_over_time()
+            if shared is None:
+                # 批次＝游戏词 + 冷锚点 + 热锚点（去重、剔除与游戏词同名者）
+                terms = [keyword]
+                for term in (low_term, high_term):
+                    if term and term != keyword and term not in terms:
+                        terms.append(term)
+                client = self.trends_client(hl='en-US', tz=0)
+                client.build_payload(terms, timeframe='now 7-d', geo='')
+                frame = client.interest_over_time()
+            elif isinstance(shared, Exception):
+                raise shared
+            else:
+                frame = shared
             series = [int(v) for v in frame[keyword].tolist()] if keyword in frame else []
 
             def series_of(term):
@@ -465,8 +518,10 @@ class Collector(object):
         return fallback
 
     def gather(self, game):
-        # Trends 单批同时产出变化率（评分）与搜索水位（展示），水位随 signal 一起返回
-        trends = self._with_fallback('trends', self._trends(game), 'Trends')
+        # Trends 单批同时产出变化率（评分）与搜索水位（展示），水位随 signal 一起返回；
+        # shared 为 prefetch_trends 的批量结果，无则本方法自行发单款请求
+        trends = self._with_fallback(
+            'trends', self._trends(game, self._trends_shared.get(game.get('id'))), 'Trends')
         reddit = self._with_fallback('reddit', self._reddit(game), 'Reddit')
         x_twitter = self._with_fallback('x_twitter', self._x_twitter(game), 'X')
         # P3 兜底源：只做健康记账、不参与评分；放在 X 之后以便命中其 HTTP 缓存

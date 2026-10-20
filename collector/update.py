@@ -112,6 +112,8 @@ def main(argv):
     scored = {}
     log_rows = []
     fresh_p1 = False
+    # 批量预取 Trends（每批 trends_batch_size 款游戏词 + 冷/热锚点），请求数由 N 降到约 N/批
+    collector.prefetch_trends(seed_games['games'])
     for game in seed_games['games']:
         signals, log_row = collector.gather(game)
         for key in ('trends', 'reddit', 'x_twitter'):
