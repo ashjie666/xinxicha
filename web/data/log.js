@@ -4,23 +4,23 @@ window.XC_LOG = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-20 11:29:29",
+    "generated_at_cst": "2026-10-20 12:03:35",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 639.8,
+    "duration_sec": 640.6,
     "counts": {
       "days": 3,
       "games_logged": 21
     },
     "trends_anchor": {
       "enabled": true,
-      "term": "gacha game",
-      "target": 60,
-      "max_level": 100,
-      "note": "搜索水位（展示用，不参与评分）：Google Trends 每批都会把该批最高值归一成 100，不校准就无法跨批次、跨游戏比较。做法＝把锚点词与游戏词放进同一批请求，按「定标值 target ÷ 锚点同批实测值」把该批 0-100 相对指数折算成可比水位，再裁剪到 max_level。水位取不到就留空「—」，不做 stale 兜底——逐款水位各不相同，借源级上次值会张冠李戴。刻意不另发一次锚点批次：2026-10-20 实测请求数从 21 翻倍到 42 会撞上 Google 窗口配额，把占 30% 权重的变化率分项打到 13/21 款 stale。term 需是英文、稳定、量级与监控游戏接近的词；若水位普遍贴 0 或普遍顶格，改这里即可，备选 mobile game / Steam。"
+      "low": "gacha game",
+      "high": "gaming",
+      "min_span": 15,
+      "note": "搜索水位（展示用，不参与评分；另出「水位名次」列以保证每款可区分）：Google Trends 每批都把本批最高值归一成 100，不校准就无法跨批次、跨游戏比较。做法＝把「游戏词 + 冷锚点 low + 热锚点 high」放进同一批请求（请求数仍是每游戏 1 次，不额外增次），按 7 日序列均值做双锚折线定标：冷锚以下用「50 × 游戏均值 ÷ 冷锚均值」铺在 0-50，冷锚到热锚之间用「50 + 50 ×（游戏均值 − 冷锚均值）÷（热锚均值 − 冷锚均值）」映射到 50-100，越界不截断（高于热锚保留 >100 并注明）。用折线而非单段线性的原因：单段线性会把所有低于冷锚的款统一压成 0，低量级游戏会大面积并列（2026-10-20 run #22 实测 21 款里 8 款挤 0.0、8 款挤 100.0）。热锚缺失、冷锚缺失或两锚均值跨度 < min_span 时自动降级为「单锚点比例定标」（优先用热锚）。取不到留空「—」并写明原因，不做 stale 兜底（逐款水位各异，借源级上次值会张冠李戴）。刻意不另发锚点批次：2026-10-20 实测请求数 21→42 会撞 Google 窗口配额，把占 30% 权重的变化率分项打到 13/21 款 stale。锚点须为英文且量级稳定：low 取中低量级（备选 mobile game），high 取量级天花板（备选 Steam / video games）；min_span 用于挡住「两锚量级太近」时的插值噪声放大。"
     },
     "scoring_note": "权重取规格表「回退逻辑说明」的评分权重（30/20/15/15/10/10）；规格表「MVP字段表」F13 的 5×20% 旧公式已废弃",
     "days_tracked": 3
@@ -9857,30 +9857,437 @@ window.XC_LOG = {
               }
             }
           ]
+        },
+        {
+          "at": "2026-10-20 12:03:35",
+          "network": false,
+          "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
+          "data_mode": "live",
+          "duration_sec": 640.6,
+          "alert": null,
+          "calls": {
+            "trends": {
+              "attempted": 21,
+              "ok": 7,
+              "failed": 14,
+              "skipped": 0
+            },
+            "reddit": {
+              "attempted": 21,
+              "ok": 21,
+              "failed": 0,
+              "skipped": 0
+            },
+            "x_twitter": {
+              "attempted": 21,
+              "ok": 21,
+              "failed": 0,
+              "skipped": 0
+            },
+            "rss": {
+              "attempted": 21,
+              "ok": 21,
+              "failed": 0,
+              "skipped": 0
+            }
+          },
+          "games": [
+            {
+              "id": "monster-hunter-outlanders",
+              "name_cn": "怪物猎人：旅人",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "phantom-blade-zero",
+              "name_cn": "影之刃零",
+              "used": [
+                "P1·Trends",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "正常",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "roco-kingdom-world",
+              "name_cn": "洛克王国：世界",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "star-valley",
+              "name_cn": "星布谷地",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "project-origin",
+              "name_cn": "源初之结",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "project-mugen-neverness",
+              "name_cn": "无限大",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "naruto-mobile-global",
+              "name_cn": "火影忍者手游",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "the-outcast",
+              "name_cn": "异人之下",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "where-winds-meet",
+              "name_cn": "燕云十六声",
+              "used": [
+                "P1·Trends",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Bing News RSS 命中 11 条"
+              ],
+              "detail": {
+                "trends": "正常",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "last-asylum-plague",
+              "name_cn": "Last Asylum: Plague",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "clash-of-critters",
+              "name_cn": "Clash of Critters",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 11 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "flamb-merge-cook",
+              "name_cn": "Flambé: Merge & Cook",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "tasty-travels-merge-game",
+              "name_cn": "Tasty Travels",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 11 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "genshin-impact",
+              "name_cn": "原神",
+              "used": [
+                "P1·Trends",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "正常",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "honkai-star-rail",
+              "name_cn": "崩坏：星穹铁道",
+              "used": [
+                "P1·Trends",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "正常",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "wuthering-waves",
+              "name_cn": "鸣潮",
+              "used": [
+                "P1·Trends",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "正常",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "honor-of-kings",
+              "name_cn": "王者荣耀国际服",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "arknights",
+              "name_cn": "明日方舟",
+              "used": [
+                "P1·Trends",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "正常",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "afk-journey",
+              "name_cn": "剑与远征：启程",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 11 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "rise-of-kingdoms",
+              "name_cn": "万国觉醒",
+              "used": [
+                "Trends（stale）",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            },
+            {
+              "id": "hunger",
+              "name_cn": "HUNGER",
+              "used": [
+                "P1·Trends",
+                "P1·Reddit",
+                "P2·X"
+              ],
+              "fallbacks": [
+                "Bing News RSS 命中 12 条"
+              ],
+              "detail": {
+                "trends": "正常",
+                "reddit": "正常",
+                "x_twitter": "正常"
+              }
+            }
+          ]
         }
       ],
       "totals": {
-        "monster-hunter-outlanders": 33.5,
-        "phantom-blade-zero": 31.8,
-        "roco-kingdom-world": 37.0,
-        "star-valley": 34.5,
-        "project-origin": 27.5,
-        "project-mugen-neverness": 28.0,
-        "naruto-mobile-global": 35.0,
+        "monster-hunter-outlanders": 38.0,
+        "phantom-blade-zero": 36.2,
+        "roco-kingdom-world": 41.5,
+        "star-valley": 39.0,
+        "project-origin": 36.5,
+        "project-mugen-neverness": 37.0,
+        "naruto-mobile-global": 44.0,
         "the-outcast": 39.0,
-        "where-winds-meet": 25.8,
-        "last-asylum-plague": 20.0,
-        "clash-of-critters": 20.0,
-        "flamb-merge-cook": 20.8,
-        "tasty-travels-merge-game": 20.8,
+        "where-winds-meet": 30.2,
+        "last-asylum-plague": 25.2,
+        "clash-of-critters": 22.8,
+        "flamb-merge-cook": 25.2,
+        "tasty-travels-merge-game": 25.2,
         "genshin-impact": 20.0,
-        "honkai-star-rail": 24.5,
-        "wuthering-waves": 22.0,
-        "honor-of-kings": 20.0,
-        "arknights": 38.0,
-        "afk-journey": 22.0,
+        "honkai-star-rail": 29.0,
+        "wuthering-waves": 26.5,
+        "honor-of-kings": 26.5,
+        "arknights": 50.0,
+        "afk-journey": 47.5,
         "rise-of-kingdoms": 50.0,
-        "hunger": 29.5
+        "hunger": 55.0
       }
     }
   ]

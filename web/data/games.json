@@ -4,13 +4,13 @@
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-20 11:29:29",
+    "generated_at_cst": "2026-10-20 12:03:35",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 639.8,
+    "duration_sec": 640.6,
     "counts": {
       "games": 21,
       "p0": 2,
@@ -18,10 +18,10 @@
     },
     "trends_anchor": {
       "enabled": true,
-      "term": "gacha game",
-      "target": 60,
-      "max_level": 100,
-      "note": "搜索水位（展示用，不参与评分）：Google Trends 每批都会把该批最高值归一成 100，不校准就无法跨批次、跨游戏比较。做法＝把锚点词与游戏词放进同一批请求，按「定标值 target ÷ 锚点同批实测值」把该批 0-100 相对指数折算成可比水位，再裁剪到 max_level。水位取不到就留空「—」，不做 stale 兜底——逐款水位各不相同，借源级上次值会张冠李戴。刻意不另发一次锚点批次：2026-10-20 实测请求数从 21 翻倍到 42 会撞上 Google 窗口配额，把占 30% 权重的变化率分项打到 13/21 款 stale。term 需是英文、稳定、量级与监控游戏接近的词；若水位普遍贴 0 或普遍顶格，改这里即可，备选 mobile game / Steam。"
+      "low": "gacha game",
+      "high": "gaming",
+      "min_span": 15,
+      "note": "搜索水位（展示用，不参与评分；另出「水位名次」列以保证每款可区分）：Google Trends 每批都把本批最高值归一成 100，不校准就无法跨批次、跨游戏比较。做法＝把「游戏词 + 冷锚点 low + 热锚点 high」放进同一批请求（请求数仍是每游戏 1 次，不额外增次），按 7 日序列均值做双锚折线定标：冷锚以下用「50 × 游戏均值 ÷ 冷锚均值」铺在 0-50，冷锚到热锚之间用「50 + 50 ×（游戏均值 − 冷锚均值）÷（热锚均值 − 冷锚均值）」映射到 50-100，越界不截断（高于热锚保留 >100 并注明）。用折线而非单段线性的原因：单段线性会把所有低于冷锚的款统一压成 0，低量级游戏会大面积并列（2026-10-20 run #22 实测 21 款里 8 款挤 0.0、8 款挤 100.0）。热锚缺失、冷锚缺失或两锚均值跨度 < min_span 时自动降级为「单锚点比例定标」（优先用热锚）。取不到留空「—」并写明原因，不做 stale 兜底（逐款水位各异，借源级上次值会张冠李戴）。刻意不另发锚点批次：2026-10-20 实测请求数 21→42 会撞 Google 窗口配额，把占 30% 权重的变化率分项打到 13/21 款 stale。锚点须为英文且量级稳定：low 取中低量级（备选 mobile game），high 取量级天花板（备选 Steam / video games）；min_span 用于挡住「两锚量级太近」时的插值噪声放大。"
     },
     "scoring_note": "权重取规格表「回退逻辑说明」的评分权重（30/20/15/15/10/10）；规格表「MVP字段表」F13 的 5×20% 旧公式已废弃"
   },
@@ -200,7 +200,7 @@
       "launch_date": "2026-10-29",
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": -100.0,
+      "trends_7d": -11.2,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -208,26 +208,26 @@
       "priority": "P0",
       "note": "国际服先上线，国服2027+，时间窗口最干净",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -100.0,
+          "available": false,
+          "value": -11.2,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": 0.0,
-            "raw": 0,
+            "value": 50.0,
+            "raw": 0.0,
             "stale": false,
-            "note": "原始 0 · 锚点实测 100 · 分辨率下限（原始值 ≤1）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 100,
-            "scale": 0.6,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -253,14 +253,14 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 4.5,
+          "value": -11.2,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -323,9 +323,9 @@
           "note": "距上线 9 天"
         }
       ],
-      "total": 33.5,
+      "total": 38.0,
       "prev_total": 33.5,
-      "delta": 0.0,
+      "delta": 4.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -346,7 +346,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 33.5,
+          "total": 38.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -356,7 +356,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 24.5,
+          "total": 29.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -377,27 +377,33 @@
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 0.0,
-      "trends_level_raw": 0,
-      "trends_level_note": "原始 0 · 锚点实测 100 · 分辨率下限（原始值 ≤1）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": 50.0,
+      "trends_level_raw": 0.0,
+      "trends_level_note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 100,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 20,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": 9,
       "overseas_supply": null,
       "keywords_count": 13,
-      "stale": false
+      "stale": true
     },
     {
       "id": "phantom-blade-zero",
@@ -412,7 +418,7 @@
       "launch_date": "2026-10-29",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -13.8,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -425,21 +431,22 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -13.8,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 100.0,
-            "raw": 75,
+            "value": 51.23,
+            "raw": 1.0,
             "stale": false,
-            "note": "原始 75 · 锚点实测 14 · 顶格（量级高于锚点）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 14,
-            "scale": 4.2857,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 1.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -465,10 +472,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 30,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -13.8,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -535,9 +542,9 @@
           "note": "距上线 9 天"
         }
       ],
-      "total": 31.8,
+      "total": 36.2,
       "prev_total": 27.2,
-      "delta": 4.6,
+      "delta": 9.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -558,7 +565,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 31.8,
+          "total": 36.2,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -568,7 +575,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 22.8,
+          "total": 27.2,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -597,13 +604,16 @@
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [],
-      "trends_level": 100.0,
-      "trends_level_raw": 75,
-      "trends_level_note": "原始 75 · 锚点实测 14 · 顶格（量级高于锚点）",
+      "trends_level": 51.23,
+      "trends_level_raw": 1.0,
+      "trends_level_note": "7d 均值 1.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 14,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 6,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 6,
       "launch_days": 9,
@@ -624,7 +634,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "高",
-      "trends_7d": -13.8,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -637,20 +647,21 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -13.8,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
           "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": 0.0,
-            "raw": 0,
+            "value": 50.0,
+            "raw": 0.0,
             "stale": false,
-            "note": "原始 0 · 锚点实测 53 · 分辨率下限（原始值 ≤1）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 53,
-            "scale": 1.1321,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -676,10 +687,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 30,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -13.8,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -746,10 +757,10 @@
           "note": "无确定档期"
         }
       ],
-      "total": 37.0,
+      "total": 41.5,
       "prev_total": 32.5,
-      "delta": 4.5,
-      "action_engine": "暂不投入",
+      "delta": 9.0,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -769,8 +780,8 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 37.0,
-          "action_engine": "暂不投入",
+          "total": 41.5,
+          "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -779,7 +790,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 28.0,
+          "total": 32.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -811,13 +822,16 @@
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 0.0,
-      "trends_level_raw": 0,
-      "trends_level_note": "原始 0 · 锚点实测 53 · 分辨率下限（原始值 ≤1）",
+      "trends_level": 50.0,
+      "trends_level_raw": 0.0,
+      "trends_level_note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 53,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 17,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
@@ -838,7 +852,7 @@
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": -13.8,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -851,20 +865,21 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -13.8,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": null,
-            "raw": null,
+            "value": 50.0,
+            "raw": 0.0,
             "stale": false,
-            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
-            "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "scale": null,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -890,14 +905,14 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 30,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -13.8,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -960,9 +975,9 @@
           "note": "无确定档期"
         }
       ],
-      "total": 34.5,
+      "total": 39.0,
       "prev_total": 30.0,
-      "delta": 4.5,
+      "delta": 9.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -983,7 +998,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 34.5,
+          "total": 39.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -993,7 +1008,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 25.5,
+          "total": 30.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1025,13 +1040,16 @@
       "stale_sources": [
         "trends"
       ],
-      "trends_level": null,
-      "trends_level_raw": null,
-      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+      "trends_level": 50.0,
+      "trends_level_raw": 0.0,
+      "trends_level_note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 16,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
@@ -1052,7 +1070,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": -100.0,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1060,26 +1078,26 @@
       "priority": "P1",
       "note": "写实奇幻共斗新作，全球预约已开",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -100.0,
+          "available": false,
+          "value": 0.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": 0.0,
-            "raw": 0,
+            "value": 50.0,
+            "raw": 0.0,
             "stale": false,
-            "note": "原始 0 · 锚点实测 66 · 分辨率下限（原始值 ≤1）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 66,
-            "scale": 0.9091,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -1105,14 +1123,14 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 30,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -1175,9 +1193,9 @@
           "note": "无确定档期"
         }
       ],
-      "total": 27.5,
+      "total": 36.5,
       "prev_total": 27.5,
-      "delta": 0.0,
+      "delta": 9.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -1198,7 +1216,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 27.5,
+          "total": 36.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1208,7 +1226,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
+          "total": 27.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1229,27 +1247,33 @@
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 0.0,
-      "trends_level_raw": 0,
-      "trends_level_note": "原始 0 · 锚点实测 66 · 分辨率下限（原始值 ≤1）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": 50.0,
+      "trends_level_raw": 0.0,
+      "trends_level_note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 66,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 18,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": false
+      "stale": true
     },
     {
       "id": "project-mugen-neverness",
@@ -1264,7 +1288,7 @@
       "launch_date": "2027-01-15",
       "cn_guide_score": 1,
       "gap_level": "高",
-      "trends_7d": -100.0,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1277,20 +1301,21 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -100.0,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
           "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": 0.0,
-            "raw": 0,
+            "value": 50.0,
+            "raw": 0.0,
             "stale": false,
-            "note": "原始 0 · 锚点实测 59 · 分辨率下限（原始值 ≤1）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 59,
-            "scale": 1.0169,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -1316,10 +1341,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 30,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -1386,9 +1411,9 @@
           "note": "距上线 87 天"
         }
       ],
-      "total": 28.0,
+      "total": 37.0,
       "prev_total": 28.0,
-      "delta": 0.0,
+      "delta": 9.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -1409,7 +1434,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 28.0,
+          "total": 37.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1419,7 +1444,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
+          "total": 28.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1451,13 +1476,16 @@
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 0.0,
-      "trends_level_raw": 0,
-      "trends_level_note": "原始 0 · 锚点实测 59 · 分辨率下限（原始值 ≤1）",
+      "trends_level": 50.0,
+      "trends_level_raw": 0.0,
+      "trends_level_note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 59,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 15,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": 87,
@@ -1478,7 +1506,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "高",
-      "trends_7d": -100.0,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1491,20 +1519,21 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -100.0,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
           "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": 0.0,
-            "raw": 0,
+            "value": 50.0,
+            "raw": 0.0,
             "stale": false,
-            "note": "原始 0 · 锚点实测 47 · 分辨率下限（原始值 ≤1）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 47,
-            "scale": 1.2766,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -1530,10 +1559,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 30,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -1600,10 +1629,10 @@
           "note": "无确定档期"
         }
       ],
-      "total": 35.0,
+      "total": 44.0,
       "prev_total": 35.0,
-      "delta": 0.0,
-      "action_engine": "暂不投入",
+      "delta": 9.0,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -1623,8 +1652,8 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 35.0,
-          "action_engine": "暂不投入",
+          "total": 44.0,
+          "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -1633,7 +1662,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 26.0,
+          "total": 35.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1665,13 +1694,16 @@
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 0.0,
-      "trends_level_raw": 0,
-      "trends_level_note": "原始 0 · 锚点实测 47 · 分辨率下限（原始值 ≤1）",
+      "trends_level": 50.0,
+      "trends_level_raw": 0.0,
+      "trends_level_note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 47,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 19,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
@@ -1692,7 +1724,7 @@
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": 2.2,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1700,26 +1732,26 @@
       "priority": "P1",
       "note": "11月4日终局测试，国内预约3000万+",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": 2.2,
+          "available": false,
+          "value": 0.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": 48.62,
-            "raw": 47,
+            "value": 50.0,
+            "raw": 0.0,
             "stale": false,
-            "note": "原始 47 · 锚点实测 58",
-            "anchor_term": "gacha game",
-            "anchor_raw": 58,
-            "scale": 1.0345,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -1748,11 +1780,11 @@
           "score": 30,
           "weight": 30,
           "weighted": 9.0,
-          "value": 2.2,
+          "value": 0.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -1869,27 +1901,33 @@
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 48.62,
-      "trends_level_raw": 47,
-      "trends_level_note": "原始 47 · 锚点实测 58",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": 50.0,
+      "trends_level_raw": 0.0,
+      "trends_level_note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 58,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 14,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 2,
-      "stale": false
+      "stale": true
     },
     {
       "id": "where-winds-meet",
@@ -1904,7 +1942,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -11.9,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1917,21 +1955,22 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -11.9,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 100.0,
-            "raw": 52,
+            "value": 51.25,
+            "raw": 1.0,
             "stale": false,
-            "note": "原始 52 · 锚点实测 11 · 顶格（量级高于锚点）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 11,
-            "scale": 5.4545,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 1.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -1957,10 +1996,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 30,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -11.9,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2027,9 +2066,9 @@
           "note": "无确定档期"
         }
       ],
-      "total": 25.8,
+      "total": 30.2,
       "prev_total": 25.8,
-      "delta": 0.0,
+      "delta": 4.4,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -2050,7 +2089,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 25.8,
+          "total": 30.2,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2060,7 +2099,7 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
+          "total": 21.2,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2089,13 +2128,16 @@
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [],
-      "trends_level": 100.0,
-      "trends_level_raw": 52,
-      "trends_level_note": "原始 52 · 锚点实测 11 · 顶格（量级高于锚点）",
+      "trends_level": 51.25,
+      "trends_level_raw": 1.0,
+      "trends_level_note": "7d 均值 1.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 11,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 4,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
@@ -2116,7 +2158,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -100.0,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2124,26 +2166,26 @@
       "priority": "P2",
       "note": "8月收入环比增37%，赛季制更新频繁",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -100.0,
+          "available": false,
+          "value": 0.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": 0.0,
-            "raw": 0,
+            "value": 50.0,
+            "raw": 0.0,
             "stale": false,
-            "note": "原始 0 · 锚点实测 91 · 分辨率下限（原始值 ≤1）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 91,
-            "scale": 0.6593,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -2169,14 +2211,14 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 30,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -2239,12 +2281,12 @@
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 25.2,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 5.2,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": true,
+      "base_score_applied": false,
       "days_tracked": 3,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
@@ -2262,7 +2304,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 25.2,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2293,27 +2335,33 @@
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 0.0,
-      "trends_level_raw": 0,
-      "trends_level_note": "原始 0 · 锚点实测 91 · 分辨率下限（原始值 ≤1）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": 50.0,
+      "trends_level_raw": 0.0,
+      "trends_level_note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 91,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 12,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 0,
-      "stale": false
+      "stale": true
     },
     {
       "id": "clash-of-critters",
@@ -2328,7 +2376,7 @@
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "中",
-      "trends_7d": -9.4,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2336,26 +2384,26 @@
       "priority": "P2",
       "note": "MAU增长明显，英文供给仍在建立",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -9.4,
+          "available": false,
+          "value": 0.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": 100.0,
-            "raw": 58,
+            "value": 50.09,
+            "raw": 0.1,
             "stale": false,
-            "note": "原始 58 · 锚点实测 29 · 顶格（量级高于锚点）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 29,
-            "scale": 2.069,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 0.1 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -2381,14 +2429,14 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 30,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -9.4,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -2451,12 +2499,12 @@
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 22.8,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 2.8,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": true,
+      "base_score_applied": false,
       "days_tracked": 3,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
@@ -2474,7 +2522,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 22.8,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2505,27 +2553,33 @@
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
-      "stale_sources": [],
-      "trends_level": 100.0,
-      "trends_level_raw": 58,
-      "trends_level_note": "原始 58 · 锚点实测 29 · 顶格（量级高于锚点）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": 50.09,
+      "trends_level_raw": 0.1,
+      "trends_level_note": "7d 均值 0.1 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 29,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 8,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 2,
-      "stale": false
+      "stale": true
     },
     {
       "id": "flamb-merge-cook",
@@ -2540,7 +2594,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -9.4,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2553,20 +2607,21 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -9.4,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
           "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": 0.0,
-            "raw": 0,
+            "value": 50.0,
+            "raw": 0.0,
             "stale": false,
-            "note": "原始 0 · 锚点实测 60 · 分辨率下限（原始值 ≤1）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 60,
-            "scale": 1.0,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -2592,10 +2647,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 30,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -9.4,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -2662,9 +2717,9 @@
           "note": "无确定档期"
         }
       ],
-      "total": 20.8,
+      "total": 25.2,
       "prev_total": 20.0,
-      "delta": 0.8,
+      "delta": 5.2,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -2685,7 +2740,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.8,
+          "total": 25.2,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2727,13 +2782,16 @@
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 0.0,
-      "trends_level_raw": 0,
-      "trends_level_note": "原始 0 · 锚点实测 60 · 分辨率下限（原始值 ≤1）",
+      "trends_level": 50.0,
+      "trends_level_raw": 0.0,
+      "trends_level_note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 60,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 11,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
@@ -2754,7 +2812,7 @@
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -9.4,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2767,20 +2825,21 @@
       "signals": {
         "trends": {
           "available": false,
-          "value": -9.4,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
           "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": 0.0,
-            "raw": 0,
+            "value": 50.0,
+            "raw": 0.0,
             "stale": false,
-            "note": "原始 0 · 锚点实测 73 · 分辨率下限（原始值 ≤1）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 73,
-            "scale": 0.8219,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -2806,10 +2865,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 30,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -9.4,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -2876,9 +2935,9 @@
           "note": "无确定档期"
         }
       ],
-      "total": 20.8,
+      "total": 25.2,
       "prev_total": 20.0,
-      "delta": 0.8,
+      "delta": 5.2,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -2899,7 +2958,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.8,
+          "total": 25.2,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2941,13 +3000,16 @@
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 0.0,
-      "trends_level_raw": 0,
-      "trends_level_note": "原始 0 · 锚点实测 73 · 分辨率下限（原始值 ≤1）",
+      "trends_level": 50.0,
+      "trends_level_raw": 0.0,
+      "trends_level_note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 73,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 13,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
@@ -2968,7 +3030,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -21.6,
+      "trends_7d": -25.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2981,21 +3043,22 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -21.6,
+          "value": -25.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 100.0,
-            "raw": 69,
+            "value": 54.47,
+            "raw": 3.6,
             "stale": false,
-            "note": "原始 69 · 锚点实测 5 · 顶格（量级高于锚点）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 5,
-            "scale": 12.0,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.5,
+            "note": "7d 均值 3.6 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -3024,7 +3087,7 @@
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -21.6,
+          "value": -25.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3153,13 +3216,16 @@
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [],
-      "trends_level": 100.0,
-      "trends_level_raw": 69,
-      "trends_level_note": "原始 69 · 锚点实测 5 · 顶格（量级高于锚点）",
+      "trends_level": 54.47,
+      "trends_level_raw": 3.6,
+      "trends_level_note": "7d 均值 3.6 · 冷锚「gacha game」0.0 / 热锚「gaming」40.5 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 5,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 2,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.5,
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
@@ -3180,7 +3246,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -13.3,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3193,21 +3259,22 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -13.3,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 100.0,
-            "raw": 65,
+            "value": 50.86,
+            "raw": 0.7,
             "stale": false,
-            "note": "原始 65 · 锚点实测 19 · 顶格（量级高于锚点）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 19,
-            "scale": 3.1579,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.1,
+            "note": "7d 均值 0.7 · 冷锚「gacha game」0.0 / 热锚「gaming」40.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -3233,10 +3300,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 30,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -13.3,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3303,9 +3370,9 @@
           "note": "无确定档期"
         }
       ],
-      "total": 24.5,
+      "total": 29.0,
       "prev_total": 38.0,
-      "delta": -13.5,
+      "delta": -9.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -3326,7 +3393,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 24.5,
+          "total": 29.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3365,13 +3432,16 @@
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [],
-      "trends_level": 100.0,
-      "trends_level_raw": 65,
-      "trends_level_note": "原始 65 · 锚点实测 19 · 顶格（量级高于锚点）",
+      "trends_level": 50.86,
+      "trends_level_raw": 0.7,
+      "trends_level_note": "7d 均值 0.7 · 冷锚「gacha game」0.0 / 热锚「gaming」40.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 19,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 7,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.1,
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
@@ -3392,7 +3462,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -8.9,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3405,21 +3475,22 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -8.9,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 100.0,
-            "raw": 82,
+            "value": 51.25,
+            "raw": 1.0,
             "stale": false,
-            "note": "原始 82 · 锚点实测 16 · 顶格（量级高于锚点）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 16,
-            "scale": 3.75,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.1,
+            "note": "7d 均值 1.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -3445,10 +3516,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 30,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -8.9,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3515,9 +3586,9 @@
           "note": "无确定档期"
         }
       ],
-      "total": 22.0,
+      "total": 26.5,
       "prev_total": 20.0,
-      "delta": 2.0,
+      "delta": 6.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -3538,7 +3609,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 22.0,
+          "total": 26.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3577,13 +3648,16 @@
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [],
-      "trends_level": 100.0,
-      "trends_level_raw": 82,
-      "trends_level_note": "原始 82 · 锚点实测 16 · 顶格（量级高于锚点）",
+      "trends_level": 51.25,
+      "trends_level_raw": 1.0,
+      "trends_level_note": "7d 均值 1.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 16,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 5,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.1,
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
@@ -3604,7 +3678,7 @@
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -30.8,
+      "trends_7d": 0.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3612,26 +3686,26 @@
       "priority": "P3",
       "note": "下载增长明显但英文攻略站已有",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -30.8,
+          "available": false,
+          "value": 0.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 46.29,
-            "raw": 54,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "note": "原始 54 · 锚点实测 70",
-            "anchor_term": "gacha game",
-            "anchor_raw": 70,
-            "scale": 0.8571,
-            "target": 60.0
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
+            "anchor_low": "gacha game",
+            "anchor_low_raw": null,
+            "anchor_high": "gaming",
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -3657,14 +3731,14 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 30,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -30.8,
+          "weighted": 9.0,
+          "value": 0.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -3727,12 +3801,12 @@
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 26.5,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 6.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": true,
+      "base_score_applied": false,
       "days_tracked": 3,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
@@ -3750,7 +3824,7 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 26.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3781,27 +3855,33 @@
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 46.29,
-      "trends_level_raw": 54,
-      "trends_level_note": "原始 54 · 锚点实测 70",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 70,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": null,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": null,
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": false
+      "stale": true
     },
     {
       "id": "arknights",
@@ -3816,7 +3896,7 @@
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": 14.3,
+      "trends_7d": 50.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3829,445 +3909,22 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": 14.3,
+          "value": 50.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 100.0,
-            "raw": 40,
+            "value": 53.23,
+            "raw": 2.6,
             "stale": false,
-            "note": "原始 40 · 锚点实测 3 · 顶格（量级高于锚点）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 3,
-            "scale": 20.0,
-            "target": 60.0
-          }
-        },
-        "reddit": {
-          "available": true,
-          "value": 0,
-          "origin": "Reddit",
-          "kind": "P1 主源（.rss）",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
-        },
-        "x_twitter": {
-          "available": true,
-          "value": "player_only",
-          "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 12 条",
-          "stale": false,
-          "error": null,
-          "tier": "P2"
-        }
-      },
-      "components": [
-        {
-          "key": "trends_rise",
-          "label": "Trends 上升",
-          "score": 60,
-          "weight": 30,
-          "weighted": 18.0,
-          "value": 14.3,
-          "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "reddit",
-          "label": "Reddit 讨论量",
-          "score": 0,
-          "weight": 20,
-          "weighted": 0.0,
-          "value": 0,
-          "origin": "Reddit",
-          "kind": "P1 主源（.rss）",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "x_official",
-          "label": "X 官方公告",
-          "score": 60,
-          "weight": 15,
-          "weighted": 9.0,
-          "value": "player_only",
-          "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 12 条",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "supply_gap",
-          "label": "海外供给不足",
-          "score": 0,
-          "weight": 15,
-          "weighted": 0.0,
-          "value": 2,
-          "origin": "人工基线（缺口评估 低）",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "cn_maturity",
-          "label": "国内攻略成熟度",
-          "score": 100,
-          "weight": 10,
-          "weighted": 10.0,
-          "value": 5,
-          "origin": "TapTap/B站/NGA 人工评估",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "launch_window",
-          "label": "上线窗口近",
-          "score": 10,
-          "weight": 10,
-          "weighted": 1.0,
-          "value": null,
-          "origin": "官网/游戏日历",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": "无确定档期"
-        }
-      ],
-      "total": 38.0,
-      "prev_total": 38.0,
-      "delta": 0.0,
-      "action_engine": "暂不投入",
-      "action_basis": "规则引擎",
-      "base_score_applied": false,
-      "days_tracked": 3,
-      "ranking_eligible": true,
-      "ranking_note": "正式排名",
-      "scenarios": [
-        {
-          "key": "trends_dead",
-          "label": "Google Trends 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "trends"
-          ]
-        },
-        {
-          "key": "reddit_dead",
-          "label": "Reddit 失活",
-          "total": 38.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "reddit"
-          ]
-        },
-        {
-          "key": "x_dead",
-          "label": "X/Twitter 失活",
-          "total": 29.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "x_twitter"
-          ]
-        },
-        {
-          "key": "p1_all_dead",
-          "label": "P1 全部失败",
-          "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
-          "stale_sources": [
-            "trends",
-            "reddit",
-            "x_twitter"
-          ]
-        }
-      ],
-      "sources_used": [
-        "P1·Trends",
-        "P1·Reddit",
-        "P2·X"
-      ],
-      "fallbacks": [
-        "Bing News RSS 命中 12 条"
-      ],
-      "stale_sources": [],
-      "trends_level": 100.0,
-      "trends_level_raw": 40,
-      "trends_level_note": "原始 40 · 锚点实测 3 · 顶格（量级高于锚点）",
-      "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 3,
-      "trends_anchor_target": 60.0,
-      "x_state": "player_only",
-      "gap_score": 2,
-      "launch_days": null,
-      "overseas_supply": null,
-      "keywords_count": 1,
-      "stale": false
-    },
-    {
-      "id": "afk-journey",
-      "seq": 19,
-      "name_cn": "剑与远征：启程",
-      "name_en": "AFK Journey",
-      "publisher": "莉莉丝/Farlight",
-      "type": "手游",
-      "status": "已上线",
-      "cn_status": "国际服先行",
-      "launch_date_raw": "已上线",
-      "launch_date": null,
-      "cn_guide_score": 4,
-      "gap_level": "低",
-      "trends_7d": -13.2,
-      "reddit_daily": 0,
-      "x_mentions": null,
-      "total_score": null,
-      "action_manual": "竞争较激烈",
-      "priority": "P3",
-      "note": "莉莉丝发行能力强但英文供给充足",
-      "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
-      "last_update": "2026-10-20",
-      "signals": {
-        "trends": {
-          "available": true,
-          "value": -13.2,
-          "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
-          "level": {
-            "value": 30.67,
-            "raw": 46,
-            "stale": false,
-            "note": "原始 46 · 锚点实测 90",
-            "anchor_term": "gacha game",
-            "anchor_raw": 90,
-            "scale": 0.6667,
-            "target": 60.0
-          }
-        },
-        "reddit": {
-          "available": true,
-          "value": 0,
-          "origin": "Reddit",
-          "kind": "P1 主源（.rss）",
-          "stale": false,
-          "error": null,
-          "tier": "P1"
-        },
-        "x_twitter": {
-          "available": true,
-          "value": "player_only",
-          "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
-          "stale": false,
-          "error": null,
-          "tier": "P2"
-        }
-      },
-      "components": [
-        {
-          "key": "trends_rise",
-          "label": "Trends 上升",
-          "score": 15,
-          "weight": 30,
-          "weighted": 4.5,
-          "value": -13.2,
-          "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "reddit",
-          "label": "Reddit 讨论量",
-          "score": 0,
-          "weight": 20,
-          "weighted": 0.0,
-          "value": 0,
-          "origin": "Reddit",
-          "kind": "P1 主源（.rss）",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "x_official",
-          "label": "X 官方公告",
-          "score": 60,
-          "weight": 15,
-          "weighted": 9.0,
-          "value": "player_only",
-          "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "supply_gap",
-          "label": "海外供给不足",
-          "score": 0,
-          "weight": 15,
-          "weighted": 0.0,
-          "value": 2,
-          "origin": "人工基线（缺口评估 低）",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "cn_maturity",
-          "label": "国内攻略成熟度",
-          "score": 75.0,
-          "weight": 10,
-          "weighted": 7.5,
-          "value": 4,
-          "origin": "TapTap/B站/NGA 人工评估",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": ""
-        },
-        {
-          "key": "launch_window",
-          "label": "上线窗口近",
-          "score": 10,
-          "weight": 10,
-          "weighted": 1.0,
-          "value": null,
-          "origin": "官网/游戏日历",
-          "kind": "P3 兜底",
-          "stale": false,
-          "note": "无确定档期"
-        }
-      ],
-      "total": 22.0,
-      "prev_total": 20.0,
-      "delta": 2.0,
-      "action_engine": "暂不投入",
-      "action_basis": "规则引擎",
-      "base_score_applied": false,
-      "days_tracked": 3,
-      "ranking_eligible": true,
-      "ranking_note": "正式排名",
-      "scenarios": [
-        {
-          "key": "trends_dead",
-          "label": "Google Trends 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "trends"
-          ]
-        },
-        {
-          "key": "reddit_dead",
-          "label": "Reddit 失活",
-          "total": 22.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "reddit"
-          ]
-        },
-        {
-          "key": "x_dead",
-          "label": "X/Twitter 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
-          "confidence": "中",
-          "stale_sources": [
-            "x_twitter"
-          ]
-        },
-        {
-          "key": "p1_all_dead",
-          "label": "P1 全部失败",
-          "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
-          "stale_sources": [
-            "trends",
-            "reddit",
-            "x_twitter"
-          ]
-        }
-      ],
-      "sources_used": [
-        "P1·Trends",
-        "P1·Reddit",
-        "P2·X"
-      ],
-      "fallbacks": [
-        "Bing News RSS 命中 11 条"
-      ],
-      "stale_sources": [],
-      "trends_level": 30.67,
-      "trends_level_raw": 46,
-      "trends_level_note": "原始 46 · 锚点实测 90",
-      "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 90,
-      "trends_anchor_target": 60.0,
-      "x_state": "player_only",
-      "gap_score": 2,
-      "launch_days": null,
-      "overseas_supply": null,
-      "keywords_count": 1,
-      "stale": false
-    },
-    {
-      "id": "rise-of-kingdoms",
-      "seq": 20,
-      "name_cn": "万国觉醒",
-      "name_en": "Rise of Kingdoms",
-      "publisher": "莉莉丝/Farlight",
-      "type": "手游SLG",
-      "status": "已上线",
-      "cn_status": "国际服先行",
-      "launch_date_raw": "已上线",
-      "launch_date": null,
-      "cn_guide_score": 5,
-      "gap_level": "低",
-      "trends_7d": 28.6,
-      "reddit_daily": 0,
-      "x_mentions": null,
-      "total_score": null,
-      "action_manual": "老牌产品增长平稳",
-      "priority": "P3",
-      "note": "英文市场成熟，增量有限",
-      "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
-      "last_update": "2026-10-20",
-      "signals": {
-        "trends": {
-          "available": true,
-          "value": 28.6,
-          "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
-          "level": {
-            "value": 47.25,
-            "raw": 63,
-            "stale": false,
-            "note": "原始 63 · 锚点实测 80",
-            "anchor_term": "gacha game",
-            "anchor_raw": 80,
-            "scale": 0.75,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.1,
+            "note": "7d 均值 2.6 · 冷锚「gacha game」0.0 / 热锚「gaming」40.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -4296,11 +3953,444 @@
           "score": 100,
           "weight": 30,
           "weighted": 30.0,
-          "value": 28.6,
+          "value": 50.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "note": ""
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": 0,
+          "origin": "Reddit",
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 60,
+          "weight": 15,
+          "weighted": 9.0,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 100,
+          "weight": 10,
+          "weighted": 10.0,
+          "value": 5,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 50.0,
+      "prev_total": 38.0,
+      "delta": 12.0,
+      "action_engine": "监控不投入",
+      "action_basis": "规则引擎",
+      "base_score_applied": false,
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 50.0,
+          "action_engine": "监控不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 41.0,
+          "action_engine": "监控不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [
+        "P1·Trends",
+        "P1·Reddit",
+        "P2·X"
+      ],
+      "fallbacks": [
+        "Bing News RSS 命中 12 条"
+      ],
+      "stale_sources": [],
+      "trends_level": 53.23,
+      "trends_level_raw": 2.6,
+      "trends_level_note": "7d 均值 2.6 · 冷锚「gacha game」0.0 / 热锚「gaming」40.1 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level_stale": false,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 3,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.1,
+      "x_state": "player_only",
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": false
+    },
+    {
+      "id": "afk-journey",
+      "seq": 19,
+      "name_cn": "剑与远征：启程",
+      "name_en": "AFK Journey",
+      "publisher": "莉莉丝/Farlight",
+      "type": "手游",
+      "status": "已上线",
+      "cn_status": "国际服先行",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 4,
+      "gap_level": "低",
+      "trends_7d": 50.0,
+      "reddit_daily": 0,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "竞争较激烈",
+      "priority": "P3",
+      "note": "莉莉丝发行能力强但英文供给充足",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "中",
+      "last_update": "2026-10-20",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": 50.0,
+          "origin": "Google Trends",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+          "level": {
+            "value": 50.0,
+            "raw": 0.0,
+            "stale": false,
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.1,
+            "note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.1 → 双锚折线定标（冷锚为 50 分界）"
+          }
+        },
+        "reddit": {
+          "available": true,
+          "value": 0,
+          "origin": "Reddit",
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
+        },
+        "x_twitter": {
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 100,
+          "weight": 30,
+          "weighted": 30.0,
+          "value": 50.0,
+          "origin": "Google Trends",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
+        },
+        {
+          "key": "reddit",
+          "label": "Reddit 讨论量",
+          "score": 0,
+          "weight": 20,
+          "weighted": 0.0,
+          "value": 0,
+          "origin": "Reddit",
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "x_official",
+          "label": "X 官方公告",
+          "score": 60,
+          "weight": 15,
+          "weighted": 9.0,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 11 条",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "supply_gap",
+          "label": "海外供给不足",
+          "score": 0,
+          "weight": 15,
+          "weighted": 0.0,
+          "value": 2,
+          "origin": "人工基线（缺口评估 低）",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "cn_maturity",
+          "label": "国内攻略成熟度",
+          "score": 75.0,
+          "weight": 10,
+          "weighted": 7.5,
+          "value": 4,
+          "origin": "TapTap/B站/NGA 人工评估",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": ""
+        },
+        {
+          "key": "launch_window",
+          "label": "上线窗口近",
+          "score": 10,
+          "weight": 10,
+          "weighted": 1.0,
+          "value": null,
+          "origin": "官网/游戏日历",
+          "kind": "P3 兜底",
+          "stale": false,
+          "note": "无确定档期"
+        }
+      ],
+      "total": 47.5,
+      "prev_total": 20.0,
+      "delta": 27.5,
+      "action_engine": "监控不投入",
+      "action_basis": "规则引擎",
+      "base_score_applied": false,
+      "days_tracked": 3,
+      "ranking_eligible": true,
+      "ranking_note": "正式排名",
+      "scenarios": [
+        {
+          "key": "trends_dead",
+          "label": "Google Trends 失活",
+          "total": 20.0,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "trends"
+          ]
+        },
+        {
+          "key": "reddit_dead",
+          "label": "Reddit 失活",
+          "total": 47.5,
+          "action_engine": "监控不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "reddit"
+          ]
+        },
+        {
+          "key": "x_dead",
+          "label": "X/Twitter 失活",
+          "total": 38.5,
+          "action_engine": "暂不投入",
+          "confidence": "中",
+          "stale_sources": [
+            "x_twitter"
+          ]
+        },
+        {
+          "key": "p1_all_dead",
+          "label": "P1 全部失败",
+          "total": 20.0,
+          "action_engine": "人工复核（P1 全部不可用）",
+          "confidence": "低",
+          "stale_sources": [
+            "trends",
+            "reddit",
+            "x_twitter"
+          ]
+        }
+      ],
+      "sources_used": [
+        "Trends（stale）",
+        "P1·Reddit",
+        "P2·X"
+      ],
+      "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
+        "Bing News RSS 命中 11 条"
+      ],
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": 50.0,
+      "trends_level_raw": 0.0,
+      "trends_level_note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.1 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level_stale": false,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 10,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.1,
+      "x_state": "player_only",
+      "gap_score": 2,
+      "launch_days": null,
+      "overseas_supply": null,
+      "keywords_count": 1,
+      "stale": true
+    },
+    {
+      "id": "rise-of-kingdoms",
+      "seq": 20,
+      "name_cn": "万国觉醒",
+      "name_en": "Rise of Kingdoms",
+      "publisher": "莉莉丝/Farlight",
+      "type": "手游SLG",
+      "status": "已上线",
+      "cn_status": "国际服先行",
+      "launch_date_raw": "已上线",
+      "launch_date": null,
+      "cn_guide_score": 5,
+      "gap_level": "低",
+      "trends_7d": 50.0,
+      "reddit_daily": 0,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "老牌产品增长平稳",
+      "priority": "P3",
+      "note": "英文市场成熟，增量有限",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "中",
+      "last_update": "2026-10-20",
+      "signals": {
+        "trends": {
+          "available": false,
+          "value": 50.0,
+          "origin": "Google Trends",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
+          "level": {
+            "value": 50.0,
+            "raw": 0.0,
+            "stale": false,
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.1,
+            "note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.1 → 双锚折线定标（冷锚为 50 分界）"
+          }
+        },
+        "reddit": {
+          "available": true,
+          "value": 0,
+          "origin": "Reddit",
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
+        },
+        "x_twitter": {
+          "available": true,
+          "value": "player_only",
+          "origin": "Bing News RSS",
+          "kind": "Bing News RSS 命中 12 条",
+          "stale": false,
+          "error": null,
+          "tier": "P2"
+        }
+      },
+      "components": [
+        {
+          "key": "trends_rise",
+          "label": "Trends 上升",
+          "score": 100,
+          "weight": 30,
+          "weighted": 30.0,
+          "value": 50.0,
+          "origin": "Google Trends",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -4417,27 +4507,33 @@
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 47.25,
-      "trends_level_raw": 63,
-      "trends_level_note": "原始 63 · 锚点实测 80",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": 50.0,
+      "trends_level_raw": 0.0,
+      "trends_level_note": "7d 均值 0.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 80,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 9,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.1,
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": false
+      "stale": true
     },
     {
       "id": "hunger",
@@ -4452,7 +4548,7 @@
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "高",
-      "trends_7d": -11.2,
+      "trends_7d": 40.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -4465,21 +4561,22 @@
       "signals": {
         "trends": {
           "available": true,
-          "value": -11.2,
+          "value": 40.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 100.0,
-            "raw": 71,
+            "value": 63.75,
+            "raw": 11.0,
             "stale": false,
-            "note": "原始 71 · 锚点实测 1 · 顶格（量级高于锚点）",
-            "anchor_term": "gacha game",
-            "anchor_raw": 1,
-            "scale": 60.0,
-            "target": 60.0
+            "mode": "dual",
+            "anchor_low": "gacha game",
+            "anchor_low_raw": 0.0,
+            "anchor_high": "gaming",
+            "anchor_high_raw": 40.1,
+            "note": "7d 均值 11.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -4505,10 +4602,10 @@
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 100,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -11.2,
+          "weighted": 30.0,
+          "value": 40.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -4575,10 +4672,10 @@
           "note": "无确定档期"
         }
       ],
-      "total": 29.5,
+      "total": 55.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "暂不投入",
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 1,
@@ -4598,8 +4695,8 @@
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 29.5,
-          "action_engine": "暂不投入",
+          "total": 55.0,
+          "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -4608,8 +4705,8 @@
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.5,
-          "action_engine": "暂不投入",
+          "total": 46.0,
+          "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -4637,13 +4734,16 @@
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [],
-      "trends_level": 100.0,
-      "trends_level_raw": 71,
-      "trends_level_note": "原始 71 · 锚点实测 1 · 顶格（量级高于锚点）",
+      "trends_level": 63.75,
+      "trends_level_raw": 11.0,
+      "trends_level_note": "7d 均值 11.0 · 冷锚「gacha game」0.0 / 热锚「gaming」40.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
-      "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 1,
-      "trends_anchor_target": 60.0,
+      "trends_level_mode": "dual",
+      "trends_level_rank": 1,
+      "trends_anchor_low": "gacha game",
+      "trends_anchor_low_raw": 0.0,
+      "trends_anchor_high": "gaming",
+      "trends_anchor_high_raw": 40.1,
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
