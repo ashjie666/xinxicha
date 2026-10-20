@@ -82,9 +82,12 @@ def build_games(config, seed_games, scored, run_info):
             'trends_level_raw': level.get('raw'),
             'trends_level_note': level.get('note') or '',
             'trends_level_stale': bool(level.get('stale')),
-            'trends_anchor_term': level.get('anchor_term'),
-            'trends_anchor_raw': level.get('anchor_raw'),
-            'trends_anchor_target': level.get('target'),
+            'trends_level_mode': level.get('mode'),
+            'trends_level_rank': None,
+            'trends_anchor_low': level.get('anchor_low'),
+            'trends_anchor_low_raw': level.get('anchor_low_raw'),
+            'trends_anchor_high': level.get('anchor_high'),
+            'trends_anchor_high_raw': level.get('anchor_high_raw'),
             'reddit_daily': result['signals']['reddit'].get('value'),
             'x_state': result['signals']['x_twitter'].get('value'),
             'gap_score': _gap(game, config),
@@ -95,6 +98,7 @@ def build_games(config, seed_games, scored, run_info):
             'stale': not result['signals']['trends']['available'] or not result['signals']['reddit']['available'],
         })
         games.append(item)
+    _attach_level_rank(games)
     return {
         'meta': build_meta(config, run_info, {
             'games': len(games),
@@ -105,6 +109,27 @@ def build_games(config, seed_games, scored, run_info):
         'signal_notes': seed_games.get('signal_notes', []),
         'games': games,
     }
+
+
+def _attach_level_rank(games):
+    """给「搜索水位」赋唯一名次（1 = 水位最高）。
+
+    水位由均值折算，理论上已带小数；但同值仍可能出现，故用「Trends 7d → Reddit 24h → 游戏名」
+    依次打破，保证每款游戏的名次互不相同（用户要求：每个游戏都能区分）。无水位者不参与排名。
+    次键缺值时 key 取 1e9（排在最后），避免 None 参与比较导致 TypeError。
+    """
+    def secondary(value):
+        return -float(value) if isinstance(value, (int, float)) else 1e9
+
+    ranked = [g for g in games if isinstance(g.get('trends_level'), (int, float))]
+    ranked.sort(key=lambda g: (
+        -float(g['trends_level']),
+        secondary(g.get('trends_7d')),
+        secondary(g.get('reddit_daily')),
+        g.get('name_cn') or '',
+    ))
+    for index, game in enumerate(ranked):
+        game['trends_level_rank'] = index + 1
 
 
 def _gap(game, config):

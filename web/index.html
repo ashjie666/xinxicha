@@ -120,7 +120,7 @@
       <table class="cmp-table table-mid" id="game-table">
         <thead>
           <tr class="group-row">
-            <th colspan="6">基础信息</th>
+            <th colspan="7">基础信息</th>
             <th colspan="6">评分分项（0-100，权重见运维页）</th>
             <th colspan="4">结论</th>
           </tr>
@@ -130,7 +130,8 @@
             <th><button class="th-btn" data-sort-key="status" type="button">海外上线状态</button></th>
             <th>国服状态</th>
             <th><button class="th-btn" data-sort-key="launch_days" type="button">上线窗口</button></th>
-            <th><button class="th-btn" data-sort-key="trends_level" type="button" title="现状指标，展示用、不参与评分：Google Trends 相对指数经锚点词校准后的搜索水位（跨批次、跨游戏可比）">搜索水位</button></th>
+            <th><button class="th-btn" data-sort-key="trends_level" type="button" title="现状指标，展示用、不参与评分：冷/热锚点词与游戏词同一批请求，按 7 日序列均值做双锚折线定标（冷锚为 50 分界，越界不截断；跨批次、跨游戏可比）">搜索水位</button></th>
+            <th><button class="th-btn" data-sort-key="trends_level_rank" type="button" title="搜索水位名次（1 = 水位最高）：水位同值时依次比 Trends 7d → Reddit 24h → 游戏名，保证每款名次唯一">水位名次</button></th>
             <th><button class="th-btn" data-sort-key="c_trends" type="button">Trends 7d</button></th>
             <th><button class="th-btn" data-sort-key="c_reddit" type="button">Reddit 24h</button></th>
             <th><button class="th-btn" data-sort-key="c_x" type="button">X 提及</button></th>
@@ -175,8 +176,9 @@
     <p>
       「评分分项」由 <code>collector/update.py</code> 每日巡检写入：P1 主源（Google Trends 30% / Reddit 20% / X 15%）
       失败时按规则走 P2/P3 回退，单次失败沿用上次有效值并标 stale、无历史值记 0 分且不重分配权重；「海外供给缺口」「国内成熟度」
-      为规格表人工基线。新游戏先给基础分 20，跑满 3 天后才参与排名。「搜索水位」是展示用的现状指标（Trends 相对指数按锚点词校准，
-      跨批次可比），不参与上述任何评分。
+      为规格表人工基线。新游戏先给基础分 20，跑满 3 天后才参与排名。「搜索水位」是展示用的现状指标：把冷/热两个锚点词与游戏词放进同一批
+      Trends 请求，按 7 日序列均值做双锚折线定标（冷锚为 50 分界，越界不截断），跨批次、跨游戏可比；「水位名次」按水位排序、同值再依次比 Trends 7d →
+      Reddit 24h → 游戏名，故每款名次唯一。水位不参与上述任何评分。
     </p>
     <p class="footer-meta" id="footer-meta"></p>
   </footer>

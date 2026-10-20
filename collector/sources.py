@@ -52,6 +52,77 @@ def fresh(origin, kind, value, tier='P1'):
     }
 
 
+def _mean(values):
+    """算术均值（含 0 点）；无数据返回 None。均值天然带小数，用来提高水位区分度"""
+    if not values:
+        return None
+    return sum(values) / float(len(values))
+
+
+def level_from_means(game_mean, low_term, low_mean, high_term, high_mean, min_span=0.0):
+    """把 7 日序列均值折算成跨批次、跨游戏可比的搜索水位（纯函数，便于单测）。
+
+    双锚点折线定标（冷锚为 50 分界）：
+      - 游戏均值 ≥ 冷锚均值：50 + 50 ×（游戏均值 − 冷锚均值）÷（热锚均值 − 冷锚均值）→ 50-100
+      - 游戏均值 < 冷锚均值：50 × 游戏均值 ÷ 冷锚均值 → 0-50
+      —— 冷/热锚点把 0-100 的批内相对刻度拉伸铺开，避免旧法「顶格 100 并列」；
+         越界不截断：高于热锚保留 >100 并注明。
+    用折线而非单段线性的原因：单段线性会把所有低于冷锚的款统一压成 0
+    （2026-10-20 run #22 实测 21 款里 8 款挤 0.0、8 款挤 100.0，只有 5 个不同值）。
+    降级：热锚缺失 / 冷锚缺失 / 两锚跨度 < min_span → 单锚点比例定标（优先热锚）。
+    留空：游戏词无数据、或两个锚点都无数据。
+    """
+
+    def fmt(value):
+        return '{:.1f}'.format(value) if value is not None else '—'
+
+    base = {
+        'value': None,
+        'raw': round(game_mean, 1) if game_mean is not None else None,
+        'stale': False,
+        'mode': None,
+        'anchor_low': low_term,
+        'anchor_low_raw': round(low_mean, 1) if low_mean is not None else None,
+        'anchor_high': high_term,
+        'anchor_high_raw': round(high_mean, 1) if high_mean is not None else None,
+    }
+
+    def out(note, value=None, mode=None):
+        item = dict(base)
+        item.update({'note': note, 'value': value, 'mode': mode})
+        return item
+
+    if game_mean is None:
+        return out('水位不可用：游戏词本批无数据')
+
+    span = None
+    if low_mean is not None and high_mean is not None:
+        span = high_mean - low_mean
+    if high_mean:
+        if span is not None and span > 0 and span >= float(min_span or 0):
+            # 折线定标（冷锚为 50 分界）：冷锚以下用「冷锚比例」铺在 0-50，
+            # 冷锚到热锚之间线性映射到 50-100。单段线性会把所有低于冷锚的款统一
+            # 压成 0（run #22 实测低量级 8 款全挤 0.0），折线才能把它们铺开。
+            if game_mean >= low_mean:
+                level_value = 50.0 + 50.0 * (game_mean - low_mean) / span
+            else:
+                level_value = 50.0 * game_mean / float(low_mean)
+            note = ('7d 均值 {} · 冷锚「{}」{} / 热锚「{}」{} → 双锚折线定标（冷锚为 50 分界）'
+                    .format(fmt(game_mean), low_term, fmt(low_mean), high_term, fmt(high_mean)))
+            if level_value > 100:
+                note += '，高于热锚（未截断）'
+            return out(note, round(level_value, 2), 'dual')
+        why = '冷锚缺失' if low_mean is None else '两锚跨度 {} < {}'.format(fmt(span), min_span)
+        return out('7d 均值 {} · 热锚「{}」{} 单锚点定标（{}）'
+                   .format(fmt(game_mean), high_term, fmt(high_mean), why),
+                   round(100.0 * game_mean / float(high_mean), 2), 'single-high')
+    if low_mean:
+        return out('7d 均值 {} · 冷锚「{}」{} 单锚点定标（热锚缺失）'
+                   .format(fmt(game_mean), low_term, fmt(low_mean)),
+                   round(100.0 * game_mean / float(low_mean), 2), 'single-low')
+    return out('水位不可用：锚点词本批均无数据')
+
+
 class Collector(object):
     def __init__(self, config, state, offline=False, no_cache=False, budget_seconds=60):
         self.config = config
@@ -120,13 +191,15 @@ class Collector(object):
     # ---------- 各源 ----------
 
     def _trends(self, game):
-        """Trends 单批取源：批次固定为 [游戏词, 锚点词]（未配置锚点时只传游戏词）。
+        """Trends 单批取源：批次为 [游戏词, 冷锚点, 热锚点]（未配置锚点时只传游戏词）。
 
         同一批次同时产出两个量：
           - 变化率（评分用，占 30% 权重）：游戏词列首末两点，判据与口径保持不变
-          - 搜索水位（展示用，不参与评分）：按「锚点定标值 target ÷ 锚点同批实测值」
-            把本批 0-100 相对指数折算成跨批次、跨游戏可比的现状值——Trends 每批都把
-            本批最高值归一成 100，不校准就无法横向比较
+          - 搜索水位（展示用，不参与评分）：用 7 日序列均值做双锚点折线定标
+            （冷锚为 50 分界，见 level_from_means），
+            并**取消 100 上限截断**——旧做法 min(max_level, raw × target ÷ 锚点实测值)
+            会让「量级高于锚点 1.67 倍」的款全部顶格成 100 而无法区分（首轮 2 款并列）；
+            热锚/冷锚缺失或两锚跨度 < min_span 时自动降级为单锚点比例定标
 
         锚点词必须与游戏词同批才有可比性，代价是小量级游戏的变化率会受批内归一化的
         整数截断影响略有失真（实测多数款的原始值仍落在 20-100，影响有限）。
@@ -138,13 +211,15 @@ class Collector(object):
         用 state 里那个源级共享的上次值冒充会张冠李戴。
         """
         conf = self.config.get('trends_anchor') or {}
-        anchor = conf.get('term') if conf.get('enabled', True) else None
-        target = float(conf.get('target') or 60)
-        max_level = float(conf.get('max_level') or 100)
+        enabled = conf.get('enabled', True)
+        min_span = float(conf.get('min_span') or 0)
+        low_term = conf.get('low') if enabled else None
+        high_term = conf.get('high') if enabled else None
 
         def blank_level(note):
-            return {'value': None, 'raw': None, 'stale': False, 'note': note,
-                    'anchor_term': anchor, 'anchor_raw': None, 'scale': None, 'target': target}
+            return {'value': None, 'raw': None, 'stale': False, 'note': note, 'mode': None,
+                    'anchor_low': low_term, 'anchor_low_raw': None,
+                    'anchor_high': high_term, 'anchor_high_raw': None}
 
         def attach(signal, level):
             signal['level'] = level
@@ -166,36 +241,26 @@ class Collector(object):
             return attach(unavailable('Google Trends', 'Fallback: Google Search', '预算不足，跳过调用'),
                           blank_level('水位不可用：预算不足，未请求'))
         keyword = game.get('name_en') or game.get('name_cn')
-        terms = [keyword] if not anchor or anchor == keyword else [keyword, anchor]
+        # 批次＝游戏词 + 冷锚点 + 热锚点（去重、剔除与游戏词同名者）；单批最多 3 词，请求数不变
+        terms = [keyword]
+        for term in (low_term, high_term):
+            if term and term != keyword and term not in terms:
+                terms.append(term)
         degrade = self.config['collection']['failure_policy']['degrade_after_consecutive_failures']
         try:
             client = self.trends_client(hl='en-US', tz=0)
             client.build_payload(terms, timeframe='now 7-d', geo='')
             frame = client.interest_over_time()
             series = [int(v) for v in frame[keyword].tolist()] if keyword in frame else []
-            anchor_series = [int(v) for v in frame[anchor].tolist()] if anchor and anchor in frame else []
-            # 水位：只在锚点有效时折算；任一前提不成立就留空并写清原因
-            if not anchor:
-                level = blank_level('水位不可用：未启用锚点校准（trends_anchor.enabled=false 或 term 为空）')
-            elif not series:
-                level = blank_level('水位不可用：游戏词「{}」本批无数据'.format(keyword))
-            elif not anchor_series:
-                level = blank_level('水位不可用：锚点词「{}」本批无数据'.format(anchor))
-            elif anchor_series[-1] <= 0:
-                level = blank_level('水位不可用：锚点词「{}」本批末点实测为 0，无法定标'.format(anchor))
-            else:
-                raw = series[-1]
-                anchor_raw = anchor_series[-1]
-                scale = target / float(anchor_raw)
-                value = min(max_level, max(0.0, raw * scale))
-                note = '原始 {} · 锚点实测 {}'.format(raw, anchor_raw)
-                if value >= max_level:
-                    note += ' · 顶格（量级高于锚点）'
-                elif raw <= 1:
-                    note += ' · 分辨率下限（原始值 ≤1）'
-                level = {'value': round(value, 2), 'raw': raw, 'stale': False, 'note': note,
-                         'anchor_term': anchor, 'anchor_raw': anchor_raw,
-                         'scale': round(scale, 4), 'target': target}
+
+            def series_of(term):
+                return [int(v) for v in frame[term].tolist()] if term and term in frame else []
+
+            # 水位＝7 日序列均值经双锚点折线定标（均值带小数，配合双锚提升区分度）；
+            # 全部分支与文案收在 level_from_means 里，便于单测
+            level = level_from_means(
+                _mean(series), low_term, _mean(series_of(low_term)),
+                high_term, _mean(series_of(high_term)), min_span)
             nonzero = len([v for v in series if v > 0])
             # 变化率用首末两点计算：数据点过少时首末两点极易失真为极端值
             # （实测出现过 -100%：7 日窗口内只有个别点位有量），故要求至少 3 个非零数据点。
