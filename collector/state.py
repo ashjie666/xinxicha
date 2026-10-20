@@ -6,6 +6,13 @@
   1) 单次失败保留上次有效值并标 stale
   2) 连续 3 次失败 → 该源降级，后续不再优先调用
   3) P1 全部失败 → 页面显示"今日海外信号不足，建议人工复核"
+
+「上次有效值」分两层（2026-10-20 拆分）：
+  - sources[key].last_value：源级，供 ops 健康表展示「该源最近一次成功值」
+  - games[game_id][key].value：款级，供逐款指标（trends / reddit / x_twitter）做 stale 兜底
+    逐款指标必须用款级：源级是「一源一条」，给 A 款兜底时会读到 B 款的最近成功值
+    （实测 9 款 stale 的 trends_7d 借用了同批前一款的值：Last Asylum 借到 8.9 → 被抬进
+     60 分档，怪物猎人：旅人借到上一轮的 4.9 → 抬进 30 分档）
 """
 
 import os
@@ -34,6 +41,7 @@ def load():
     if not isinstance(state, dict):
         state = {'schema': 1, 'sources': {}}
     state.setdefault('sources', {})
+    state.setdefault('games', {})
     return state
 
 
@@ -66,6 +74,21 @@ def record(state, key, ok, value=None, error=None, note=None, degrade_after=3):
         if entry['consecutive_failures'] >= degrade_after:
             entry['degraded'] = True
     return entry
+
+
+def record_game(state, game_id, key, value):
+    """写入「某款某源」的上次成功值（款级历史），供 stale 兜底按款取用"""
+    if not game_id or value is None:
+        return None
+    entry = state.setdefault('games', {}).setdefault(game_id, {})
+    entry[key] = {'value': value, 'at': http.stamp_cst()}
+    return entry
+
+
+def game_last_value(state, game_id, key):
+    """读某款某源的上次成功值；无历史返回 None（调用方留空「—」，不借源级值）"""
+    entry = ((state.get('games') or {}).get(game_id) or {}).get(key) or {}
+    return entry.get('value')
 
 
 def save(state):

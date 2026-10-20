@@ -371,6 +371,8 @@ class Collector(object):
             change = (tail_mean - head_mean) / float(head_mean) * 100.0
             self._count('trends', True)
             state_mod.record(self.state, 'trends', True, value=round(change, 1), degrade_after=degrade)
+            # 逐款成功值另存款级历史：源级 last_value 是「一源一条」，不能给别的款当兜底
+            state_mod.record_game(self.state, game.get('id'), 'trends', round(change, 1))
             return attach(fresh('Google Trends', 'P1 主源', round(change, 1)), level)
         except Exception as error:  # noqa: BLE001
             self._count('trends', False)
@@ -439,6 +441,8 @@ class Collector(object):
         count = rss_item_count(text)
         self._count('reddit', True)
         state_mod.record(self.state, 'reddit', True, value=count, degrade_after=degrade)
+        # 逐款成功值另存款级历史：源级 last_value 是「一源一条」，不能给别的款当兜底
+        state_mod.record_game(self.state, game.get('id'), 'reddit', count)
         return fresh('Reddit', 'P1 主源（.rss）', count)
 
     def _x_twitter(self, game):
@@ -473,6 +477,8 @@ class Collector(object):
         self._count('x_twitter', True)
         note = 'Bing News RSS 命中 {} 条'.format(count) if count else 'Bing News RSS 无相关新闻'
         state_mod.record(self.state, 'x_twitter', True, value=count, degrade_after=degrade)
+        # 逐款成功值另存款级历史：源级 last_value 是「一源一条」，不能给别的款当兜底
+        state_mod.record_game(self.state, game.get('id'), 'x_twitter', count)
         return fresh('Bing News RSS', note, count, tier='P2')
 
     def _rss(self, game):
@@ -509,19 +515,24 @@ class Collector(object):
 
     # ---------- 汇总 ----------
 
-    def _with_fallback(self, key, signal, label):
-        """规则 1：单次失败保留上次有效值并标 stale"""
+    def _with_fallback(self, key, signal, label, game_id=None):
+        """规则 1：单次失败保留上次有效值并标 stale。
+
+        「上次有效值」必须按款取（state.games[game_id][key]）：trends / reddit / x_twitter
+        都是逐款指标，源级 last_value 是「一源一条」，拿它兜底会把别款的最近成功值
+        张冠李戴到本款（2026-10-20 实测：9 款 stale 的 trends_7d 借到同批前一款的值）。
+        该款没有历史值时保持原 signal 不动 —— 留空「—」+ 原因，不冒充别款数据。
+        """
         if signal['available']:
             return signal
-        entry = state_mod.source_state(self.state, key)
-        last_value = entry.get('last_value')
+        last_value = state_mod.game_last_value(self.state, game_id, key)
         if last_value is None:
             return signal
-        # 以原 signal 为基底改写：保留 level 等扩展字段（水位只留空、不借源级上次值冒充）
+        # 以原 signal 为基底改写：保留 level 等扩展字段（水位只留空、不借别款上次值冒充）
         fallback = dict(signal)
         fallback.update({
             'value': last_value,
-            'kind': 'stale（沿用上次有效值）',
+            'kind': 'stale（沿用本款上次有效值）',
             'stale': True,
         })
         return fallback
@@ -529,10 +540,11 @@ class Collector(object):
     def gather(self, game):
         # Trends 单批同时产出变化率（评分）与搜索水位（展示），水位随 signal 一起返回；
         # shared 为 prefetch_trends 的批量结果，无则本方法自行发单款请求
+        game_id = game.get('id')
         trends = self._with_fallback(
-            'trends', self._trends(game, self._trends_shared.get(game.get('id'))), 'Trends')
-        reddit = self._with_fallback('reddit', self._reddit(game), 'Reddit')
-        x_twitter = self._with_fallback('x_twitter', self._x_twitter(game), 'X')
+            'trends', self._trends(game, self._trends_shared.get(game_id)), 'Trends', game_id)
+        reddit = self._with_fallback('reddit', self._reddit(game), 'Reddit', game_id)
+        x_twitter = self._with_fallback('x_twitter', self._x_twitter(game), 'X', game_id)
         # P3 兜底源：只做健康记账、不参与评分；放在 X 之后以便命中其 HTTP 缓存
         self._rss(game)
 
