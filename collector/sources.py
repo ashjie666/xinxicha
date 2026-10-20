@@ -120,31 +120,91 @@ class Collector(object):
     # ---------- 各源 ----------
 
     def _trends(self, game):
+        """Trends 单批取源：批次固定为 [游戏词, 锚点词]（未配置锚点时只传游戏词）。
+
+        同一批次同时产出两个量：
+          - 变化率（评分用，占 30% 权重）：游戏词列首末两点，判据与口径保持不变
+          - 搜索水位（展示用，不参与评分）：按「锚点定标值 target ÷ 锚点同批实测值」
+            把本批 0-100 相对指数折算成跨批次、跨游戏可比的现状值——Trends 每批都把
+            本批最高值归一成 100，不校准就无法横向比较
+
+        锚点词必须与游戏词同批才有可比性，代价是小量级游戏的变化率会受批内归一化的
+        整数截断影响略有失真（实测多数款的原始值仍落在 20-100，影响有限）。
+        这个代价必须付：2026-10-20 实测过「水位另发一次锚点批次」的做法——Trends 请求数
+        从 21 次翻倍到 42 次会撞上 Google 的窗口配额，把占 30% 权重的变化率分项打到
+        13/21 款 stale（其中 11 款 429 限流），评分链路被展示指标拖下水。
+
+        水位取不到时留空（前端显示「—」），**不做 stale 兜底**：水位是逐款各异的现状值，
+        用 state 里那个源级共享的上次值冒充会张冠李戴。
+        """
+        conf = self.config.get('trends_anchor') or {}
+        anchor = conf.get('term') if conf.get('enabled', True) else None
+        target = float(conf.get('target') or 60)
+        max_level = float(conf.get('max_level') or 100)
+
+        def blank_level(note):
+            return {'value': None, 'raw': None, 'stale': False, 'note': note,
+                    'anchor_term': anchor, 'anchor_raw': None, 'scale': None, 'target': target}
+
+        def attach(signal, level):
+            signal['level'] = level
+            return signal
+
         if not self.trends_client:
             self._skip('trends')
-            return unavailable('Google Trends', 'P1 主源（未安装 pytrends）',
-                               self.trends_error or 'pytrends 不可用')
+            return attach(unavailable('Google Trends', 'P1 主源（未安装 pytrends）',
+                                      self.trends_error or 'pytrends 不可用'),
+                          blank_level('水位不可用：未安装 pytrends'))
         # 门禁用「外网任一探针可达」而非单独的 P1 探针：不同源的可达性互不相同，
         # 机房 IP 常见 Reddit 不通但 Google 通，按 P1 探针门控会让 Trends 永不被请求
         if not (self.network or self.p2_network):
             self._skip('trends')
-            return unavailable('Google Trends', 'Fallback: Google Search', '网络不可达，跳过调用')
+            return attach(unavailable('Google Trends', 'Fallback: Google Search', '网络不可达，跳过调用'),
+                          blank_level('水位不可用：网络不可达'))
         if self.budget_left() < 8:
             self._skip('trends')
-            return unavailable('Google Trends', 'Fallback: Google Search', '预算不足，跳过调用')
+            return attach(unavailable('Google Trends', 'Fallback: Google Search', '预算不足，跳过调用'),
+                          blank_level('水位不可用：预算不足，未请求'))
         keyword = game.get('name_en') or game.get('name_cn')
+        terms = [keyword] if not anchor or anchor == keyword else [keyword, anchor]
+        degrade = self.config['collection']['failure_policy']['degrade_after_consecutive_failures']
         try:
             client = self.trends_client(hl='en-US', tz=0)
-            client.build_payload([keyword], timeframe='now 7-d', geo='')
+            client.build_payload(terms, timeframe='now 7-d', geo='')
             frame = client.interest_over_time()
             series = [int(v) for v in frame[keyword].tolist()] if keyword in frame else []
+            anchor_series = [int(v) for v in frame[anchor].tolist()] if anchor and anchor in frame else []
+            # 水位：只在锚点有效时折算；任一前提不成立就留空并写清原因
+            if not anchor:
+                level = blank_level('水位不可用：未启用锚点校准（trends_anchor.enabled=false 或 term 为空）')
+            elif not series:
+                level = blank_level('水位不可用：游戏词「{}」本批无数据'.format(keyword))
+            elif not anchor_series:
+                level = blank_level('水位不可用：锚点词「{}」本批无数据'.format(anchor))
+            elif anchor_series[-1] <= 0:
+                level = blank_level('水位不可用：锚点词「{}」本批末点实测为 0，无法定标'.format(anchor))
+            else:
+                raw = series[-1]
+                anchor_raw = anchor_series[-1]
+                scale = target / float(anchor_raw)
+                value = min(max_level, max(0.0, raw * scale))
+                note = '原始 {} · 锚点实测 {}'.format(raw, anchor_raw)
+                if value >= max_level:
+                    note += ' · 顶格（量级高于锚点）'
+                elif raw <= 1:
+                    note += ' · 分辨率下限（原始值 ≤1）'
+                level = {'value': round(value, 2), 'raw': raw, 'stale': False, 'note': note,
+                         'anchor_term': anchor, 'anchor_raw': anchor_raw,
+                         'scale': round(scale, 4), 'target': target}
             nonzero = len([v for v in series if v > 0])
             # 变化率用首末两点计算：数据点过少时首末两点极易失真为极端值
             # （实测出现过 -100%：7 日窗口内只有个别点位有量），故要求至少 3 个非零数据点。
             # 三种触发原因分别说明：否则「非零点 N 个，少于 3 个」在 N=3（实际因首点为 0 触发）时自相矛盾
             reason = ''
-            if len(series) < 2:
+            if series and len(series) < 2:
                 reason = '7 日内有效数据点不足 2 个'
+            elif not series:
+                reason = '本批未返回游戏词数据'
             elif series[0] == 0:
                 reason = '7 日窗口首点无搜索量，无法计算变化率'
             elif nonzero < 3:
@@ -152,115 +212,20 @@ class Collector(object):
             if reason:
                 self._count('trends', False)
                 error = 'Trends 数据不足（{}）'.format(reason)
-                state_mod.record(self.state, 'trends', False, error=error,
-                                 degrade_after=self.config['collection']['failure_policy']['degrade_after_consecutive_failures'])
-                return unavailable('Google Trends', 'Fallback: Google Search', error)
+                state_mod.record(self.state, 'trends', False, error=error, degrade_after=degrade)
+                # 数据不足只是点位不够，本批的水位若取到照样展示
+                return attach(unavailable('Google Trends', 'Fallback: Google Search', error), level)
             change = (series[-1] - series[0]) / float(series[0]) * 100.0
             self._count('trends', True)
-            state_mod.record(self.state, 'trends', True, value=round(change, 1),
-                             degrade_after=self.config['collection']['failure_policy']['degrade_after_consecutive_failures'])
-            return fresh('Google Trends', 'P1 主源', round(change, 1))
+            state_mod.record(self.state, 'trends', True, value=round(change, 1), degrade_after=degrade)
+            return attach(fresh('Google Trends', 'P1 主源', round(change, 1)), level)
         except Exception as error:  # noqa: BLE001
             self._count('trends', False)
             state_mod.record(self.state, 'trends', False, error='Trends 限流/异常：{}'.format(error),
-                             degrade_after=self.config['collection']['failure_policy']['degrade_after_consecutive_failures'])
-            return unavailable('Google Trends', 'Fallback: Google Search', 'Trends 限流/异常：{}'.format(error))
-
-    def _trends_level(self, game, trends_raw):
-        """搜索水位（展示用，不参与评分）：把锚点词与游戏词放进同一批次，
-        用「锚点定标值 ÷ 锚点同批实测值」把该批 0-100 相对指数折算成
-        跨批次、跨游戏可比的「搜索水位」。Google Trends 每批都把该批最高值归一成 100，
-        不校准就无法横向比较（同一款游戏在不同批次里的数值互不可比）。
-
-        为什么单独发一次请求：批次里混入锚点词会改变该批的归一化基准，整数截断后
-        小量级游戏的变化率会被压成 0/1 噪声——而变化率是占 30% 权重的评分分项，
-        不能为展示指标冒这个险。因此评分链路仍走「仅游戏词」的原批次，水位另发一次。
-
-        水位取不到时沿用上次有效值并标 stale，无历史则留空（前端显示「—」）；
-        任何情况下都不改动评分。
-        """
-        conf = self.config.get('trends_anchor') or {}
-        target = float(conf.get('target') or 60)
-        max_level = float(conf.get('max_level') or 100)
-        anchor = conf.get('term')
-        result = {
-            'value': None, 'raw': None, 'stale': False, 'note': '',
-            'anchor_term': anchor, 'anchor_raw': None, 'target': target, 'scale': None,
-        }
-        if not conf.get('enabled', True) or not anchor:
-            result['note'] = '未启用锚点校准（trends_anchor.enabled=false 或 term 为空）'
-            return result
-        if not self.trends_client:
-            result['note'] = '未安装 pytrends，水位不可用'
-            return result
-        if not (self.network or self.p2_network):
-            result['note'] = '网络不可达，水位不可用'
-            return self._level_stale(result)
-        degrade = self.config['collection']['failure_policy']['degrade_after_consecutive_failures']
-        error = trends_raw.get('error') or ''
-        # 「数据不足」说明请求本身是成功的（只是点位不够），仍值得再取一次水位；
-        # 限流/异常则不再追加请求，直接沿用上次水位，避免加剧限流
-        if not trends_raw.get('available') and '数据不足' not in error:
-            result['note'] = '变化率请求失败（{}），未再发锚点批次'.format(error or '未知原因')
-            return self._level_stale(result)
-        if self.budget_left() < 8:
-            result['note'] = '预算不足，未发锚点批次'
-            return self._level_stale(result)
-        keyword = game.get('name_en') or game.get('name_cn')
-        interval = float(conf.get('interval_sec') or 0)
-        if interval > 0:
-            time.sleep(interval)
-        try:
-            client = self.trends_client(hl='en-US', tz=0)
-            client.build_payload([keyword, anchor], timeframe='now 7-d', geo='')
-            frame = client.interest_over_time()
-            series = [int(v) for v in frame[keyword].tolist()] if keyword in frame else []
-            anchor_series = [int(v) for v in frame[anchor].tolist()] if anchor in frame else []
-            reason = ''
-            if not anchor_series:
-                reason = '锚点词「{}」本批无数据'.format(anchor)
-            elif anchor_series[-1] <= 0:
-                reason = '锚点词「{}」本批末点实测为 0，无法定标'.format(anchor)
-            elif not series:
-                reason = '游戏词「{}」本批无数据'.format(keyword)
-            if reason:
-                self._count('trends_level', False)
-                state_mod.record(self.state, 'trends_level', False,
-                                 error='水位：{}'.format(reason), degrade_after=degrade)
-                result['note'] = '水位不可用：{}'.format(reason)
-                return self._level_stale(result)
-            raw = series[-1]
-            anchor_raw = anchor_series[-1]
-            scale = target / float(anchor_raw)
-            level = min(max_level, max(0.0, raw * scale))
-            note = '原始 {} · 锚点实测 {}'.format(raw, anchor_raw)
-            if level >= max_level:
-                note += ' · 顶格（量级高于锚点）'
-            elif raw <= 1:
-                note += ' · 分辨率下限（原始值 ≤1）'
-            result.update({'value': round(level, 2), 'raw': raw, 'anchor_raw': anchor_raw,
-                           'scale': round(scale, 4), 'note': note})
-            self._count('trends_level', True)
-            state_mod.record(self.state, 'trends_level', True, value=round(level, 2),
                              degrade_after=degrade)
-            return result
-        except Exception as error:  # noqa: BLE001 - 展示指标，异常只降级不中断
-            self._count('trends_level', False)
-            state_mod.record(self.state, 'trends_level', False,
-                             error='水位锚点批次异常：{}'.format(error), degrade_after=degrade)
-            result['note'] = '水位不可用：锚点批次异常 {}'.format(error)
-            return self._level_stale(result)
-
-    def _level_stale(self, result):
-        """水位取不到：沿用上次有效水位并标 stale；无历史则留空（前端显示「—」）"""
-        entry = state_mod.source_state(self.state, 'trends_level')
-        last = entry.get('last_value')
-        if last is None:
-            return result
-        result['value'] = last
-        result['stale'] = True
-        result['note'] = 'stale（沿用上次水位）：{}'.format(result.get('note') or '本次未取到')
-        return result
+            return attach(unavailable('Google Trends', 'Fallback: Google Search',
+                                      'Trends 限流/异常：{}'.format(error)),
+                          blank_level('水位不可用：批次异常 {}'.format(error)))
 
     def _reddit(self, game):
         # 同上：外网任一探针可达即尝试（Reddit 对机房 IP 常 403，失败会快速返回而非等超时）
@@ -388,20 +353,18 @@ class Collector(object):
         last_value = entry.get('last_value')
         if last_value is None:
             return signal
-        return {
-            'available': False,
+        # 以原 signal 为基底改写：保留 level 等扩展字段（水位只留空、不借源级上次值冒充）
+        fallback = dict(signal)
+        fallback.update({
             'value': last_value,
-            'origin': signal['origin'],
             'kind': 'stale（沿用上次有效值）',
             'stale': True,
-            'error': signal['error'],
-        }
+        })
+        return fallback
 
     def gather(self, game):
-        trends_raw = self._trends(game)
-        trends = self._with_fallback('trends', trends_raw, 'Trends')
-        # 搜索水位：展示用现状指标，独立一次「锚点批次」请求；取不到只降级，不影响评分
-        trends['level'] = self._trends_level(game, trends_raw)
+        # Trends 单批同时产出变化率（评分）与搜索水位（展示），水位随 signal 一起返回
+        trends = self._with_fallback('trends', self._trends(game), 'Trends')
         reddit = self._with_fallback('reddit', self._reddit(game), 'Reddit')
         x_twitter = self._with_fallback('x_twitter', self._x_twitter(game), 'X')
         # P3 兜底源：只做健康记账、不参与评分；放在 X 之后以便命中其 HTTP 缓存

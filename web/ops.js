@@ -78,8 +78,8 @@
     if (anchor.term) {
       items.push(kv('搜索水位（展示用 · 不参与评分）',
         '锚点词「' + anchor.term + '」定标 ' + XC.fmtInt(anchor.target) +
-        '：每次 Trends 额外带上锚点词，按「定标值 ÷ 锚点同批实测值」把该批 0-100 相对指数折算成跨批次、跨游戏可比的水位，' +
-        '超过 ' + XC.fmtInt(anchor.max_level) + ' 按上限截断；取不到时沿用上次水位并标 stale，无历史则留空。' +
+        '：把锚点词与游戏词放进同一批 Trends 请求，按「定标值 ÷ 锚点同批实测值」把该批 0-100 相对指数折算成跨批次、跨游戏可比的水位，' +
+        '超过 ' + XC.fmtInt(anchor.max_level) + ' 按上限截断；取不到时留空「—」并写明原因（不做 stale 兜底，逐款水位各异，借上次值会张冠李戴）。' +
         '水位不进入上面任何权重与阈值。'));
     }
     XC.$('bands-body').innerHTML = items.join('');
