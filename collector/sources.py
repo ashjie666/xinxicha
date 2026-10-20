@@ -69,7 +69,9 @@ def level_from_means(game_mean, low_term, low_mean, high_term, high_mean, min_sp
          越界不截断：高于热锚保留 >100 并注明。
     用折线而非单段线性的原因：单段线性会把所有低于冷锚的款统一压成 0
     （2026-10-20 run #22 实测 21 款里 8 款挤 0.0、8 款挤 100.0，只有 5 个不同值）。
-    降级：热锚缺失 / 冷锚缺失 / 两锚跨度 < min_span → 单锚点比例定标（优先热锚）。
+    降级：热锚缺失 / 冷锚缺失 / **冷锚均值 ≤ 0** / 两锚跨度 < min_span → 单锚点比例定标（优先热锚）。
+      冷锚均值 ≤ 0 必须降级：批内归一化下比本批最高词弱 1% 的词会被整数截断成 0，
+      此时折线退化成「所有游戏都落在 50.0」的假分界（2026-10-20 run #23 实测 13 款并列 50.0）。
     留空：游戏词无数据、或两个锚点都无数据。
     """
 
@@ -95,11 +97,14 @@ def level_from_means(game_mean, low_term, low_mean, high_term, high_mean, min_sp
     if game_mean is None:
         return out('水位不可用：游戏词本批无数据')
 
+    # 冷锚必须 > 0 才能充当 50 分界：批内归一化下，比本批最高词弱 1% 的词会被整数截断成 0，
+    # 此时折线会退化成「所有游戏都落在 50.0」的假分界（2026-10-20 run #23 实测 13 款并列 50.0）
+    usable_low = low_mean is not None and low_mean > 0
     span = None
     if low_mean is not None and high_mean is not None:
         span = high_mean - low_mean
     if high_mean:
-        if span is not None and span > 0 and span >= float(min_span or 0):
+        if usable_low and span is not None and span > 0 and span >= float(min_span or 0):
             # 折线定标（冷锚为 50 分界）：冷锚以下用「冷锚比例」铺在 0-50，
             # 冷锚到热锚之间线性映射到 50-100。单段线性会把所有低于冷锚的款统一
             # 压成 0（run #22 实测低量级 8 款全挤 0.0），折线才能把它们铺开。
@@ -112,14 +117,23 @@ def level_from_means(game_mean, low_term, low_mean, high_term, high_mean, min_sp
             if level_value > 100:
                 note += '，高于热锚（未截断）'
             return out(note, round(level_value, 2), 'dual')
-        why = '冷锚缺失' if low_mean is None else '两锚跨度 {} < {}'.format(fmt(span), min_span)
-        return out('7d 均值 {} · 热锚「{}」{} 单锚点定标（{}）'
-                   .format(fmt(game_mean), high_term, fmt(high_mean), why),
-                   round(100.0 * game_mean / float(high_mean), 2), 'single-high')
-    if low_mean:
+        if low_mean is not None and not usable_low:
+            why = '冷锚「{}」本批均值 0（低于分辨率下限）'.format(low_term or '')
+        elif low_mean is None:
+            why = '冷锚缺失'
+        else:
+            why = '两锚跨度 {} < {}'.format(fmt(span), min_span)
+        note = ('7d 均值 {} · 热锚「{}」{} 单锚点定标（{}）'
+                .format(fmt(game_mean), high_term, fmt(high_mean), why))
+        if game_mean <= 0:
+            note += '，游戏词低于本批分辨率下限'
+        return out(note, round(100.0 * game_mean / float(high_mean), 2), 'single-high')
+    if usable_low:
         return out('7d 均值 {} · 冷锚「{}」{} 单锚点定标（热锚缺失）'
                    .format(fmt(game_mean), low_term, fmt(low_mean)),
                    round(100.0 * game_mean / float(low_mean), 2), 'single-low')
+    if low_term or high_term:
+        return out('水位不可用：锚点词本批均被压到分辨率下限（批内最高词的 1%）')
     return out('水位不可用：锚点词本批均无数据')
 
 
