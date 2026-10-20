@@ -21,11 +21,23 @@ P1_KEYS = ['trends', 'reddit', 'x_twitter']
 
 
 def rss_item_count(text):
-    """统计 RSS <channel> 下的 <item> 条数；解析失败返回 0（Bing News RSS 为标准 RSS 2.0）"""
+    """统计订阅源条目数：兼容 RSS 2.0 的 <item> 与 Atom 1.0 的 <entry>。
+
+    Reddit 的 .rss（含 search.rss）返回的是 Atom（<feed><entry>），早期只数 <item>，
+    会把每次成功请求都算成 0 条，令 Reddit 分项（20% 权重）恒为 0 分——2026-10-20
+    用真实样本实测：同一次查询 25 条 <entry>、0 条 <item>，而旧函数返回 0。
+    解析失败返回 0；是否「源失效」另由 looks_like_rss 判定（见 _reddit）。
+    """
     try:
-        return len(ET.fromstring(text).findall('.//item'))
+        root = ET.fromstring(text)
     except Exception:  # noqa: BLE001 - 任何解析异常都按 0 条处理，走 none 档
         return 0
+    count = 0
+    for node in root.iter():
+        tag = node.tag
+        if isinstance(tag, str) and tag.split('}')[-1] in ('item', 'entry'):
+            count += 1
+    return count
 
 
 def unavailable(origin, kind, error, value=None):
@@ -352,7 +364,17 @@ class Collector(object):
             state_mod.record(self.state, 'reddit', False, error='Reddit: {}'.format(result.get('error')),
                              degrade_after=degrade)
             return unavailable('Reddit', 'Fallback: Discord/F5Bot', 'Reddit: {}'.format(result.get('error')))
-        count = rss_item_count(result.get('text') or '')
+        text = result.get('text') or ''
+        # HTTP 200 不代表拿到了订阅源：被拦成 HTML 时应记取源失败，
+        # 否则会静默变成「成功但 0 条」，掩盖源失效（2026-10-20 修复）
+        if not http.looks_like_rss(text):
+            self._count('reddit', False)
+            state_mod.record(self.state, 'reddit', False,
+                             error='Reddit: 返回非订阅源内容（疑似拦截页）',
+                             degrade_after=degrade)
+            return unavailable('Reddit', 'Fallback: Discord/F5Bot',
+                               'Reddit: 返回非订阅源内容（疑似拦截页）')
+        count = rss_item_count(text)
         self._count('reddit', True)
         state_mod.record(self.state, 'reddit', True, value=count, degrade_after=degrade)
         return fresh('Reddit', 'P1 主源（.rss）', count)
