@@ -341,16 +341,25 @@ class Collector(object):
                 _mean(series), low_term, _mean(series_of(low_term)),
                 high_term, _mean(series_of(high_term)), min_span)
             nonzero = len([v for v in series if v > 0])
-            # 变化率用首末两点计算：数据点过少时首末两点极易失真为极端值
-            # （实测出现过 -100%：7 日窗口内只有个别点位有量），故要求至少 3 个非零数据点。
-            # 三种触发原因分别说明：否则「非零点 N 个，少于 3 个」在 N=3（实际因首点为 0 触发）时自相矛盾
+            peak = max(series) if series else 0
+            # C（2026-10-20）：变化率由「首末两点」改为「前 3 天均值 vs 后 3 天均值」。
+            # 7 日窗口是逐小时点，单点（尤其末点）极易被批内整数截断成 0，算出 -100% 假极端值：
+            # 实测同一款「怪物猎人：旅人」线上 -100.0%、本机同批次复现 0.0%，序列全是 1/2 抖动。
+            third = max(1, (len(series) // 7) * 3)
+            head_mean = _mean(series[:third])
+            tail_mean = _mean(series[-third:])
+            # B（2026-10-20）：峰值低于可信下限说明整条序列都在批内分辨率下限附近抖动
+            # （冷/热锚量级远高于游戏词时必然如此），此时任何变化率都是噪声，直接判数据不足。
+            min_peak = int((self.config.get('collection') or {}).get('trends_min_peak') or 0)
             reason = ''
             if series and len(series) < 2:
                 reason = '7 日内有效数据点不足 2 个'
             elif not series:
                 reason = '本批未返回游戏词数据'
-            elif series[0] == 0:
-                reason = '7 日窗口首点无搜索量，无法计算变化率'
+            elif min_peak and peak < min_peak:
+                reason = '7 日峰值 {} 低于可信下限 {}（批内归一化截断，变化率不可信）'.format(peak, min_peak)
+            elif not head_mean:
+                reason = '前 3 日均值为 0，无法计算变化率'
             elif nonzero < 3:
                 reason = '7 日内非零数据点 {} 个，少于 3 个不计算变化率'.format(nonzero)
             if reason:
@@ -359,7 +368,7 @@ class Collector(object):
                 state_mod.record(self.state, 'trends', False, error=error, degrade_after=degrade)
                 # 数据不足只是点位不够，本批的水位若取到照样展示
                 return attach(unavailable('Google Trends', 'Fallback: Google Search', error), level)
-            change = (series[-1] - series[0]) / float(series[0]) * 100.0
+            change = (tail_mean - head_mean) / float(head_mean) * 100.0
             self._count('trends', True)
             state_mod.record(self.state, 'trends', True, value=round(change, 1), degrade_after=degrade)
             return attach(fresh('Google Trends', 'P1 主源', round(change, 1)), level)

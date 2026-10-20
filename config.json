@@ -46,6 +46,7 @@
     "reddit_retry_wait_sec": 90,
     "budget_reserve_sec": 120,
     "trends_batch_size": 2,
+    "trends_min_peak": 5,
     "cache_ttl_hours": 12,
     "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) xinxicha-monitor/0.1",
     "failure_policy": {
