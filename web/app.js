@@ -174,11 +174,16 @@
 
   /* ---------- 20 款评分表 ---------- */
 
+  /* 枚举型 value 的中文标签：x_official 无凭据时走 Bing News RSS 回退，产出的是档位而非数字 */
+  const ENUM_VALUE_LABEL = { official: '官方公告', player_only: '有新闻提及', none: '无提及' };
+
   function componentCell(comp) {
     if (!comp) return '<span class="cell-sub">—</span>';
     const raw = comp.value;
-    const value = raw === null || raw === undefined ? '—'
-      : (Number.isInteger(Number(raw)) ? String(raw) : XC.fmt(raw, 1));
+    let value;
+    if (raw === null || raw === undefined) value = '—';
+    else if (Object.prototype.hasOwnProperty.call(ENUM_VALUE_LABEL, raw)) value = ENUM_VALUE_LABEL[raw];
+    else value = Number.isInteger(Number(raw)) ? String(raw) : XC.fmt(raw, 1);
     return '<div class="score-cell">' +
       '<span class="score-num" style="font-size:15px">' + esc(value) + '</span>' +
       '<span class="score-bar"><span class="score-bar-fill ' + (comp.stale ? 'lv-c' : 'lv-b') +
