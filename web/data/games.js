@@ -4,13 +4,13 @@ window.XC_GAMES = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-20 03:19:46",
+    "generated_at_cst": "2026-10-20 09:47:07",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 1687.1,
+    "duration_sec": 648.5,
     "counts": {
       "games": 21,
       "p0": 2,
@@ -193,7 +193,7 @@ window.XC_GAMES = {
       "launch_date": "2026-10-29",
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": -27.1,
+      "trends_7d": 32.5,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -206,7 +206,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -27.1,
+          "value": 32.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -236,10 +236,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 100,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -27.1,
+          "weighted": 30.0,
+          "value": 32.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -306,10 +306,10 @@ window.XC_GAMES = {
           "note": "距上线 9 天"
         }
       ],
-      "total": 33.5,
+      "total": 63.5,
       "prev_total": 33.5,
-      "delta": 0.0,
-      "action_engine": "暂不投入",
+      "delta": 30.0,
+      "action_engine": "做数据表占位",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -329,8 +329,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 33.5,
-          "action_engine": "暂不投入",
+          "total": 63.5,
+          "action_engine": "做数据表占位",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -339,8 +339,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 24.5,
-          "action_engine": "暂不投入",
+          "total": 54.5,
+          "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -388,7 +388,7 @@ window.XC_GAMES = {
       "launch_date": "2026-10-29",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -40.2,
+      "trends_7d": -47.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -401,7 +401,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -40.2,
+          "value": -47.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -434,7 +434,7 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -40.2,
+          "value": -47.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -583,7 +583,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "高",
-      "trends_7d": -40.2,
+      "trends_7d": -47.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -596,11 +596,11 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -40.2,
+          "value": -47.4,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         "reddit": {
           "available": true,
@@ -628,11 +628,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -40.2,
+          "value": -47.4,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -780,7 +780,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": -17.4,
+      "trends_7d": -29.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -793,7 +793,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -17.4,
+          "value": -29.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -823,10 +823,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -17.4,
+          "weighted": 0.0,
+          "value": -29.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -893,9 +893,9 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 34.5,
+      "total": 30.0,
       "prev_total": 30.0,
-      "delta": 4.5,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -916,7 +916,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 34.5,
+          "total": 30.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -926,7 +926,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 25.5,
+          "total": 21.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -975,7 +975,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": 43.3,
+      "trends_7d": -17.3,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -988,7 +988,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 43.3,
+          "value": -17.3,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1018,10 +1018,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 100,
+          "score": 15,
           "weight": 30,
-          "weighted": 30.0,
-          "value": 43.3,
+          "weighted": 4.5,
+          "value": -17.3,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1088,10 +1088,10 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 57.5,
+      "total": 32.0,
       "prev_total": 27.5,
-      "delta": 30.0,
-      "action_engine": "监控不投入",
+      "delta": 4.5,
+      "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -1111,8 +1111,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 57.5,
-          "action_engine": "监控不投入",
+          "total": 32.0,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -1121,8 +1121,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 48.5,
-          "action_engine": "监控不投入",
+          "total": 23.0,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -1170,7 +1170,7 @@ window.XC_GAMES = {
       "launch_date": "2027-01-15",
       "cn_guide_score": 1,
       "gap_level": "高",
-      "trends_7d": 43.3,
+      "trends_7d": -17.3,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1183,7 +1183,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": 43.3,
+          "value": -17.3,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -1212,10 +1212,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 100,
+          "score": 15,
           "weight": 30,
-          "weighted": 30.0,
-          "value": 43.3,
+          "weighted": 4.5,
+          "value": -17.3,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -1282,10 +1282,10 @@ window.XC_GAMES = {
           "note": "距上线 87 天"
         }
       ],
-      "total": 58.0,
+      "total": 32.5,
       "prev_total": 28.0,
-      "delta": 30.0,
-      "action_engine": "监控不投入",
+      "delta": 4.5,
+      "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -1305,8 +1305,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 58.0,
-          "action_engine": "监控不投入",
+          "total": 32.5,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -1315,8 +1315,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 49.0,
-          "action_engine": "监控不投入",
+          "total": 23.5,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -1562,7 +1562,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": 19.5,
+      "trends_7d": 27.1,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1575,7 +1575,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 19.5,
+          "value": 27.1,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1605,10 +1605,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 60,
+          "score": 100,
           "weight": 30,
-          "weighted": 18.0,
-          "value": 19.5,
+          "weighted": 30.0,
+          "value": 27.1,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1675,10 +1675,10 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 48.0,
+      "total": 60.0,
       "prev_total": 34.5,
-      "delta": 13.5,
-      "action_engine": "监控不投入",
+      "delta": 25.5,
+      "action_engine": "做数据表占位",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -1698,8 +1698,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 48.0,
-          "action_engine": "监控不投入",
+          "total": 60.0,
+          "action_engine": "做数据表占位",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -1708,8 +1708,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 39.0,
-          "action_engine": "暂不投入",
+          "total": 51.0,
+          "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -1757,7 +1757,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -3.6,
+      "trends_7d": -3.9,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1770,7 +1770,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -3.6,
+          "value": -3.9,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1803,7 +1803,7 @@ window.XC_GAMES = {
           "score": 15,
           "weight": 30,
           "weighted": 4.5,
-          "value": -3.6,
+          "value": -3.9,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1952,7 +1952,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -100.0,
+      "trends_7d": -20.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1965,7 +1965,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -100.0,
+          "value": -20.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1995,10 +1995,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 4.5,
+          "value": -20.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2065,12 +2065,12 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 20.8,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 0.8,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": true,
+      "base_score_applied": false,
       "days_tracked": 3,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
@@ -2088,7 +2088,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 20.8,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2147,7 +2147,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "中",
-      "trends_7d": -100.0,
+      "trends_7d": -27.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2155,16 +2155,17 @@ window.XC_GAMES = {
       "priority": "P2",
       "note": "MAU增长明显，英文供给仍在建立",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -100.0,
+          "available": true,
+          "value": -27.8,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
           "available": true,
@@ -2192,11 +2193,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -100.0,
+          "value": -27.8,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -2313,23 +2314,20 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 6,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 2,
-      "stale": true
+      "stale": false
     },
     {
       "id": "flamb-merge-cook",
@@ -2344,7 +2342,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -100.0,
+      "trends_7d": -27.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2357,7 +2355,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -100.0,
+          "value": -27.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -2389,7 +2387,7 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -100.0,
+          "value": -27.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -2541,7 +2539,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -100.0,
+      "trends_7d": -27.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2554,11 +2552,11 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -100.0,
+          "value": -27.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         "reddit": {
           "available": true,
@@ -2586,11 +2584,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -100.0,
+          "value": -27.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -2738,7 +2736,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -100.0,
+      "trends_7d": -18.6,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2746,16 +2744,17 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "搜索量大但英文站已饱和",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -100.0,
+          "available": true,
+          "value": -18.6,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
           "available": true,
@@ -2780,14 +2779,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 4.5,
+          "value": -18.6,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -2850,9 +2849,9 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 24.5,
       "prev_total": 24.5,
-      "delta": -4.5,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -2873,7 +2872,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 24.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2904,23 +2903,20 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "honkai-star-rail",
@@ -2935,7 +2931,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -100.0,
+      "trends_7d": -11.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2943,16 +2939,17 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "同上",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -100.0,
+          "available": true,
+          "value": -11.0,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
           "available": true,
@@ -2977,14 +2974,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 4.5,
+          "value": -11.0,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -3047,9 +3044,9 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 24.5,
       "prev_total": 38.0,
-      "delta": -18.0,
+      "delta": -13.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -3070,7 +3067,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 24.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3101,23 +3098,20 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "wuthering-waves",
@@ -3132,7 +3126,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -100.0,
+      "trends_7d": -28.7,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3140,16 +3134,17 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "Steam在线稳定但大站已覆盖",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -100.0,
+          "available": true,
+          "value": -28.7,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
           "available": true,
@@ -3177,11 +3172,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -100.0,
+          "value": -28.7,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -3298,23 +3293,20 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "honor-of-kings",
@@ -3329,7 +3321,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -100.0,
+      "trends_7d": -2.6,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3337,16 +3329,17 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "下载增长明显但英文攻略站已有",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -100.0,
+          "available": true,
+          "value": -2.6,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
           "available": true,
@@ -3371,14 +3364,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 4.5,
+          "value": -2.6,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -3441,12 +3434,12 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 22.0,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 2.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": true,
+      "base_score_applied": false,
       "days_tracked": 3,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
@@ -3464,7 +3457,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 22.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3495,23 +3488,20 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "arknights",
@@ -3526,7 +3516,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -100.0,
+      "trends_7d": 26.7,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3534,16 +3524,17 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "英文社区成熟，攻略站多",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -100.0,
+          "available": true,
+          "value": 26.7,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
           "available": true,
@@ -3568,14 +3559,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 100,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 30.0,
+          "value": 26.7,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -3638,10 +3629,10 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 50.0,
       "prev_total": 38.0,
-      "delta": -18.0,
-      "action_engine": "暂不投入",
+      "delta": 12.0,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -3661,8 +3652,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
+          "total": 50.0,
+          "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -3671,8 +3662,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
+          "total": 41.0,
+          "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -3692,23 +3683,20 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "afk-journey",
@@ -3723,7 +3711,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -100.0,
+      "trends_7d": 12.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3731,16 +3719,17 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "莉莉丝发行能力强但英文供给充足",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -100.0,
+          "available": true,
+          "value": 12.0,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
           "available": true,
@@ -3765,14 +3754,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 60,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 18.0,
+          "value": 12.0,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -3835,12 +3824,12 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 35.5,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 15.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": true,
+      "base_score_applied": false,
       "days_tracked": 3,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
@@ -3858,7 +3847,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 35.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3868,7 +3857,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
+          "total": 26.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3889,23 +3878,20 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "rise-of-kingdoms",
@@ -3920,7 +3906,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -100.0,
+      "trends_7d": -10.9,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3928,24 +3914,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "英文市场成熟，增量有限",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -100.0,
+          "available": true,
+          "value": -10.9,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
-          "available": false,
+          "available": true,
           "value": 0,
           "origin": "Reddit",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "x_twitter": {
           "available": true,
@@ -3961,14 +3949,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 4.5,
+          "value": -10.9,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -3978,9 +3966,9 @@ window.XC_GAMES = {
           "weighted": 0.0,
           "value": 0,
           "origin": "Reddit",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "x_official",
@@ -4031,9 +4019,9 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 24.5,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 4.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -4054,7 +4042,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 24.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4065,8 +4053,8 @@ window.XC_GAMES = {
           "key": "x_dead",
           "label": "X/Twitter 失活",
           "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "x_twitter"
           ]
@@ -4085,25 +4073,20 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
-        "Reddit（stale）",
+        "P1·Trends",
+        "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
-        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends",
-        "reddit"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "hunger",
@@ -4118,7 +4101,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "高",
-      "trends_7d": -100.0,
+      "trends_7d": -20.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -4126,24 +4109,26 @@ window.XC_GAMES = {
       "priority": "P2",
       "note": "2026-10-19 Steam 开启测试（末日搜打撤生存）；厂商 / 国服状态 / 上线档期均待确认 —— 本条来自新游候选发现层的人工确认",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -100.0,
+          "available": true,
+          "value": -20.0,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "reddit": {
-          "available": false,
+          "available": true,
           "value": 0,
           "origin": "Reddit",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "error": null,
+          "tier": "P1"
         },
         "x_twitter": {
           "available": true,
@@ -4159,14 +4144,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -100.0,
+          "weighted": 4.5,
+          "value": -20.0,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -4176,9 +4161,9 @@ window.XC_GAMES = {
           "weighted": 0.0,
           "value": 0,
           "origin": "Reddit",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "kind": "P1 主源（.rss）",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "x_official",
@@ -4229,7 +4214,7 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 25.0,
+      "total": 29.5,
       "prev_total": null,
       "delta": null,
       "action_engine": "暂不投入",
@@ -4252,7 +4237,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 25.0,
+          "total": 29.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4262,9 +4247,9 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
-          "action_engine": "人工复核（P1 全部不可用）",
-          "confidence": "低",
+          "total": 20.5,
+          "action_engine": "暂不投入",
+          "confidence": "中",
           "stale_sources": [
             "x_twitter"
           ]
@@ -4283,25 +4268,20 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
-        "Reddit（stale）",
+        "P1·Trends",
+        "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
-        "Fallback: Reddit（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends",
-        "reddit"
-      ],
+      "stale_sources": [],
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 0,
-      "stale": true
+      "stale": false
     }
   ]
 };
