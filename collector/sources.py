@@ -382,8 +382,10 @@ class Collector(object):
     def _x_twitter(self, game):
         """无凭据：按规格走 P2 回退——Bing News RSS（公开、免凭据、stdlib 可解析）。
 
-        RSS 只能证明「有新闻提及」，无法区分官方公告与媒体报道，
-        保守映射到 x_official 档位 player_only（60 分）；0 条 → none（0 分）。
+        产出「命中的新闻条数」作为取值，由 config.scoring.bands.x_official 的
+        数值区间分档算分（2026-10-20 改造：早期只映射枚举 player_only / none，
+        只要命中 1 条新闻就与命中 12 条同为 60 分，21 款全部并列、零区分度）。
+        RSS 无法区分官方公告与媒体报道，故该分项实际反映「媒体提及量」。
         """
         kind = 'Fallback: RSS/厂商官网公告'
         if not self.p2_network:
@@ -407,10 +409,9 @@ class Collector(object):
             return unavailable('X/Twitter', kind, 'RSS: {}'.format(feed.get('error')))
         count = rss_item_count(feed.get('text') or '')
         self._count('x_twitter', True)
-        value = 'player_only' if count else 'none'
         note = 'Bing News RSS 命中 {} 条'.format(count) if count else 'Bing News RSS 无相关新闻'
-        state_mod.record(self.state, 'x_twitter', True, value=value, degrade_after=degrade)
-        return fresh('Bing News RSS', note, value, tier='P2')
+        state_mod.record(self.state, 'x_twitter', True, value=count, degrade_after=degrade)
+        return fresh('Bing News RSS', note, count, tier='P2')
 
     def _rss(self, game):
         """P3「官方公告兜底」：Bing News RSS（免凭据、stdlib 可解析）。

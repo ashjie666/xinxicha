@@ -12,11 +12,11 @@
   const BAND_CAPTIONS = {
     trends_7d: 'Google Trends 7 日变化率（%）',
     reddit_daily: 'Reddit 过去 24 小时新帖数（条）',
+    x_official: 'Bing News 命中新闻条数（条）',
     launch_window_days: '距海外上线天数',
   };
   const DICT_LABELS = {
     launch_window_fallback: { live: '已上线或当日上线', unknown: '未公布档期' },
-    x_official: { official: '官方账号发推 / 公告', player_only: '仅玩家讨论', none: '无提及' },
   };
 
   function esc(text) { return XC.escapeHtml(text); }
