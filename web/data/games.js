@@ -4,13 +4,13 @@ window.XC_GAMES = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-20 19:12:06",
+    "generated_at_cst": "2026-10-20 20:23:02",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 636.9,
+    "duration_sec": 640.8,
     "counts": {
       "games": 21,
       "p0": 2,
@@ -200,7 +200,7 @@ window.XC_GAMES = {
       "launch_date": "2026-10-29",
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": 4.9,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -213,21 +213,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": 4.9,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "Trends 数据不足（7 日峰值 2 低于可信下限 5（批内归一化截断，变化率不可信））",
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 1.21,
-            "raw": 1.1,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 1.1 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -253,14 +253,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 30,
+          "score": 0,
           "weight": 30,
-          "weighted": 9.0,
-          "value": 4.9,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "note": "Trends 数据不足（7 日峰值 2 低于可信下限 5（批内归一化截断，变化率不可信））"
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -323,10 +323,10 @@ window.XC_GAMES = {
           "note": "距上线 9 天"
         }
       ],
-      "total": 68.5,
+      "total": 59.5,
       "prev_total": 33.5,
-      "delta": 35.0,
-      "action_engine": "做数据表占位",
+      "delta": 26.0,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -346,8 +346,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 48.5,
-          "action_engine": "监控不投入",
+          "total": 39.5,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -356,7 +356,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 53.5,
+          "total": 44.5,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -377,27 +377,26 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 1.21,
-      "trends_level_raw": 1.1,
-      "trends_level_note": "7d 均值 1.1 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 15,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 9,
       "launch_days": 9,
@@ -418,7 +417,7 @@ window.XC_GAMES = {
       "launch_date": "2026-10-29",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -8.2,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -426,27 +425,26 @@ window.XC_GAMES = {
       "priority": "P0",
       "note": "PC/PS5买断，发售期爆发，长尾有限",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -8.2,
+          "available": false,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 14.93,
-            "raw": 14.0,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 14.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -472,14 +470,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -8.2,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -542,9 +540,9 @@ window.XC_GAMES = {
           "note": "距上线 9 天"
         }
       ],
-      "total": 57.8,
+      "total": 53.2,
       "prev_total": 27.2,
-      "delta": 30.6,
+      "delta": 26.0,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -565,7 +563,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 37.8,
+          "total": 33.2,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -575,8 +573,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 42.8,
-          "action_engine": "监控不投入",
+          "total": 38.2,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -596,30 +594,32 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 14.93,
-      "trends_level_raw": 14.0,
-      "trends_level_note": "7d 均值 14.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 6,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 6,
       "launch_days": 9,
       "overseas_supply": null,
       "keywords_count": 7,
-      "stale": false
+      "stale": true
     },
     {
       "id": "roco-kingdom-world",
@@ -634,7 +634,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "高",
-      "trends_7d": -8.2,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -647,21 +647,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -8.2,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "Trends 数据不足（7 日峰值 2 低于可信下限 5（批内归一化截断，变化率不可信））",
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 0.04,
-            "raw": 0.0,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 0.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -687,14 +687,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -8.2,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "note": "Trends 数据不足（7 日峰值 2 低于可信下限 5（批内归一化截断，变化率不可信））"
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -757,10 +757,10 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 63.0,
+      "total": 58.5,
       "prev_total": 32.5,
-      "delta": 30.5,
-      "action_engine": "做数据表占位",
+      "delta": 26.0,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -780,8 +780,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 43.0,
-          "action_engine": "监控不投入",
+          "total": 38.5,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -790,7 +790,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 48.0,
+          "total": 43.5,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -811,27 +811,26 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 0.04,
-      "trends_level_raw": 0.0,
-      "trends_level_note": "7d 均值 0.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 18,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 9,
       "launch_days": null,
@@ -852,7 +851,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": -1.0,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -860,27 +859,26 @@ window.XC_GAMES = {
       "priority": "P1",
       "note": "生活模拟类，海外未上线，提前建内容库",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -1.0,
+          "available": false,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 4.63,
-            "raw": 4.3,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 4.3 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -906,14 +904,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -1.0,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -976,10 +974,10 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 60.5,
+      "total": 56.0,
       "prev_total": 30.0,
-      "delta": 30.5,
-      "action_engine": "做数据表占位",
+      "delta": 26.0,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -999,8 +997,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 40.5,
-          "action_engine": "监控不投入",
+          "total": 36.0,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -1009,7 +1007,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 45.5,
+          "total": 41.0,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1030,30 +1028,32 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 4.63,
-      "trends_level_raw": 4.3,
-      "trends_level_note": "7d 均值 4.3 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 9,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 3,
-      "stale": false
+      "stale": true
     },
     {
       "id": "project-origin",
@@ -1068,7 +1068,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": -1.0,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -1081,21 +1081,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -1.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "Trends 数据不足（7 日峰值 2 低于可信下限 5（批内归一化截断，变化率不可信））",
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 0.92,
-            "raw": 0.9,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 0.9 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -1121,14 +1121,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -1.0,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "note": "Trends 数据不足（7 日峰值 2 低于可信下限 5（批内归一化截断，变化率不可信））"
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -1191,9 +1191,9 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 58.0,
+      "total": 53.5,
       "prev_total": 27.5,
-      "delta": 30.5,
+      "delta": 26.0,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -1214,7 +1214,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 38.0,
+          "total": 33.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1224,8 +1224,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 43.0,
-          "action_engine": "监控不投入",
+          "total": 38.5,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -1245,27 +1245,26 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 0.92,
-      "trends_level_raw": 0.9,
-      "trends_level_note": "7d 均值 0.9 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 16,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 9,
       "launch_days": null,
@@ -1286,7 +1285,7 @@ window.XC_GAMES = {
       "launch_date": "2027-01-15",
       "cn_guide_score": 1,
       "gap_level": "高",
-      "trends_7d": -1.0,
+      "trends_7d": null,
       "reddit_daily": 22,
       "x_mentions": null,
       "total_score": null,
@@ -1299,21 +1298,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -1.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "Trends 数据不足（7 日峰值 0 低于可信下限 5（批内归一化截断，变化率不可信））",
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 0.0,
-            "raw": 0.0,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 0.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -1339,14 +1338,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -1.0,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "note": "Trends 数据不足（7 日峰值 0 低于可信下限 5（批内归一化截断，变化率不可信））"
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -1409,9 +1408,9 @@ window.XC_GAMES = {
           "note": "距上线 87 天"
         }
       ],
-      "total": 56.5,
+      "total": 52.0,
       "prev_total": 28.0,
-      "delta": 28.5,
+      "delta": 24.0,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -1432,7 +1431,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 38.5,
+          "total": 34.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1442,8 +1441,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 41.5,
-          "action_engine": "监控不投入",
+          "total": 37.0,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -1463,27 +1462,26 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 0.0,
-      "trends_level_raw": 0.0,
-      "trends_level_note": "7d 均值 0.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 21,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 9,
       "launch_days": 87,
@@ -1504,7 +1502,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "高",
-      "trends_7d": -1.0,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -1517,21 +1515,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -1.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 0.08,
-            "raw": 0.1,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 0.1 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -1557,14 +1555,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -1.0,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "note": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））"
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -1627,10 +1625,10 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 64.0,
+      "total": 59.5,
       "prev_total": 35.0,
-      "delta": 29.0,
-      "action_engine": "做数据表占位",
+      "delta": 24.5,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -1650,8 +1648,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 44.0,
-          "action_engine": "监控不投入",
+          "total": 39.5,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -1660,7 +1658,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 50.5,
+          "total": 46.0,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1681,27 +1679,26 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
+        "Fallback: Google Search",
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 0.08,
-      "trends_level_raw": 0.1,
-      "trends_level_note": "7d 均值 0.1 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 17,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 11,
       "gap_score": 9,
       "launch_days": null,
@@ -1722,7 +1719,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": 10.2,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -1730,27 +1727,26 @@ window.XC_GAMES = {
       "priority": "P1",
       "note": "11月4日终局测试，国内预约3000万+",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": 10.2,
+          "available": false,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 3.37,
-            "raw": 3.1,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 3.1 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -1776,14 +1772,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 60,
+          "score": 0,
           "weight": 30,
-          "weighted": 18.0,
-          "value": 10.2,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -1846,10 +1842,10 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 72.5,
+      "total": 54.5,
       "prev_total": 34.5,
-      "delta": 38.0,
-      "action_engine": "做数据表占位",
+      "delta": 20.0,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -1869,8 +1865,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 52.5,
-          "action_engine": "监控不投入",
+          "total": 34.5,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -1879,7 +1875,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 59.0,
+          "total": 41.0,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1900,30 +1896,32 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Google Search",
         "Bing News RSS 命中 11 条"
       ],
-      "stale_sources": [],
-      "trends_level": 3.37,
-      "trends_level_raw": 3.1,
-      "trends_level_note": "7d 均值 3.1 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 12,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 11,
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 2,
-      "stale": false
+      "stale": true
     },
     {
       "id": "where-winds-meet",
@@ -1938,7 +1936,7 @@ window.XC_GAMES = {
       "launch_date": "2025-11-14",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": 8.9,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -1946,27 +1944,26 @@ window.XC_GAMES = {
       "priority": "P2",
       "note": "海外已上线但英文攻略深度不够",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": 8.9,
+          "available": false,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 19.26,
-            "raw": 18.0,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 18.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -1992,14 +1989,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 60,
+          "score": 0,
           "weight": 30,
-          "weighted": 18.0,
-          "value": 8.9,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -2062,10 +2059,10 @@ window.XC_GAMES = {
           "note": "已上线"
         }
       ],
-      "total": 64.8,
+      "total": 46.8,
       "prev_total": 25.8,
-      "delta": 39.0,
-      "action_engine": "做数据表占位",
+      "delta": 21.0,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -2085,8 +2082,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 44.8,
-          "action_engine": "监控不投入",
+          "total": 26.8,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -2095,8 +2092,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 51.2,
-          "action_engine": "监控不投入",
+          "total": 33.2,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -2116,30 +2113,32 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Google Search",
         "Bing News RSS 命中 11 条"
       ],
-      "stale_sources": [],
-      "trends_level": 19.26,
-      "trends_level_raw": 18.0,
-      "trends_level_note": "7d 均值 18.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 4,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 11,
       "gap_score": 6,
       "launch_days": -340,
       "overseas_supply": null,
       "keywords_count": 2,
-      "stale": false
+      "stale": true
     },
     {
       "id": "last-asylum-plague",
@@ -2154,7 +2153,7 @@ window.XC_GAMES = {
       "launch_date": "2026-02-11",
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": 8.9,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -2167,21 +2166,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": 8.9,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "Trends 数据不足（7 日峰值 4 低于可信下限 5（批内归一化截断，变化率不可信））",
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 1.76,
-            "raw": 1.6,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 1.6 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -2207,14 +2206,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 60,
+          "score": 0,
           "weight": 30,
-          "weighted": 18.0,
-          "value": 8.9,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "note": "Trends 数据不足（7 日峰值 4 低于可信下限 5（批内归一化截断，变化率不可信））"
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -2277,10 +2276,10 @@ window.XC_GAMES = {
           "note": "已上线"
         }
       ],
-      "total": 61.2,
+      "total": 43.2,
       "prev_total": 20.0,
-      "delta": 41.2,
-      "action_engine": "做数据表占位",
+      "delta": 23.2,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -2300,8 +2299,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 41.2,
-          "action_engine": "监控不投入",
+          "total": 23.2,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -2310,8 +2309,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 46.2,
-          "action_engine": "监控不投入",
+          "total": 28.2,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -2331,27 +2330,26 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 1.76,
-      "trends_level_raw": 1.6,
-      "trends_level_note": "7d 均值 1.6 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 14,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 6,
       "launch_days": -251,
@@ -2372,7 +2370,7 @@ window.XC_GAMES = {
       "launch_date": "2026-05-20",
       "cn_guide_score": 1,
       "gap_level": "中",
-      "trends_7d": -0.7,
+      "trends_7d": null,
       "reddit_daily": 5,
       "x_mentions": null,
       "total_score": null,
@@ -2380,27 +2378,26 @@ window.XC_GAMES = {
       "priority": "P2",
       "note": "MAU增长明显，英文供给仍在建立",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -0.7,
+          "available": false,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 6.72,
-            "raw": 6.3,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 6.3 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -2426,14 +2423,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -0.7,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -2496,9 +2493,9 @@ window.XC_GAMES = {
           "note": "已上线"
         }
       ],
-      "total": 37.2,
+      "total": 32.8,
       "prev_total": 20.0,
-      "delta": 17.2,
+      "delta": 12.8,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -2519,7 +2516,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 25.2,
+          "total": 20.8,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2529,7 +2526,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 22.2,
+          "total": 20.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2550,30 +2547,32 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 6.72,
-      "trends_level_raw": 6.3,
-      "trends_level_note": "7d 均值 6.3 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 8,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 6,
       "launch_days": -153,
       "overseas_supply": null,
       "keywords_count": 2,
-      "stale": false
+      "stale": true
     },
     {
       "id": "flamb-merge-cook",
@@ -2588,7 +2587,7 @@ window.XC_GAMES = {
       "launch_date": "2025-05-08",
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -0.7,
+      "trends_7d": null,
       "reddit_daily": 22,
       "x_mentions": null,
       "total_score": null,
@@ -2601,21 +2600,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -0.7,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "Trends 数据不足（7 日峰值 0 低于可信下限 5（批内归一化截断，变化率不可信））",
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 0.0,
-            "raw": 0.0,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 0.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -2641,14 +2640,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -0.7,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "note": "Trends 数据不足（7 日峰值 0 低于可信下限 5（批内归一化截断，变化率不可信））"
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -2711,9 +2710,9 @@ window.XC_GAMES = {
           "note": "已上线"
         }
       ],
-      "total": 45.8,
+      "total": 41.2,
       "prev_total": 20.0,
-      "delta": 25.8,
+      "delta": 21.2,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -2734,7 +2733,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 27.8,
+          "total": 23.2,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2744,7 +2743,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 30.8,
+          "total": 26.2,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2765,27 +2764,26 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 0.0,
-      "trends_level_raw": 0.0,
-      "trends_level_note": "7d 均值 0.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 20,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 6,
       "launch_days": -530,
@@ -2806,7 +2804,7 @@ window.XC_GAMES = {
       "launch_date": "2024-04-11",
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -0.7,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -2819,21 +2817,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -0.7,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 0.01,
-            "raw": 0.0,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 0.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -2859,14 +2857,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -0.7,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "note": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））"
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -2929,9 +2927,9 @@ window.XC_GAMES = {
           "note": "已上线"
         }
       ],
-      "total": 46.2,
+      "total": 41.8,
       "prev_total": 20.0,
-      "delta": 26.2,
+      "delta": 21.8,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -2952,7 +2950,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 26.2,
+          "total": 21.8,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2962,7 +2960,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 32.8,
+          "total": 28.2,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2983,27 +2981,26 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
+        "Fallback: Google Search",
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 0.01,
-      "trends_level_raw": 0.0,
-      "trends_level_note": "7d 均值 0.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 19,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 11,
       "gap_score": 6,
       "launch_days": -922,
@@ -3024,7 +3021,7 @@ window.XC_GAMES = {
       "launch_date": "2020-09-28",
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": 2.1,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -3032,27 +3029,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "搜索量大但英文站已饱和",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": 2.1,
+          "available": false,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 110.43,
-            "raw": 68.0,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 68.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界），高于热锚（未截断）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -3078,14 +3074,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 30,
+          "score": 0,
           "weight": 30,
-          "weighted": 9.0,
-          "value": 2.1,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -3148,9 +3144,9 @@ window.XC_GAMES = {
           "note": "已上线"
         }
       ],
-      "total": 56.0,
+      "total": 47.0,
       "prev_total": 24.5,
-      "delta": 31.5,
+      "delta": 22.5,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -3171,7 +3167,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 36.0,
+          "total": 27.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3181,8 +3177,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 41.0,
-          "action_engine": "监控不投入",
+          "total": 32.0,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -3202,30 +3198,32 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 110.43,
-      "trends_level_raw": 68.0,
-      "trends_level_note": "7d 均值 68.0 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界），高于热锚（未截断）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 2,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 2,
       "launch_days": -2213,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": false
+      "stale": true
     },
     {
       "id": "honkai-star-rail",
@@ -3240,7 +3238,7 @@ window.XC_GAMES = {
       "launch_date": "2023-04-26",
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": 10.1,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -3248,27 +3246,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "同上",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": 10.1,
+          "available": false,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 11.58,
-            "raw": 10.8,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 10.8 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -3294,14 +3291,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 60,
+          "score": 0,
           "weight": 30,
-          "weighted": 18.0,
-          "value": 10.1,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -3364,10 +3361,10 @@ window.XC_GAMES = {
           "note": "已上线"
         }
       ],
-      "total": 65.0,
+      "total": 47.0,
       "prev_total": 38.0,
-      "delta": 27.0,
-      "action_engine": "做数据表占位",
+      "delta": 9.0,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -3387,8 +3384,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 45.0,
-          "action_engine": "监控不投入",
+          "total": 27.0,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -3397,8 +3394,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 50.0,
-          "action_engine": "监控不投入",
+          "total": 32.0,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -3418,30 +3415,32 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 11.58,
-      "trends_level_raw": 10.8,
-      "trends_level_note": "7d 均值 10.8 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 7,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 2,
       "launch_days": -1273,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": false
+      "stale": true
     },
     {
       "id": "wuthering-waves",
@@ -3456,7 +3455,7 @@ window.XC_GAMES = {
       "launch_date": "2024-05-23",
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": 5.8,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -3464,27 +3463,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "Steam在线稳定但大站已覆盖",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": 5.8,
+          "available": false,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 17.04,
-            "raw": 15.9,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 15.9 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -3510,14 +3508,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 60,
+          "score": 0,
           "weight": 30,
-          "weighted": 18.0,
-          "value": 5.8,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -3580,10 +3578,10 @@ window.XC_GAMES = {
           "note": "已上线"
         }
       ],
-      "total": 62.5,
+      "total": 44.5,
       "prev_total": 20.0,
-      "delta": 42.5,
-      "action_engine": "做数据表占位",
+      "delta": 24.5,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -3603,8 +3601,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 42.5,
-          "action_engine": "监控不投入",
+          "total": 24.5,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -3613,8 +3611,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 47.5,
-          "action_engine": "监控不投入",
+          "total": 29.5,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -3634,30 +3632,32 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 17.04,
-      "trends_level_raw": 15.9,
-      "trends_level_note": "7d 均值 15.9 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 5,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 2,
       "launch_days": -880,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": false
+      "stale": true
     },
     {
       "id": "honor-of-kings",
@@ -3672,7 +3672,7 @@ window.XC_GAMES = {
       "launch_date": "2024-06-20",
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -5.2,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -3680,27 +3680,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "下载增长明显但英文攻略站已有",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -5.2,
+          "available": false,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 3.64,
-            "raw": 3.1,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.0,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 59.3,
-            "note": "7d 均值 3.1 · 冷锚「mobile game」43.0 / 热锚「video games」59.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -3726,14 +3725,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -5.2,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -3796,9 +3795,9 @@ window.XC_GAMES = {
           "note": "已上线"
         }
       ],
-      "total": 49.0,
+      "total": 44.5,
       "prev_total": 20.0,
-      "delta": 29.0,
+      "delta": 24.5,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -3819,7 +3818,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 29.0,
+          "total": 24.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3829,7 +3828,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 34.0,
+          "total": 29.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3850,30 +3849,32 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 3.64,
-      "trends_level_raw": 3.1,
-      "trends_level_note": "7d 均值 3.1 · 冷锚「mobile game」43.0 / 热锚「video games」59.3 → 双锚折线定标（冷锚为 50 分界）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 10,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.0,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 59.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 2,
       "launch_days": -852,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": false
+      "stale": true
     },
     {
       "id": "arknights",
@@ -3888,7 +3889,7 @@ window.XC_GAMES = {
       "launch_date": "2020-01-16",
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -12.9,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -3896,27 +3897,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "英文社区成熟，攻略站多",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -12.9,
+          "available": false,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 57.9,
-            "raw": 45.6,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.0,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 59.3,
-            "note": "7d 均值 45.6 · 冷锚「mobile game」43.0 / 热锚「video games」59.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -3942,14 +3942,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -12.9,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -4012,9 +4012,9 @@ window.XC_GAMES = {
           "note": "已上线"
         }
       ],
-      "total": 51.5,
+      "total": 47.0,
       "prev_total": 38.0,
-      "delta": 13.5,
+      "delta": 9.0,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -4035,7 +4035,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 31.5,
+          "total": 27.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4045,7 +4045,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 36.5,
+          "total": 32.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4066,30 +4066,32 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 57.9,
-      "trends_level_raw": 45.6,
-      "trends_level_note": "7d 均值 45.6 · 冷锚「mobile game」43.0 / 热锚「video games」59.3 → 双锚折线定标（冷锚为 50 分界）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 3,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.0,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 59.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 2,
       "launch_days": -2469,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": false
+      "stale": true
     },
     {
       "id": "afk-journey",
@@ -4104,7 +4106,7 @@ window.XC_GAMES = {
       "launch_date": "2024-03-27",
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -12.9,
+      "trends_7d": null,
       "reddit_daily": 9,
       "x_mentions": null,
       "total_score": null,
@@ -4117,21 +4119,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -12.9,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "Trends 数据不足（7 日峰值 4 低于可信下限 5（批内归一化截断，变化率不可信））",
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 2.35,
-            "raw": 2.2,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 2.2 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -4157,14 +4159,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -12.9,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
+          "kind": "Fallback: Google Search",
           "stale": true,
-          "note": "Trends 数据不足（7 日峰值 4 低于可信下限 5（批内归一化截断，变化率不可信））"
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -4227,9 +4229,9 @@ window.XC_GAMES = {
           "note": "已上线"
         }
       ],
-      "total": 39.5,
+      "total": 35.0,
       "prev_total": 20.0,
-      "delta": 19.5,
+      "delta": 15.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -4250,7 +4252,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 27.5,
+          "total": 23.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4260,7 +4262,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 26.0,
+          "total": 21.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4281,27 +4283,26 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
+        "Fallback: Google Search",
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 2.35,
-      "trends_level_raw": 2.2,
-      "trends_level_note": "7d 均值 2.2 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 13,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 11,
       "gap_score": 2,
       "launch_days": -937,
@@ -4322,7 +4323,7 @@ window.XC_GAMES = {
       "launch_date": "2018-09-20",
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": 6.6,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -4330,27 +4331,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "英文市场成熟，增量有限",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": 6.6,
+          "available": false,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 3.56,
-            "raw": 3.3,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "dual",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 46.8,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 64.3,
-            "note": "7d 均值 3.3 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -4376,14 +4376,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 60,
+          "score": 0,
           "weight": 30,
-          "weighted": 18.0,
-          "value": 6.6,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -4446,10 +4446,10 @@ window.XC_GAMES = {
           "note": "已上线"
         }
       ],
-      "total": 65.0,
+      "total": 47.0,
       "prev_total": 20.0,
-      "delta": 45.0,
-      "action_engine": "做数据表占位",
+      "delta": 27.0,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -4469,8 +4469,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 45.0,
-          "action_engine": "监控不投入",
+          "total": 27.0,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -4479,8 +4479,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 50.0,
-          "action_engine": "监控不投入",
+          "total": 32.0,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -4500,30 +4500,32 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 3.56,
-      "trends_level_raw": 3.3,
-      "trends_level_note": "7d 均值 3.3 · 冷锚「mobile game」46.8 / 热锚「video games」64.3 → 双锚折线定标（冷锚为 50 分界）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "dual",
-      "trends_level_rank": 11,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 46.8,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 64.3,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 2,
       "launch_days": -2952,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": false
+      "stale": true
     },
     {
       "id": "hunger",
@@ -4538,7 +4540,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "高",
-      "trends_7d": 10.7,
+      "trends_7d": null,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -4546,27 +4548,26 @@ window.XC_GAMES = {
       "priority": "P2",
       "note": "2026-10-19 Steam 开启测试（末日搜打撤生存）；厂商 / 国服状态 / 上线档期均待确认 —— 本条来自新游候选发现层的人工确认",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": 10.7,
+          "available": false,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 326.1,
-            "raw": 66.0,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "mode": "single-high",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
+            "mode": null,
             "anchor_low": "mobile game",
-            "anchor_low_raw": 14.7,
+            "anchor_low_raw": null,
             "anchor_high": "video games",
-            "anchor_high_raw": 20.2,
-            "note": "7d 均值 66.0 · 热锚「video games」20.2 单锚点定标（两锚跨度 5.5 < 15.0）"
+            "anchor_high_raw": null
           }
         },
         "reddit": {
@@ -4592,14 +4593,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 60,
+          "score": 0,
           "weight": 30,
-          "weighted": 18.0,
-          "value": 10.7,
+          "weighted": 0.0,
+          "value": null,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "Fallback: Google Search",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -4662,10 +4663,10 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 69.0,
+      "total": 51.0,
       "prev_total": null,
       "delta": null,
-      "action_engine": "做数据表占位",
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 1,
@@ -4685,8 +4686,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 49.0,
-          "action_engine": "监控不投入",
+          "total": 31.0,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -4695,8 +4696,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 54.0,
-          "action_engine": "监控不投入",
+          "total": 36.0,
+          "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -4716,30 +4717,32 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Google Search",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 326.1,
-      "trends_level_raw": 66.0,
-      "trends_level_note": "7d 均值 66.0 · 热锚「video games」20.2 单锚点定标（两锚跨度 5.5 < 15.0）",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
-      "trends_level_mode": "single-high",
-      "trends_level_rank": 1,
+      "trends_level_mode": null,
+      "trends_level_rank": null,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 14.7,
+      "trends_anchor_low_raw": null,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 20.2,
+      "trends_anchor_high_raw": null,
       "x_state": 12,
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 0,
-      "stale": false
+      "stale": true
     }
   ]
 };
