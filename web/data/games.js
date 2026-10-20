@@ -4,13 +4,13 @@ window.XC_GAMES = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-20 10:53:07",
+    "generated_at_cst": "2026-10-20 11:29:29",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 683.0,
+    "duration_sec": 639.8,
     "counts": {
       "games": 21,
       "p0": 2,
@@ -21,8 +21,7 @@ window.XC_GAMES = {
       "term": "gacha game",
       "target": 60,
       "max_level": 100,
-      "interval_sec": 3,
-      "note": "搜索水位（展示用，不参与评分）：Google Trends 每批都会把该批最高值归一成 100，不校准就无法跨批次、跨游戏比较。这里每次额外带上锚点词，按「定标值 target ÷ 锚点同批实测值」把该批的 0-100 相对指数折算成可比水位，再裁剪到 max_level。与评分用的变化率分两次请求——批次里混入锚点词会改变归一化基准，整数截断后小量级游戏的 7 日变化率会被压成 0/1 噪声（该分项占 30% 权重，不能冒这个险），所以评分链路仍走「仅游戏词」的原批次，水位单独再发一次（interval_sec 为两次请求之间的间隔，减少限流）。term 需是英文、稳定、量级与监控游戏接近的词；若水位普遍贴 0 或普遍顶格，改这里即可，备选 mobile game / Steam。"
+      "note": "搜索水位（展示用，不参与评分）：Google Trends 每批都会把该批最高值归一成 100，不校准就无法跨批次、跨游戏比较。做法＝把锚点词与游戏词放进同一批请求，按「定标值 target ÷ 锚点同批实测值」把该批 0-100 相对指数折算成可比水位，再裁剪到 max_level。水位取不到就留空「—」，不做 stale 兜底——逐款水位各不相同，借源级上次值会张冠李戴。刻意不另发一次锚点批次：2026-10-20 实测请求数从 21 翻倍到 42 会撞上 Google 窗口配额，把占 30% 权重的变化率分项打到 13/21 款 stale。term 需是英文、稳定、量级与监控游戏接近的词；若水位普遍贴 0 或普遍顶格，改这里即可，备选 mobile game / Steam。"
     },
     "scoring_note": "权重取规格表「回退逻辑说明」的评分权重（30/20/15/15/10/10）；规格表「MVP字段表」F13 的 5×20% 旧公式已废弃"
   },
@@ -201,7 +200,7 @@ window.XC_GAMES = {
       "launch_date": "2026-10-29",
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": -31.9,
+      "trends_7d": -100.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -214,21 +213,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -31.9,
+          "value": -100.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 15.35,
-            "raw": 22,
+            "value": 0.0,
+            "raw": 0,
             "stale": false,
-            "note": "原始 22 · 锚点实测 86",
+            "note": "原始 0 · 锚点实测 100 · 分辨率下限（原始值 ≤1）",
             "anchor_term": "gacha game",
-            "anchor_raw": 86,
-            "target": 60.0,
-            "scale": 0.6977
+            "anchor_raw": 100,
+            "scale": 0.6,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -257,7 +256,7 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -31.9,
+          "value": -100.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -386,12 +385,12 @@ window.XC_GAMES = {
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [],
-      "trends_level": 15.35,
-      "trends_level_raw": 22,
-      "trends_level_note": "原始 22 · 锚点实测 86",
+      "trends_level": 0.0,
+      "trends_level_raw": 0,
+      "trends_level_note": "原始 0 · 锚点实测 100 · 分辨率下限（原始值 ≤1）",
       "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 86,
+      "trends_anchor_raw": 100,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 9,
@@ -413,7 +412,7 @@ window.XC_GAMES = {
       "launch_date": "2026-10-29",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -29.6,
+      "trends_7d": -13.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -426,7 +425,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -29.6,
+          "value": -13.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -434,13 +433,13 @@ window.XC_GAMES = {
           "tier": "P1",
           "level": {
             "value": 100.0,
-            "raw": 57,
+            "raw": 75,
             "stale": false,
-            "note": "原始 57 · 锚点实测 19 · 顶格（量级高于锚点）",
+            "note": "原始 75 · 锚点实测 14 · 顶格（量级高于锚点）",
             "anchor_term": "gacha game",
-            "anchor_raw": 19,
-            "target": 60.0,
-            "scale": 3.1579
+            "anchor_raw": 14,
+            "scale": 4.2857,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -466,10 +465,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -29.6,
+          "weighted": 4.5,
+          "value": -13.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -536,9 +535,9 @@ window.XC_GAMES = {
           "note": "距上线 9 天"
         }
       ],
-      "total": 27.2,
+      "total": 31.8,
       "prev_total": 27.2,
-      "delta": 0.0,
+      "delta": 4.6,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -559,7 +558,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 27.2,
+          "total": 31.8,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -569,7 +568,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
+          "total": 22.8,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -599,11 +598,11 @@ window.XC_GAMES = {
       ],
       "stale_sources": [],
       "trends_level": 100.0,
-      "trends_level_raw": 57,
-      "trends_level_note": "原始 57 · 锚点实测 19 · 顶格（量级高于锚点）",
+      "trends_level_raw": 75,
+      "trends_level_note": "原始 75 · 锚点实测 14 · 顶格（量级高于锚点）",
       "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 19,
+      "trends_anchor_raw": 14,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 6,
@@ -625,7 +624,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "高",
-      "trends_7d": -29.6,
+      "trends_7d": -13.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -638,7 +637,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -29.6,
+          "value": -13.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -647,11 +646,11 @@ window.XC_GAMES = {
             "value": 0.0,
             "raw": 0,
             "stale": false,
-            "note": "原始 0 · 锚点实测 87 · 分辨率下限（原始值 ≤1）",
+            "note": "原始 0 · 锚点实测 53 · 分辨率下限（原始值 ≤1）",
             "anchor_term": "gacha game",
-            "anchor_raw": 87,
-            "target": 60.0,
-            "scale": 0.6897
+            "anchor_raw": 53,
+            "scale": 1.1321,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -677,10 +676,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -29.6,
+          "weighted": 4.5,
+          "value": -13.8,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
@@ -747,9 +746,9 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 32.5,
+      "total": 37.0,
       "prev_total": 32.5,
-      "delta": 0.0,
+      "delta": 4.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -770,7 +769,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 32.5,
+          "total": 37.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -780,7 +779,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 23.5,
+          "total": 28.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -814,10 +813,10 @@ window.XC_GAMES = {
       ],
       "trends_level": 0.0,
       "trends_level_raw": 0,
-      "trends_level_note": "原始 0 · 锚点实测 87 · 分辨率下限（原始值 ≤1）",
+      "trends_level_note": "原始 0 · 锚点实测 53 · 分辨率下限（原始值 ≤1）",
       "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 87,
+      "trends_anchor_raw": 53,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 9,
@@ -839,7 +838,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": -7.9,
+      "trends_7d": -13.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -847,26 +846,25 @@ window.XC_GAMES = {
       "priority": "P1",
       "note": "生活模拟类，海外未上线，提前建内容库",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
-          "value": -7.9,
+          "available": false,
+          "value": -13.8,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
           "level": {
-            "value": 76.88,
-            "raw": 82,
+            "value": null,
+            "raw": null,
             "stale": false,
-            "note": "原始 82 · 锚点实测 64",
+            "note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
             "anchor_term": "gacha game",
-            "anchor_raw": 64,
-            "target": 60.0,
-            "scale": 0.9375
+            "anchor_raw": null,
+            "scale": null,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -895,11 +893,11 @@ window.XC_GAMES = {
           "score": 15,
           "weight": 30,
           "weighted": 4.5,
-          "value": -7.9,
+          "value": -13.8,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
         },
         {
           "key": "reddit",
@@ -1016,27 +1014,30 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
-      "trends_level": 76.88,
-      "trends_level_raw": 82,
-      "trends_level_note": "原始 82 · 锚点实测 64",
+      "stale_sources": [
+        "trends"
+      ],
+      "trends_level": null,
+      "trends_level_raw": null,
+      "trends_level_note": "水位不可用：批次异常 The request failed: Google returned a response with code 429",
       "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 64,
+      "trends_anchor_raw": null,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 3,
-      "stale": false
+      "stale": true
     },
     {
       "id": "project-origin",
@@ -1051,7 +1052,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": -7.9,
+      "trends_7d": -100.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1059,25 +1060,26 @@ window.XC_GAMES = {
       "priority": "P1",
       "note": "写实奇幻共斗新作，全球预约已开",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -7.9,
+          "available": true,
+          "value": -100.0,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1",
           "level": {
-            "value": 76.88,
-            "raw": null,
-            "stale": true,
-            "note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
+            "value": 0.0,
+            "raw": 0,
+            "stale": false,
+            "note": "原始 0 · 锚点实测 66 · 分辨率下限（原始值 ≤1）",
             "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "target": 60.0,
-            "scale": null
+            "anchor_raw": 66,
+            "scale": 0.9091,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -1103,14 +1105,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -7.9,
+          "weighted": 0.0,
+          "value": -100.0,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -1173,9 +1175,9 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 32.0,
+      "total": 27.5,
       "prev_total": 27.5,
-      "delta": 4.5,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -1196,7 +1198,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 32.0,
+          "total": 27.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1206,7 +1208,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 23.0,
+          "total": 20.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1227,30 +1229,27 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
-      "trends_level": 76.88,
-      "trends_level_raw": null,
-      "trends_level_note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
-      "trends_level_stale": true,
+      "stale_sources": [],
+      "trends_level": 0.0,
+      "trends_level_raw": 0,
+      "trends_level_note": "原始 0 · 锚点实测 66 · 分辨率下限（原始值 ≤1）",
+      "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
+      "trends_anchor_raw": 66,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "project-mugen-neverness",
@@ -1265,7 +1264,7 @@ window.XC_GAMES = {
       "launch_date": "2027-01-15",
       "cn_guide_score": 1,
       "gap_level": "高",
-      "trends_7d": -7.9,
+      "trends_7d": -100.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1278,20 +1277,20 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -7.9,
+          "value": -100.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Trends 数据不足（7 日内有效数据点不足 2 个）",
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
             "value": 0.0,
             "raw": 0,
             "stale": false,
-            "note": "原始 0 · 锚点实测 79 · 分辨率下限（原始值 ≤1）",
+            "note": "原始 0 · 锚点实测 59 · 分辨率下限（原始值 ≤1）",
             "anchor_term": "gacha game",
-            "anchor_raw": 79,
-            "target": 60.0,
-            "scale": 0.7595
+            "anchor_raw": 59,
+            "scale": 1.0169,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -1317,14 +1316,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 0,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -7.9,
+          "weighted": 0.0,
+          "value": -100.0,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 数据不足（7 日内有效数据点不足 2 个）"
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -1387,9 +1386,9 @@ window.XC_GAMES = {
           "note": "距上线 87 天"
         }
       ],
-      "total": 32.5,
+      "total": 28.0,
       "prev_total": 28.0,
-      "delta": 4.5,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -1410,7 +1409,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 32.5,
+          "total": 28.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1420,7 +1419,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 23.5,
+          "total": 20.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1454,10 +1453,10 @@ window.XC_GAMES = {
       ],
       "trends_level": 0.0,
       "trends_level_raw": 0,
-      "trends_level_note": "原始 0 · 锚点实测 79 · 分辨率下限（原始值 ≤1）",
+      "trends_level_note": "原始 0 · 锚点实测 59 · 分辨率下限（原始值 ≤1）",
       "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 79,
+      "trends_anchor_raw": 59,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 9,
@@ -1487,26 +1486,25 @@ window.XC_GAMES = {
       "priority": "P1",
       "note": "国内运营10年攻略极成熟，海外刚宣布",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "高",
+      "confidence": "中",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": true,
+          "available": false,
           "value": -100.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "error": null,
-          "tier": "P1",
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
             "value": 0.0,
             "raw": 0,
             "stale": false,
-            "note": "原始 0 · 锚点实测 75 · 分辨率下限（原始值 ≤1）",
+            "note": "原始 0 · 锚点实测 47 · 分辨率下限（原始值 ≤1）",
             "anchor_term": "gacha game",
-            "anchor_raw": 75,
-            "target": 60.0,
-            "scale": 0.8
+            "anchor_raw": 47,
+            "scale": 1.2766,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -1537,9 +1535,9 @@ window.XC_GAMES = {
           "weighted": 0.0,
           "value": -100.0,
           "origin": "Google Trends",
-          "kind": "P1 主源",
-          "stale": false,
-          "note": ""
+          "kind": "stale（沿用上次有效值）",
+          "stale": true,
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -1656,27 +1654,30 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "P1·Trends",
+        "Trends（stale）",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
+        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [],
+      "stale_sources": [
+        "trends"
+      ],
       "trends_level": 0.0,
       "trends_level_raw": 0,
-      "trends_level_note": "原始 0 · 锚点实测 75 · 分辨率下限（原始值 ≤1）",
+      "trends_level_note": "原始 0 · 锚点实测 47 · 分辨率下限（原始值 ≤1）",
       "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 75,
+      "trends_anchor_raw": 47,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 3,
-      "stale": false
+      "stale": true
     },
     {
       "id": "the-outcast",
@@ -1691,7 +1692,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": -8.8,
+      "trends_7d": 2.2,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1704,21 +1705,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -8.8,
+          "value": 2.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 0.0,
-            "raw": null,
-            "stale": true,
-            "note": "stale（沿用上次水位）：水位不可用：锚点批次异常 The request failed: Google returned a response with code 429",
+            "value": 48.62,
+            "raw": 47,
+            "stale": false,
+            "note": "原始 47 · 锚点实测 58",
             "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "target": 60.0,
-            "scale": null
+            "anchor_raw": 58,
+            "scale": 1.0345,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -1744,10 +1745,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 30,
           "weight": 30,
-          "weighted": 4.5,
-          "value": -8.8,
+          "weighted": 9.0,
+          "value": 2.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1814,9 +1815,9 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 34.5,
+      "total": 39.0,
       "prev_total": 34.5,
-      "delta": 0.0,
+      "delta": 4.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -1837,7 +1838,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 34.5,
+          "total": 39.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1847,7 +1848,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 25.5,
+          "total": 30.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1876,12 +1877,12 @@ window.XC_GAMES = {
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [],
-      "trends_level": 0.0,
-      "trends_level_raw": null,
-      "trends_level_note": "stale（沿用上次水位）：水位不可用：锚点批次异常 The request failed: Google returned a response with code 429",
-      "trends_level_stale": true,
+      "trends_level": 48.62,
+      "trends_level_raw": 47,
+      "trends_level_note": "原始 47 · 锚点实测 58",
+      "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
+      "trends_anchor_raw": 58,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 9,
@@ -1903,7 +1904,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": 0.0,
+      "trends_7d": -11.9,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -1916,7 +1917,7 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 0.0,
+          "value": -11.9,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1924,13 +1925,13 @@ window.XC_GAMES = {
           "tier": "P1",
           "level": {
             "value": 100.0,
-            "raw": 54,
+            "raw": 52,
             "stale": false,
-            "note": "原始 54 · 锚点实测 15 · 顶格（量级高于锚点）",
+            "note": "原始 52 · 锚点实测 11 · 顶格（量级高于锚点）",
             "anchor_term": "gacha game",
-            "anchor_raw": 15,
-            "target": 60.0,
-            "scale": 4.0
+            "anchor_raw": 11,
+            "scale": 5.4545,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -1956,10 +1957,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 30,
+          "score": 15,
           "weight": 30,
-          "weighted": 9.0,
-          "value": 0.0,
+          "weighted": 4.5,
+          "value": -11.9,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2026,9 +2027,9 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 30.2,
+      "total": 25.8,
       "prev_total": 25.8,
-      "delta": 4.4,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -2049,7 +2050,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 30.2,
+          "total": 25.8,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2059,7 +2060,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 21.2,
+          "total": 20.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2089,11 +2090,11 @@ window.XC_GAMES = {
       ],
       "stale_sources": [],
       "trends_level": 100.0,
-      "trends_level_raw": 54,
-      "trends_level_note": "原始 54 · 锚点实测 15 · 顶格（量级高于锚点）",
+      "trends_level_raw": 52,
+      "trends_level_note": "原始 52 · 锚点实测 11 · 顶格（量级高于锚点）",
       "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 15,
+      "trends_anchor_raw": 11,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 6,
@@ -2115,7 +2116,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": 11.0,
+      "trends_7d": -100.0,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2128,21 +2129,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": 11.0,
+          "value": -100.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 27.21,
-            "raw": 39,
+            "value": 0.0,
+            "raw": 0,
             "stale": false,
-            "note": "原始 39 · 锚点实测 86",
+            "note": "原始 0 · 锚点实测 91 · 分辨率下限（原始值 ≤1）",
             "anchor_term": "gacha game",
-            "anchor_raw": 86,
-            "target": 60.0,
-            "scale": 0.6977
+            "anchor_raw": 91,
+            "scale": 0.6593,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -2168,10 +2169,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 60,
+          "score": 0,
           "weight": 30,
-          "weighted": 18.0,
-          "value": 11.0,
+          "weighted": 0.0,
+          "value": -100.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2238,12 +2239,12 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 34.2,
+      "total": 20.0,
       "prev_total": 20.0,
-      "delta": 14.2,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": false,
+      "base_score_applied": true,
       "days_tracked": 3,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
@@ -2261,7 +2262,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 34.2,
+          "total": 20.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2271,7 +2272,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 25.2,
+          "total": 20.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2300,12 +2301,12 @@ window.XC_GAMES = {
         "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [],
-      "trends_level": 27.21,
-      "trends_level_raw": 39,
-      "trends_level_note": "原始 39 · 锚点实测 86",
+      "trends_level": 0.0,
+      "trends_level_raw": 0,
+      "trends_level_note": "原始 0 · 锚点实测 91 · 分辨率下限（原始值 ≤1）",
       "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 86,
+      "trends_anchor_raw": 91,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 6,
@@ -2327,7 +2328,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "中",
-      "trends_7d": -21.4,
+      "trends_7d": -9.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2340,21 +2341,21 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": true,
-          "value": -21.4,
+          "value": -9.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 76.74,
-            "raw": 55,
+            "value": 100.0,
+            "raw": 58,
             "stale": false,
-            "note": "原始 55 · 锚点实测 43",
+            "note": "原始 58 · 锚点实测 29 · 顶格（量级高于锚点）",
             "anchor_term": "gacha game",
-            "anchor_raw": 43,
-            "target": 60.0,
-            "scale": 1.3953
+            "anchor_raw": 29,
+            "scale": 2.069,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -2380,10 +2381,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -21.4,
+          "weighted": 4.5,
+          "value": -9.4,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2512,12 +2513,12 @@ window.XC_GAMES = {
         "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [],
-      "trends_level": 76.74,
-      "trends_level_raw": 55,
-      "trends_level_note": "原始 55 · 锚点实测 43",
+      "trends_level": 100.0,
+      "trends_level_raw": 58,
+      "trends_level_note": "原始 58 · 锚点实测 29 · 顶格（量级高于锚点）",
       "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": 43,
+      "trends_anchor_raw": 29,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 6,
@@ -2539,7 +2540,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -21.4,
+      "trends_7d": -9.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2552,20 +2553,20 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -21.4,
+          "value": -9.4,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": 76.74,
-            "raw": null,
-            "stale": true,
-            "note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
+            "value": 0.0,
+            "raw": 0,
+            "stale": false,
+            "note": "原始 0 · 锚点实测 60 · 分辨率下限（原始值 ≤1）",
             "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "target": 60.0,
-            "scale": null
+            "anchor_raw": 60,
+            "scale": 1.0,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -2591,14 +2592,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -21.4,
+          "weighted": 4.5,
+          "value": -9.4,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -2661,12 +2662,12 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 20.8,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 0.8,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": true,
+      "base_score_applied": false,
       "days_tracked": 3,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
@@ -2684,7 +2685,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 20.8,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2726,12 +2727,12 @@ window.XC_GAMES = {
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 76.74,
-      "trends_level_raw": null,
-      "trends_level_note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
-      "trends_level_stale": true,
+      "trends_level": 0.0,
+      "trends_level_raw": 0,
+      "trends_level_note": "原始 0 · 锚点实测 60 · 分辨率下限（原始值 ≤1）",
+      "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
+      "trends_anchor_raw": 60,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 6,
@@ -2753,7 +2754,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 2,
       "gap_level": "中",
-      "trends_7d": -21.4,
+      "trends_7d": -9.4,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2766,20 +2767,20 @@ window.XC_GAMES = {
       "signals": {
         "trends": {
           "available": false,
-          "value": -21.4,
+          "value": -9.4,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+          "error": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）",
           "level": {
-            "value": 76.74,
-            "raw": null,
-            "stale": true,
-            "note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
+            "value": 0.0,
+            "raw": 0,
+            "stale": false,
+            "note": "原始 0 · 锚点实测 73 · 分辨率下限（原始值 ≤1）",
             "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "target": 60.0,
-            "scale": null
+            "anchor_raw": 73,
+            "scale": 0.8219,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -2805,14 +2806,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -21.4,
+          "weighted": 4.5,
+          "value": -9.4,
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "note": "Trends 数据不足（7 日窗口首点无搜索量，无法计算变化率）"
         },
         {
           "key": "reddit",
@@ -2875,12 +2876,12 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 20.8,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 0.8,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": true,
+      "base_score_applied": false,
       "days_tracked": 3,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
@@ -2898,7 +2899,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 20.8,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2940,12 +2941,12 @@ window.XC_GAMES = {
       "stale_sources": [
         "trends"
       ],
-      "trends_level": 76.74,
-      "trends_level_raw": null,
-      "trends_level_note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
-      "trends_level_stale": true,
+      "trends_level": 0.0,
+      "trends_level_raw": 0,
+      "trends_level_note": "原始 0 · 锚点实测 73 · 分辨率下限（原始值 ≤1）",
+      "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
+      "trends_anchor_raw": 73,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 6,
@@ -2967,7 +2968,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -21.4,
+      "trends_7d": -21.6,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -2975,25 +2976,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "搜索量大但英文站已饱和",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -21.4,
+          "available": true,
+          "value": -21.6,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1",
           "level": {
-            "value": 76.74,
-            "raw": null,
-            "stale": true,
-            "note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
+            "value": 100.0,
+            "raw": 69,
+            "stale": false,
+            "note": "原始 69 · 锚点实测 5 · 顶格（量级高于锚点）",
             "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "target": 60.0,
-            "scale": null
+            "anchor_raw": 5,
+            "scale": 12.0,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -3022,11 +3024,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -21.4,
+          "value": -21.6,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -3143,30 +3145,27 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
-      "trends_level": 76.74,
-      "trends_level_raw": null,
-      "trends_level_note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
-      "trends_level_stale": true,
+      "stale_sources": [],
+      "trends_level": 100.0,
+      "trends_level_raw": 69,
+      "trends_level_note": "原始 69 · 锚点实测 5 · 顶格（量级高于锚点）",
+      "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
+      "trends_anchor_raw": 5,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "honkai-star-rail",
@@ -3181,7 +3180,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -21.4,
+      "trends_7d": -13.3,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3189,25 +3188,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "同上",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -21.4,
+          "available": true,
+          "value": -13.3,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1",
           "level": {
-            "value": 76.74,
-            "raw": null,
-            "stale": true,
-            "note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
+            "value": 100.0,
+            "raw": 65,
+            "stale": false,
+            "note": "原始 65 · 锚点实测 19 · 顶格（量级高于锚点）",
             "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "target": 60.0,
-            "scale": null
+            "anchor_raw": 19,
+            "scale": 3.1579,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -3233,14 +3233,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -21.4,
+          "weighted": 4.5,
+          "value": -13.3,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -3303,9 +3303,9 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 24.5,
       "prev_total": 38.0,
-      "delta": -18.0,
+      "delta": -13.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -3326,7 +3326,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 24.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3357,30 +3357,27 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
-      "trends_level": 76.74,
-      "trends_level_raw": null,
-      "trends_level_note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
-      "trends_level_stale": true,
+      "stale_sources": [],
+      "trends_level": 100.0,
+      "trends_level_raw": 65,
+      "trends_level_note": "原始 65 · 锚点实测 19 · 顶格（量级高于锚点）",
+      "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
+      "trends_anchor_raw": 19,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "wuthering-waves",
@@ -3395,7 +3392,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -21.4,
+      "trends_7d": -8.9,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3403,25 +3400,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "Steam在线稳定但大站已覆盖",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -21.4,
+          "available": true,
+          "value": -8.9,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1",
           "level": {
-            "value": 76.74,
-            "raw": null,
-            "stale": true,
-            "note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
+            "value": 100.0,
+            "raw": 82,
+            "stale": false,
+            "note": "原始 82 · 锚点实测 16 · 顶格（量级高于锚点）",
             "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "target": 60.0,
-            "scale": null
+            "anchor_raw": 16,
+            "scale": 3.75,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -3447,14 +3445,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -21.4,
+          "weighted": 4.5,
+          "value": -8.9,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -3517,12 +3515,12 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 22.0,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 2.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": true,
+      "base_score_applied": false,
       "days_tracked": 3,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
@@ -3540,7 +3538,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 22.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3571,30 +3569,27 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
-      "trends_level": 76.74,
-      "trends_level_raw": null,
-      "trends_level_note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
-      "trends_level_stale": true,
+      "stale_sources": [],
+      "trends_level": 100.0,
+      "trends_level_raw": 82,
+      "trends_level_note": "原始 82 · 锚点实测 16 · 顶格（量级高于锚点）",
+      "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
+      "trends_anchor_raw": 16,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "honor-of-kings",
@@ -3609,7 +3604,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -21.4,
+      "trends_7d": -30.8,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3617,25 +3612,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "下载增长明显但英文攻略站已有",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -21.4,
+          "available": true,
+          "value": -30.8,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1",
           "level": {
-            "value": 76.74,
-            "raw": null,
-            "stale": true,
-            "note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
+            "value": 46.29,
+            "raw": 54,
+            "stale": false,
+            "note": "原始 54 · 锚点实测 70",
             "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "target": 60.0,
-            "scale": null
+            "anchor_raw": 70,
+            "scale": 0.8571,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -3664,11 +3660,11 @@ window.XC_GAMES = {
           "score": 0,
           "weight": 30,
           "weighted": 0.0,
-          "value": -21.4,
+          "value": -30.8,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -3785,30 +3781,27 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
-      "trends_level": 76.74,
-      "trends_level_raw": null,
-      "trends_level_note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
-      "trends_level_stale": true,
+      "stale_sources": [],
+      "trends_level": 46.29,
+      "trends_level_raw": 54,
+      "trends_level_note": "原始 54 · 锚点实测 70",
+      "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
+      "trends_anchor_raw": 70,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "arknights",
@@ -3823,7 +3816,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -21.4,
+      "trends_7d": 14.3,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -3831,25 +3824,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "英文社区成熟，攻略站多",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -21.4,
+          "available": true,
+          "value": 14.3,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1",
           "level": {
-            "value": 76.74,
-            "raw": null,
-            "stale": true,
-            "note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
+            "value": 100.0,
+            "raw": 40,
+            "stale": false,
+            "note": "原始 40 · 锚点实测 3 · 顶格（量级高于锚点）",
             "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "target": 60.0,
-            "scale": null
+            "anchor_raw": 3,
+            "scale": 20.0,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -3875,14 +3869,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 60,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -21.4,
+          "weighted": 18.0,
+          "value": 14.3,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -3945,9 +3939,9 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 38.0,
       "prev_total": 38.0,
-      "delta": -18.0,
+      "delta": 0.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
@@ -3968,7 +3962,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 38.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3978,7 +3972,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
+          "total": 29.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3999,30 +3993,27 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
-      "trends_level": 76.74,
-      "trends_level_raw": null,
-      "trends_level_note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
-      "trends_level_stale": true,
+      "stale_sources": [],
+      "trends_level": 100.0,
+      "trends_level_raw": 40,
+      "trends_level_note": "原始 40 · 锚点实测 3 · 顶格（量级高于锚点）",
+      "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
+      "trends_anchor_raw": 3,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "afk-journey",
@@ -4037,7 +4028,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -21.4,
+      "trends_7d": -13.2,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -4045,25 +4036,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "莉莉丝发行能力强但英文供给充足",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -21.4,
+          "available": true,
+          "value": -13.2,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1",
           "level": {
-            "value": 76.74,
-            "raw": null,
-            "stale": true,
-            "note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
+            "value": 30.67,
+            "raw": 46,
+            "stale": false,
+            "note": "原始 46 · 锚点实测 90",
             "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "target": 60.0,
-            "scale": null
+            "anchor_raw": 90,
+            "scale": 0.6667,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -4089,14 +4081,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -21.4,
+          "weighted": 4.5,
+          "value": -13.2,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -4159,12 +4151,12 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 22.0,
       "prev_total": 20.0,
-      "delta": 0.0,
+      "delta": 2.0,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
-      "base_score_applied": true,
+      "base_score_applied": false,
       "days_tracked": 3,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
@@ -4182,7 +4174,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 22.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4213,30 +4205,27 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 11 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
-      "trends_level": 76.74,
-      "trends_level_raw": null,
-      "trends_level_note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
-      "trends_level_stale": true,
+      "stale_sources": [],
+      "trends_level": 30.67,
+      "trends_level_raw": 46,
+      "trends_level_note": "原始 46 · 锚点实测 90",
+      "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
+      "trends_anchor_raw": 90,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "rise-of-kingdoms",
@@ -4251,7 +4240,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": -21.4,
+      "trends_7d": 28.6,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -4259,25 +4248,26 @@ window.XC_GAMES = {
       "priority": "P3",
       "note": "英文市场成熟，增量有限",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -21.4,
+          "available": true,
+          "value": 28.6,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1",
           "level": {
-            "value": 76.74,
-            "raw": null,
-            "stale": true,
-            "note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
+            "value": 47.25,
+            "raw": 63,
+            "stale": false,
+            "note": "原始 63 · 锚点实测 80",
             "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "target": 60.0,
-            "scale": null
+            "anchor_raw": 80,
+            "scale": 0.75,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -4303,14 +4293,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 100,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -21.4,
+          "weighted": 30.0,
+          "value": 28.6,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -4373,10 +4363,10 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 20.0,
+      "total": 50.0,
       "prev_total": 20.0,
-      "delta": 0.0,
-      "action_engine": "暂不投入",
+      "delta": 30.0,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
       "days_tracked": 3,
@@ -4396,8 +4386,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
+          "total": 50.0,
+          "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -4406,8 +4396,8 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
-          "action_engine": "暂不投入",
+          "total": 41.0,
+          "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
             "x_twitter"
@@ -4427,30 +4417,27 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
-      "trends_level": 76.74,
-      "trends_level_raw": null,
-      "trends_level_note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
-      "trends_level_stale": true,
+      "stale_sources": [],
+      "trends_level": 47.25,
+      "trends_level_raw": 63,
+      "trends_level_note": "原始 63 · 锚点实测 80",
+      "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
+      "trends_anchor_raw": 80,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 2,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 1,
-      "stale": true
+      "stale": false
     },
     {
       "id": "hunger",
@@ -4465,7 +4452,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "高",
-      "trends_7d": -21.4,
+      "trends_7d": -11.2,
       "reddit_daily": 0,
       "x_mentions": null,
       "total_score": null,
@@ -4473,25 +4460,26 @@ window.XC_GAMES = {
       "priority": "P2",
       "note": "2026-10-19 Steam 开启测试（末日搜打撤生存）；厂商 / 国服状态 / 上线档期均待确认 —— 本条来自新游候选发现层的人工确认",
       "signal_source": "P1: Trends+Reddit+X",
-      "confidence": "中",
+      "confidence": "高",
       "last_update": "2026-10-20",
       "signals": {
         "trends": {
-          "available": false,
-          "value": -21.4,
+          "available": true,
+          "value": -11.2,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "error": "Trends 限流/异常：The request failed: Google returned a response with code 429",
+          "kind": "P1 主源",
+          "stale": false,
+          "error": null,
+          "tier": "P1",
           "level": {
-            "value": 76.74,
-            "raw": null,
-            "stale": true,
-            "note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
+            "value": 100.0,
+            "raw": 71,
+            "stale": false,
+            "note": "原始 71 · 锚点实测 1 · 顶格（量级高于锚点）",
             "anchor_term": "gacha game",
-            "anchor_raw": null,
-            "target": 60.0,
-            "scale": null
+            "anchor_raw": 1,
+            "scale": 60.0,
+            "target": 60.0
           }
         },
         "reddit": {
@@ -4517,14 +4505,14 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 30,
-          "weighted": 0.0,
-          "value": -21.4,
+          "weighted": 4.5,
+          "value": -11.2,
           "origin": "Google Trends",
-          "kind": "stale（沿用上次有效值）",
-          "stale": true,
-          "note": "Trends 限流/异常：The request failed: Google returned a response with code 429"
+          "kind": "P1 主源",
+          "stale": false,
+          "note": ""
         },
         {
           "key": "reddit",
@@ -4587,7 +4575,7 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 25.0,
+      "total": 29.5,
       "prev_total": null,
       "delta": null,
       "action_engine": "暂不投入",
@@ -4610,7 +4598,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 25.0,
+          "total": 29.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4620,7 +4608,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 20.0,
+          "total": 20.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4641,30 +4629,27 @@ window.XC_GAMES = {
         }
       ],
       "sources_used": [
-        "Trends（stale）",
+        "P1·Trends",
         "P1·Reddit",
         "P2·X"
       ],
       "fallbacks": [
-        "Fallback: Trends（沿用上次值）",
         "Bing News RSS 命中 12 条"
       ],
-      "stale_sources": [
-        "trends"
-      ],
-      "trends_level": 76.74,
-      "trends_level_raw": null,
-      "trends_level_note": "stale（沿用上次水位）：变化率请求失败（Trends 限流/异常：The request failed: Google returned a response with code 429），未再发锚点批次",
-      "trends_level_stale": true,
+      "stale_sources": [],
+      "trends_level": 100.0,
+      "trends_level_raw": 71,
+      "trends_level_note": "原始 71 · 锚点实测 1 · 顶格（量级高于锚点）",
+      "trends_level_stale": false,
       "trends_anchor_term": "gacha game",
-      "trends_anchor_raw": null,
+      "trends_anchor_raw": 1,
       "trends_anchor_target": 60.0,
       "x_state": "player_only",
       "gap_score": 9,
       "launch_days": null,
       "overseas_supply": null,
       "keywords_count": 0,
-      "stale": true
+      "stale": false
     }
   ]
 };
