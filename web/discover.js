@@ -139,22 +139,70 @@
     XC.$('seed-json').textContent = JSON.stringify(item, null, 2);
 
     const status = XC.$('seed-status');
+    const known = DATA.known_games || [];
+    const dupCn = item.name_cn && known.some(function (game) { return game.name_cn === item.name_cn; });
+    if (dupCn) {
+      status.textContent = '「' + item.name_cn + '」已在监控清单，无需重复入库';
+      return;
+    }
     if (!item.name_cn || !item.name_en) {
       status.textContent = '补全中文名与英文名后即可复制';
       return;
     }
-    const dup = (DATA.known_games || []).some(function (game) { return game.id === item.id; });
-    status.textContent = dup ? 'id 已存在于监控清单，请改用不同的英文名' : '就绪：复制后粘到 games 数组末尾';
+    const dupId = known.some(function (game) { return game.id === item.id; });
+    status.textContent = dupId
+      ? 'id 已存在于监控清单，请改用不同的英文名'
+      : '就绪：可复制或直接入库';
+  }
+
+  // 从一条候选记录里尽量预填：中文名（标题《》内）、厂商（摘要里「xx工作室/STUDIO」或已知厂商词）
+  // 英文名不猜（它同时是 Trends/Reddit/X 的检索词，错了会污染信号），先给占位 id。
+  // 行业报告/榜单类标题里的《》不是游戏名，避免误填
+  const NOT_A_GAME = /(报告|白皮书|榜单|排行|数据|财报|季度|年度|观察|分析)/;
+
+  function titleName(record) {
+    // 标题里常把游戏名写在《》里；标题没有时退到摘要（首段通常也带书名号）
+    const match = /《([^《》]{1,20})》/.exec((record.title || '') + ' ' + (record.summary || ''));
+    if (!match || NOT_A_GAME.test(match[1])) return '';
+    return match[1].trim();
+  }
+  function cleanStudio(value) {
+    // 「腾讯游戏旗下的宇宙小狗工作室」→「宇宙小狗工作室」
+    return value.replace(/^.*(?:的|旗下|由|来自)/, '').trim();
+  }
+  function pickPublisher(record) {
+    const text = (record.summary || '') + ' ' + (record.title || '');
+    const studio = /([\u4e00-\u9fa5A-Za-z·]{2,24}?(?:工作室群|工作室|STUDIO|Studio|GAMES|Games))/i.exec(text);
+    if (studio) {
+      const name = cleanStudio(studio[1]);
+      if (name) return name;
+    }
+    const known = /(腾讯|网易|米哈游|莉莉丝|库洛|鹰角|三七互娱|吉比特|雷霆游戏|散爆|叠纸|完美世界|西山居|巨人网络)/.exec(text);
+    return known ? known[1] : (record.target || '');
+  }
+
+  // 类型按摘要里的平台词推断：只提 PC/主机 相关词 → PC/主机；只提手游 → 手游；两者都有 → 跨端
+  function pickType(record) {
+    const text = (record.summary || '') + ' ' + (record.title || '');
+    const pc = /(PS5|PS4|Xbox|Steam|主机|PC端|PC版|买断)/i.test(text);
+    const mobile = /(手游|移动端|App Store|Google Play|iOS|安卓)/i.test(text);
+    if (pc && mobile) return '跨端';
+    if (pc) return 'PC/主机';
+    return '手游';
   }
 
   function openSeed(index) {
     const record = (DATA.candidates || [])[index];
     if (!record) return;
     SEED_CTX = { record: record };
-    XC.$('seed-name-cn').value = '';
+
+    const nameCn = titleName(record);
+    const publisher = pickPublisher(record);
+
+    XC.$('seed-name-cn').value = nameCn;
     XC.$('seed-name-en').value = '';
-    XC.$('seed-publisher').value = record.kind === 'publisher' ? (record.target || '') : '';
-    XC.$('seed-type').value = '手游';
+    XC.$('seed-publisher').value = publisher || '';
+    XC.$('seed-type').value = pickType(record);
     XC.$('seed-priority').value = 'P1';
     XC.$('seed-source').textContent = '来源：' + (record.target || '—') + ' · ' +
       (record.published || '时间未知') + ' · ' + (record.title || '');
@@ -167,7 +215,8 @@
     const dialog = XC.$('seed-dialog');
     if (dialog.showModal) dialog.showModal();
     else dialog.setAttribute('open', '');
-    XC.$('seed-name-cn').focus();
+    if (nameCn) XC.$('seed-name-en').focus();
+    else XC.$('seed-name-cn').focus();
   }
 
   function copySeed() {
