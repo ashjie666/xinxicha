@@ -174,7 +174,7 @@
 
   <footer class="site-footer">
     <p>
-      「评分分项」由 <code>collector/update.py</code> 每日巡检写入：P1 主源（Google Trends 30% / Reddit 20% / X 15%）
+      「评分分项」由 <code>collector/update.py</code> 每日巡检写入：P1 主源（Google Trends 20% / Reddit 15% / X 15%）
       失败时按规则走 P2/P3 回退，单次失败沿用上次有效值并标 stale、无历史值记 0 分且不重分配权重；「海外供给缺口」「国内成熟度」
       为规格表人工基线。新游戏先给基础分 20，跑满 3 天后才参与排名。「搜索水位」是展示用的现状指标：把冷/热两个锚点词与游戏词放进同一批
       Trends 请求，按 7 日序列均值做双锚折线定标（冷锚为 50 分界，越界不截断），跨批次、跨游戏可比；「水位名次」按水位排序、同值再依次比 Trends 7d →

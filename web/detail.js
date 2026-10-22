@@ -51,14 +51,20 @@
       (next ? ' · <a href="detail.html?id=' + encodeURIComponent(next.id) + '">' + esc(next.name_cn) + ' →</a>' : '');
   }
 
+  /* 权重从评分分项里取：避免这里再写一份，调 config.json 后页面显示不同步 */
+  function weightOf(game, key) {
+    const hit = (game.components || []).filter(function (item) { return item.key === key; })[0];
+    return hit ? XC.fmtInt(hit.weight) + '%' : '—';
+  }
+
   function renderGameKpi(game) {
     const days = game.launch_days;
     const dayText = num(days) ? (days > 0 ? XC.fmtInt(days) : '已上线') : '—';
     XC.$('game-kpi').innerHTML = [
       kpi('信息差总分', XC.fmt(game.total, 1), '', '基础分门槛 ' + XC.fmtInt(20) + ' 分' + (game.base_score_applied ? '（已应用）' : ''), 'kpi-good'),
       kpi('上线倒计时', dayText, num(days) && days > 0 ? '天' : '', esc(game.launch_date_raw || game.launch_date || '未公布'), num(days) && days >= 0 && days <= 7 ? 'kpi-good' : ''),
-      kpi('海外供给缺口分', XC.fmt(game.gap_score, 1), '', '缺口等级 ' + esc(game.gap_level || '—') + ' · 权重 15%', ''),
-      kpi('国内攻略成熟度', XC.fmtInt(game.cn_guide_score), ' / 5', '权重 10%', ''),
+      kpi('海外供给缺口分', XC.fmt(game.gap_score, 1), '', '缺口等级 ' + esc(game.gap_level || '—') + ' · 权重 ' + weightOf(game, 'supply_gap'), ''),
+      kpi('国内攻略成熟度', XC.fmtInt(game.cn_guide_score), ' / 5', '权重 ' + weightOf(game, 'cn_maturity'), ''),
       kpi('关联 Keywords', XC.fmtInt(game.keywords_count), '个', '英文 SEO 关键词', ''),
       kpi('置信度', esc(game.confidence || '—'), '', esc(game.ranking_note || ''), game.confidence === '低' ? 'kpi-bad' : (game.confidence === '中' ? 'kpi-warn' : 'kpi-good')),
     ].join('');
