@@ -13,7 +13,7 @@
   } catch (error) { /* 隐私模式下保持默认 */ }
 })();
 </script>
-<link rel="stylesheet" href="styles.css?v=5">
+<link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
 
@@ -156,7 +156,7 @@
         </svg>
       </button>
     </div>
-    <p class="seed-hint">静态站没有写仓库的权限，这里生成一条可直接粘贴进 <code>data/seed_games.json</code> 的条目。粘贴并提交后，下一轮采集才会把它从候选里剔除、开始积累信号。</p>
+    <p class="seed-hint">补全中英名并确认后，可「直接入库」写入 <code>data/seed_games.json</code>，提交会触发 CI 重新采集并重建看板；未配置入库接口时，也能复制条目手动粘贴。新游戏前 3 天按基础分计、不参与排名。</p>
     <p class="seed-source" id="seed-source"></p>
     <div class="seed-fields">
       <label>中文名<input id="seed-name-cn" required placeholder="游戏中文名"></label>
@@ -179,6 +179,11 @@
       </label>
     </div>
     <pre class="seed-json" id="seed-json"></pre>
+    <div class="seed-push" id="seed-push-wrap" hidden>
+      <input type="password" id="seed-token" autocomplete="off" placeholder="入库口令（首次填写，存在本机）">
+      <button type="button" class="text-btn primary" id="seed-push">直接入库</button>
+      <span class="cell-sub" id="seed-push-status"></span>
+    </div>
     <div class="seed-actions">
       <span class="cell-sub" id="seed-status"></span>
       <a class="text-btn" id="seed-github" target="_blank" rel="noopener"
@@ -192,6 +197,6 @@
 
 <script src="data/discover.js"></script>
 <script src="core.js?v=3"></script>
-<script src="discover.js?v=2"></script>
+<script src="discover.js?v=3"></script>
 </body>
 </html>

@@ -10,6 +10,10 @@
   let DATA = null;
   let SEED_CTX = null;   // 当前弹窗对应的候选记录
 
+  // 部署 Cloudflare Worker（worker/add-game.js）后填入其地址，例如
+  // https://xinxicha-add-game.<your-name>.workers.dev 。留空则只保留复制/下载。
+  const ADD_ENDPOINT = '';
+
   function esc(text) { return XC.escapeHtml(text); }
 
   /* ---------- 关键指标 ---------- */
@@ -154,6 +158,10 @@
     XC.$('seed-priority').value = 'P1';
     XC.$('seed-source').textContent = '来源：' + (record.target || '—') + ' · ' +
       (record.published || '时间未知') + ' · ' + (record.title || '');
+    XC.$('seed-token').value = localStorage.getItem('xc_add_token') || '';
+    XC.$('seed-push-status').textContent = '';
+    XC.$('seed-push').disabled = false;
+    XC.$('seed-push').textContent = '直接入库';
     refreshSeed();
 
     const dialog = XC.$('seed-dialog');
@@ -186,6 +194,45 @@
     try { ok = document.execCommand('copy'); } catch (error) { ok = false; }
     document.body.removeChild(area);
     return ok;
+  }
+
+  async function pushSeed() {
+    const status = XC.$('seed-push-status');
+    const button = XC.$('seed-push');
+    const item = seedItem();
+    if (!item.name_cn || !item.name_en) {
+      status.textContent = '先补全中文名与英文名';
+      return;
+    }
+
+    let token = (XC.$('seed-token').value || '').trim();
+    if (!token) {
+      token = localStorage.getItem('xc_add_token') || '';
+      XC.$('seed-token').value = token;
+    }
+    if (!token) {
+      status.textContent = '请填写入库口令';
+      XC.$('seed-token').focus();
+      return;
+    }
+    localStorage.setItem('xc_add_token', token);
+
+    button.disabled = true;
+    status.textContent = '正在写入…';
+    try {
+      const response = await fetch(ADD_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + token },
+        body: JSON.stringify({ game: item }),
+      });
+      const data = await response.json().catch(function () { return {}; });
+      if (!response.ok) throw new Error(data.error || ('HTTP ' + response.status));
+      status.textContent = '已入库（seq ' + data.seq + '）· CI 重建后进入监控名单';
+      button.textContent = '已入库';
+    } catch (error) {
+      status.textContent = '入库失败：' + error.message + '（可改用复制方式）';
+      button.disabled = false;
+    }
   }
 
   function selectSeed() {
@@ -257,6 +304,11 @@
     });
     XC.$('seed-copy').addEventListener('click', copySeed);
     XC.$('seed-download').addEventListener('click', downloadSeed);
+
+    if (ADD_ENDPOINT) {
+      XC.$('seed-push-wrap').hidden = false;
+      XC.$('seed-push').addEventListener('click', pushSeed);
+    }
   }
 
   async function boot() {

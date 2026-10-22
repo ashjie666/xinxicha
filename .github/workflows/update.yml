@@ -36,6 +36,9 @@ on:
       - 'web/*.html'
       - 'web/*.css'
       - 'web/*.js'
+      # 人工基线变更（如候选页「直接入库」由 Worker 提交）也要立刻重算一次，
+      # 否则新游戏要等次日 09:07 才出现在看板。CI 自己只改 web/data，不会回环触发。
+      - 'data/seed_*.json'
 
 permissions:
   contents: write

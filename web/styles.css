@@ -995,6 +995,31 @@ tr.row-changed td.col-first { box-shadow: inset 3px 0 0 var(--brand); }
   white-space: pre-wrap;
   word-break: break-all;
 }
+.seed-push {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+}
+.seed-push[hidden] { display: none; }
+.seed-push input {
+  flex: 1 1 200px;
+  min-width: 160px;
+  padding: 6px 9px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--panel-2);
+  color: var(--text);
+  font-family: inherit;
+  font-size: 13px;
+}
+.seed-push input:focus { outline: none; border-color: var(--brand-deep); }
+.seed-push .text-btn.primary { color: var(--brand-deep); font-weight: 600; }
+.seed-push .text-btn:disabled { opacity: 0.5; cursor: default; }
+
 .seed-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
 .seed-actions .cell-sub { margin-right: auto; }
 .seed-actions .text-btn { text-decoration: none; }
