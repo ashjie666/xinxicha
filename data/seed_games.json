@@ -832,6 +832,30 @@
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
       "last_update": "2026-10-22"
+    },
+    {
+      "id": "renjian-yixiang",
+      "seq": 29,
+      "name_cn": "人间异想计划",
+      "name_en": "Renjian Yixiang",
+      "publisher": "腾讯",
+      "type": "PC/主机",
+      "status": "未上线",
+      "cn_status": "未知",
+      "launch_date_raw": "未公布",
+      "launch_date": null,
+      "cn_guide_score": 1,
+      "gap_level": "中",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "待人工评估（信号未积累）",
+      "priority": "P1",
+      "note": "腾讯开放世界 RPG，前网易制作人带队，2026-10-21 22 分钟实机首曝，登陆 PS5/Xbox/PC；英文名为暂定拼音，官方公布后需复核。需人工补：国内攻略成熟度 / 海外供给缺口 / 上线档期",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-22"
     }
   ],
   "signal_notes": [
