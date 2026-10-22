@@ -1,0 +1,31 @@
+name: verify-trends-fallback
+
+# 一次性验证：Trends 款级 stale 兜底是否按款取历史值。
+# 只读上一轮采集的 data/source_state.json，不联网、不改数据、不部署。
+# 用 workflow_dispatch 手动触发；验证完可删除本文件。
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Restore collector state
+        uses: actions/cache/restore@v4
+        with:
+          path: data/source_state.json
+          key: xinxicha-data-${{ github.run_id }}
+          restore-keys: |
+            xinxicha-data-
+
+      - name: Verify trends fallback
+        run: python tools/verify_trends_fallback.py
