@@ -277,6 +277,7 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
     for record in candidates:
         record.pop('ts', None)
 
+    seqs = [int(game.get('seq') or 0) for game in seed_games.get('games', [])]
     counts = {
         'candidates': len(candidates),
         'targets': len(target_rows),
@@ -295,6 +296,8 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
             'game_terms': game_terms,
         },
         'truncated': truncated,
+        # 前端「加入监控」生成条目时用它填 seq，避免与既有清单撞号
+        'next_seq': (max(seqs) + 1) if seqs else 1,
         'known_games': [{
             'id': game['id'],
             'name_cn': game['name_cn'],

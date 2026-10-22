@@ -13,7 +13,7 @@
   } catch (error) { /* 隐私模式下保持默认 */ }
 })();
 </script>
-<link rel="stylesheet" href="styles.css?v=4">
+<link rel="stylesheet" href="styles.css?v=5">
 </head>
 <body>
 
@@ -80,7 +80,7 @@
   <section class="panel table-panel" aria-label="候选清单">
     <div class="panel-head">
       <h2 class="panel-title">新游候选清单</h2>
-      <span class="panel-note" id="cand-note">候选只提示、不入库、不参与评分；人工确认后才写进 <code>data/seed_games.json</code>。标题须同时命中「目标词」与「游戏类词」才会留下</span>
+      <span class="panel-note" id="cand-note">候选只提示、不入库、不参与评分；点「加入监控」生成可直接粘贴的基线条目，人工确认后才写进 <code>data/seed_games.json</code>。标题须同时命中「目标词」与「游戏类词」才会留下</span>
     </div>
     <div class="table-scroll">
       <table class="cmp-table table-compact">
@@ -91,6 +91,7 @@
             <th>关联</th>
             <th>命中依据</th>
             <th>来源查询</th>
+            <th>操作</th>
           </tr>
         </thead>
         <tbody id="cand-body"></tbody>
@@ -145,8 +146,52 @@
 
 </main>
 
+<dialog class="seed-dialog" id="seed-dialog" aria-labelledby="seed-title">
+  <form method="dialog" class="seed-form">
+    <div class="seed-head">
+      <h2 id="seed-title">加入监控 · 生成基线条目</h2>
+      <button class="icon-btn" value="cancel" aria-label="关闭">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M6 6l12 12M18 6L6 18"></path>
+        </svg>
+      </button>
+    </div>
+    <p class="seed-hint">静态站没有写仓库的权限，这里生成一条可直接粘贴进 <code>data/seed_games.json</code> 的条目。粘贴并提交后，下一轮采集才会把它从候选里剔除、开始积累信号。</p>
+    <p class="seed-source" id="seed-source"></p>
+    <div class="seed-fields">
+      <label>中文名<input id="seed-name-cn" required placeholder="游戏中文名"></label>
+      <label>英文名<input id="seed-name-en" required placeholder="含空格可，如 Sword x Staff"></label>
+      <label>厂商<input id="seed-publisher"></label>
+      <label>类型
+        <select id="seed-type">
+          <option>手游</option>
+          <option>PC/主机</option>
+          <option>跨端</option>
+          <option>PC/手游</option>
+        </select>
+      </label>
+      <label>优先级
+        <select id="seed-priority">
+          <option>P1</option>
+          <option>P0</option>
+          <option>P2</option>
+        </select>
+      </label>
+    </div>
+    <pre class="seed-json" id="seed-json"></pre>
+    <div class="seed-actions">
+      <span class="cell-sub" id="seed-status"></span>
+      <a class="text-btn" id="seed-github" target="_blank" rel="noopener"
+         href="https://github.com/ashjie666/xinxicha/edit/main/data/seed_games.json">打开 seed_games.json</a>
+      <button type="button" class="text-btn" id="seed-download">下载片段</button>
+      <button type="button" class="text-btn" id="seed-copy">复制 JSON</button>
+      <button class="text-btn" value="cancel">关闭</button>
+    </div>
+  </form>
+</dialog>
+
 <script src="data/discover.js"></script>
 <script src="core.js?v=3"></script>
-<script src="discover.js?v=1"></script>
+<script src="discover.js?v=2"></script>
 </body>
 </html>

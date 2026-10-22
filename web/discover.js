@@ -8,6 +8,7 @@
 
 (function () {
   let DATA = null;
+  let SEED_CTX = null;   // 当前弹窗对应的候选记录
 
   function esc(text) { return XC.escapeHtml(text); }
 
@@ -65,7 +66,7 @@
   function renderCandidates() {
     const list = DATA.candidates || [];
     XC.$('cand-empty').hidden = list.length > 0;
-    XC.$('cand-body').innerHTML = list.map(function (record) {
+    XC.$('cand-body').innerHTML = list.map(function (record, index) {
       const link = record.url
         ? '<a href="' + esc(record.url) + '" target="_blank" rel="noopener">' + esc(record.title) + '</a>'
         : esc(record.title);
@@ -76,8 +77,137 @@
         '<td>' + hitCell(record) + '</td>' +
         '<td><div class="cell-title">' + esc(record.query || '—') + '</div>' +
           '<div class="cell-sub">' + esc(record.target || '') + '</div></td>' +
+        '<td data-label="操作"><button type="button" class="add-btn" data-index="' + index + '">加入监控</button></td>' +
         '</tr>';
     }).join('');
+  }
+
+  /* ---------- 候选 → 加入监控：生成 seed_games.json 条目 ----------
+     纯静态站没有写仓库的能力，所以这里不直接入库，而是生成一条可复制 /
+     可下载的基线条目，由人工粘进 data/seed_games.json 后随提交生效。 */
+
+  function slugify(text) {
+    return String(text || '').toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '');
+  }
+
+  function seedItem() {
+    const record = SEED_CTX ? SEED_CTX.record : {};
+    const seq = DATA.next_seq || ((DATA.known_games || []).length + 1);
+    const nameEn = (XC.$('seed-name-en').value || '').trim();
+    const nameCn = (XC.$('seed-name-cn').value || '').trim();
+    const publisher = (XC.$('seed-publisher').value || '').trim();
+    const source = [
+      '候选来源：' + (record.target || '—'),
+      record.title || '',
+      record.published || '',
+      record.url || '',
+    ].filter(Boolean).join('｜');
+    return {
+      id: slugify(nameEn) || ('new-game-' + seq),
+      seq: seq,
+      name_cn: nameCn,
+      name_en: nameEn,
+      publisher: publisher,
+      type: XC.$('seed-type').value,
+      status: '未上线',
+      cn_status: '未知',
+      launch_date_raw: '未公布',
+      launch_date: null,
+      cn_guide_score: 1,
+      gap_level: '中',
+      trends_7d: null,
+      reddit_daily: null,
+      x_mentions: null,
+      total_score: null,
+      action_manual: '待人工评估（信号未积累）',
+      priority: XC.$('seed-priority').value,
+      note: source + '\n需人工补：国内攻略成熟度 / 海外供给缺口 / 上线档期',
+      signal_source: 'P1: Trends+Reddit+X',
+      confidence: '低',
+      last_update: (DATA.meta.generated_at_cst || '').slice(0, 10),
+    };
+  }
+
+  function refreshSeed() {
+    const item = seedItem();
+    XC.$('seed-json').textContent = JSON.stringify(item, null, 2);
+
+    const status = XC.$('seed-status');
+    if (!item.name_cn || !item.name_en) {
+      status.textContent = '补全中文名与英文名后即可复制';
+      return;
+    }
+    const dup = (DATA.known_games || []).some(function (game) { return game.id === item.id; });
+    status.textContent = dup ? 'id 已存在于监控清单，请改用不同的英文名' : '就绪：复制后粘到 games 数组末尾';
+  }
+
+  function openSeed(index) {
+    const record = (DATA.candidates || [])[index];
+    if (!record) return;
+    SEED_CTX = { record: record };
+    XC.$('seed-name-cn').value = '';
+    XC.$('seed-name-en').value = '';
+    XC.$('seed-publisher').value = record.kind === 'publisher' ? (record.target || '') : '';
+    XC.$('seed-type').value = '手游';
+    XC.$('seed-priority').value = 'P1';
+    XC.$('seed-source').textContent = '来源：' + (record.target || '—') + ' · ' +
+      (record.published || '时间未知') + ' · ' + (record.title || '');
+    refreshSeed();
+
+    const dialog = XC.$('seed-dialog');
+    if (dialog.showModal) dialog.showModal();
+    else dialog.setAttribute('open', '');
+    XC.$('seed-name-cn').focus();
+  }
+
+  function copySeed() {
+    const text = XC.$('seed-json').textContent;
+    const done = function (ok) {
+      XC.$('seed-status').textContent = ok ? '已复制到剪贴板' : '复制被浏览器拒绝，已选中 JSON，请按 Ctrl+C';
+      if (!ok) selectSeed();
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { done(true); }, function () { done(fallbackCopy(text)); });
+    } else {
+      done(fallbackCopy(text));
+    }
+  }
+
+  function fallbackCopy(text) {
+    const area = document.createElement('textarea');
+    area.value = text;
+    area.style.position = 'fixed';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.select();
+    let ok = false;
+    try { ok = document.execCommand('copy'); } catch (error) { ok = false; }
+    document.body.removeChild(area);
+    return ok;
+  }
+
+  function selectSeed() {
+    const node = XC.$('seed-json');
+    const range = document.createRange();
+    range.selectNodeContents(node);
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
+  }
+
+  function downloadSeed() {
+    const item = seedItem();
+    const blob = new Blob([JSON.stringify(item, null, 2) + '\n'], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'seed-' + (item.id || 'game') + '.json';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   }
 
   /* ---------- 扫描目标与命中 ---------- */
@@ -113,6 +243,22 @@
 
   /* ---------- 启动 ---------- */
 
+  function bindSeed() {
+    XC.$('cand-body').addEventListener('click', function (event) {
+      const button = event.target.closest ? event.target.closest('.add-btn') : null;
+      if (!button) return;
+      openSeed(Number(button.getAttribute('data-index')));
+    });
+    ['seed-name-cn', 'seed-name-en', 'seed-publisher'].forEach(function (id) {
+      XC.$(id).addEventListener('input', refreshSeed);
+    });
+    ['seed-type', 'seed-priority'].forEach(function (id) {
+      XC.$(id).addEventListener('change', refreshSeed);
+    });
+    XC.$('seed-copy').addEventListener('click', copySeed);
+    XC.$('seed-download').addEventListener('click', downloadSeed);
+  }
+
   async function boot() {
     XC.initPage();
     try {
@@ -126,6 +272,7 @@
     renderCandidates();
     renderTargets();
     renderKnown();
+    bindSeed();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot);
