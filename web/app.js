@@ -192,6 +192,16 @@
       '</div>';
   }
 
+  /* 海外上线倒计时：数据层按当日算好 launch_days（负数＝已上线天数）。
+     90 天内高亮，提示「临近上线、攻略窗口要开了」；未公布档期不显示。 */
+  function countdownTag(game) {
+    const days = game.launch_days;
+    if (!num(days)) return '';
+    if (days < 0) return '<div class="cell-sub">已上线 ' + XC.fmtInt(-days) + ' 天</div>';
+    const text = days === 0 ? '今日上线' : '倒计时 ' + XC.fmtInt(days) + ' 天';
+    return '<div class="cdown' + (days < 90 ? ' cdown-hot' : '') + '">' + text + '</div>';
+  }
+
   function launchCell(game) {
     if (!game.launch_date) {
       return '<span class="cell-sub">' + esc(game.launch_date_raw || '未公布') + '</span>';
@@ -258,7 +268,8 @@
           '<div class="cell-sub">' + esc(game.publisher || '') + ' · ' + esc(game.type || '') + '</div></td>' +
         '<td>' + XC.prioTag(game.priority) + '<div class="cell-sub">#' + XC.fmtInt(game.seq) + '</div></td>' +
         '<td><div class="cell-title">' + esc(game.status || '—') + '</div>' +
-          '<div class="cell-sub">' + esc(game.launch_date_raw || '') + '</div></td>' +
+          '<div class="cell-sub">' + esc(game.launch_date_raw || '') + '</div>' +
+          countdownTag(game) + '</td>' +
         '<td><div class="cell-title">' + esc(game.cn_status || '—') + '</div></td>' +
         '<td>' + launchCell(game) + '</td>' +
         '<td>' + levelCell(game) + '</td>' +
