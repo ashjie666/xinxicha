@@ -13,7 +13,7 @@
   } catch (error) { /* 隐私模式下保持默认 */ }
 })();
 </script>
-<link rel="stylesheet" href="styles.css?v=8">
+<link rel="stylesheet" href="styles.css?v=9">
 </head>
 <body>
 
@@ -120,13 +120,14 @@
       <table class="cmp-table table-mid" id="game-table">
         <thead>
           <tr class="group-row">
-            <th colspan="7">基础信息</th>
+            <th colspan="8">基础信息</th>
             <th colspan="6">评分分项（0-100，权重见运维页）</th>
             <th colspan="4">结论</th>
           </tr>
           <tr class="col-row">
             <th class="col-first"><button class="th-btn" data-sort-key="name_cn" type="button">游戏</button></th>
             <th><button class="th-btn" data-sort-key="priority" type="button">优先级</button></th>
+            <th><button class="th-btn" data-sort-key="opportunity" type="button" title="机会象限（展示用、不参与评分）：搜索水位 = 现状需求规模，Trends 7d = 时机。低水位+上升＝优先占位；高水位+上升＝差异化切入；高水位+回落＝收割长尾；高水位+走平＝稳定长尾；低水位+走平＝只监控；低水位+回落＝不投入；缺水位或变化率＝未知。水位 ≥50 为高，≥100 标「头部」，变化率超过 ±5% 才算升/降">机会象限</button></th>
             <th><button class="th-btn" data-sort-key="status" type="button">海外上线状态</button></th>
             <th>国服状态</th>
             <th><button class="th-btn" data-sort-key="launch_days" type="button">上线窗口</button></th>

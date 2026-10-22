@@ -26,6 +26,12 @@
       "launch_window_fallback": { "unknown": 10 },
       "x_official": [[0, 1, 0], [1, 4, 25], [4, 7, 45], [7, 10, 65], [10, 11, 80], [11, 12, 90], [12, null, 100]]
     },
+    "opportunity": {
+      "note": "机会象限：把「搜索水位」（现状需求规模）与「Trends 7d」（时机）合成一个可排序标签，只用于展示与排序，不参与总分。水位 ≥ water_high 为高、≥ water_head 额外标「头部」；变化率超过 ±rise_pct 才算升/降，避免整数截断的 0–1 噪声被判成趋势",
+      "water_high": 50,
+      "water_head": 100,
+      "rise_pct": 5
+    },
     "gap_level_to_gap_score": { "高": 9, "中": 6, "低": 2 },
     "thresholds": [[80, "抢首发攻略"], [60, "做数据表占位"], [40, "监控不投入"], [0, "暂不投入"]],
     "base_score_new_game": 20,

@@ -5,7 +5,7 @@ import io
 import json
 import os
 
-from . import http
+from . import http, scoring
 
 WEB_DATA = os.path.join(http.ROOT, 'web', 'data')
 GLOBALS = {
@@ -97,6 +97,10 @@ def build_games(config, seed_games, scored, run_info):
             'last_update': run_info['date_cst'],
             'stale': not result['signals']['trends']['available'] or not result['signals']['reddit']['available'],
         })
+        # 机会象限：水位 × 7d 变化，只用于展示与排序，不进总分
+        item['opportunity'] = scoring.opportunity_of(
+            item['trends_level'], item['trends_7d'], config,
+            stale=bool(item['trends_level_stale'] or result['signals']['trends'].get('stale')))
         games.append(item)
     _attach_level_rank(games)
     return {

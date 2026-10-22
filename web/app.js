@@ -21,7 +21,7 @@
   const PRIORITY_ORDER = { P0: 0, P1: 1, P2: 2 };
   const SOURCE_LABEL = { trends: 'Trends', reddit: 'Reddit', x_twitter: 'X' };
 
-  const view = { priority: 'all', status: 'all', q: '', sortKey: 'total', sortDir: 'desc' };
+  const view = { priority: 'all', status: 'all', q: '', sortKey: 'opportunity', sortDir: 'asc' };
 
   /* ---------- 工具 ---------- */
 
@@ -42,6 +42,8 @@
       const comp = componentOf(game, SORT_COMPONENT[key]);
       return comp ? comp.score : null;
     }
+    /* 机会象限按 rank 排序（1 = 机会最大），同 rank 再用总分降序打破 */
+    if (key === 'opportunity') return game.opportunity ? game.opportunity.rank : null;
     return game[key];
   }
 
@@ -55,6 +57,7 @@
     else if (missingA) result = 1;   /* 缺值永远排最后 */
     else if (missingB) result = -1;
     else if (view.sortKey === 'priority') result = (PRIORITY_ORDER[va] || 9) - (PRIORITY_ORDER[vb] || 9);
+    else if (view.sortKey === 'opportunity') result = (va - vb) || ((b.total || 0) - (a.total || 0));
     else if (typeof va === 'number' && typeof vb === 'number') result = va - vb;
     else result = String(va).localeCompare(String(vb), 'zh-Hans-CN');
     return view.sortDir === 'asc' ? result : -result;
@@ -246,6 +249,15 @@
     return '<div class="src-row">' + parts.join('') + '</div>';
   }
 
+  /* 机会象限：水位（需求规模）× Trends 7d（时机），仅展示与排序，不进总分。
+     缺水位或变化率时为「象限未知」，不按上次有效值硬塞进某一格。 */
+  function oppCell(game) {
+    const opp = game.opportunity;
+    if (!opp || !opp.key) return '<span class="cell-sub">—</span>';
+    return '<span class="opp opp-' + esc(opp.key) + '">' + esc(opp.label) + '</span>' +
+      '<div class="cell-sub">' + esc(opp.note || '') + '</div>';
+  }
+
   function renderTable() {
     const games = (GAMES.games || []).filter(function (game) {
       if (view.priority !== 'all' && game.priority !== view.priority) return false;
@@ -267,6 +279,7 @@
           '<div class="game-name-en">' + esc(game.name_en || '') + '</div>' +
           '<div class="cell-sub">' + esc(game.publisher || '') + ' · ' + esc(game.type || '') + '</div></td>' +
         '<td>' + XC.prioTag(game.priority) + '<div class="cell-sub">#' + XC.fmtInt(game.seq) + '</div></td>' +
+        '<td>' + oppCell(game) + '</td>' +
         '<td><div class="cell-title">' + esc(game.status || '—') + '</div>' +
           '<div class="cell-sub">' + esc(game.launch_date_raw || '') + '</div>' +
           countdownTag(game) + '</td>' +
@@ -349,7 +362,8 @@
           view.sortDir = view.sortDir === 'desc' ? 'asc' : 'desc';
         } else {
           view.sortKey = key;
-          view.sortDir = 'desc';
+          /* 机会象限 rank 1 最优，切到该列时默认升序；其余列沿用降序 */
+          view.sortDir = key === 'opportunity' ? 'asc' : 'desc';
         }
         document.querySelectorAll('.th-btn').forEach(function (other) { other.removeAttribute('data-dir'); });
         button.setAttribute('data-dir', view.sortDir);

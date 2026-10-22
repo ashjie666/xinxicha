@@ -89,6 +89,65 @@ def launch_window_score(game, today, config):
     return after_min, days
 
 
+QUADRANTS = {
+    'occupy': (1, '优先占位'),
+    'differentiate': (2, '差异化切入'),
+    'harvest': (3, '收割长尾'),
+    'steady': (4, '稳定长尾'),
+    'watch': (5, '只监控'),
+    'cooling': (6, '不投入'),
+    'unknown': (7, '象限未知'),
+}
+
+
+def opportunity_of(water, rise, config, stale=False):
+    """机会象限：水位（需求规模）× Trends 7d（时机），只用于展示与排序。
+
+    水位是现状绝对量级，回答「值不值得做」；变化率回答「现在是不是时机」。
+    两者正交合成 6 格 + 1 个未知格，rank 越小机会越大：
+      低水位 + 上升 = 优先占位（需求刚起量、供给还空）
+      高水位 + 上升 = 差异化切入（真热点但竞争最激烈）
+      高水位 + 回落 = 收割长尾（热度退潮，长尾仍在）
+      高水位 + 走平 = 稳定长尾
+      低水位 + 走平 = 只监控
+      低水位 + 回落 = 不投入
+      任一缺失 = 象限未知
+    变化率按 ±rise_pct 判定升降，避免批内整数截断造成的 0–1 噪声被当成趋势。
+    水位 stale 时仍按数值落格，但 note 注明，避免把缓存值当成当日实时。
+    """
+    conf = (config.get('scoring') or {}).get('opportunity') or {}
+    high_line = float(conf.get('water_high', 50))
+    head_line = float(conf.get('water_head', 100))
+    rise_pct = float(conf.get('rise_pct', 5))
+    if not isinstance(water, (int, float)) or not isinstance(rise, (int, float)):
+        rank, label = QUADRANTS['unknown']
+        if not isinstance(water, (int, float)):
+            note = '无搜索水位：无法判断需求规模'
+        else:
+            note = '无 Trends 7d 变化率：无法判断时机'
+        return {'key': 'unknown', 'label': label, 'rank': rank, 'water': water,
+                'rise': rise, 'trend': None, 'water_band': None, 'note': note}
+    is_high = water >= high_line
+    if rise > rise_pct:
+        trend = 'rising'
+        key = 'differentiate' if is_high else 'occupy'
+    elif rise < -rise_pct:
+        trend = 'falling'
+        key = 'harvest' if is_high else 'cooling'
+    else:
+        trend = 'flat'
+        key = 'steady' if is_high else 'watch'
+    rank, label = QUADRANTS[key]
+    band = 'head' if water >= head_line else ('high' if is_high else 'low')
+    note = '水位 {:.1f} · 7d {:+.1f}%'.format(water, rise)
+    if band == 'head':
+        note += ' · 头部'
+    if stale:
+        note += ' · stale'
+    return {'key': key, 'label': label, 'rank': rank, 'water': water, 'rise': rise,
+            'trend': trend, 'water_band': band, 'note': note}
+
+
 def component_rows(game, signals, config, today):
     """返回 6 个分项明细：得分、权重、加权分、取值、来源标签、是否 stale"""
     weights = config['scoring']['weights']
