@@ -35,7 +35,7 @@
     const okCls = failed.length === 0 ? 'kpi-good' : (failed.length === targets.length ? 'kpi-bad' : 'kpi-warn');
     const candSub = (DATA.truncated ? '已按上限截断 · ' : '') + (rel.enabled
       ? '相关性剔除 ' + XC.fmtInt(counts.dropped_total || 0) + ' 条'
-      : '已过滤已知 20 款');
+      : '已过滤已知 ' + XC.fmtInt(counts.known_games || 0) + ' 款');
 
     XC.$('kpi-grid').innerHTML = [
       kpi('新游候选', XC.fmtInt(candidates.length), '条', candSub, candidates.length ? 'kpi-good' : ''),
@@ -45,6 +45,16 @@
       kpi('数据生成', DATA.meta.generated_at_cst ? DATA.meta.generated_at_cst.slice(5, 16) : '—', '',
         'CST · ' + esc(DATA.meta.data_mode || '—'), ''),
     ].join('');
+
+    const publishers = targets.filter(function (row) { return row.kind === 'publisher'; }).length;
+    const targetNote = XC.$('target-note');
+    if (targetNote) {
+      targetNote.textContent = '当前 ' + XC.fmtInt(targets.length) + ' 个检索目标（厂商 ' +
+        XC.fmtInt(publishers) + ' + 品类 ' + XC.fmtInt(targets.length - publishers) +
+        '），逐个走 Bing News RSS；「新增」= 已知游戏过滤 + 相关性过滤后的去重候选数，「过滤丢弃」= 未命中目标词 / 未命中档期词';
+    }
+    if (XC.$('footer-target-count')) XC.$('footer-target-count').textContent = XC.fmtInt(targets.length);
+    if (XC.$('footer-known-count')) XC.$('footer-known-count').textContent = XC.fmtInt(counts.known_games);
 
     const note = XC.$('kpi-note');
     if (note) note.textContent = '数据模式 ' + (DATA.meta.data_mode || '—') + ' · 生成于 ' + (DATA.meta.generated_at_cst || '—') + ' CST';
