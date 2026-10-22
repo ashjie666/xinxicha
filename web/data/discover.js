@@ -4,21 +4,21 @@ window.XC_DISCOVER = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-22 10:05:17",
+    "generated_at_cst": "2026-10-22 15:57:43",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 1710.3,
+    "duration_sec": 1370.5,
     "counts": {
       "candidates": 33,
-      "targets": 15,
-      "targets_ok": 15,
-      "known_games": 21,
-      "dropped_target": 99,
-      "dropped_theme": 13,
-      "dropped_total": 112
+      "targets": 19,
+      "targets_ok": 19,
+      "known_games": 29,
+      "dropped_target": 130,
+      "dropped_theme": 15,
+      "dropped_total": 145
     },
     "trends_anchor": {
       "enabled": true,
@@ -107,6 +107,7 @@ window.XC_DISCOVER = {
     ]
   },
   "truncated": false,
+  "next_seq": 30,
   "known_games": [
     {
       "id": "monster-hunter-outlanders",
@@ -212,6 +213,46 @@ window.XC_DISCOVER = {
       "id": "hunger",
       "name_cn": "HUNGER",
       "name_en": "HUNGER"
+    },
+    {
+      "id": "sword-x-staff",
+      "name_cn": "杖剑传说",
+      "name_en": "Sword x Staff"
+    },
+    {
+      "id": "wenjian-changsheng",
+      "name_cn": "问剑长生",
+      "name_en": "Sword of Immortality"
+    },
+    {
+      "id": "tides-of-annihilation",
+      "name_cn": "湮灭之潮",
+      "name_en": "Tides of Annihilation"
+    },
+    {
+      "id": "arknights-endfield",
+      "name_cn": "明日方舟：终末地",
+      "name_en": "Arknights: Endfield"
+    },
+    {
+      "id": "azur-promilia",
+      "name_cn": "蓝色星原：旅谣",
+      "name_en": "Azur Promilia"
+    },
+    {
+      "id": "honor-of-kings-world",
+      "name_cn": "王者荣耀世界",
+      "name_en": "Honor of Kings: World"
+    },
+    {
+      "id": "lost-castle-2",
+      "name_cn": "失落城堡 2",
+      "name_en": "Lost Castle 2"
+    },
+    {
+      "id": "renjian-yixiang",
+      "name_cn": "人间异想计划",
+      "name_en": "Renjian Yixiang"
     }
   ],
   "targets": [
@@ -234,9 +275,9 @@ window.XC_DISCOVER = {
       "query": "网易 新游 开放世界",
       "ok": true,
       "hits": 12,
-      "dropped_target": 4,
+      "dropped_target": 2,
       "dropped_theme": 1,
-      "new": 7,
+      "new": 5,
       "error": null
     },
     {
@@ -336,6 +377,54 @@ window.XC_DISCOVER = {
       "error": null
     },
     {
+      "label": "吉比特/雷霆",
+      "kind": "publisher",
+      "category": "修仙 / 放置 RPG",
+      "query": "吉比特 雷霆 新游",
+      "ok": true,
+      "hits": 9,
+      "dropped_target": 7,
+      "dropped_theme": 0,
+      "new": 0,
+      "error": null
+    },
+    {
+      "label": "蛮啾网络",
+      "kind": "publisher",
+      "category": "二次元 / 开放世界",
+      "query": "蛮啾网络 新游",
+      "ok": true,
+      "hits": 12,
+      "dropped_target": 5,
+      "dropped_theme": 2,
+      "new": 2,
+      "error": null
+    },
+    {
+      "label": "蛇夫座/Eclipse Glow",
+      "kind": "publisher",
+      "category": "动作 / 单机",
+      "query": "蛇夫座 新游 单机",
+      "ok": true,
+      "hits": 10,
+      "dropped_target": 10,
+      "dropped_theme": 0,
+      "new": 0,
+      "error": null
+    },
+    {
+      "label": "Hunter Studio",
+      "kind": "publisher",
+      "category": "动作 Roguelike",
+      "query": "Hunter Studio 新游",
+      "ok": true,
+      "hits": 11,
+      "dropped_target": 11,
+      "dropped_theme": 0,
+      "new": 0,
+      "error": null
+    },
+    {
       "label": "二次元开放世界新游",
       "kind": "category",
       "category": "二次元开放世界",
@@ -411,19 +500,6 @@ window.XC_DISCOVER = {
       "hit_theme": "新作"
     },
     {
-      "title": "腾讯开放世界RPG《人间异想计划》22分钟实机首曝，前网易老将带队",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad96f5e644f499795bcfc7238471e7c&url=https%3a%2f%2fwww.sohu.com%2fa%2f1090706476_122004016&c=4805401826268227413&mkt=en-us",
-      "published": "2026-10-21 15:56",
-      "pub_raw": "Wed, 21 Oct 2026 07:56:00 GMT",
-      "summary": "在10月21日，腾讯游戏旗下的宇宙小狗工作室（COSMICPUPSTUDIO）正式揭开了其新作《人间异想计划》的神秘面纱，并同步放出了长达22分钟的实机演示。这款游戏的制作团队隶属于腾讯光子工作室群，坐落于杭州，由前网易杭州F工作室的负责人…",
-      "target": "网易",
-      "kind": "publisher",
-      "category": "开放世界 / MMO",
-      "query": "网易 新游 开放世界",
-      "hit_target": "网易",
-      "hit_theme": "实机"
-    },
-    {
       "title": "腾讯全新怪谈开放世界登场，带队竟是16年网易老资历！22分钟实机曝光",
       "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad96f5e644f499795bcfc7238471e7c&url=https%3a%2f%2fnews.17173.com%2fcontent%2f10212026%2f115037870.shtml&c=686005607485975502&mkt=en-us",
       "published": "2026-10-21 12:50",
@@ -461,19 +537,6 @@ window.XC_DISCOVER = {
       "query": "网易 新游 开放世界",
       "hit_target": "网易",
       "hit_theme": "新游"
-    },
-    {
-      "title": "腾讯开放世界 RPG《人间异想计划》22 分钟实机首曝：前网易 16 年老将带队，将登陆 PS5、Xbox 与 PC 平台",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad96f5e644f499795bcfc7238471e7c&url=https%3a%2f%2fwww.ithome.com%2f1%2f015%2f859.htm&c=4990276446907860510&mkt=en-us",
-      "published": "2026-10-21 01:00",
-      "pub_raw": "Tue, 20 Oct 2026 17:00:00 GMT",
-      "summary": "IT之家10 月 21 日消息，腾讯游戏旗下宇宙小狗工作室（COSMICPUP STUDIO）今日正式公布了其开放世界 RPG 新作《人间异想计划》，同步放出长达 22 分钟的首曝实机演示。 公开资料显示，该团队属于腾讯光子工作室群旗下厂牌…",
-      "target": "网易",
-      "kind": "publisher",
-      "category": "开放世界 / MMO",
-      "query": "网易 新游 开放世界",
-      "hit_target": "网易",
-      "hit_theme": "实机"
     },
     {
       "title": "米哈游的新作，看了不会“烧心”",
@@ -710,6 +773,19 @@ window.XC_DISCOVER = {
       "hit_theme": "游戏"
     },
     {
+      "title": "游戏人的职场内幕——上海蛮啾",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad9c202b2f04eb29c442d253fdbeee2&url=https%3a%2f%2fwww.msn.com%2fzh-cn%2fgaming%2f%25E9%2580%259A%25E7%2594%25A8%2f%25E6%25B8%25B8%25E6%2588%258F%25E4%25BA%25BA%25E7%259A%2584%25E8%2581%258C%25E5%259C%25BA%25E5%2586%2585%25E5%25B9%2595-%25E4%25B8%258A%25E6%25B5%25B7%25E8%259B%25AE%25E5%2595%25BE%2far-AA2dMXaQ&c=13382579847103669080&mkt=en-us",
+      "published": "2026-10-08 03:22",
+      "pub_raw": "Wed, 07 Oct 2026 19:22:32 GMT",
+      "summary": "【本文由小黑盒作者@GameQuest于10月08日发布】 大家好，我是小黑板！ 2026年，对于蛮啾而言，的确是至关重要的一年。 从一家以《碧蓝航线》为核心产品的二次元厂商，到如今向3D大世界研发能力迈进，蛮啾正在经历一次不小的转型。 这…",
+      "target": "蛮啾网络",
+      "kind": "publisher",
+      "category": "二次元 / 开放世界",
+      "query": "蛮啾网络 新游",
+      "hit_target": "蛮啾",
+      "hit_theme": "游戏"
+    },
+    {
       "title": "上海莉莉丝：16薪双休——游戏圈不内耗的养生厂",
       "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad96f608d854dfb9eaed1c88652469c&url=https%3a%2f%2fwww.sohu.com%2fa%2f1083567460_121814834&c=10031999858888341314&mkt=en-us",
       "published": "2026-10-03 10:59",
@@ -786,6 +862,19 @@ window.XC_DISCOVER = {
       "query": "柠檬微趣 新游 合成",
       "hit_target": "柠檬微趣",
       "hit_theme": "SLG"
+    },
+    {
+      "title": "从“不歪池”到“蛮啾味”，《蓝色星原》凭什么让玩家高呼必玩？",
+      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad9c202b2f04eb29c442d253fdbeee2&url=https%3a%2f%2fm.163.com%2fdy%2farticle%2fL71ED6A9052693KJ.html&c=9333575223571567193&mkt=en-us",
+      "published": "2026-09-17 13:29",
+      "pub_raw": "Thu, 17 Sep 2026 05:29:00 GMT",
+      "summary": "这是近期社媒上，除了“要资格”外，玩家们刷得最多的一句话。 为什么是“必玩”？因为《蓝色星原：旅谣》（以下简称《蓝色星原》）真的在尝试将诚意最大化。 早在9月初官方举办的 ...",
+      "target": "蛮啾网络",
+      "kind": "publisher",
+      "category": "二次元 / 开放世界",
+      "query": "蛮啾网络 新游",
+      "hit_target": "蛮啾",
+      "hit_theme": "玩家"
     },
     {
       "title": "广州厂商再拿爆款：模拟经营+SLG，正在小游戏出海里放大",
