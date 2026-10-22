@@ -63,8 +63,11 @@
   }
 
   function hitCell(record) {
-    if (!record.hit_target && !record.hit_theme) return '<span class="cell-sub">未启用</span>';
-    return esc(record.hit_target || '—') + '<span class="cell-sub"> + </span>' + esc(record.hit_theme || '—');
+    if (!record.hit_target && !record.hit_theme && !record.hit_launch) return '<span class="cell-sub">未启用</span>';
+    /* 三段固定展示：目标词 + 游戏类词 + 上线词（未命中显示「—」，便于看出是否带档期信息） */
+    return esc(record.hit_target || '—') +
+      '<span class="cell-sub"> + </span>' + esc(record.hit_theme || '—') +
+      '<span class="cell-sub"> + </span>' + esc(record.hit_launch || '—');
   }
 
   function renderCandidates() {

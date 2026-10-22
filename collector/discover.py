@@ -161,9 +161,12 @@ def target_terms(target):
     return [part for part in re.split(r'[\s/、]+', target.get('category') or '') if part]
 
 
-def relevance(title, terms, game_terms):
-    """返回 (命中的目标词, 命中的游戏类词)；任一为空即判定为无关
+def relevance(title, terms, game_terms, launch_terms=None):
+    """返回 (命中的目标词, 命中的游戏类词, 命中的上线词)
 
+    目标词为空即判定为无关；游戏类词与上线词只要命中其一就保留——「上线 / 发售 /
+    定档」这类标题即使不含「新游 / 游戏」等词，也是明确的新品信号，单独判为无效会漏掉
+    最有价值的档期消息。上线词单独返回是为了在页面「命中依据」里单独展示一格。
     游戏类词里排除掉本 target 自己的 match 词：品类目标的 match 本身就是领域词
     （休闲 / 塔防 / SLG），不去掉的话「休闲」一个词就同时凑满两个命中，过滤失效。
     """
@@ -172,7 +175,9 @@ def relevance(title, terms, game_terms):
     hit_target = next((term for term in terms if term_hits(low, term)), '')
     hit_theme = next((term for term in game_terms
                       if (term or '').strip().lower() not in own and term_hits(low, term)), '')
-    return hit_target, hit_theme
+    hit_launch = next((term for term in (launch_terms or [])
+                       if (term or '').strip().lower() not in own and term_hits(low, term)), '')
+    return hit_target, hit_theme, hit_launch
 
 
 def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0):
@@ -180,7 +185,8 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
     cfg = config.get('discovery') or {}
     relevance_cfg = cfg.get('relevance') or {}
     game_terms = [term for term in (relevance_cfg.get('game_terms') or []) if term]
-    relevance_on = bool(relevance_cfg.get('enabled', True)) and bool(game_terms)
+    launch_terms = [term for term in (relevance_cfg.get('launch_terms') or []) if term]
+    relevance_on = bool(relevance_cfg.get('enabled', True)) and bool(game_terms or launch_terms)
     targets = list(cfg.get('targets') or [])
     if limit and limit > 0:
         targets = targets[:limit]
@@ -234,13 +240,14 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
         for item in items:
             if not item['title'] or is_known(item['title'], names):
                 continue
-            hit_target = hit_theme = ''
+            hit_target = hit_theme = hit_launch = ''
             if relevance_on:
-                hit_target, hit_theme = relevance(item['title'], terms, game_terms)
+                hit_target, hit_theme, hit_launch = relevance(
+                    item['title'], terms, game_terms, launch_terms)
                 if not hit_target:
                     row['dropped_target'] += 1
                     continue
-                if not hit_theme:
+                if not hit_theme and not hit_launch:
                     row['dropped_theme'] += 1
                     continue
             # 不能去掉 query 再当去重键：Bing News RSS 把所有链接都包成同一条
@@ -259,6 +266,7 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
                 'query': row['query'],
                 'hit_target': hit_target,
                 'hit_theme': hit_theme,
+                'hit_launch': hit_launch,
             })
             fresh.append(record)
 
@@ -340,7 +348,7 @@ def main(argv):
             row['hits'], row['dropped_target'] + row['dropped_theme'], row['new'],
             'OK' if row['ok'] else (row['error'] or '失败')))
     counts = payload['meta']['counts']
-    print('\n候选合计 {} 条（截断:{}）· 目标 OK {}/{} · 已监控 {} 款已过滤 · 相关性剔除 {} 条（未命中目标词 {} / 未命中游戏类词 {}）'.format(
+    print('\n候选合计 {} 条（截断:{}）· 目标 OK {}/{} · 已监控 {} 款已过滤 · 相关性剔除 {} 条（未命中目标词 {} / 未命中游戏类词或上线词 {}）'.format(
         counts['candidates'], '是' if payload['truncated'] else '否',
         counts['targets_ok'], counts['targets'], counts['known_games'],
         counts['dropped_total'], counts['dropped_target'], counts['dropped_theme']))
