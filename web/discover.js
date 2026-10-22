@@ -12,7 +12,7 @@
 
   // 部署 Cloudflare Worker（worker/add-game.js）后填入其地址，例如
   // https://xinxicha-add-game.<your-name>.workers.dev 。留空则只保留复制/下载。
-  const ADD_ENDPOINT = '';
+  const ADD_ENDPOINT = 'https://xinxicha-add-game.wonder-2012.workers.dev/';
 
   function esc(text) { return XC.escapeHtml(text); }
 
