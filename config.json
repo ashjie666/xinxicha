@@ -56,6 +56,16 @@
     "trends_min_peak": 5,
     "cache_ttl_hours": 12,
     "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) xinxicha-monitor/0.1",
+    "cn_media": {
+      "note": "国内游戏媒体 RSS（游戏茶馆 / 触乐）：只回答「国内媒体有没有报道这款游戏」，仅展示、不参与 6 项评分，也不进回退链路。两源每轮各请求 1 次（命中 HTTP 缓存则不重复抓），按标题匹配 name_cn 子串与 name_en 词边界，7 日窗口。源失效只影响本面板与 ops 健康表，不改变任何分数。",
+      "enabled": true,
+      "window_days": 7,
+      "titles_per_game": 3,
+      "sources": [
+        { "key": "cn_media_youxichaguan", "label": "游戏茶馆", "url": "https://www.youxichaguan.com/feed" },
+        { "key": "cn_media_chuapp", "label": "触乐", "url": "https://www.chuapp.com/feed" }
+      ]
+    },
     "failure_policy": {
       "keep_last_value_on_single_failure": true,
       "degrade_after_consecutive_failures": 3,
@@ -189,6 +199,26 @@
       "fallback": "手动检查",
       "enabled": true,
       "mode": "bing-news-rss（免凭据，复用 P2 新闻聚合抓取）"
+    },
+    {
+      "key": "cn_media_youxichaguan",
+      "priority": "P3",
+      "label": "游戏茶馆 RSS",
+      "weight_key": null,
+      "signal": "国内媒体报道提及（近 7 日）",
+      "fallback": "无（仅展示，不参与评分）",
+      "enabled": true,
+      "mode": "cn-rss（仅展示，不参与评分）"
+    },
+    {
+      "key": "cn_media_chuapp",
+      "priority": "P3",
+      "label": "触乐 RSS",
+      "weight_key": null,
+      "signal": "国内媒体报道提及（近 7 日）",
+      "fallback": "无（仅展示，不参与评分）",
+      "enabled": true,
+      "mode": "cn-rss（仅展示，不参与评分）"
     }
   ]
 }

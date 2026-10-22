@@ -17,6 +17,7 @@ import sys
 import time
 import traceback
 
+from . import cn_media
 from . import discover
 from . import emit
 from . import http
@@ -132,6 +133,20 @@ def main(argv):
         scored[game['id']] = result
         log_rows.append(log_row)
 
+    # 国内媒体 RSS（游戏茶馆 / 触乐）：仅展示，不参与评分、不进回退链。
+    # 两源各请求 1 次（与款数无关），结果按游戏注入 scored，供详情页展示。
+    media = cn_media.collect(config, seed_games['games'],
+                              no_cache=args.no_cache, offline=args.offline)
+    degrade = config['collection']['failure_policy']['degrade_after_consecutive_failures']
+    for stat in media['sources']:
+        if stat.get('skipped'):
+            continue  # 离线/未启用：不下调该源健康度
+        state_mod.record(state, stat['key'], stat['ok'], value=stat['items'],
+                         error=stat['error'], degrade_after=degrade)
+    for game_id, payload in media['games'].items():
+        if game_id in scored:
+            scored[game_id]['cn_media'] = payload
+
     alive = state_mod.p1_all_dead(state, config)
     alert = config['collection']['failure_policy']['p1_all_dead_alert'] if alive else None
     data_mode = 'live' if fresh_p1 else 'fallback'
@@ -146,6 +161,12 @@ def main(argv):
         'alert': alert,
         'duration_sec': round(time.time() - started, 1),
         'calls': collector.calls,
+        'cn_media': {
+            'window_days': media['window_days'],
+            'sources': [{'key': row['key'], 'label': row['label'], 'ok': row['ok'],
+                         'items': row['items'], 'matched': row['matched'],
+                         'error': row['error']} for row in media['sources']],
+        },
     }
 
     health_rows = state_mod.health_rows(state, config)
@@ -187,6 +208,11 @@ def main(argv):
     print('源调用   : {}'.format(', '.join(
         '{}={}/{}/{}'.format(key, bucket['ok'], bucket['failed'], bucket['skipped'])
         for key, bucket in collector.calls.items()) or '无'))
+    print('国内媒体 : {}'.format(' · '.join(
+        ('{} 跳过（{}）'.format(row['label'], row['error']) if row.get('skipped') else
+         '{} {} 条 / 命中 {}'.format(row['label'], row['items'], row['matched']) if row['ok']
+         else '{} 失败（{}）'.format(row['label'], row['error'] or '未知'))
+        for row in media['sources']) or '未配置（仅展示，不参与评分）'))
     if alert:
         print('【告警】{}'.format(alert))
     print('分数 TOP5:')

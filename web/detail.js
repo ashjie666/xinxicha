@@ -168,6 +168,40 @@
     XC.$('base-body').innerHTML = items.join('');
   }
 
+  /* ---------- 国内媒体提及（仅展示） ---------- */
+
+  function safeUrl(url) {
+    return /^https?:\/\//i.test(url || '') ? url : '#';
+  }
+
+  function renderCnMedia(game) {
+    const titles = game.cn_media_titles || [];
+    const meta = (GAMES && GAMES.cn_media) || {};
+    const days = meta.window_days || 7;
+    const sources = meta.sources || [];
+    const okRows = sources.filter(function (row) { return row.ok; });
+    const badRows = sources.filter(function (row) { return !row.ok && row.error; });
+    XC.$('cnmedia-note').innerHTML = '近 ' + XC.fmtInt(days) + ' 日 · 命中 ' +
+      XC.fmtInt(game.cn_media_count || 0) + ' 条' +
+      (okRows.length ? ' · 源：' + esc(okRows.map(function (row) {
+        return row.label + ' ' + XC.fmtInt(row.items) + ' 条';
+      }).join(' · ')) : '') +
+      (badRows.length ? ' · ' + esc(badRows.map(function (row) {
+        return row.label + ' 抓取失败（' + (row.error || '未知') + '）';
+      }).join('；')) : '');
+    if (!titles.length) {
+      XC.$('cnmedia-body').innerHTML = '<li><span class="cell-sub">近 ' + XC.fmtInt(days) +
+        ' 日游戏茶馆 / 触乐未提及这款游戏（该面板仅作参考，不影响评分）。</span></li>';
+      return;
+    }
+    XC.$('cnmedia-body').innerHTML = titles.map(function (item) {
+      return '<li><span class="kv-key">' + esc(item.label || item.source) + '</span>' +
+        '<span class="kv-val"><a href="' + esc(safeUrl(item.url)) + '" target="_blank" rel="noopener">' +
+        esc(item.title) + '</a> <span class="cell-sub">' + esc(item.published || '') +
+        (item.hit ? ' · 命中「' + esc(item.hit) + '」' : '') + '</span></span></li>';
+    }).join('');
+  }
+
   /* ---------- 关联关键词 ---------- */
 
   function renderKeywords(game) {
@@ -227,6 +261,7 @@
     renderSim(game);
     renderSignals(game);
     renderBase(game);
+    renderCnMedia(game);
     renderKeywords(game);
   }
 

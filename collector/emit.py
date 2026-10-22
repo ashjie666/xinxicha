@@ -95,6 +95,9 @@ def build_games(config, seed_games, scored, run_info):
             'overseas_supply': game.get('overseas_supply'),
             'keywords_count': result['keywords_count'],
             'last_update': run_info['date_cst'],
+            # 国内媒体提及：仅展示，不参与评分
+            'cn_media_count': (result.get('cn_media') or {}).get('count') or 0,
+            'cn_media_titles': (result.get('cn_media') or {}).get('titles') or [],
             'stale': not result['signals']['trends']['available'] or not result['signals']['reddit']['available'],
         })
         # 机会象限：水位 × 7d 变化，只用于展示与排序，不进总分
@@ -111,6 +114,7 @@ def build_games(config, seed_games, scored, run_info):
         }),
         'field_dict': seed_games['field_dict'],
         'signal_notes': seed_games.get('signal_notes', []),
+        'cn_media': run_info.get('cn_media') or {},
         'games': games,
     }
 
