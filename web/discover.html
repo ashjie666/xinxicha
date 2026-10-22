@@ -80,7 +80,7 @@
   <section class="panel table-panel" aria-label="候选清单">
     <div class="panel-head">
       <h2 class="panel-title">新游候选清单</h2>
-      <span class="panel-note" id="cand-note">候选只提示、不入库、不参与评分；点「加入监控」生成可直接粘贴的基线条目，人工确认后才写进 <code>data/seed_games.json</code>。标题须命中「目标词」，且命中「游戏类词」或「上线词」才会留下；「命中依据」按「目标词 + 游戏类词 + 上线词」三段展示</span>
+      <span class="panel-note" id="cand-note">候选只提示、不入库、不参与评分；点「加入监控」生成可直接粘贴的基线条目，人工确认后才写进 <code>data/seed_games.json</code>。标题须命中「目标词」，且必须命中档期词（上线 / 发售 / 出售 / 开售 / 定档 / 开服 / 公测 / 内测 / 首测 / 上线日期 / 发售日 / 定档日期）才会展示；「命中依据」按「目标词 + 游戏类词 + 档期词」三段展示</span>
     </div>
     <div class="table-scroll">
       <table class="cmp-table table-compact">
@@ -136,11 +136,10 @@
     <p>
       「新游候选发现层」由 <code>collector/discover.py</code> 每日巡检时顺带抓取：复用 Bing News RSS（免凭据、stdlib 可解析），
       按 15 个「厂商名 + 品类词」检索，先过滤掉已在监控的 20 款，再做相关性过滤——标题必须同时命中该目标的「目标词」
-      （<code>config.json</code> 的 <code>targets[].match</code>，厂商名与常用英文名 / 品类分词），且命中「游戏类词」
-      （<code>config.json</code> 的 <code>discovery.relevance.game_terms</code>）或「上线词」
-      （<code>discovery.relevance.launch_terms</code>，如 上线 / 发售 / 定档 / launch / release），
-      目标词缺失、或游戏类词与上线词都未命中即丢弃，
-      避免「景区上新」「文化旅游节」这类无关结果混进候选；最后按发布时间倒序取前若干条。
+      （<code>config.json</code> 的 <code>targets[].match</code>，厂商名与常用英文名 / 品类分词）与「档期词」
+      （<code>discovery.relevance.launch_terms</code>：上线 / 发售 / 出售 / 开售 / 定档 / 开服 / 公测 / 内测 / 首测 /
+      上线日期 / 发售日 / 定档日期 + 英文等价词），任一未命中即丢弃，
+      避免「景区上新」「文化旅游节」这类无关结果混进候选，也避免只讲评测 / PV 但没提档期的消息占位；最后按发布时间倒序取前若干条。
       候选只作提示用途，<strong>不入库、不参与评分</strong>——确认有价值后由人工加入 <code>data/seed_games.json</code> 才进入正式监控与评分。
     </p>
     <p class="footer-meta" id="footer-meta"></p>
@@ -199,6 +198,6 @@
 
 <script src="data/discover.js"></script>
 <script src="core.js?v=3"></script>
-<script src="discover.js?v=9"></script>
+<script src="discover.js?v=10"></script>
 </body>
 </html>

@@ -162,13 +162,15 @@ def target_terms(target):
 
 
 def relevance(title, terms, game_terms, launch_terms=None):
-    """返回 (命中的目标词, 命中的游戏类词, 命中的上线词)
+    """返回 (命中的目标词, 命中的游戏类词, 命中的档期词)
 
-    目标词为空即判定为无关；游戏类词与上线词只要命中其一就保留——「上线 / 发售 /
-    定档」这类标题即使不含「新游 / 游戏」等词，也是明确的新品信号，单独判为无效会漏掉
-    最有价值的档期消息。上线词单独返回是为了在页面「命中依据」里单独展示一格。
-    游戏类词里排除掉本 target 自己的 match 词：品类目标的 match 本身就是领域词
-    （休闲 / 塔防 / SLG），不去掉的话「休闲」一个词就同时凑满两个命中，过滤失效。
+    保留条件（2026-10-22 起）：同时命中「目标词」与「档期词」。
+    档期词（上线 / 发售 / 出售 / 开售 / 定档 / 开服 / 公测 / 内测 / 首测 / 上线日期 /
+    发售日 / 定档日期 + 英文等价词）是**必要条件**——本层只收「新品上线」消息，
+    只有新游评测、PV、玩法介绍了但未提档期的标题一律不展示。
+    游戏类词不再参与放行，只用于页面「命中依据」的第二段补充说明。
+    游戏词里排除掉本 target 自己的 match 词：品类目标的 match 本身就是领域词
+    （休闲 / 塔防 / SLG），不去掉的话「休闲」一个词就能凑出一个假命中。
     """
     low = (title or '').lower()
     own = set((term or '').strip().lower() for term in terms)
@@ -247,7 +249,7 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
                 if not hit_target:
                     row['dropped_target'] += 1
                     continue
-                if not hit_theme and not hit_launch:
+                if not hit_launch:
                     row['dropped_theme'] += 1
                     continue
             # 不能去掉 query 再当去重键：Bing News RSS 把所有链接都包成同一条
@@ -348,7 +350,7 @@ def main(argv):
             row['hits'], row['dropped_target'] + row['dropped_theme'], row['new'],
             'OK' if row['ok'] else (row['error'] or '失败')))
     counts = payload['meta']['counts']
-    print('\n候选合计 {} 条（截断:{}）· 目标 OK {}/{} · 已监控 {} 款已过滤 · 相关性剔除 {} 条（未命中目标词 {} / 未命中游戏类词或上线词 {}）'.format(
+    print('\n候选合计 {} 条（截断:{}）· 目标 OK {}/{} · 已监控 {} 款已过滤 · 相关性剔除 {} 条（未命中目标词 {} / 未命中档期词 {}）'.format(
         counts['candidates'], '是' if payload['truncated'] else '否',
         counts['targets_ok'], counts['targets'], counts['known_games'],
         counts['dropped_total'], counts['dropped_target'], counts['dropped_theme']))

@@ -51,7 +51,7 @@
 
     const candNote = XC.$('cand-note');
     if (candNote && rel.enabled) {
-      candNote.innerHTML += ' · 相关性过滤已启用（目标词 + ' + XC.fmtInt((rel.game_terms || []).length) + ' 个游戏类词）';
+      candNote.innerHTML += ' · 相关性过滤已启用（目标词 + ' + XC.fmtInt((rel.launch_terms || []).length) + ' 个档期词，未命中档期词不展示）';
     }
   }
 
