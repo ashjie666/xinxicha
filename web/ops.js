@@ -13,10 +13,6 @@
     trends_7d: 'Google Trends 7 日变化率（%）',
     reddit_daily: 'Reddit 过去 24 小时新帖数（条）',
     x_official: 'Bing News 命中新闻条数（条）',
-    launch_window_days: '距海外上线天数',
-  };
-  const DICT_LABELS = {
-    launch_window_fallback: { live: '已上线或当日上线', unknown: '未公布档期' },
   };
 
   function esc(text) { return XC.escapeHtml(text); }
@@ -65,12 +61,17 @@
         items.push(kv(BAND_CAPTIONS[key], bandText(triple[0], triple[1], triple[2])));
       });
     });
-    Object.keys(DICT_LABELS).forEach(function (key) {
-      const labels = DICT_LABELS[key];
-      Object.keys(bands[key] || {}).forEach(function (name) {
-        items.push(kv(labels[name] || name, XC.fmtInt(bands[key][name]) + ' 分'));
-      });
-    });
+    const points = bands.launch_window_points || [];
+    if (points.length) {
+      const segments = points.map(function (point) {
+        const day = point[0];
+        return (day < 0 ? '上线后 ' + (-day) + ' 天' : '距上线 ' + day + ' 天') + ' → ' + XC.fmtInt(point[1]) + ' 分';
+      }).join('；');
+      items.push(kv('上线窗口近（折线插值）', segments +
+        '；更早固定 ' + XC.fmtInt(points[0][1]) + ' 分，低于最低点固定 ' +
+        XC.fmtInt(bands.launch_window_after_min || 0) + ' 分，相邻点之间按天数线性插值；未公布档期 ' +
+        XC.fmtInt((bands.launch_window_fallback || {}).unknown || 0) + ' 分'));
+    }
     items.push(kv('海外供给缺口', '缺口分 = 10 - 海外供给量（或人工缺口等级映射：高 9 / 中 6 / 低 2）；得分 = (缺口分 - 5) / 4 × 100，区间裁剪到 0-100'));
     items.push(kv('国内攻略成熟度', '得分 = (国内成熟度 - 1) / 4 × 100（1-5 分制线性映射）'));
     items.push(kv('缺失源处理', '源不可用且无历史值 → 记 0 分，不重分配权重；有历史值 → 沿用上次有效值并标 stale'));

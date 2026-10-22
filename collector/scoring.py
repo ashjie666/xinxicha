@@ -63,19 +63,30 @@ def supply_gap_score(game, config):
 
 
 def launch_window_score(game, today, config):
+    """上线窗口：80 天为关键词占位峰值，越临近上线递减，上线 60 天后最低。
+
+    规格表原档位是「7 天内 100 / 30 天内 70 / 90 天内 40」，语义是越靠近上线
+    越值钱；但关键词占位要提前做，上线前一周才准备已经抢不过内容站。故改为
+    分段线性插值（config.scoring.bands.launch_window_points，按天数降序）：
+      距上线 180 天 30 分 → 80 天 100 分（峰值）→ 30 天 70 → 当日 45
+      → 上线后 60 天 10 → 再往后固定 launch_window_after_min（0）
+    已上线款不再走「live 固定 20 分」的兜底，一律按折线算；只有未公布档期的
+    才用 launch_window_fallback.unknown。
+    """
     days = days_until(game.get('launch_date'), today)
     if days is None:
-        return config['scoring']['bands']['launch_window_fallback']['unknown'], None
-    if days <= 0:
-        return config['scoring']['bands']['launch_window_fallback']['live'], days
-    score = 0
-    for limit, value in config['scoring']['bands']['launch_window_days']:
-        if days <= limit:
-            score = value
-            break
-    if score == 0 and days > config['scoring']['bands']['launch_window_days'][-1][0]:
-        score = config['scoring']['bands']['launch_window_days'][-1][1]
-    return score, days
+        return float(config['scoring']['bands']['launch_window_fallback']['unknown']), None
+    points = config['scoring']['bands']['launch_window_points']
+    after_min = float(config['scoring']['bands'].get('launch_window_after_min', 0))
+    if days >= points[0][0]:
+        return float(points[0][1]), days
+    for index in range(len(points) - 1):
+        day_high, score_high = points[index]
+        day_low, score_low = points[index + 1]
+        if day_low <= days <= day_high:
+            ratio = (days - day_low) / float(day_high - day_low)
+            return round(score_low + ratio * (score_high - score_low), 1), days
+    return after_min, days
 
 
 def component_rows(game, signals, config, today):
@@ -248,7 +259,7 @@ def weights_table(config):
         'x_official': '上线/测试/维护/版本更新等官方信号',
         'supply_gap': '英文攻略站少=竞争小=有机会窗口',
         'cn_maturity': '国内已有结构化攻略=可转化为英文内容的素材多',
-        'launch_window': '7 天内上线加分最高，30 天内次之，长期埋伏最低',
+        'launch_window': '提前 80 天是关键词占位峰值（100 分），越临近上线竞争越饱和、逐段递减，上线 60 天后归零',
     }
     rows = []
     for key, label in labels.items():
