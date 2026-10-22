@@ -29,6 +29,9 @@ on:
     paths:
       - 'collector/**'
       - 'config.json'
+      - 'data/seed_games.json'
+      - 'data/seed_keywords.json'
+      - 'data/seed_ops.json'
       - '.github/workflows/update.yml'
       # 页面与样式的静态源文件（不含 web/data/** —— 那是 collect 生成的产物）。
       # 改版必须能立即上线，不能只等每日 09:07 的 cron 轮次；只匹配源文件，
