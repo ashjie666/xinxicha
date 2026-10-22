@@ -284,7 +284,12 @@ code { font-family: var(--font-mono); font-size: 0.92em; color: var(--text-dim);
 
 .table-scroll {
   overflow-x: auto;
-  overflow-y: visible;
+  /* 显式纵向滚动：sticky 表头只在「最近的可滚动祖先」内吸附，
+     若这里不形成纵向滚动容器，表头会随页面一起滚走，
+     横向滚动（首列冻结）也会因参照系不对而失效 */
+  overflow-y: auto;
+  /* 限高后表头与首列在容器内固定，长表不必把整页撑开 */
+  max-height: 68vh;
   /* 让横向滚动条常驻，避免用户忽略右侧还有列 */
   scrollbar-color: var(--border-strong) transparent;
 }
@@ -366,8 +371,10 @@ code { font-family: var(--font-mono); font-size: 0.92em; color: var(--text-dim);
 .th-btn[data-dir="asc"]::after { content: "↑"; color: var(--brand); }
 .th-btn[data-dir="desc"]::after { content: "↓"; color: var(--brand); }
 
-/* 首列冻结 */
+/* 首列冻结：横向滚动时「游戏 / 数据源」列始终贴左；
+   表头首列要盖住同层的分组表头，层级比普通 th 高一级 */
 .cmp-table .col-first { position: sticky; left: 0; z-index: 3; background: var(--panel-2); }
+.cmp-table thead .col-first { z-index: 4; }
 
 /* 隔行变色：颜色挂在行级变量上，冻结列与普通单元格共用同一底色，
    排序/筛选后 nth-child 会跟着重排，不需要动 JS */
@@ -614,7 +621,7 @@ tr.row-changed td.col-first { box-shadow: inset 3px 0 0 var(--brand); }
 @media (max-width: 860px) {
   .shell { padding: 12px; }
   .table-panel { overflow: visible; }
-  .table-scroll { overflow-x: visible; }
+  .table-scroll { overflow-x: visible; overflow-y: visible; max-height: none; }
 
   .cmp-table { min-width: 0; display: block; }
   .cmp-table thead { display: none; }
