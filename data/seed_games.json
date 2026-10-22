@@ -664,6 +664,30 @@
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "低",
       "last_update": "2026-10-20"
+    },
+    {
+      "id": "renjian-yixiang",
+      "seq": 22,
+      "name_cn": "人间异想计划",
+      "name_en": "Renjian Yixiang",
+      "publisher": "网易",
+      "type": "手游",
+      "status": "未上线",
+      "cn_status": "未知",
+      "launch_date_raw": "未公布",
+      "launch_date": null,
+      "cn_guide_score": 1,
+      "gap_level": "中",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "待人工评估（信号未积累）",
+      "priority": "P1",
+      "note": "候选来源：网易｜前网易制作人领衔：腾讯开放世界新作押宝“癫味赛道”？｜2026-10-21 22:21｜http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ad96f5e644f499795bcfc7238471e7c&url=https%3a%2f%2fnews.qq.com%2frain%2fa%2f20261021A0DS2N00&c=16995048452798686844&mkt=en-us\n需人工补：国内攻略成熟度 / 海外供给缺口 / 上线档期",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-22"
     }
   ],
   "signal_notes": [
