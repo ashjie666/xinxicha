@@ -161,7 +161,7 @@ def target_terms(target):
     return [part for part in re.split(r'[\s/、]+', target.get('category') or '') if part]
 
 
-def relevance(title, terms, game_terms, launch_terms=None):
+def relevance(title, terms, game_terms, launch_terms=None, context_guards=None):
     """返回 (命中的目标词, 命中的游戏类词, 命中的档期词)
 
     保留条件（2026-10-22 起）：同时命中「目标词」与「档期词」。
@@ -171,14 +171,26 @@ def relevance(title, terms, game_terms, launch_terms=None):
     游戏类词不再参与放行，只用于页面「命中依据」的第二段补充说明。
     游戏词里排除掉本 target 自己的 match 词：品类目标的 match 本身就是领域词
     （休闲 / 塔防 / SLG），不去掉的话「休闲」一个词就能凑出一个假命中。
+
+    context_guards（2026-10-23 加）：个别档期词需要上下文才能算数。目前只有「出售」——
+    它更多指公司 / 资产交易（如「从沐瞳出售到…」），标题里还必须出现开售 / 发售 /
+    上线 / 定档 等真正的发行动词才认，否则跳到下一个档期词。
     """
     low = (title or '').lower()
     own = set((term or '').strip().lower() for term in terms)
     hit_target = next((term for term in terms if term_hits(low, term)), '')
     hit_theme = next((term for term in game_terms
                       if (term or '').strip().lower() not in own and term_hits(low, term)), '')
-    hit_launch = next((term for term in (launch_terms or [])
-                       if (term or '').strip().lower() not in own and term_hits(low, term)), '')
+    hit_launch = ''
+    for term in (launch_terms or []):
+        key = (term or '').strip().lower()
+        if not key or key in own or not term_hits(low, term):
+            continue
+        guard = (context_guards or {}).get(key)
+        if guard and not any(term_hits(low, ctx) for ctx in guard):
+            continue
+        hit_launch = term
+        break
     return hit_target, hit_theme, hit_launch
 
 
@@ -188,6 +200,8 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
     relevance_cfg = cfg.get('relevance') or {}
     game_terms = [term for term in (relevance_cfg.get('game_terms') or []) if term]
     launch_terms = [term for term in (relevance_cfg.get('launch_terms') or []) if term]
+    exclude_terms = [term for term in (relevance_cfg.get('exclude_terms') or []) if term]
+    context_guards = relevance_cfg.get('context_guards') or {}
     relevance_on = bool(relevance_cfg.get('enabled', True)) and bool(game_terms or launch_terms)
     targets = list(cfg.get('targets') or [])
     if limit and limit > 0:
@@ -220,6 +234,7 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
             'dropped_target': 0,
             'dropped_theme': 0,
             'dropped_old': 0,
+            'dropped_extra': 0,
             'new': 0,
             'error': None,
         }
@@ -250,10 +265,16 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
             if cutoff_ts and item.get('ts') and item['ts'] < cutoff_ts:
                 row['dropped_old'] += 1
                 continue
+            # exclude_terms 一票否决：资料片 / 扩展包 / DLC / 赛季 / 联动 / 版本更新
+            # 都是既有游戏的更新，不该占「新游候选」的位置。
+            title_low = item['title'].lower()
+            if exclude_terms and any(term_hits(title_low, term) for term in exclude_terms):
+                row['dropped_extra'] += 1
+                continue
             hit_target = hit_theme = hit_launch = ''
             if relevance_on:
                 hit_target, hit_theme, hit_launch = relevance(
-                    item['title'], terms, game_terms, launch_terms)
+                    item['title'], terms, game_terms, launch_terms, context_guards)
                 if not hit_target:
                     row['dropped_target'] += 1
                     continue
@@ -304,9 +325,11 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
         'dropped_target': sum(row['dropped_target'] for row in target_rows),
         'dropped_theme': sum(row['dropped_theme'] for row in target_rows),
         'dropped_old': sum(row['dropped_old'] for row in target_rows),
+        'dropped_extra': sum(row['dropped_extra'] for row in target_rows),
         'max_age_days': max_age_days,
     }
-    counts['dropped_total'] = counts['dropped_target'] + counts['dropped_theme'] + counts['dropped_old']
+    counts['dropped_total'] = (counts['dropped_target'] + counts['dropped_theme'] +
+                               counts['dropped_old'] + counts['dropped_extra'])
     return {
         'meta': emit.build_meta(config, run_info, counts),
         'note': cfg.get('note') or '',

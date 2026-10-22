@@ -34,7 +34,7 @@
     const failed = targets.filter(function (row) { return !row.ok; });
     const okCls = failed.length === 0 ? 'kpi-good' : (failed.length === targets.length ? 'kpi-bad' : 'kpi-warn');
     const candSub = (DATA.truncated ? '已按上限截断 · ' : '') + (rel.enabled
-      ? '剔除 ' + XC.fmtInt(counts.dropped_total || 0) + ' 条（目标/档期/过期）'
+      ? '剔除 ' + XC.fmtInt(counts.dropped_total || 0) + ' 条（目标/档期/过期/扩展）'
       : '已过滤已知 ' + XC.fmtInt(counts.known_games || 0) + ' 款');
 
     XC.$('kpi-grid').innerHTML = [
@@ -52,7 +52,7 @@
       targetNote.textContent = '当前 ' + XC.fmtInt(targets.length) + ' 个检索目标（厂商 ' +
         XC.fmtInt(publishers) + ' + 品类 ' + XC.fmtInt(targets.length - publishers) +
         '），逐个走 Bing News RSS；「新增」= 已知游戏过滤 + 相关性过滤后的去重候选数，「过滤丢弃」= 未命中目标词 / 未命中档期词 / 超过 ' +
-        XC.fmtInt(counts.max_age_days || 0) + ' 天的旧闻';
+        XC.fmtInt(counts.max_age_days || 0) + ' 天的旧闻 / 命中扩展内容词（资料片、DLC 等）';
     }
     if (XC.$('footer-target-count')) XC.$('footer-target-count').textContent = XC.fmtInt(targets.length);
     if (XC.$('footer-known-count')) XC.$('footer-known-count').textContent = XC.fmtInt(counts.known_games);
@@ -335,7 +335,8 @@
         '<td><span class="cell-sub">' + esc(row.category || '—') + '</span></td>' +
         '<td><span class="cell-title">' + esc(row.query || '—') + '</span></td>' +
         '<td>' + XC.fmtInt(row.hits) + '</td>' +
-        '<td>' + XC.fmtInt(row.dropped_target) + ' / ' + XC.fmtInt(row.dropped_theme) + ' / ' + XC.fmtInt(row.dropped_old) + '</td>' +
+        '<td>' + XC.fmtInt(row.dropped_target) + ' / ' + XC.fmtInt(row.dropped_theme) + ' / ' +
+          XC.fmtInt(row.dropped_old) + ' / ' + XC.fmtInt(row.dropped_extra) + '</td>' +
         '<td>' + XC.fmtInt(row.new) + '</td>' +
         '<td>' + status + '</td>' +
         '</tr>';
