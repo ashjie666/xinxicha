@@ -150,7 +150,7 @@
   <form method="dialog" class="seed-form">
     <div class="seed-head">
       <h2 id="seed-title">加入监控 · 生成基线条目</h2>
-      <button class="icon-btn" value="cancel" aria-label="关闭">
+      <button class="icon-btn" value="cancel" formnovalidate aria-label="关闭">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path d="M6 6l12 12M18 6L6 18"></path>
         </svg>
@@ -159,8 +159,8 @@
     <p class="seed-hint">补全中英名并确认后，可「直接入库」写入 <code>data/seed_games.json</code>，提交会触发 CI 重新采集并重建看板；未配置入库接口时，也能复制条目手动粘贴。新游戏前 3 天按基础分计、不参与排名。</p>
     <p class="seed-source" id="seed-source"></p>
     <div class="seed-fields">
-      <label>中文名<input id="seed-name-cn" required placeholder="游戏中文名"></label>
-      <label>英文名<input id="seed-name-en" required placeholder="含空格可，如 Sword x Staff"></label>
+      <label>中文名<input id="seed-name-cn" placeholder="游戏中文名"></label>
+      <label>英文名<input id="seed-name-en" placeholder="含空格可，如 Sword x Staff"></label>
       <label>厂商<input id="seed-publisher"></label>
       <label>类型
         <select id="seed-type">
@@ -190,13 +190,13 @@
          href="https://github.com/ashjie666/xinxicha/edit/main/data/seed_games.json">打开 seed_games.json</a>
       <button type="button" class="text-btn" id="seed-download">下载片段</button>
       <button type="button" class="text-btn" id="seed-copy">复制 JSON</button>
-      <button class="text-btn" value="cancel">关闭</button>
+      <button class="text-btn" value="cancel" formnovalidate>关闭</button>
     </div>
   </form>
 </dialog>
 
 <script src="data/discover.js"></script>
 <script src="core.js?v=3"></script>
-<script src="discover.js?v=7"></script>
+<script src="discover.js?v=8"></script>
 </body>
 </html>
