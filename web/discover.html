@@ -114,7 +114,7 @@
             <th>品类</th>
             <th>查询词</th>
             <th>命中</th>
-            <th>过滤丢弃</th>
+            <th>过滤丢弃（目标/档期/过期）</th>
             <th>新增</th>
             <th>状态</th>
           </tr>
@@ -139,7 +139,8 @@
       （<code>config.json</code> 的 <code>targets[].match</code>，厂商名与常用英文名 / 品类分词）与「档期词」
       （<code>discovery.relevance.launch_terms</code>：上线 / 发售 / 出售 / 开售 / 定档 / 开服 / 公测 / 内测 / 首测 /
       上线日期 / 发售日 / 定档日期 + 英文等价词），任一未命中即丢弃，
-      避免「景区上新」「文化旅游节」这类无关结果混进候选，也避免只讲评测 / PV 但没提档期的消息占位；最后按发布时间倒序取前若干条。
+      避免「景区上新」「文化旅游节」这类无关结果混进候选，也避免只讲评测 / PV 但没提档期的消息占位；
+      同时只保留近 <span id="footer-age-days">90</span> 天发布的标题，超过上限的旧闻计入「过期」丢弃。最后按发布时间倒序取前若干条。
       候选只作提示用途，<strong>不入库、不参与评分</strong>——确认有价值后由人工加入 <code>data/seed_games.json</code> 才进入正式监控与评分。
     </p>
     <p class="footer-meta" id="footer-meta"></p>
@@ -198,6 +199,6 @@
 
 <script src="data/discover.js"></script>
 <script src="core.js?v=3"></script>
-<script src="discover.js?v=11"></script>
+<script src="discover.js?v=12"></script>
 </body>
 </html>

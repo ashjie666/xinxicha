@@ -197,6 +197,8 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
     names = known_names(seed_games)
     max_candidates = int(cfg.get('max_candidates') or 40)
     per_query_max = int(cfg.get('per_query_max') or 8)
+    max_age_days = int(cfg.get('max_age_days') or 0)
+    cutoff_ts = time.time() - max_age_days * 86400 if max_age_days > 0 else 0
     interval = float(cfg.get('request_interval_sec') or 0)
     budget = float(cfg.get('budget_seconds') or 0)
     can_fetch = bool(p2_network) and not offline
@@ -217,6 +219,7 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
             'hits': 0,
             'dropped_target': 0,
             'dropped_theme': 0,
+            'dropped_old': 0,
             'new': 0,
             'error': None,
         }
@@ -241,6 +244,11 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
         fresh = []
         for item in items:
             if not item['title'] or is_known(item['title'], names):
+                continue
+            # 发布时间上限：Bing 结果不足时会把一年前的文章排进来，旧闻不能当「新游候选」。
+            # ts=0（pubDate 缺失/解析失败）无法判断，保留并由页面显示「时间未知」。
+            if cutoff_ts and item.get('ts') and item['ts'] < cutoff_ts:
+                row['dropped_old'] += 1
                 continue
             hit_target = hit_theme = hit_launch = ''
             if relevance_on:
@@ -295,8 +303,10 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
         'known_games': len(seed_games.get('games', [])),
         'dropped_target': sum(row['dropped_target'] for row in target_rows),
         'dropped_theme': sum(row['dropped_theme'] for row in target_rows),
+        'dropped_old': sum(row['dropped_old'] for row in target_rows),
+        'max_age_days': max_age_days,
     }
-    counts['dropped_total'] = counts['dropped_target'] + counts['dropped_theme']
+    counts['dropped_total'] = counts['dropped_target'] + counts['dropped_theme'] + counts['dropped_old']
     return {
         'meta': emit.build_meta(config, run_info, counts),
         'note': cfg.get('note') or '',

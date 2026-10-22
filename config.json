@@ -82,9 +82,10 @@
   },
   "discovery": {
     "enabled": true,
-    "note": "新游候选发现层：复用 Bing News RSS（免凭据、stdlib 可解析），按已知厂商名与品类词检索。候选只提示、不入库、不参与评分；人工确认后才加入 data/seed_games.json。",
+    "note": "新游候选发现层：复用 Bing News RSS（免凭据、stdlib 可解析），按已知厂商名与品类词检索，只保留近 90 天（max_age_days）发布的标题——Bing 在结果不足时会把一年前的文章排进来，不设上限会让旧闻长期占位。候选只提示、不入库、不参与评分；人工确认后才加入 data/seed_games.json。",
     "max_candidates": 40,
     "per_query_max": 8,
+    "max_age_days": 90,
     "request_interval_sec": 1,
     "budget_seconds": 180,
     "relevance": {
