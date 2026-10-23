@@ -856,6 +856,30 @@
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "低",
       "last_update": "2026-10-22"
+    },
+    {
+      "id": "aniimo",
+      "seq": 30,
+      "name_cn": "伊莫",
+      "name_en": "Aniimo",
+      "publisher": "米哈游",
+      "type": "手游",
+      "status": "未上线",
+      "cn_status": "未知",
+      "launch_date_raw": "未公布",
+      "launch_date": null,
+      "cn_guide_score": 1,
+      "gap_level": "中",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "待人工评估（信号未积累）",
+      "priority": "P1",
+      "note": "候选来源：趣加 FunPlus｜FunPlus《伊莫》全球同步开服，米哈游新作发布预告！｜2026-09-24 08:08｜http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ada43390b194fd9b11d7ec7d70924d0&url=https%3a%2f%2fm.sohu.com%2fa%2f1080206921_122004016&c=15403086876617453334&mkt=en-us\n需人工补：国内攻略成熟度 / 海外供给缺口 / 上线档期",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-10-23"
     }
   ],
   "signal_notes": [
