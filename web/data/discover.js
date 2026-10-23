@@ -4,13 +4,13 @@ window.XC_DISCOVER = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-23 13:45:21",
+    "generated_at_cst": "2026-10-23 19:23:10",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 914.6,
+    "duration_sec": 1157.4,
     "counts": {
       "candidates": 0,
       "targets": 37,
@@ -127,37 +127,37 @@ window.XC_DISCOVER = {
     {
       "id": "roco-kingdom-world",
       "name_cn": "洛克王国：世界",
-      "name_en": "Roco Kingdom World",
+      "name_en": "Roco Kingdom: World",
       "seq": 3
     },
     {
       "id": "star-valley",
       "name_cn": "星布谷地",
-      "name_en": "Star Valley",
+      "name_en": "Petit Planet",
       "seq": 4
     },
     {
       "id": "project-origin",
       "name_cn": "源初之结",
-      "name_en": "Project Origin",
+      "name_en": "NODUSFALL",
       "seq": 5
     },
     {
       "id": "project-mugen-neverness",
       "name_cn": "无限大",
-      "name_en": "Project Mugen / Neverness",
+      "name_en": "ANANTA",
       "seq": 6
     },
     {
       "id": "naruto-mobile-global",
       "name_cn": "火影忍者手游",
-      "name_en": "Naruto Mobile Global",
+      "name_en": "Naruto Mobile",
       "seq": 7
     },
     {
       "id": "the-outcast",
       "name_cn": "异人之下",
-      "name_en": "The Outcast",
+      "name_en": "The Hidden Ones",
       "seq": 8
     },
     {
@@ -283,7 +283,7 @@ window.XC_DISCOVER = {
     {
       "id": "renjian-yixiang",
       "name_cn": "人间异想计划",
-      "name_en": "Renjian Yixiang",
+      "name_en": "Ordinary Oddness",
       "seq": 29
     },
     {
