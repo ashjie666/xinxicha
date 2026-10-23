@@ -4,24 +4,24 @@ window.XC_DISCOVER = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-23 10:04:54",
+    "generated_at_cst": "2026-10-23 10:23:12",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 1488.2,
+    "duration_sec": 915.7,
     "counts": {
-      "candidates": 1,
+      "candidates": 0,
       "targets": 37,
       "targets_ok": 37,
-      "known_games": 29,
-      "dropped_target": 280,
-      "dropped_theme": 83,
+      "known_games": 30,
+      "dropped_target": 279,
+      "dropped_theme": 81,
       "dropped_old": 5,
       "dropped_extra": 6,
       "max_age_days": 90,
-      "dropped_total": 374
+      "dropped_total": 371
     },
     "trends_anchor": {
       "enabled": true,
@@ -110,7 +110,7 @@ window.XC_DISCOVER = {
     ]
   },
   "truncated": false,
-  "next_seq": 30,
+  "next_seq": 31,
   "known_games": [
     {
       "id": "monster-hunter-outlanders",
@@ -256,6 +256,11 @@ window.XC_DISCOVER = {
       "id": "renjian-yixiang",
       "name_cn": "人间异想计划",
       "name_en": "Renjian Yixiang"
+    },
+    {
+      "id": "aniimo",
+      "name_cn": "伊莫",
+      "name_en": "Aniimo"
     }
   ],
   "targets": [
@@ -463,10 +468,10 @@ window.XC_DISCOVER = {
       "ok": true,
       "hits": 10,
       "dropped_target": 3,
-      "dropped_theme": 4,
+      "dropped_theme": 2,
       "dropped_old": 0,
       "dropped_extra": 0,
-      "new": 1,
+      "new": 0,
       "error": null
     },
     {
@@ -504,7 +509,7 @@ window.XC_DISCOVER = {
       "query": "IM30 游戏 上线",
       "ok": true,
       "hits": 10,
-      "dropped_target": 10,
+      "dropped_target": 9,
       "dropped_theme": 0,
       "dropped_old": 0,
       "dropped_extra": 0,
@@ -778,20 +783,5 @@ window.XC_DISCOVER = {
       "error": null
     }
   ],
-  "candidates": [
-    {
-      "title": "FunPlus《伊莫》全球同步开服，米哈游新作发布预告！",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ada43390b194fd9b11d7ec7d70924d0&url=https%3a%2f%2fm.sohu.com%2fa%2f1080206921_122004016&c=15403086876617453334&mkt=en-us",
-      "published": "2026-09-24 08:08",
-      "pub_raw": "Thu, 24 Sep 2026 00:08:00 GMT",
-      "summary": "2026年9月23日，国产多人在线大世界捉宠RPG（角色扮演游戏）《伊莫》（Aniimo）在全球范围内正式开服，涵盖了iOS、Android及鸿蒙平台。与此同时，米哈游的全新动作共斗游戏《源初之结（Nodus Fall ...",
-      "target": "趣加 FunPlus",
-      "kind": "publisher",
-      "category": "SLG / 生存策略",
-      "query": "FunPlus 新游 SLG",
-      "hit_target": "FunPlus",
-      "hit_theme": "新作",
-      "hit_launch": "开服"
-    }
-  ]
+  "candidates": []
 };
