@@ -149,6 +149,14 @@
 
   /* ---------- 基础信息 ---------- */
 
+  function guidePosts(game) {
+    if (!num(game.guide_posts)) return '—';
+    const posts = game.guide_saturated ? XC.fmtInt(game.guide_posts) + '+' : XC.fmtInt(game.guide_posts);
+    const hits = num(game.guide_hits) ? '，其中攻略词 ' + XC.fmtInt(game.guide_hits) + ' 帖' : '';
+    return posts + ' 帖（标题含游戏名）' + hits + ' · ' +
+      (game.guide_supply_kind === 'cached' ? '周缓存' : '本周采集');
+  }
+
   function renderBase(game) {
     const items = [
       kv('厂商 / 发行商', game.publisher),
@@ -158,7 +166,8 @@
       kv('距上线天数', num(game.launch_days) ? XC.fmtInt(game.launch_days) + ' 天' : '—'),
       kv('国内攻略成熟度', num(game.cn_guide_score) ? XC.fmtInt(game.cn_guide_score) + ' / 5' : '—'),
       kv('海外供给缺口等级', game.gap_level),
-      kv('海外攻略供给量', num(game.overseas_supply) ? XC.fmt(game.overseas_supply, 1) : '未采集（用人工缺口等级映射）'),
+      kv('海外攻略供给量', num(game.overseas_supply) ? XC.fmt(game.overseas_supply, 1) + ' / 10' : '未采集（用人工缺口等级映射）'),
+      kv('Reddit 社区帖（近一年）', guidePosts(game)),
       kv('信号来源说明', game.signal_source),
       kv('排序状态', game.ranking_note),
       kv('已跟踪天数', XC.fmtInt(game.days_tracked) + ' 天'),

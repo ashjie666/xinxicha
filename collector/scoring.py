@@ -191,15 +191,15 @@ def component_rows(game, signals, config, today):
     # 3) X 官方公告 15%
     p1_row('x_official', 'X 官方公告', 'x_twitter', 'x_official', 'Fallback: RSS/官网')
 
-    # 4) 海外供给不足 15%
+    # 4) 海外供给不足 20%
     score, gap = supply_gap_score(game, config)
     if score is None:
-        make('supply_gap', '海外供给不足', 0, None, 'P2 搜索/官网', 'Fallback: 人工基线', True, '缺口未知')
+        make('supply_gap', '海外供给不足', 0, None, 'Reddit 社区帖', 'Fallback: 人工基线', True, '缺口未知')
     else:
-        origin = 'P2 搜索/官网（自动）' if game.get('overseas_supply') is not None else '人工基线（缺口评估 {}）'.format(game.get('gap_level'))
+        origin = 'Reddit 社区帖（自动·近一年）' if game.get('overseas_supply') is not None else '人工基线（缺口评估 {}）'.format(game.get('gap_level'))
         make('supply_gap', '海外供给不足', score, gap, origin, 'P3 兜底', False)
 
-    # 5) 国内攻略成熟度 10%
+    # 5) 国内攻略成熟度 15%
     cn_score = game.get('cn_guide_score')
     if cn_score is None:
         make('cn_maturity', '国内攻略成熟度', 0, None, 'TapTap/B站/NGA', 'P3 兜底', True, '未评估')
@@ -207,7 +207,7 @@ def component_rows(game, signals, config, today):
         make('cn_maturity', '国内攻略成熟度', clamp((float(cn_score) - 1) / 4.0 * 100), cn_score,
              'TapTap/B站/NGA 人工评估', 'P3 兜底', False)
 
-    # 6) 上线窗口近 10%
+    # 6) 上线窗口 15%
     score, days = launch_window_score(game, today, config)
     note = '无确定档期' if days is None else ('距上线 {} 天'.format(days) if days > 0 else '已上线')
     make('launch_window', '上线窗口近', score, days, '官网/游戏日历', 'P3 兜底', False, note)

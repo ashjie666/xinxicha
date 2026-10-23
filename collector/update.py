@@ -20,6 +20,7 @@ import traceback
 from . import cn_media
 from . import discover
 from . import emit
+from . import guides as guides_mod
 from . import http
 from . import scoring
 from . import sources
@@ -110,12 +111,20 @@ def main(argv):
     for keyword in seed_keywords['keywords']:
         keyword_counts[keyword.get('game_cn')] = keyword_counts.get(keyword.get('game_cn'), 0) + 1
 
+    # 海外攻略供给（Reddit 攻略贴计数 → overseas_supply 0–10）：周更，独立预算。
+    # 取到自动值就覆盖人工 gap_level；取不到（无缓存/过期）时保持 None，scoring 自动回退人工档位。
+    guides_result = guides_mod.collect(config, seed_games['games'], state,
+                                       offline=args.offline, no_cache=args.no_cache)
+
     scored = {}
     log_rows = []
     fresh_p1 = False
     # 批量预取 Trends（每批 trends_batch_size 款游戏词 + 冷/热锚点），请求数由 N 降到约 N/批
     collector.prefetch_trends(seed_games['games'])
     for game in seed_games['games']:
+        guide = (guides_result['games'] or {}).get(game['id']) or {}
+        if guide.get('supply') is not None:
+            game['overseas_supply'] = guide['supply']
         signals, log_row = collector.gather(game)
         for key in ('trends', 'reddit', 'x_twitter'):
             if signals[key]['available']:
@@ -130,6 +139,10 @@ def main(argv):
         result['scenarios'] = scoring.scenario_map(game, signals, config, today, game_days)
         result['prev_total'] = prev_totals.get(game['id'])
         result['delta'] = None if result['prev_total'] is None else round(result['total'] - result['prev_total'], 1)
+        result['guide_posts'] = guide.get('posts')
+        result['guide_hits'] = guide.get('guide_hits')
+        result['guide_saturated'] = guide.get('saturated')
+        result['guide_supply_kind'] = guide.get('kind')
         scored[game['id']] = result
         log_rows.append(log_row)
 
@@ -166,6 +179,13 @@ def main(argv):
             'sources': [{'key': row['key'], 'label': row['label'], 'ok': row['ok'],
                          'items': row['items'], 'matched': row['matched'],
                          'error': row['error']} for row in media['sources']],
+        },
+        'guides': {
+            'due': guides_result['due'],
+            'offline': bool(args.offline),
+            'collected': guides_result['collected'],
+            'failed': guides_result['failed'],
+            'skipped': guides_result['skipped'],
         },
     }
 
@@ -208,6 +228,12 @@ def main(argv):
     print('源调用   : {}'.format(', '.join(
         '{}={}/{}/{}'.format(key, bucket['ok'], bucket['failed'], bucket['skipped'])
         for key, bucket in collector.calls.items()) or '无'))
+    print('海外供给 : Reddit 社区帖 采集 {} 款 / 失败 {} 款 / 跳过 {} 款（{}）'.format(
+        run_info['guides']['collected'], run_info['guides']['failed'],
+        run_info['guides']['skipped'],
+        '离线跳过' if run_info['guides']['offline']
+        else ('本周采集' if run_info['guides']['collected'] or run_info['guides']['failed']
+              else '非当周，读款级缓存')))
     print('国内媒体 : {}'.format(' · '.join(
         ('{} 跳过（{}）'.format(row['label'], row['error']) if row.get('skipped') else
          '{} {} 条 / 命中 {}'.format(row['label'], row['items'], row['matched']) if row['ok']

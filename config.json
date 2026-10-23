@@ -73,6 +73,21 @@
       "p1_all_dead_alert": "今日海外信号不足，建议人工复核"
     }
   },
+  "guides": {
+    "note": "海外攻略供给：按 Reddit 搜「游戏名」的近一年攻略贴数（标题同时含游戏名与 guide/tips 等攻略词）折算 0–10 的 overseas_supply，供 supply_gap 分项使用；取不到时回退人工 gap_level。Reddit 对匿名 RSS 限流很紧，故每周只跑一次（every_days=7），非当周直接读 state 款级缓存（超过 max_stale_days 视为过期）。2026-10-23 实测：不加引号的查询会走宽松词匹配（搜《Monster Hunter Outlanders》混进舞蹈指南、求职贴甚至 2010 年旧帖），改成「游戏名」引号短语、并追加 guide 词收窄结果集（避免热门游戏撞 limit=100 截断）后噪音大幅下降。供给分按「标题同时含游戏名与攻略词的条数」折算，buckets 已按四款实测值域校准（Wuthering Waves 6 篇 · Phantom Blade Zero 2 篇 · Monster Hunter Outlanders 1 篇 · Renjian Yixiang 0 篇），与人工 gap_level 的低/中/高方向一致；社区帖总量另存 guide_posts 仅作展示（limit 打满按 100+ 计）。限流实测 30s 间隔仍会 429，故 interval_sec=60、retry_wait_sec=90、max_attempts=2、budget_seconds=3000（周更时约 30 分钟跑完，不挤占日更其他源的时间预算）。预算独立于 collection.budget_seconds，不挤占 P1 评分链路。注意：条数 0 会被判成「供给空白＝缺口最大」，对尚未公布海外发行、没有英文社区的游戏可能偏乐观，人工 gap_level 只在自动值缺失时才生效",
+    "enabled": true,
+    "every_days": 7,
+    "interval_sec": 60,
+    "retry_wait_sec": 90,
+    "max_attempts": 2,
+    "budget_seconds": 3000,
+    "window_days": 365,
+    "max_stale_days": 21,
+    "limit": 100,
+    "query_template": "\"{name}\" guide",
+    "terms": ["guide", "guides", "build", "builds", "tips", "trick", "walkthrough", "tutorial", "tier list", "how to", "攻略", "指南", "教学"],
+    "buckets": [[11, 10], [7, 8], [4, 6], [2, 4], [1, 2], [0, 0]]
+  },
   "trends_anchor": {
     "enabled": true,
     "low": "mobile game",
@@ -222,6 +237,16 @@
       "fallback": "手动检查",
       "enabled": true,
       "mode": "bing-news-rss（免凭据，复用 P2 新闻聚合抓取）"
+    },
+    {
+      "key": "reddit_guides",
+      "priority": "P2",
+      "label": "Reddit 攻略贴（近一年）",
+      "weight_key": "supply_gap",
+      "signal": "海外攻略供给量（自动）",
+      "fallback": "人工 gap_level 评估",
+      "enabled": true,
+      "mode": "reddit-rss 搜索（周更 + 款级缓存）"
     },
     {
       "key": "cn_media_youxichaguan",

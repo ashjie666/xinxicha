@@ -93,6 +93,10 @@ def build_games(config, seed_games, scored, run_info):
             'gap_score': _gap(game, config),
             'launch_days': result['launch_days'],
             'overseas_supply': game.get('overseas_supply'),
+            'guide_posts': result.get('guide_posts'),
+            'guide_hits': result.get('guide_hits'),
+            'guide_saturated': result.get('guide_saturated'),
+            'guide_supply_kind': result.get('guide_supply_kind'),
             'keywords_count': result['keywords_count'],
             'last_update': run_info['date_cst'],
             # 国内媒体提及：仅展示，不参与评分
@@ -141,9 +145,9 @@ def _attach_level_rank(games):
 
 
 def _gap(game, config):
-    if game.get('overseas_supply') is not None:
-        return round(10 - float(game['overseas_supply']), 2)
-    return config['scoring']['gap_level_to_gap_score'].get(game.get('gap_level'))
+    """缺口分与 scoring 保持单一口径：自动 supply 优先，缺失才回退人工 gap_level"""
+    gap = scoring.supply_gap_score(game, config)[1]
+    return None if gap is None else round(gap, 2)
 
 
 def build_keywords(config, seed_keywords, seed_games, run_info):
