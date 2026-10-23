@@ -82,13 +82,37 @@
       '<span class="cell-sub"> + </span>' + esc(record.hit_launch || '—');
   }
 
+  /* 入库成功后在本机记一笔，刷新或次日重抓同一候选时按钮直接显示「已入库」，避免重复推送。
+     只存在浏览器 localStorage，不上传；按「标题 + 发布时间」作为候选的唯一键。 */
+  const ADDED_KEY = 'xc_added_games';
+
+  function addedMap() {
+    try { return JSON.parse(localStorage.getItem(ADDED_KEY) || '{}') || {}; } catch (error) { return {}; }
+  }
+
+  function rowKey(record) {
+    return (record.title || '') + '|' + (record.published || '');
+  }
+
+  function markAdded(record, seq) {
+    const map = addedMap();
+    map[rowKey(record)] = { seq: seq === undefined ? null : seq, at: new Date().toISOString().slice(0, 10) };
+    try { localStorage.setItem(ADDED_KEY, JSON.stringify(map)); } catch (error) { /* 隐私模式忽略 */ }
+  }
+
   function renderCandidates() {
     const list = DATA.candidates || [];
+    const added = addedMap();
     XC.$('cand-empty').hidden = list.length > 0;
     XC.$('cand-body').innerHTML = list.map(function (record, index) {
       const link = record.url
         ? '<a href="' + esc(record.url) + '" target="_blank" rel="noopener">' + esc(record.title) + '</a>'
         : esc(record.title);
+      const marked = added[rowKey(record)];
+      const action = marked
+        ? '<button type="button" class="add-btn" disabled title="已于 ' + esc(marked.at || '') +
+          (marked.seq ? ' 入库，seq ' + esc(marked.seq) : ' 入库') + '">已入库</button>'
+        : '<button type="button" class="add-btn" data-index="' + index + '">加入监控</button>';
       return '<tr>' +
         '<td class="col-first"><span class="cell-sub">' + esc(record.published || '时间未知') + '</span></td>' +
         '<td>' + link + (record.summary ? '<div class="cell-sub">' + esc(record.summary) + '</div>' : '') + '</td>' +
@@ -96,7 +120,7 @@
         '<td>' + hitCell(record) + '</td>' +
         '<td><div class="cell-title">' + esc(record.query || '—') + '</div>' +
           '<div class="cell-sub">' + esc(record.target || '') + '</div></td>' +
-        '<td data-label="操作"><button type="button" class="add-btn" data-index="' + index + '">加入监控</button></td>' +
+        '<td data-label="操作">' + action + '</td>' +
         '</tr>';
     }).join('');
   }
@@ -225,6 +249,13 @@
     XC.$('seed-push-status').textContent = '';
     XC.$('seed-push').disabled = false;
     XC.$('seed-push').textContent = '直接入库';
+    const marked = addedMap()[rowKey(record)];
+    if (marked) {
+      XC.$('seed-push-status').textContent = '该候选已于 ' + (marked.at || '') + ' 入库' +
+        (marked.seq ? '（seq ' + marked.seq + '）' : '') + '，无需重复提交';
+      XC.$('seed-push').disabled = true;
+      XC.$('seed-push').textContent = '已入库';
+    }
     refreshSeed();
 
     const dialog = XC.$('seed-dialog');
@@ -293,6 +324,9 @@
       if (!response.ok) throw new Error(data.error || ('HTTP ' + response.status));
       status.textContent = '已入库（seq ' + data.seq + '）· CI 重建后进入监控名单';
       button.textContent = '已入库';
+      button.disabled = true;
+      markAdded(SEED_CTX ? SEED_CTX.record : {}, data.seq);
+      renderCandidates();
     } catch (error) {
       status.textContent = '入库失败：' + error.message + '（可改用复制方式）';
       button.disabled = false;

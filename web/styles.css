@@ -1018,7 +1018,8 @@ tr.row-changed td.col-first { box-shadow: inset 3px 0 0 var(--brand); }
   white-space: nowrap;
   cursor: pointer;
 }
-.add-btn:hover { color: var(--text); border-color: var(--brand-deep); }
+.add-btn:hover:not(:disabled) { color: var(--text); border-color: var(--brand-deep); }
+.add-btn:disabled { cursor: default; opacity: .55; }
 
 .seed-dialog {
   width: min(760px, calc(100vw - 32px));
