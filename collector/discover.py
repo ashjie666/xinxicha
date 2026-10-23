@@ -345,6 +345,7 @@ def build(config, seed_games, run_info, p2_network=True, offline=False, limit=0)
             'id': game['id'],
             'name_cn': game['name_cn'],
             'name_en': game.get('name_en') or '',
+            'seq': game.get('seq'),
         } for game in seed_games.get('games', [])],
         'targets': target_rows,
         'candidates': candidates,

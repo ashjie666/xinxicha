@@ -380,10 +380,19 @@
   /* ---------- 已在监控 ---------- */
 
   function renderKnown() {
-    const list = DATA.known_games || [];
-    XC.$('known-chips').innerHTML = list.map(function (game) {
-      return '<span class="chip chip-quiet">' + esc(game.name_cn) +
-        (game.name_en && game.name_en !== game.name_cn ? ' · ' + esc(game.name_en) : '') + '</span>';
+    /* seq = 入库顺序，倒序展示；序号最大的 3 款标「最近入库」 */
+    const list = (DATA.known_games || []).slice().sort(function (a, b) {
+      return (Number(b.seq) || 0) - (Number(a.seq) || 0);
+    });
+    const hasSeq = list.some(function (game) { return Number(game.seq) > 0; });
+    XC.$('known-chips').innerHTML = list.map(function (game, index) {
+      const recent = hasSeq && index < 3;
+      return '<span class="chip chip-quiet' + (recent ? ' is-new' : '') + '">' +
+        (recent ? '<span class="new-badge">最近入库</span>' : '') +
+        esc(game.name_cn) +
+        (game.name_en && game.name_en !== game.name_cn ? ' · ' + esc(game.name_en) : '') +
+        (hasSeq ? '<span class="seq-tag">#' + esc(game.seq) + '</span>' : '') +
+        '</span>';
     }).join('');
   }
 

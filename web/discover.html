@@ -13,7 +13,7 @@
   } catch (error) { /* 隐私模式下保持默认 */ }
 })();
 </script>
-<link rel="stylesheet" href="styles.css?v=9">
+<link rel="stylesheet" href="styles.css?v=10">
 </head>
 <body>
 
@@ -127,7 +127,7 @@
   <section class="panel" aria-label="已在监控">
     <div class="panel-head">
       <h2 class="panel-title">已在监控的游戏（已自动过滤）</h2>
-      <span class="panel-note">候选标题里出现以下任一款名称的条目已被丢弃，避免把已知游戏当成新机会</span>
+      <span class="panel-note">按入库顺序倒序（#seq 越大越新），前 3 款标「最近入库」；候选标题里出现以下任一款名称的条目已被丢弃</span>
     </div>
     <div class="chips" id="known-chips"></div>
   </section>
@@ -201,6 +201,6 @@
 
 <script src="data/discover.js"></script>
 <script src="core.js?v=3"></script>
-<script src="discover.js?v=14"></script>
+<script src="discover.js?v=15"></script>
 </body>
 </html>
