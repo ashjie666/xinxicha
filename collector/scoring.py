@@ -59,7 +59,10 @@ def supply_gap_score(game, config):
         gap = config['scoring']['gap_level_to_gap_score'].get(game['gap_level'])
     if gap is None:
         return None, None
-    return clamp((gap - 5) / 4.0 * 100), gap
+    # 2026-10-23 改为线性：缺口 gap(0–10) 直接 ×10 得 0–100。
+    # 旧式 (gap-5)/4*100 只在 gap>5 时非零，30 款实测有 15 款压在 0 分、
+    # 10 款压在 100 分，中间只剩 5 款，20% 权重的分项失去区分度。
+    return clamp(gap * 10), gap
 
 
 def launch_window_score(game, today, config):
