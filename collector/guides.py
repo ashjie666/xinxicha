@@ -18,6 +18,7 @@
 import email.utils
 import re
 import time
+import unicodedata
 import urllib.parse
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
@@ -26,20 +27,33 @@ from . import http
 from . import state as state_mod
 
 
-def _norm(text):
-    """归一化：小写 + 把标点换成空格 + 压缩空白
+def _fold(text):
+    """去音标：NFKD 分解后丢弃组合符，Flambé → Flambe
 
-    用于跨标点差异的短语匹配。2026-10-23 实测：《Honkai: Star Rail》带冒号，
+    2026-10-23 实测《Flambé: Merge & Cook》的官方名带重音，但 Reddit 标题常写成
+    Flambe，两边归一化后不相等，计数会恒为 0。查询串与标题匹配都先做同一层折叠。
+    """
+    text = unicodedata.normalize('NFKD', text or '')
+    return ''.join(ch for ch in text if not unicodedata.combining(ch))
+
+
+def _norm(text):
+    """归一化：小写 + 去音标 + 把标点换成空格 + 压缩空白
+
+    用于跨标点、跨重音差异的短语匹配。2026-10-23 实测：《Honkai: Star Rail》带冒号，
     直接拿去搜会把冒号当分隔符，返回 100 条却没一条标题含原名；标题里写的是
     「Honkai: Star Rail Progression Guide」，若按原串做子串匹配也永远命中不了。
     两边都归一化后再按词边界比对即可。
     """
-    return re.sub(r'[\W_]+', ' ', (text or '').lower(), flags=re.UNICODE).strip()
+    return re.sub(r'[\W_]+', ' ', _fold(text).lower(), flags=re.UNICODE).strip()
 
 
 def _query_name(name):
-    """查询用的名字：标点换空格、保留原大小写（Reddit 搜索不区分大小写）"""
-    return re.sub(r'[\W_]+', ' ', name or '').strip()
+    """查询用的名字：去音标、标点换空格、保留原大小写（Reddit 搜索不区分大小写）
+
+    折叠与 _norm 一致，避免「查询带重音、标题无重音」时在取源层就落空。
+    """
+    return re.sub(r'[\W_]+', ' ', _fold(name)).strip()
 
 
 def _parse_dt(text):
