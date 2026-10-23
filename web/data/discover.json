@@ -4,13 +4,13 @@
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-23 10:23:12",
-    "data_mode": "live",
+    "generated_at_cst": "2026-10-23 12:37:14",
+    "data_mode": "fallback",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 915.7,
+    "duration_sec": 1824.0,
     "counts": {
       "candidates": 0,
       "targets": 37,
@@ -115,152 +115,182 @@
     {
       "id": "monster-hunter-outlanders",
       "name_cn": "怪物猎人：旅人",
-      "name_en": "Monster Hunter Outlanders"
+      "name_en": "Monster Hunter Outlanders",
+      "seq": 1
     },
     {
       "id": "phantom-blade-zero",
       "name_cn": "影之刃零",
-      "name_en": "Phantom Blade Zero"
+      "name_en": "Phantom Blade Zero",
+      "seq": 2
     },
     {
       "id": "roco-kingdom-world",
       "name_cn": "洛克王国：世界",
-      "name_en": "Roco Kingdom World"
+      "name_en": "Roco Kingdom World",
+      "seq": 3
     },
     {
       "id": "star-valley",
       "name_cn": "星布谷地",
-      "name_en": "Star Valley"
+      "name_en": "Star Valley",
+      "seq": 4
     },
     {
       "id": "project-origin",
       "name_cn": "源初之结",
-      "name_en": "Project Origin"
+      "name_en": "Project Origin",
+      "seq": 5
     },
     {
       "id": "project-mugen-neverness",
       "name_cn": "无限大",
-      "name_en": "Project Mugen / Neverness"
+      "name_en": "Project Mugen / Neverness",
+      "seq": 6
     },
     {
       "id": "naruto-mobile-global",
       "name_cn": "火影忍者手游",
-      "name_en": "Naruto Mobile Global"
+      "name_en": "Naruto Mobile Global",
+      "seq": 7
     },
     {
       "id": "the-outcast",
       "name_cn": "异人之下",
-      "name_en": "The Outcast"
+      "name_en": "The Outcast",
+      "seq": 8
     },
     {
       "id": "where-winds-meet",
       "name_cn": "燕云十六声",
-      "name_en": "Where Winds Meet"
+      "name_en": "Where Winds Meet",
+      "seq": 9
     },
     {
       "id": "last-asylum-plague",
       "name_cn": "Last Asylum: Plague",
-      "name_en": "Last Asylum: Plague"
+      "name_en": "Last Asylum: Plague",
+      "seq": 10
     },
     {
       "id": "clash-of-critters",
       "name_cn": "Clash of Critters",
-      "name_en": "Clash of Critters"
+      "name_en": "Clash of Critters",
+      "seq": 11
     },
     {
       "id": "flamb-merge-cook",
       "name_cn": "Flambé: Merge & Cook",
-      "name_en": "Flambé: Merge & Cook"
+      "name_en": "Flambé: Merge & Cook",
+      "seq": 12
     },
     {
       "id": "tasty-travels-merge-game",
       "name_cn": "Tasty Travels",
-      "name_en": "Tasty Travels: Merge Game"
+      "name_en": "Tasty Travels: Merge Game",
+      "seq": 13
     },
     {
       "id": "genshin-impact",
       "name_cn": "原神",
-      "name_en": "Genshin Impact"
+      "name_en": "Genshin Impact",
+      "seq": 14
     },
     {
       "id": "honkai-star-rail",
       "name_cn": "崩坏：星穹铁道",
-      "name_en": "Honkai: Star Rail"
+      "name_en": "Honkai: Star Rail",
+      "seq": 15
     },
     {
       "id": "wuthering-waves",
       "name_cn": "鸣潮",
-      "name_en": "Wuthering Waves"
+      "name_en": "Wuthering Waves",
+      "seq": 16
     },
     {
       "id": "honor-of-kings",
       "name_cn": "王者荣耀国际服",
-      "name_en": "Honor of Kings"
+      "name_en": "Honor of Kings",
+      "seq": 17
     },
     {
       "id": "arknights",
       "name_cn": "明日方舟",
-      "name_en": "Arknights"
+      "name_en": "Arknights",
+      "seq": 18
     },
     {
       "id": "afk-journey",
       "name_cn": "剑与远征：启程",
-      "name_en": "AFK Journey"
+      "name_en": "AFK Journey",
+      "seq": 19
     },
     {
       "id": "rise-of-kingdoms",
       "name_cn": "万国觉醒",
-      "name_en": "Rise of Kingdoms"
+      "name_en": "Rise of Kingdoms",
+      "seq": 20
     },
     {
       "id": "hunger",
       "name_cn": "HUNGER",
-      "name_en": "HUNGER"
+      "name_en": "HUNGER",
+      "seq": 21
     },
     {
       "id": "sword-x-staff",
       "name_cn": "杖剑传说",
-      "name_en": "Sword x Staff"
+      "name_en": "Sword x Staff",
+      "seq": 22
     },
     {
       "id": "wenjian-changsheng",
       "name_cn": "问剑长生",
-      "name_en": "Sword of Immortality"
+      "name_en": "Sword of Immortality",
+      "seq": 23
     },
     {
       "id": "tides-of-annihilation",
       "name_cn": "湮灭之潮",
-      "name_en": "Tides of Annihilation"
+      "name_en": "Tides of Annihilation",
+      "seq": 24
     },
     {
       "id": "arknights-endfield",
       "name_cn": "明日方舟：终末地",
-      "name_en": "Arknights: Endfield"
+      "name_en": "Arknights: Endfield",
+      "seq": 25
     },
     {
       "id": "azur-promilia",
       "name_cn": "蓝色星原：旅谣",
-      "name_en": "Azur Promilia"
+      "name_en": "Azur Promilia",
+      "seq": 26
     },
     {
       "id": "honor-of-kings-world",
       "name_cn": "王者荣耀世界",
-      "name_en": "Honor of Kings: World"
+      "name_en": "Honor of Kings: World",
+      "seq": 27
     },
     {
       "id": "lost-castle-2",
       "name_cn": "失落城堡 2",
-      "name_en": "Lost Castle 2"
+      "name_en": "Lost Castle 2",
+      "seq": 28
     },
     {
       "id": "renjian-yixiang",
       "name_cn": "人间异想计划",
-      "name_en": "Renjian Yixiang"
+      "name_en": "Renjian Yixiang",
+      "seq": 29
     },
     {
       "id": "aniimo",
       "name_cn": "伊莫",
-      "name_en": "Aniimo"
+      "name_en": "Aniimo",
+      "seq": 30
     }
   ],
   "targets": [

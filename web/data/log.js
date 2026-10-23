@@ -4,13 +4,13 @@ window.XC_LOG = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-23 10:23:12",
-    "data_mode": "live",
+    "generated_at_cst": "2026-10-23 12:37:14",
+    "data_mode": "fallback",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 915.7,
+    "duration_sec": 1824.0,
     "counts": {
       "days": 6,
       "games_logged": 30
@@ -16093,22 +16093,612 @@ window.XC_LOG = {
               }
             }
           ]
+        },
+        {
+          "at": "2026-10-23 12:37:14",
+          "network": false,
+          "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
+          "data_mode": "fallback",
+          "duration_sec": 1824.0,
+          "alert": null,
+          "calls": {
+            "trends": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 30
+            },
+            "reddit": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 30
+            },
+            "x_twitter": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 30
+            },
+            "rss": {
+              "attempted": 0,
+              "ok": 0,
+              "failed": 0,
+              "skipped": 30
+            }
+          },
+          "games": [
+            {
+              "id": "monster-hunter-outlanders",
+              "name_cn": "怪物猎人：旅人",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "phantom-blade-zero",
+              "name_cn": "影之刃零",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "roco-kingdom-world",
+              "name_cn": "洛克王国：世界",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "star-valley",
+              "name_cn": "星布谷地",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "project-origin",
+              "name_cn": "源初之结",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "project-mugen-neverness",
+              "name_cn": "无限大",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "naruto-mobile-global",
+              "name_cn": "火影忍者手游",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "the-outcast",
+              "name_cn": "异人之下",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "where-winds-meet",
+              "name_cn": "燕云十六声",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "last-asylum-plague",
+              "name_cn": "Last Asylum: Plague",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "clash-of-critters",
+              "name_cn": "Clash of Critters",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "flamb-merge-cook",
+              "name_cn": "Flambé: Merge & Cook",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "tasty-travels-merge-game",
+              "name_cn": "Tasty Travels",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "genshin-impact",
+              "name_cn": "原神",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "honkai-star-rail",
+              "name_cn": "崩坏：星穹铁道",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "wuthering-waves",
+              "name_cn": "鸣潮",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "honor-of-kings",
+              "name_cn": "王者荣耀国际服",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "arknights",
+              "name_cn": "明日方舟",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "afk-journey",
+              "name_cn": "剑与远征：启程",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "rise-of-kingdoms",
+              "name_cn": "万国觉醒",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "hunger",
+              "name_cn": "HUNGER",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "sword-x-staff",
+              "name_cn": "杖剑传说",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "wenjian-changsheng",
+              "name_cn": "问剑长生",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "tides-of-annihilation",
+              "name_cn": "湮灭之潮",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "arknights-endfield",
+              "name_cn": "明日方舟：终末地",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "azur-promilia",
+              "name_cn": "蓝色星原：旅谣",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "honor-of-kings-world",
+              "name_cn": "王者荣耀世界",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "lost-castle-2",
+              "name_cn": "失落城堡 2",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "renjian-yixiang",
+              "name_cn": "人间异想计划",
+              "used": [
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Google Search",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            },
+            {
+              "id": "aniimo",
+              "name_cn": "伊莫",
+              "used": [
+                "Trends（stale）",
+                "Reddit（stale）",
+                "X（stale）"
+              ],
+              "fallbacks": [
+                "Fallback: Trends（沿用上次值）",
+                "Fallback: Reddit（沿用上次值）",
+                "Fallback: X（沿用上次值）"
+              ],
+              "detail": {
+                "trends": "预算不足，跳过调用",
+                "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                "x_twitter": "预算不足，跳过调用"
+              }
+            }
+          ]
         }
       ],
       "totals": {
-        "monster-hunter-outlanders": 59.8,
-        "phantom-blade-zero": 73.8,
+        "monster-hunter-outlanders": 54.8,
+        "phantom-blade-zero": 83.8,
         "roco-kingdom-world": 62.8,
         "star-valley": 62.0,
         "project-origin": 55.2,
         "project-mugen-neverness": 63.1,
         "naruto-mobile-global": 65.0,
-        "the-outcast": 59.0,
-        "where-winds-meet": 44.8,
-        "last-asylum-plague": 38.8,
-        "clash-of-critters": 32.0,
-        "flamb-merge-cook": 35.8,
-        "tasty-travels-merge-game": 38.8,
+        "the-outcast": 44.0,
+        "where-winds-meet": 39.8,
+        "last-asylum-plague": 33.8,
+        "clash-of-critters": 27.0,
+        "flamb-merge-cook": 50.8,
+        "tasty-travels-merge-game": 53.8,
         "genshin-impact": 45.0,
         "honkai-star-rail": 46.5,
         "wuthering-waves": 44.2,
@@ -16116,16 +16706,16 @@ window.XC_LOG = {
         "arknights": 45.0,
         "afk-journey": 33.0,
         "rise-of-kingdoms": 45.0,
-        "hunger": 54.5,
+        "hunger": 39.5,
         "sword-x-staff": 39.8,
         "wenjian-changsheng": 62.8,
         "tides-of-annihilation": 47.8,
         "arknights-endfield": 42.0,
-        "azur-promilia": 51.5,
-        "honor-of-kings-world": 66.5,
-        "lost-castle-2": 46.2,
-        "renjian-yixiang": 21.5,
-        "aniimo": 36.5
+        "azur-promilia": 46.5,
+        "honor-of-kings-world": 46.5,
+        "lost-castle-2": 61.2,
+        "renjian-yixiang": 36.5,
+        "aniimo": 31.5
       }
     }
   ]
