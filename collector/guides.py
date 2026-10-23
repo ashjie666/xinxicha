@@ -16,6 +16,7 @@
 """
 
 import email.utils
+import re
 import time
 import urllib.parse
 import xml.etree.ElementTree as ET
@@ -23,6 +24,22 @@ from datetime import datetime, timedelta
 
 from . import http
 from . import state as state_mod
+
+
+def _norm(text):
+    """归一化：小写 + 把标点换成空格 + 压缩空白
+
+    用于跨标点差异的短语匹配。2026-10-23 实测：《Honkai: Star Rail》带冒号，
+    直接拿去搜会把冒号当分隔符，返回 100 条却没一条标题含原名；标题里写的是
+    「Honkai: Star Rail Progression Guide」，若按原串做子串匹配也永远命中不了。
+    两边都归一化后再按词边界比对即可。
+    """
+    return re.sub(r'[\W_]+', ' ', (text or '').lower(), flags=re.UNICODE).strip()
+
+
+def _query_name(name):
+    """查询用的名字：标点换空格、保留原大小写（Reddit 搜索不区分大小写）"""
+    return re.sub(r'[\W_]+', ' ', name or '').strip()
 
 
 def _parse_dt(text):
@@ -74,23 +91,26 @@ def _entries(text):
 def _tally(rows, since, phrase, terms):
     """返回 (相关帖数, 其中标题含攻略词的条数)
 
-    主计数＝标题含游戏名短语的近一年帖数。2026-10-23 实测《Monster Hunter
-    Outlanders》近一年相关帖 100 条（limit 上限），而标题带 guide/tips 的只有 1 条：
-    社区供给绝大多数是新闻、讨论、实机视频，若用「标题出现攻略词」当计数，所有
-    游戏都会落在 0–1 档、差异被压平。攻略词命中因此只作辅助值（guide_hits）。
+    主计数＝标题含游戏名短语的近一年帖数，短语按词边界比对（防 mmo 命中
+    commonplace 这类子串噪音）。2026-10-23 实测《Monster Hunter Outlanders》
+    近一年相关帖 100 条（limit 上限），而标题带 guide/tips 的只有 1 条：社区供给
+    绝大多数是新闻、讨论、实机视频，若用「标题出现攻略词」当计数，所有游戏都会
+    落在 0–1 档、差异被压平。供给分因此按 guide_hits 折算，posts 只作展示。
     """
-    key = (phrase or '').strip().lower()
+    key = _norm(phrase)
     posts = guide_hits = 0
     if not key:
         return posts, guide_hits
+    needle = ' ' + key + ' '
+    normalized_terms = [_norm(term) for term in terms]
     for published, title in rows:
         if published is not None and published < since:
             continue
-        low = (title or '').lower()
-        if key not in low:
+        flat = _norm(title)
+        if needle not in ' ' + flat + ' ':
             continue
         posts += 1
-        if any(term and term in low for term in terms):
+        if any(term and term in flat for term in normalized_terms):
             guide_hits += 1
     return posts, guide_hits
 
@@ -206,7 +226,7 @@ def collect(config, games, state, offline=False, no_cache=False):
         if budget and (time.time() - started) > budget:
             error = '攻略采集预算用尽'
         else:
-            query = (cfg.get('query_template') or '"{name}"').format(name=phrase)
+            query = (cfg.get('query_template') or '"{name}"').format(name=_query_name(phrase))
             url = 'https://www.reddit.com/search.rss?q={}&sort=new&t=year&limit={}'.format(
                 urllib.parse.quote(query, safe=':"'), limit)
             for attempt in range(attempts):
