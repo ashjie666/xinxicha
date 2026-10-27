@@ -10,9 +10,10 @@
   let DATA = null;
   let SEED_CTX = null;   // 当前弹窗对应的候选记录
 
-  // 部署 Cloudflare Worker（worker/add-game.js）后填入其地址，例如
-  // https://xinxicha-add-game.<your-name>.workers.dev 。留空则只保留复制/下载。
-  const ADD_ENDPOINT = 'https://xinxicha-add-game.wonder-2012.workers.dev/';
+  // 部署 Cloudflare Worker（worker/add-game.js）后填入其地址。留空则只保留复制/下载。
+  // 2026-10-27：workers.dev 在国内被 DNS 污染（解析到 108.160.165.173），
+  // 浏览器直连必然 Failed to fetch，故改用绑定在 Worker 上的自定义域名。
+  const ADD_ENDPOINT = 'https://add.mypetitplanet.fun/';
 
   function esc(text) { return XC.escapeHtml(text); }
 
