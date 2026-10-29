@@ -2,7 +2,8 @@
   "meta": {
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "sheet": "关键词清单",
-    "count": 50
+    "count": 50,
+    "total": 41
   },
   "keywords": [
     {
@@ -436,114 +437,6 @@
       "covered": "",
       "page_plan": "单位强度榜页",
       "note": "策略游戏刚需"
-    },
-    {
-      "id": 37,
-      "keyword": "Flambe Merge Cook guide",
-      "game_cn": "Flambé",
-      "intent": "攻略型",
-      "competition": 2,
-      "rank_est": "",
-      "trends_7d": null,
-      "covered": "",
-      "page_plan": "关卡攻略页",
-      "note": "休闲合成类"
-    },
-    {
-      "id": 38,
-      "keyword": "Tasty Travels merge guide",
-      "game_cn": "Tasty Travels",
-      "intent": "攻略型",
-      "competition": 2,
-      "rank_est": "",
-      "trends_7d": null,
-      "covered": "",
-      "page_plan": "资源攻略页",
-      "note": "合成经营"
-    },
-    {
-      "id": 39,
-      "keyword": "Genshin Impact version guide",
-      "game_cn": "原神",
-      "intent": "攻略型",
-      "competition": 5,
-      "rank_est": "",
-      "trends_7d": null,
-      "covered": "",
-      "page_plan": "不建议新建",
-      "note": "已饱和"
-    },
-    {
-      "id": 40,
-      "keyword": "Honkai Star Rail character guide",
-      "game_cn": "崩坏：星穹铁道",
-      "intent": "攻略型",
-      "competition": 5,
-      "rank_est": "",
-      "trends_7d": null,
-      "covered": "",
-      "page_plan": "不建议新建",
-      "note": "已饱和"
-    },
-    {
-      "id": 41,
-      "keyword": "Wuthering Waves character guide",
-      "game_cn": "鸣潮",
-      "intent": "攻略型",
-      "competition": 4,
-      "rank_est": "",
-      "trends_7d": null,
-      "covered": "",
-      "page_plan": "差异化内容",
-      "note": "有窗口但竞争在增加"
-    },
-    {
-      "id": 42,
-      "keyword": "Honor of Kings hero guide",
-      "game_cn": "王者荣耀国际服",
-      "intent": "攻略型",
-      "competition": 4,
-      "rank_est": "",
-      "trends_7d": null,
-      "covered": "",
-      "page_plan": "英雄攻略页",
-      "note": "赛事驱动更新"
-    },
-    {
-      "id": 43,
-      "keyword": "Arknights new operator guide",
-      "game_cn": "明日方舟",
-      "intent": "攻略型",
-      "competition": 5,
-      "rank_est": "",
-      "trends_7d": null,
-      "covered": "",
-      "page_plan": "不建议新建",
-      "note": "社区成熟"
-    },
-    {
-      "id": 44,
-      "keyword": "AFK Journey tier list",
-      "game_cn": "剑与远征：启程",
-      "intent": "攻略型",
-      "competition": 4,
-      "rank_est": "",
-      "trends_7d": null,
-      "covered": "",
-      "page_plan": "不建议新建",
-      "note": "供给充足"
-    },
-    {
-      "id": 45,
-      "keyword": "Rise of Kingdoms strategy guide",
-      "game_cn": "万国觉醒",
-      "intent": "攻略型",
-      "competition": 5,
-      "rank_est": "",
-      "trends_7d": null,
-      "covered": "",
-      "page_plan": "不建议新建",
-      "note": "老牌产品"
     },
     {
       "id": 46,
