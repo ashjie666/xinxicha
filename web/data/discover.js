@@ -4,24 +4,24 @@ window.XC_DISCOVER = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-10-29 10:24:02",
+    "generated_at_cst": "2026-10-29 15:43:33",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 1718.2,
+    "duration_sec": 1276.3,
     "counts": {
       "candidates": 4,
       "targets": 37,
       "targets_ok": 37,
-      "known_games": 30,
-      "dropped_target": 272,
-      "dropped_theme": 80,
+      "known_games": 22,
+      "dropped_target": 277,
+      "dropped_theme": 83,
       "dropped_old": 19,
       "dropped_extra": 1,
       "max_age_days": 90,
-      "dropped_total": 372
+      "dropped_total": 380
     },
     "trends_anchor": {
       "enabled": true,
@@ -110,7 +110,7 @@ window.XC_DISCOVER = {
     ]
   },
   "truncated": false,
-  "next_seq": 31,
+  "next_seq": 32,
   "known_games": [
     {
       "id": "monster-hunter-outlanders",
@@ -179,60 +179,6 @@ window.XC_DISCOVER = {
       "seq": 11
     },
     {
-      "id": "flamb-merge-cook",
-      "name_cn": "Flambé: Merge & Cook",
-      "name_en": "Flambé: Merge & Cook",
-      "seq": 12
-    },
-    {
-      "id": "tasty-travels-merge-game",
-      "name_cn": "Tasty Travels",
-      "name_en": "Tasty Travels: Merge Game",
-      "seq": 13
-    },
-    {
-      "id": "genshin-impact",
-      "name_cn": "原神",
-      "name_en": "Genshin Impact",
-      "seq": 14
-    },
-    {
-      "id": "honkai-star-rail",
-      "name_cn": "崩坏：星穹铁道",
-      "name_en": "Honkai: Star Rail",
-      "seq": 15
-    },
-    {
-      "id": "wuthering-waves",
-      "name_cn": "鸣潮",
-      "name_en": "Wuthering Waves",
-      "seq": 16
-    },
-    {
-      "id": "honor-of-kings",
-      "name_cn": "王者荣耀国际服",
-      "name_en": "Honor of Kings",
-      "seq": 17
-    },
-    {
-      "id": "arknights",
-      "name_cn": "明日方舟",
-      "name_en": "Arknights",
-      "seq": 18
-    },
-    {
-      "id": "afk-journey",
-      "name_cn": "剑与远征：启程",
-      "name_en": "AFK Journey",
-      "seq": 19
-    },
-    {
-      "id": "rise-of-kingdoms",
-      "name_cn": "万国觉醒",
-      "name_en": "Rise of Kingdoms",
-      "seq": 20
-    },
-    {
       "id": "hunger",
       "name_cn": "HUNGER",
       "name_en": "HUNGER",
@@ -291,6 +237,12 @@ window.XC_DISCOVER = {
       "name_cn": "伊莫",
       "name_en": "Aniimo",
       "seq": 30
+    },
+    {
+      "id": "neverness-to-everness",
+      "name_cn": "异环",
+      "name_en": "Neverness to Everness",
+      "seq": 31
     }
   ],
   "targets": [
@@ -302,7 +254,7 @@ window.XC_DISCOVER = {
       "ok": true,
       "hits": 12,
       "dropped_target": 0,
-      "dropped_theme": 10,
+      "dropped_theme": 11,
       "dropped_old": 0,
       "dropped_extra": 0,
       "new": 0,
@@ -357,7 +309,7 @@ window.XC_DISCOVER = {
       "query": "库洛游戏 新游 二次元",
       "ok": true,
       "hits": 11,
-      "dropped_target": 6,
+      "dropped_target": 5,
       "dropped_theme": 5,
       "dropped_old": 0,
       "dropped_extra": 0,
@@ -372,7 +324,7 @@ window.XC_DISCOVER = {
       "ok": true,
       "hits": 12,
       "dropped_target": 7,
-      "dropped_theme": 2,
+      "dropped_theme": 4,
       "dropped_old": 0,
       "dropped_extra": 0,
       "new": 0,
@@ -399,7 +351,7 @@ window.XC_DISCOVER = {
       "query": "柠檬微趣 新游 合成",
       "ok": true,
       "hits": 11,
-      "dropped_target": 6,
+      "dropped_target": 8,
       "dropped_theme": 3,
       "dropped_old": 0,
       "dropped_extra": 0,
@@ -413,7 +365,7 @@ window.XC_DISCOVER = {
       "query": "点点互动 新游",
       "ok": true,
       "hits": 12,
-      "dropped_target": 10,
+      "dropped_target": 11,
       "dropped_theme": 1,
       "dropped_old": 0,
       "dropped_extra": 0,
@@ -581,7 +533,7 @@ window.XC_DISCOVER = {
       "query": "沐瞳科技 新游",
       "ok": true,
       "hits": 12,
-      "dropped_target": 6,
+      "dropped_target": 7,
       "dropped_theme": 5,
       "dropped_old": 0,
       "dropped_extra": 0,
@@ -693,7 +645,7 @@ window.XC_DISCOVER = {
       "query": "灵犀互娱 新游",
       "ok": true,
       "hits": 12,
-      "dropped_target": 11,
+      "dropped_target": 12,
       "dropped_theme": 0,
       "dropped_old": 0,
       "dropped_extra": 0,
@@ -735,7 +687,7 @@ window.XC_DISCOVER = {
       "query": "乐元素 新游",
       "ok": true,
       "hits": 12,
-      "dropped_target": 12,
+      "dropped_target": 11,
       "dropped_theme": 0,
       "dropped_old": 0,
       "dropped_extra": 0,
@@ -763,7 +715,7 @@ window.XC_DISCOVER = {
       "query": "合成游戏 出海 新品",
       "ok": true,
       "hits": 11,
-      "dropped_target": 8,
+      "dropped_target": 9,
       "dropped_theme": 2,
       "dropped_old": 0,
       "dropped_extra": 0,
@@ -777,7 +729,7 @@ window.XC_DISCOVER = {
       "query": "搜打撤 生存 新游",
       "ok": true,
       "hits": 12,
-      "dropped_target": 8,
+      "dropped_target": 9,
       "dropped_theme": 0,
       "dropped_old": 0,
       "dropped_extra": 0,
