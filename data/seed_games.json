@@ -689,6 +689,30 @@
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
       "last_update": "2026-10-29"
+    },
+    {
+      "id": "silver-palace",
+      "seq": 32,
+      "name_cn": "白银之城",
+      "name_en": "Silver Palace",
+      "publisher": "乐元素",
+      "type": "PC/主机/手游",
+      "status": "未上线",
+      "cn_status": "同步上线",
+      "launch_date_raw": "2026-12-14(全球公测)",
+      "launch_date": "2026-12-14",
+      "cn_guide_score": 3,
+      "gap_level": "高",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "抢首发攻略",
+      "priority": "P1",
+      "note": "2026-10-31 官方宣布 2026-12-14 全球公测（PC/PS5/安卓/iOS 同步），全球预约量破 1000 万，入围 gamescom Best Mobile Game；入库日距上线 43 天，正处关键词占位峰值区。海外供给缺口未实测，gap_level 暂按高估，可采样后调整",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "中",
+      "last_update": "2026-11-01"
     }
   ],
   "signal_notes": [
