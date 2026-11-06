@@ -4,24 +4,24 @@ window.XC_DISCOVER = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-11-06 10:38:24",
+    "generated_at_cst": "2026-11-06 14:13:49",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 1715.1,
+    "duration_sec": 970.8,
     "counts": {
-      "candidates": 16,
+      "candidates": 12,
       "targets": 37,
       "targets_ok": 37,
-      "known_games": 23,
-      "dropped_target": 242,
-      "dropped_theme": 94,
+      "known_games": 24,
+      "dropped_target": 239,
+      "dropped_theme": 92,
       "dropped_old": 20,
       "dropped_extra": 3,
       "max_age_days": 90,
-      "dropped_total": 359
+      "dropped_total": 354
     },
     "trends_anchor": {
       "enabled": true,
@@ -110,7 +110,7 @@ window.XC_DISCOVER = {
     ]
   },
   "truncated": false,
-  "next_seq": 33,
+  "next_seq": 34,
   "known_games": [
     {
       "id": "monster-hunter-outlanders",
@@ -249,6 +249,12 @@ window.XC_DISCOVER = {
       "name_cn": "白银之城",
       "name_en": "Silver Palace",
       "seq": 32
+    },
+    {
+      "id": "honkai-nexus-anima",
+      "name_cn": "崩坏：因缘精灵",
+      "name_en": "Honkai: Nexus Anima",
+      "seq": 33
     }
   ],
   "targets": [
@@ -260,10 +266,10 @@ window.XC_DISCOVER = {
       "ok": true,
       "hits": 12,
       "dropped_target": 0,
-      "dropped_theme": 6,
+      "dropped_theme": 4,
       "dropped_old": 0,
       "dropped_extra": 0,
-      "new": 6,
+      "new": 2,
       "error": null
     },
     {
@@ -581,7 +587,7 @@ window.XC_DISCOVER = {
       "query": "深蓝互动 新游",
       "ok": true,
       "hits": 12,
-      "dropped_target": 11,
+      "dropped_target": 10,
       "dropped_theme": 0,
       "dropped_old": 0,
       "dropped_extra": 0,
@@ -693,7 +699,7 @@ window.XC_DISCOVER = {
       "query": "乐元素 新游",
       "ok": true,
       "hits": 11,
-      "dropped_target": 8,
+      "dropped_target": 7,
       "dropped_theme": 1,
       "dropped_old": 0,
       "dropped_extra": 0,
@@ -707,7 +713,7 @@ window.XC_DISCOVER = {
       "query": "二次元开放世界 新游",
       "ok": true,
       "hits": 12,
-      "dropped_target": 11,
+      "dropped_target": 10,
       "dropped_theme": 1,
       "dropped_old": 0,
       "dropped_extra": 0,
@@ -773,20 +779,6 @@ window.XC_DISCOVER = {
   ],
   "candidates": [
     {
-      "title": "《崩坏：因缘精灵》上线在即，米哈游能否破局二次元捉宠新赛道？",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aed3da055dc421595585ae4f6549419&url=https%3a%2f%2fwww.sohu.com%2fa%2f1097673184_122066679&c=623317353749551992&mkt=en-us",
-      "published": "2026-11-05 19:02",
-      "pub_raw": "Thu, 05 Nov 2026 11:02:00 GMT",
-      "summary": "11月25日，《崩坏：因缘精灵》将开启删档测试——这不是又一款“换皮宝可梦”，而是米哈游首次将精灵收集、都市叙事与CRPG式分支选择深度耦合的尝试。 它取消精灵个体值、拓宽异色获取、支持阵容码一键复制，直击传统捉宠游戏“肝度高、配队难”的痛…",
-      "target": "米哈游",
-      "kind": "publisher",
-      "category": "二次元开放世界",
-      "query": "米哈游 新游 二次元",
-      "hit_target": "米哈游",
-      "hit_theme": "二次元",
-      "hit_launch": "上线"
-    },
-    {
       "title": "米哈游新旗舰正式定档2027春季：抽卡大降价、要给捉宠讲新故事？",
       "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aed3da055dc421595585ae4f6549419&url=https%3a%2f%2fnews.qq.com%2frain%2fa%2f20261105A0BL6000&c=10233403272606485917&mkt=en-us",
       "published": "2026-11-05 17:30",
@@ -811,48 +803,6 @@ window.XC_DISCOVER = {
       "category": "开放世界 / MMO",
       "query": "网易 新游 开放世界",
       "hit_target": "网易",
-      "hit_theme": "",
-      "hit_launch": "定档"
-    },
-    {
-      "title": "米哈游首款捉宠二游《崩坏：因缘精灵》将于2027年春季上线",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aed3da055dc421595585ae4f6549419&url=https%3a%2f%2fwww.gamersky.com%2fnews%2f202611%2f2241402.shtml&c=6575006198119856228&mkt=en-us",
-      "published": "2026-11-05 15:11",
-      "pub_raw": "Thu, 05 Nov 2026 07:11:00 GMT",
-      "summary": "今天中午（2026年11月5日），米哈游宣布，旗下的二次元精灵养成冒险策略游戏《崩坏：因缘精灵》将于11月25日正式开启删档付费测试，覆盖PC、移动端和云游戏全平台。 同步放出的，还有一支全新PV《缘汽一下》和一段实机演示视频。而更重磅的消…",
-      "target": "米哈游",
-      "kind": "publisher",
-      "category": "二次元开放世界",
-      "query": "米哈游 新游 二次元",
-      "hit_target": "米哈游",
-      "hit_theme": "",
-      "hit_launch": "上线"
-    },
-    {
-      "title": "米哈游新作《崩坏：因缘精灵》2027年春季公测，删档测试将于11月开启 ｜#游戏资讯# #崩坏系列# #新游测试#",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aed3da055dc421595585ae4f6549419&url=https%3a%2f%2fwww.sohu.com%2fa%2f1097546561_122598898&c=3387395261289074330&mkt=en-us",
-      "published": "2026-11-05 14:15",
-      "pub_raw": "Thu, 05 Nov 2026 06:15:00 GMT",
-      "summary": "米哈游今日（2026年11月5日）宣布，旗下全新二次元精灵养成冒险策略游戏《崩坏：因缘精灵》将于11月25日开启删档付费测试，涵盖PC、移动端及云游戏全平台。更重要的是，游戏预计于2027年春季正式公测，这一时间点恰逢崩坏IP的15周年。…",
-      "target": "米哈游",
-      "kind": "publisher",
-      "category": "二次元开放世界",
-      "query": "米哈游 新游 二次元",
-      "hit_target": "米哈游",
-      "hit_theme": "新游",
-      "hit_launch": "公测"
-    },
-    {
-      "title": "《崩坏：因缘精灵》定档2027年春 米哈游加入二游大混战",
-      "url": "http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aed3da055dc421595585ae4f6549419&url=https%3a%2f%2fwww.donews.com%2fnews%2fdetail%2f3%2f6765893.html&c=3333817428946946314&mkt=en-us",
-      "published": "2026-11-05 13:17",
-      "pub_raw": "Thu, 05 Nov 2026 05:17:00 GMT",
-      "summary": "目前，已有包括蛮啾《蓝色星原：旅谣》、乐元素《白银之城》、网易《无限大》等多款头部二游相继宣布于2026年底、2027年初定档，在本轮空前激烈的赛道竞争下，多家厂商的差异化打法和流量竞争有望推动二游市场的新一轮洗牌。",
-      "target": "米哈游",
-      "kind": "publisher",
-      "category": "二次元开放世界",
-      "query": "米哈游 新游 二次元",
-      "hit_target": "米哈游",
       "hit_theme": "",
       "hit_launch": "定档"
     },
