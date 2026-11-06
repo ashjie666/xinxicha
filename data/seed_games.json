@@ -713,6 +713,30 @@
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
       "last_update": "2026-11-01"
+    },
+    {
+      "id": "honkai-nexus-anima",
+      "seq": 33,
+      "name_cn": "崩坏：因缘精灵",
+      "name_en": "Honkai: Nexus Anima",
+      "publisher": "米哈游",
+      "type": "PC/手游",
+      "status": "未上线",
+      "cn_status": "未知",
+      "launch_date_raw": "未公布",
+      "launch_date": null,
+      "cn_guide_score": 1,
+      "gap_level": "中",
+      "trends_7d": null,
+      "reddit_daily": null,
+      "x_mentions": null,
+      "total_score": null,
+      "action_manual": "待人工评估（信号未积累）",
+      "priority": "P1",
+      "note": "候选来源：米哈游｜《崩坏：因缘精灵》上线在即，米哈游能否破局二次元捉宠新赛道？｜2026-11-05 19:02｜http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aed3da055dc421595585ae4f6549419&url=https%3a%2f%2fwww.sohu.com%2fa%2f1097673184_122066679&c=623317353749551992&mkt=en-us\n需人工补：国内攻略成熟度 / 海外供给缺口 / 上线档期",
+      "signal_source": "P1: Trends+Reddit+X",
+      "confidence": "低",
+      "last_update": "2026-11-06"
     }
   ],
   "signal_notes": [
