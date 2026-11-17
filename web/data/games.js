@@ -4,13 +4,13 @@ window.XC_GAMES = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-11-16 16:21:07",
+    "generated_at_cst": "2026-11-17 17:31:57",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 1702.8,
+    "duration_sec": 1700.3,
     "counts": {
       "games": 24,
       "p0": 2,
@@ -201,7 +201,7 @@ window.XC_GAMES = {
         "key": "cn_media_chuapp",
         "label": "触乐",
         "ok": true,
-        "items": 15,
+        "items": 14,
         "matched": 1,
         "error": null
       }
@@ -221,7 +221,7 @@ window.XC_GAMES = {
       "launch_date": "2026-10-29",
       "cn_guide_score": 2,
       "gap_level": "高",
-      "trends_7d": -25.5,
+      "trends_7d": -20.0,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -230,27 +230,27 @@ window.XC_GAMES = {
       "note": "国际服先上线，国服2027+，时间窗口最干净",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 10.0,
       "signals": {
         "trends": {
           "available": true,
-          "value": -25.5,
+          "value": -20.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 11.25,
-            "raw": 6.9,
+            "value": 10.41,
+            "raw": 6.8,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 30.9,
+            "anchor_low_raw": 32.8,
             "anchor_high": "video games",
-            "anchor_high_raw": 46.3,
-            "note": "7d 均值 6.9 · 冷锚「mobile game」30.9 / 热锚「video games」46.3 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 50.2,
+            "note": "7d 均值 6.8 · 冷锚「mobile game」32.8 / 热锚「video games」50.2 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -275,10 +275,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 0,
+          "score": 15,
           "weight": 20,
-          "weighted": 0.0,
-          "value": -25.5,
+          "weighted": 3.0,
+          "value": -20.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -335,30 +335,30 @@ window.XC_GAMES = {
         {
           "key": "launch_window",
           "label": "上线窗口近",
-          "score": 34.5,
+          "score": 33.9,
           "weight": 15,
-          "weighted": 5.17,
-          "value": -18,
+          "weighted": 5.08,
+          "value": -19,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
           "note": "已上线"
         }
       ],
-      "total": 37.4,
-      "prev_total": 37.5,
-      "delta": -0.1,
-      "action_engine": "暂不投入",
+      "total": 40.3,
+      "prev_total": 37.4,
+      "delta": 2.9,
+      "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 30,
+      "days_tracked": 31,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
           "label": "Google Trends 失活",
-          "total": 37.4,
+          "total": 37.3,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -368,7 +368,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 22.4,
+          "total": 25.3,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -378,7 +378,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 23.9,
+          "total": 26.8,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -410,19 +410,19 @@ window.XC_GAMES = {
       "stale_sources": [
         "reddit"
       ],
-      "trends_level": 11.25,
-      "trends_level_raw": 6.9,
-      "trends_level_note": "7d 均值 6.9 · 冷锚「mobile game」30.9 / 热锚「video games」46.3 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": 10.41,
+      "trends_level_raw": 6.8,
+      "trends_level_note": "7d 均值 6.8 · 冷锚「mobile game」32.8 / 热锚「video games」50.2 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 5,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 30.9,
+      "trends_anchor_low_raw": 32.8,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 46.3,
+      "trends_anchor_high_raw": 50.2,
       "x_state": 11,
       "gap_score": 0.0,
-      "launch_days": -18,
+      "launch_days": -19,
       "guide_posts": 44,
       "guide_hits": 17,
       "guide_saturated": false,
@@ -435,11 +435,11 @@ window.XC_GAMES = {
         "key": "cooling",
         "label": "不投入",
         "rank": 6,
-        "water": 11.25,
-        "rise": -25.5,
+        "water": 10.41,
+        "rise": -20.0,
         "trend": "falling",
         "water_band": "low",
-        "note": "水位 11.2 · 7d -25.5%"
+        "note": "水位 10.4 · 7d -20.0%"
       }
     },
     {
@@ -455,7 +455,7 @@ window.XC_GAMES = {
       "launch_date": "2026-10-29",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": -12.4,
+      "trends_7d": -8.0,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -464,27 +464,27 @@ window.XC_GAMES = {
       "note": "PC/PS5买断，发售期爆发，长尾有限",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 10.0,
       "signals": {
         "trends": {
           "available": true,
-          "value": -12.4,
+          "value": -8.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 160.95,
-            "raw": 65.0,
+            "value": 143.08,
+            "raw": 65.1,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 30.9,
+            "anchor_low_raw": 32.8,
             "anchor_high": "video games",
-            "anchor_high_raw": 46.3,
-            "note": "7d 均值 65.0 · 冷锚「mobile game」30.9 / 热锚「video games」46.3 → 双锚折线定标（冷锚为 50 分界），高于热锚（未截断）"
+            "anchor_high_raw": 50.2,
+            "note": "7d 均值 65.1 · 冷锚「mobile game」32.8 / 热锚「video games」50.2 → 双锚折线定标（冷锚为 50 分界），高于热锚（未截断）"
           }
         },
         "reddit": {
@@ -512,7 +512,7 @@ window.XC_GAMES = {
           "score": 15,
           "weight": 20,
           "weighted": 3.0,
-          "value": -12.4,
+          "value": -8.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -569,30 +569,30 @@ window.XC_GAMES = {
         {
           "key": "launch_window",
           "label": "上线窗口近",
-          "score": 34.5,
+          "score": 33.9,
           "weight": 15,
-          "weighted": 5.17,
-          "value": -18,
+          "weighted": 5.08,
+          "value": -19,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
           "note": "已上线"
         }
       ],
-      "total": 47.9,
-      "prev_total": 45.0,
-      "delta": 2.9,
+      "total": 47.8,
+      "prev_total": 47.9,
+      "delta": -0.1,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 30,
+      "days_tracked": 31,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
           "label": "Google Trends 失活",
-          "total": 44.9,
+          "total": 44.8,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -602,7 +602,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 32.9,
+          "total": 32.8,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -612,7 +612,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 34.4,
+          "total": 34.3,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -644,19 +644,19 @@ window.XC_GAMES = {
       "stale_sources": [
         "reddit"
       ],
-      "trends_level": 160.95,
-      "trends_level_raw": 65.0,
-      "trends_level_note": "7d 均值 65.0 · 冷锚「mobile game」30.9 / 热锚「video games」46.3 → 双锚折线定标（冷锚为 50 分界），高于热锚（未截断）",
+      "trends_level": 143.08,
+      "trends_level_raw": 65.1,
+      "trends_level_note": "7d 均值 65.1 · 冷锚「mobile game」32.8 / 热锚「video games」50.2 → 双锚折线定标（冷锚为 50 分界），高于热锚（未截断）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 2,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 30.9,
+      "trends_anchor_low_raw": 32.8,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 46.3,
+      "trends_anchor_high_raw": 50.2,
       "x_state": 11,
       "gap_score": 0.0,
-      "launch_days": -18,
+      "launch_days": -19,
       "guide_posts": 85,
       "guide_hits": 71,
       "guide_saturated": false,
@@ -678,11 +678,11 @@ window.XC_GAMES = {
         "key": "harvest",
         "label": "收割长尾",
         "rank": 3,
-        "water": 160.95,
-        "rise": -12.4,
+        "water": 143.08,
+        "rise": -8.0,
         "trend": "falling",
         "water_band": "head",
-        "note": "水位 160.9 · 7d -12.4% · 头部"
+        "note": "水位 143.1 · 7d -8.0% · 头部"
       }
     },
     {
@@ -707,7 +707,7 @@ window.XC_GAMES = {
       "note": "国际服首测中，正式服节奏未定",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 2.0,
       "signals": {
         "trends": {
@@ -723,10 +723,10 @@ window.XC_GAMES = {
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 0.0 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 0.0 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -827,7 +827,7 @@ window.XC_GAMES = {
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 30,
+      "days_tracked": 31,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -889,14 +889,14 @@ window.XC_GAMES = {
       ],
       "trends_level": 0.0,
       "trends_level_raw": 0.0,
-      "trends_level_note": "7d 均值 0.0 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level_note": "7d 均值 0.0 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
-      "trends_level_rank": 24,
+      "trends_level_rank": 23,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 11,
       "gap_score": 8.0,
       "launch_days": null,
@@ -941,7 +941,7 @@ window.XC_GAMES = {
       "note": "生活模拟类，海外未上线，提前建内容库",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 4.0,
       "signals": {
         "trends": {
@@ -950,17 +950,17 @@ window.XC_GAMES = {
           "origin": "Google Trends",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "Trends 数据不足（7 日峰值 4 低于可信下限 5（批内归一化截断，变化率不可信））",
+          "error": "Trends 数据不足（7 日峰值 3 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 2.45,
-            "raw": 2.1,
+            "value": 2.31,
+            "raw": 2.0,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 2.1 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 2.0 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -969,7 +969,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "Reddit: HTTP 429"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
@@ -992,7 +992,7 @@ window.XC_GAMES = {
           "origin": "Google Trends",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Trends 数据不足（7 日峰值 4 低于可信下限 5（批内归一化截断，变化率不可信））"
+          "note": "Trends 数据不足（7 日峰值 3 低于可信下限 5（批内归一化截断，变化率不可信））"
         },
         {
           "key": "reddit",
@@ -1004,7 +1004,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "Reddit: HTTP 429"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
@@ -1056,12 +1056,12 @@ window.XC_GAMES = {
         }
       ],
       "total": 46.5,
-      "prev_total": 48.0,
-      "delta": -1.5,
+      "prev_total": 46.5,
+      "delta": 0.0,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 30,
+      "days_tracked": 31,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -1122,16 +1122,16 @@ window.XC_GAMES = {
         "trends",
         "reddit"
       ],
-      "trends_level": 2.45,
-      "trends_level_raw": 2.1,
-      "trends_level_note": "7d 均值 2.1 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": 2.31,
+      "trends_level_raw": 2.0,
+      "trends_level_note": "7d 均值 2.0 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 13,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 11,
       "gap_score": 6.0,
       "launch_days": null,
@@ -1147,11 +1147,11 @@ window.XC_GAMES = {
         "key": "cooling",
         "label": "不投入",
         "rank": 6,
-        "water": 2.45,
+        "water": 2.31,
         "rise": -31.4,
         "trend": "falling",
         "water_band": "low",
-        "note": "水位 2.5 · 7d -31.4% · stale"
+        "note": "水位 2.3 · 7d -31.4% · stale"
       }
     },
     {
@@ -1176,7 +1176,7 @@ window.XC_GAMES = {
       "note": "写实奇幻共斗新作，全球预约已开",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 0.0,
       "signals": {
         "trends": {
@@ -1187,15 +1187,15 @@ window.XC_GAMES = {
           "stale": true,
           "error": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 0.26,
+            "value": 0.21,
             "raw": 0.2,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 0.2 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 0.2 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -1204,13 +1204,13 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
-          "value": 11,
+          "value": 10,
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
+          "kind": "Bing News RSS 命中 10 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -1239,17 +1239,17 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
           "label": "X 官方公告",
-          "score": 90,
+          "score": 80,
           "weight": 15,
-          "weighted": 13.5,
-          "value": 11,
+          "weighted": 12.0,
+          "value": 10,
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
+          "kind": "Bing News RSS 命中 10 条",
           "stale": false,
           "note": ""
         },
@@ -1290,20 +1290,20 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 65.5,
-      "prev_total": 64.0,
-      "delta": 1.5,
+      "total": 64.0,
+      "prev_total": 65.5,
+      "delta": -1.5,
       "action_engine": "做数据表占位",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 30,
+      "days_tracked": 31,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
           "label": "Google Trends 失活",
-          "total": 45.5,
+          "total": 44.0,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1313,7 +1313,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 58.8,
+          "total": 57.2,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1351,23 +1351,23 @@ window.XC_GAMES = {
       "fallbacks": [
         "Fallback: Trends（沿用上次值）",
         "Fallback: Reddit（沿用上次值）",
-        "Bing News RSS 命中 11 条"
+        "Bing News RSS 命中 10 条"
       ],
       "stale_sources": [
         "trends",
         "reddit"
       ],
-      "trends_level": 0.26,
+      "trends_level": 0.21,
       "trends_level_raw": 0.2,
-      "trends_level_note": "7d 均值 0.2 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level_note": "7d 均值 0.2 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 19,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
-      "x_state": 11,
+      "trends_anchor_high_raw": 65.1,
+      "x_state": 10,
       "gap_score": 10.0,
       "launch_days": null,
       "guide_posts": 2,
@@ -1382,11 +1382,11 @@ window.XC_GAMES = {
         "key": "occupy",
         "label": "优先占位",
         "rank": 1,
-        "water": 0.26,
+        "water": 0.21,
         "rise": 187.5,
         "trend": "rising",
         "water_band": "low",
-        "note": "水位 0.3 · 7d +187.5% · stale"
+        "note": "水位 0.2 · 7d +187.5% · stale"
       }
     },
     {
@@ -1403,7 +1403,7 @@ window.XC_GAMES = {
       "launch_date": "2027-01-15",
       "cn_guide_score": 1,
       "gap_level": "高",
-      "trends_7d": -1.4,
+      "trends_7d": -0.6,
       "reddit_daily": 11,
       "x_mentions": null,
       "total_score": null,
@@ -1412,27 +1412,27 @@ window.XC_GAMES = {
       "note": "都市开放世界RPG，定档明确",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 0.0,
       "signals": {
         "trends": {
           "available": true,
-          "value": -1.4,
+          "value": -0.6,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 10.06,
-            "raw": 8.8,
+            "value": 10.16,
+            "raw": 8.7,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 8.8 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 8.7 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -1441,13 +1441,13 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
-          "value": 9,
+          "value": 11,
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 9 条",
+          "kind": "Bing News RSS 命中 11 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -1460,7 +1460,7 @@ window.XC_GAMES = {
           "score": 15,
           "weight": 20,
           "weighted": 3.0,
-          "value": -1.4,
+          "value": -0.6,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -1476,17 +1476,17 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
           "label": "X 官方公告",
-          "score": 65,
+          "score": 90,
           "weight": 15,
-          "weighted": 9.75,
-          "value": 9,
+          "weighted": 13.5,
+          "value": 11,
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 9 条",
+          "kind": "Bing News RSS 命中 11 条",
           "stale": false,
           "note": ""
         },
@@ -1517,30 +1517,30 @@ window.XC_GAMES = {
         {
           "key": "launch_window",
           "label": "上线窗口近",
-          "score": 88.0,
+          "score": 87.4,
           "weight": 15,
-          "weighted": 13.2,
-          "value": 60,
+          "weighted": 13.11,
+          "value": 59,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
-          "note": "距上线 60 天"
+          "note": "距上线 59 天"
         }
       ],
-      "total": 58.0,
-      "prev_total": 69.3,
-      "delta": -11.3,
-      "action_engine": "监控不投入",
+      "total": 61.6,
+      "prev_total": 58.0,
+      "delta": 3.6,
+      "action_engine": "做数据表占位",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 30,
+      "days_tracked": 31,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
           "label": "Google Trends 失活",
-          "total": 55.0,
+          "total": 58.6,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1550,7 +1550,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 46.0,
+          "total": 49.6,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1560,7 +1560,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 48.2,
+          "total": 48.1,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -1570,7 +1570,7 @@ window.XC_GAMES = {
         {
           "key": "p1_all_dead",
           "label": "P1 全部失败",
-          "total": 33.2,
+          "total": 33.1,
           "action_engine": "人工复核（P1 全部不可用）",
           "confidence": "低",
           "stale_sources": [
@@ -1587,24 +1587,24 @@ window.XC_GAMES = {
       ],
       "fallbacks": [
         "Fallback: Reddit（沿用上次值）",
-        "Bing News RSS 命中 9 条"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "reddit"
       ],
-      "trends_level": 10.06,
-      "trends_level_raw": 8.8,
-      "trends_level_note": "7d 均值 8.8 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": 10.16,
+      "trends_level_raw": 8.7,
+      "trends_level_note": "7d 均值 8.7 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
-      "trends_level_rank": 8,
+      "trends_level_rank": 7,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
-      "x_state": 9,
+      "trends_anchor_high_raw": 65.1,
+      "x_state": 11,
       "gap_score": 10.0,
-      "launch_days": 60,
+      "launch_days": 59,
       "guide_posts": 1,
       "guide_hits": 0,
       "guide_saturated": false,
@@ -1617,11 +1617,11 @@ window.XC_GAMES = {
         "key": "watch",
         "label": "只监控",
         "rank": 5,
-        "water": 10.06,
-        "rise": -1.4,
+        "water": 10.16,
+        "rise": -0.6,
         "trend": "flat",
         "water_band": "low",
-        "note": "水位 10.1 · 7d -1.4%"
+        "note": "水位 10.2 · 7d -0.6%"
       }
     },
     {
@@ -1646,7 +1646,7 @@ window.XC_GAMES = {
       "note": "国内运营10年攻略极成熟，海外刚宣布",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 0.0,
       "signals": {
         "trends": {
@@ -1657,15 +1657,15 @@ window.XC_GAMES = {
           "stale": true,
           "error": "Trends 数据不足（7 日峰值 4 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 2.51,
-            "raw": 2.2,
+            "value": 2.49,
+            "raw": 2.1,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 2.2 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 2.1 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -1674,7 +1674,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
@@ -1709,7 +1709,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
@@ -1761,12 +1761,12 @@ window.XC_GAMES = {
         }
       ],
       "total": 65.0,
-      "prev_total": 63.5,
-      "delta": 1.5,
+      "prev_total": 65.0,
+      "delta": 0.0,
       "action_engine": "做数据表占位",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 30,
+      "days_tracked": 31,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -1827,16 +1827,16 @@ window.XC_GAMES = {
         "trends",
         "reddit"
       ],
-      "trends_level": 2.51,
-      "trends_level_raw": 2.2,
-      "trends_level_note": "7d 均值 2.2 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": 2.49,
+      "trends_level_raw": 2.1,
+      "trends_level_note": "7d 均值 2.1 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 12,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 11,
       "gap_score": 10.0,
       "launch_days": null,
@@ -1852,7 +1852,7 @@ window.XC_GAMES = {
         "key": "watch",
         "label": "只监控",
         "rank": 5,
-        "water": 2.51,
+        "water": 2.49,
         "rise": 0.0,
         "trend": "flat",
         "water_band": "low",
@@ -1881,7 +1881,7 @@ window.XC_GAMES = {
       "note": "11月4日终局测试，国内预约3000万+",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 2.0,
       "signals": {
         "trends": {
@@ -1892,15 +1892,15 @@ window.XC_GAMES = {
           "stale": true,
           "error": "Trends 数据不足（7 日峰值 2 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 0.95,
+            "value": 0.91,
             "raw": 0.8,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 0.8 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 0.8 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -1909,7 +1909,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
@@ -1944,7 +1944,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
@@ -2001,7 +2001,7 @@ window.XC_GAMES = {
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 30,
+      "days_tracked": 31,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -2062,16 +2062,16 @@ window.XC_GAMES = {
         "trends",
         "reddit"
       ],
-      "trends_level": 0.95,
+      "trends_level": 0.91,
       "trends_level_raw": 0.8,
-      "trends_level_note": "7d 均值 0.8 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level_note": "7d 均值 0.8 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 15,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 12,
       "gap_score": 8.0,
       "launch_days": null,
@@ -2087,7 +2087,7 @@ window.XC_GAMES = {
         "key": "cooling",
         "label": "不投入",
         "rank": 6,
-        "water": 0.95,
+        "water": 0.91,
         "rise": -34.8,
         "trend": "falling",
         "water_band": "low",
@@ -2107,7 +2107,7 @@ window.XC_GAMES = {
       "launch_date": "2025-11-14",
       "cn_guide_score": 4,
       "gap_level": "中",
-      "trends_7d": 74.0,
+      "trends_7d": 52.2,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -2116,27 +2116,27 @@ window.XC_GAMES = {
       "note": "海外已上线但英文攻略深度不够",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 10.0,
       "signals": {
         "trends": {
           "available": true,
-          "value": 74.0,
+          "value": 52.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 21.77,
-            "raw": 19.0,
+            "value": 22.87,
+            "raw": 19.5,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 19.0 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 19.5 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -2145,7 +2145,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
@@ -2164,7 +2164,7 @@ window.XC_GAMES = {
           "score": 100,
           "weight": 20,
           "weighted": 20.0,
-          "value": 74.0,
+          "value": 52.2,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2180,7 +2180,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
@@ -2224,7 +2224,7 @@ window.XC_GAMES = {
           "score": 0.0,
           "weight": 15,
           "weighted": 0.0,
-          "value": -367,
+          "value": -368,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
@@ -2237,7 +2237,7 @@ window.XC_GAMES = {
       "action_engine": "做数据表占位",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 30,
+      "days_tracked": 31,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -2296,19 +2296,19 @@ window.XC_GAMES = {
       "stale_sources": [
         "reddit"
       ],
-      "trends_level": 21.77,
-      "trends_level_raw": 19.0,
-      "trends_level_note": "7d 均值 19.0 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": 22.87,
+      "trends_level_raw": 19.5,
+      "trends_level_note": "7d 均值 19.5 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 4,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 12,
       "gap_score": 0.0,
-      "launch_days": -367,
+      "launch_days": -368,
       "guide_posts": 42,
       "guide_hits": 20,
       "guide_saturated": false,
@@ -2321,11 +2321,11 @@ window.XC_GAMES = {
         "key": "occupy",
         "label": "优先占位",
         "rank": 1,
-        "water": 21.77,
-        "rise": 74.0,
+        "water": 22.87,
+        "rise": 52.2,
         "trend": "rising",
         "water_band": "low",
-        "note": "水位 21.8 · 7d +74.0%"
+        "note": "水位 22.9 · 7d +52.2%"
       }
     },
     {
@@ -2350,7 +2350,7 @@ window.XC_GAMES = {
       "note": "8月收入环比增37%，赛季制更新频繁",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 6.0,
       "signals": {
         "trends": {
@@ -2361,15 +2361,15 @@ window.XC_GAMES = {
           "stale": true,
           "error": "Trends 数据不足（7 日峰值 3 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 1.77,
+            "value": 1.73,
             "raw": 1.5,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 1.5 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 1.5 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -2378,7 +2378,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
@@ -2413,7 +2413,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
@@ -2457,7 +2457,7 @@ window.XC_GAMES = {
           "score": 0.0,
           "weight": 15,
           "weighted": 0.0,
-          "value": -278,
+          "value": -279,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
@@ -2470,7 +2470,7 @@ window.XC_GAMES = {
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 30,
+      "days_tracked": 31,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -2531,19 +2531,19 @@ window.XC_GAMES = {
         "trends",
         "reddit"
       ],
-      "trends_level": 1.77,
+      "trends_level": 1.73,
       "trends_level_raw": 1.5,
-      "trends_level_note": "7d 均值 1.5 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level_note": "7d 均值 1.5 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 14,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 12,
       "gap_score": 4.0,
-      "launch_days": -278,
+      "launch_days": -279,
       "guide_posts": 11,
       "guide_hits": 6,
       "guide_saturated": false,
@@ -2556,11 +2556,11 @@ window.XC_GAMES = {
         "key": "watch",
         "label": "只监控",
         "rank": 5,
-        "water": 1.77,
+        "water": 1.73,
         "rise": -0.8,
         "trend": "flat",
         "water_band": "low",
-        "note": "水位 1.8 · 7d -0.8% · stale"
+        "note": "水位 1.7 · 7d -0.8% · stale"
       }
     },
     {
@@ -2585,7 +2585,7 @@ window.XC_GAMES = {
       "note": "MAU增长明显，英文供给仍在建立",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 10.0,
       "signals": {
         "trends": {
@@ -2596,15 +2596,15 @@ window.XC_GAMES = {
           "stale": true,
           "error": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 10.34,
-            "raw": 0.7,
+            "value": 4.51,
+            "raw": 0.2,
             "stale": false,
             "mode": "single-high",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 4.3,
+            "anchor_low_raw": 3.3,
             "anchor_high": "video games",
-            "anchor_high_raw": 6.5,
-            "note": "7d 均值 0.7 · 热锚「video games」6.5 单锚点定标（两锚跨度 2.2 < 15.0）"
+            "anchor_high_raw": 5.0,
+            "note": "7d 均值 0.2 · 热锚「video games」5.0 单锚点定标（两锚跨度 1.7 < 15.0）"
           }
         },
         "reddit": {
@@ -2613,7 +2613,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
@@ -2648,7 +2648,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
@@ -2692,7 +2692,7 @@ window.XC_GAMES = {
           "score": 0.0,
           "weight": 15,
           "weighted": 0.0,
-          "value": -180,
+          "value": -181,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
@@ -2705,7 +2705,7 @@ window.XC_GAMES = {
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 30,
+      "days_tracked": 31,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -2766,19 +2766,19 @@ window.XC_GAMES = {
         "trends",
         "reddit"
       ],
-      "trends_level": 10.34,
-      "trends_level_raw": 0.7,
-      "trends_level_note": "7d 均值 0.7 · 热锚「video games」6.5 单锚点定标（两锚跨度 2.2 < 15.0）",
+      "trends_level": 4.51,
+      "trends_level_raw": 0.2,
+      "trends_level_note": "7d 均值 0.2 · 热锚「video games」5.0 单锚点定标（两锚跨度 1.7 < 15.0）",
       "trends_level_stale": false,
       "trends_level_mode": "single-high",
-      "trends_level_rank": 7,
+      "trends_level_rank": 10,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 4.3,
+      "trends_anchor_low_raw": 3.3,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 6.5,
+      "trends_anchor_high_raw": 5.0,
       "x_state": 12,
       "gap_score": 0.0,
-      "launch_days": -180,
+      "launch_days": -181,
       "guide_posts": 35,
       "guide_hits": 32,
       "guide_saturated": false,
@@ -2791,11 +2791,11 @@ window.XC_GAMES = {
         "key": "cooling",
         "label": "不投入",
         "rank": 6,
-        "water": 10.34,
+        "water": 4.51,
         "rise": -8.4,
         "trend": "falling",
         "water_band": "low",
-        "note": "水位 10.3 · 7d -8.4% · stale"
+        "note": "水位 4.5 · 7d -8.4% · stale"
       }
     },
     {
@@ -2811,7 +2811,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "高",
-      "trends_7d": 46.6,
+      "trends_7d": 64.5,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -2820,27 +2820,27 @@ window.XC_GAMES = {
       "note": "2026-10-19 Steam 开启测试（末日搜打撤生存）；厂商 / 国服状态 / 上线档期均待确认 —— 本条来自新游候选发现层的人工确认",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 0.0,
       "signals": {
         "trends": {
           "available": true,
-          "value": 46.6,
+          "value": 64.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 763.01,
-            "raw": 49.8,
+            "value": 826.81,
+            "raw": 41.2,
             "stale": false,
             "mode": "single-high",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 4.3,
+            "anchor_low_raw": 3.3,
             "anchor_high": "video games",
-            "anchor_high_raw": 6.5,
-            "note": "7d 均值 49.8 · 热锚「video games」6.5 单锚点定标（两锚跨度 2.2 < 15.0）"
+            "anchor_high_raw": 5.0,
+            "note": "7d 均值 41.2 · 热锚「video games」5.0 单锚点定标（两锚跨度 1.7 < 15.0）"
           }
         },
         "reddit": {
@@ -2849,13 +2849,13 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
-          "value": 11,
+          "value": 12,
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -2868,7 +2868,7 @@ window.XC_GAMES = {
           "score": 100,
           "weight": 20,
           "weighted": 20.0,
-          "value": 46.6,
+          "value": 64.5,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -2884,17 +2884,17 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
           "label": "X 官方公告",
-          "score": 90,
+          "score": 100,
           "weight": 15,
-          "weighted": 13.5,
-          "value": 11,
+          "weighted": 15.0,
+          "value": 12,
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "note": ""
         },
@@ -2935,20 +2935,20 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 70.0,
-      "prev_total": 63.5,
-      "delta": 6.5,
+      "total": 71.5,
+      "prev_total": 70.0,
+      "delta": 1.5,
       "action_engine": "做数据表占位",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 28,
+      "days_tracked": 29,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
           "label": "Google Trends 失活",
-          "total": 50.0,
+          "total": 51.5,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2958,7 +2958,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 55.0,
+          "total": 56.5,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -2995,22 +2995,22 @@ window.XC_GAMES = {
       ],
       "fallbacks": [
         "Fallback: Reddit（沿用上次值）",
-        "Bing News RSS 命中 11 条"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "reddit"
       ],
-      "trends_level": 763.01,
-      "trends_level_raw": 49.8,
-      "trends_level_note": "7d 均值 49.8 · 热锚「video games」6.5 单锚点定标（两锚跨度 2.2 < 15.0）",
+      "trends_level": 826.81,
+      "trends_level_raw": 41.2,
+      "trends_level_note": "7d 均值 41.2 · 热锚「video games」5.0 单锚点定标（两锚跨度 1.7 < 15.0）",
       "trends_level_stale": false,
       "trends_level_mode": "single-high",
       "trends_level_rank": 1,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 4.3,
+      "trends_anchor_low_raw": 3.3,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 6.5,
-      "x_state": 11,
+      "trends_anchor_high_raw": 5.0,
+      "x_state": 12,
       "gap_score": 10.0,
       "launch_days": null,
       "guide_posts": 7,
@@ -3025,11 +3025,11 @@ window.XC_GAMES = {
         "key": "differentiate",
         "label": "差异化切入",
         "rank": 2,
-        "water": 763.01,
-        "rise": 46.6,
+        "water": 826.81,
+        "rise": 64.5,
         "trend": "rising",
         "water_band": "head",
-        "note": "水位 763.0 · 7d +46.6% · 头部"
+        "note": "水位 826.8 · 7d +64.5% · 头部"
       }
     },
     {
@@ -3045,7 +3045,7 @@ window.XC_GAMES = {
       "launch_date": "2026-05-19",
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -5.7,
+      "trends_7d": -1.3,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -3054,27 +3054,27 @@ window.XC_GAMES = {
       "note": "吉比特自研、雷霆游戏发行；欧美版（Sword x Staff）2026-05-19 已上线，上线首月同时位于 10+ 区域 App Store 游戏畅销榜 Top50（美国均值 44、最高 26）；韩国/东南亚版计划 2026Q4 上线。cn_guide_score=4：17173 有全职业七转配装/技能替换攻略、九游攻略大全、游戏狗阵容推荐；gap_level=低：英文侧已有独立 wiki（sword-x-staff.wiki）与 BlueStacks 技能/Fantomon 攻略，供给较充分",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 10.0,
       "signals": {
         "trends": {
           "available": true,
-          "value": -5.7,
+          "value": -1.3,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 6.4,
-            "raw": 5.6,
+            "value": 6.26,
+            "raw": 5.3,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 5.6 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 5.3 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -3083,7 +3083,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
@@ -3102,7 +3102,7 @@ window.XC_GAMES = {
           "score": 15,
           "weight": 20,
           "weighted": 3.0,
-          "value": -5.7,
+          "value": -1.3,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3118,7 +3118,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
@@ -3162,7 +3162,7 @@ window.XC_GAMES = {
           "score": 0.0,
           "weight": 15,
           "weighted": 0.0,
-          "value": -181,
+          "value": -182,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
@@ -3170,12 +3170,12 @@ window.XC_GAMES = {
         }
       ],
       "total": 42.8,
-      "prev_total": 44.2,
-      "delta": -1.4,
+      "prev_total": 42.8,
+      "delta": 0.0,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 26,
+      "days_tracked": 27,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -3234,19 +3234,19 @@ window.XC_GAMES = {
       "stale_sources": [
         "reddit"
       ],
-      "trends_level": 6.4,
-      "trends_level_raw": 5.6,
-      "trends_level_note": "7d 均值 5.6 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": 6.26,
+      "trends_level_raw": 5.3,
+      "trends_level_note": "7d 均值 5.3 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
-      "trends_level_rank": 10,
+      "trends_level_rank": 9,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 11,
       "gap_score": 0.0,
-      "launch_days": -181,
+      "launch_days": -182,
       "guide_posts": 24,
       "guide_hits": 23,
       "guide_saturated": false,
@@ -3256,14 +3256,14 @@ window.XC_GAMES = {
       "cn_media_titles": [],
       "stale": true,
       "opportunity": {
-        "key": "cooling",
-        "label": "不投入",
-        "rank": 6,
-        "water": 6.4,
-        "rise": -5.7,
-        "trend": "falling",
+        "key": "watch",
+        "label": "只监控",
+        "rank": 5,
+        "water": 6.26,
+        "rise": -1.3,
+        "trend": "flat",
         "water_band": "low",
-        "note": "水位 6.4 · 7d -5.7%"
+        "note": "水位 6.3 · 7d -1.3%"
       }
     },
     {
@@ -3288,7 +3288,7 @@ window.XC_GAMES = {
       "note": "吉比特自研、雷霆游戏/LTGAMES GLOBAL 发行；亚洲服（台港澳）2025-11-27 已上线，欧美版计划 2026Q4 上线。英文名 Sword of Immortality 取自 LTGAMES GLOBAL 海外发行文案（SEAGM 商品页引用），欧美版上线后需复核；国内攻略成熟（TapTap 新手/职业/神通/法宝/资源全流程、九游副本阵容与掉落、官方玩法说明）",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 0.0,
       "signals": {
         "trends": {
@@ -3297,17 +3297,17 @@ window.XC_GAMES = {
           "origin": "Google Trends",
           "kind": "Fallback: Google Search",
           "stale": true,
-          "error": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
+          "error": "Trends 数据不足（7 日峰值 0 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 0.01,
+            "value": 0.0,
             "raw": 0.0,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 0.0 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 0.0 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -3316,7 +3316,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
@@ -3339,7 +3339,7 @@ window.XC_GAMES = {
           "origin": "Google Trends",
           "kind": "Fallback: Google Search",
           "stale": true,
-          "note": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））"
+          "note": "Trends 数据不足（7 日峰值 0 低于可信下限 5（批内归一化截断，变化率不可信））"
         },
         {
           "key": "reddit",
@@ -3351,7 +3351,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
@@ -3408,7 +3408,7 @@ window.XC_GAMES = {
       "action_engine": "做数据表占位",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 26,
+      "days_tracked": 27,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -3468,16 +3468,16 @@ window.XC_GAMES = {
         "trends",
         "reddit"
       ],
-      "trends_level": 0.01,
+      "trends_level": 0.0,
       "trends_level_raw": 0.0,
-      "trends_level_note": "7d 均值 0.0 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level_note": "7d 均值 0.0 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
-      "trends_level_rank": 23,
+      "trends_level_rank": 24,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 11,
       "gap_score": 10.0,
       "launch_days": null,
@@ -3493,7 +3493,7 @@ window.XC_GAMES = {
         "key": "unknown",
         "label": "象限未知",
         "rank": 7,
-        "water": 0.01,
+        "water": 0.0,
         "rise": null,
         "trend": null,
         "water_band": null,
@@ -3522,7 +3522,7 @@ window.XC_GAMES = {
       "note": "成都蛇夫座·日蚀边缘工作室（Eclipse Glow Games）研发自发，腾讯为主要投资方；PC/PS5/Xbox 买断单机，全球同步、无分区服；目前仅公布与线下试玩，暂无发售日（媒体预估 2026 秋—2027，非官方）。cn_guide_score=2：游侠只有攻略汇总与试玩向内容，无角色/配装/掉落/全流程；gap_level=高：仅粉丝 wiki 与 IGN 试玩，无 Game8/Fandom 完整攻略",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 0.0,
       "signals": {
         "trends": {
@@ -3533,15 +3533,15 @@ window.XC_GAMES = {
           "stale": true,
           "error": "Trends 数据不足（7 日峰值 2 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 0.77,
+            "value": 0.81,
             "raw": 0.7,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 0.7 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 0.7 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -3550,7 +3550,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
@@ -3585,7 +3585,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
@@ -3642,7 +3642,7 @@ window.XC_GAMES = {
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 26,
+      "days_tracked": 27,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -3702,16 +3702,16 @@ window.XC_GAMES = {
         "trends",
         "reddit"
       ],
-      "trends_level": 0.77,
+      "trends_level": 0.81,
       "trends_level_raw": 0.7,
-      "trends_level_note": "7d 均值 0.7 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level_note": "7d 均值 0.7 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 16,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 12,
       "gap_score": 10.0,
       "launch_days": null,
@@ -3727,7 +3727,7 @@ window.XC_GAMES = {
         "key": "unknown",
         "label": "象限未知",
         "rank": 7,
-        "water": 0.77,
+        "water": 0.81,
         "rise": null,
         "trend": null,
         "water_band": null,
@@ -3747,7 +3747,7 @@ window.XC_GAMES = {
       "launch_date": "2026-01-22",
       "cn_guide_score": 5,
       "gap_level": "低",
-      "trends_7d": 2.7,
+      "trends_7d": 7.1,
       "reddit_daily": 14,
       "x_mentions": null,
       "total_score": null,
@@ -3756,27 +3756,27 @@ window.XC_GAMES = {
       "note": "与已收录《明日方舟 / Arknights》是不同作品；2026-01-22 全球公测（PC/PS5/iOS/Android，国服同刻），Steam 版 2026-10-14 追加。cn_guide_score=5：17173 阵容构建与武器选择、GameKee 干员配队 wiki、NGA 养成速查+毕业面板、TapTap 攻略区完整；gap_level=低：arknightsendfield.wiki 武器调校/装备/日常、Game8 新手攻略、Epic 角色榜与工厂指南均已覆盖",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 10.0,
       "signals": {
         "trends": {
           "available": true,
-          "value": 2.7,
+          "value": 7.1,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 7.07,
-            "raw": 6.2,
+            "value": 6.9,
+            "raw": 5.9,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 6.2 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 5.9 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -3785,7 +3785,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
@@ -3801,10 +3801,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 30,
+          "score": 60,
           "weight": 20,
-          "weighted": 6.0,
-          "value": 2.7,
+          "weighted": 12.0,
+          "value": 7.1,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -3820,7 +3820,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
@@ -3864,20 +3864,20 @@ window.XC_GAMES = {
           "score": 0.0,
           "weight": 15,
           "weighted": 0.0,
-          "value": -298,
+          "value": -299,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
           "note": "已上线"
         }
       ],
-      "total": 48.0,
-      "prev_total": 42.0,
+      "total": 54.0,
+      "prev_total": 48.0,
       "delta": 6.0,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 26,
+      "days_tracked": 27,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -3894,8 +3894,8 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 36.0,
-          "action_engine": "暂不投入",
+          "total": 42.0,
+          "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
             "reddit"
@@ -3904,7 +3904,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 33.0,
+          "total": 39.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -3936,19 +3936,19 @@ window.XC_GAMES = {
       "stale_sources": [
         "reddit"
       ],
-      "trends_level": 7.07,
-      "trends_level_raw": 6.2,
-      "trends_level_note": "7d 均值 6.2 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": 6.9,
+      "trends_level_raw": 5.9,
+      "trends_level_note": "7d 均值 5.9 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
-      "trends_level_rank": 9,
+      "trends_level_rank": 8,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 12,
       "gap_score": 0.0,
-      "launch_days": -298,
+      "launch_days": -299,
       "guide_posts": 40,
       "guide_hits": 11,
       "guide_saturated": false,
@@ -3958,14 +3958,14 @@ window.XC_GAMES = {
       "cn_media_titles": [],
       "stale": true,
       "opportunity": {
-        "key": "watch",
-        "label": "只监控",
-        "rank": 5,
-        "water": 7.07,
-        "rise": 2.7,
-        "trend": "flat",
+        "key": "occupy",
+        "label": "优先占位",
+        "rank": 1,
+        "water": 6.9,
+        "rise": 7.1,
+        "trend": "rising",
         "water_band": "low",
-        "note": "水位 7.1 · 7d +2.7%"
+        "note": "水位 6.9 · 7d +7.1%"
       }
     },
     {
@@ -3990,7 +3990,7 @@ window.XC_GAMES = {
       "note": "蛮啾网络研发并全球自发，韩国由 NEXON 代理；亚洲区多轮 CBT（国服「旅迹测试」2026-10-07 结束），英文版 OBT 官方定于 2027 夏季、亚洲区本体 2026 年内。cn_guide_score=3：TapTap 三测开荒强度榜/配队/常驻自选、游侠角色技能，但均为测试版，缺掉落表与公测全流程；gap_level=高：Game8 仅有发售时间页，无英文角色/配装/掉落 wiki",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 2.0,
       "signals": {
         "trends": {
@@ -4001,15 +4001,15 @@ window.XC_GAMES = {
           "stale": true,
           "error": "Trends 数据不足（7 日峰值 2 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 0.49,
+            "value": 0.52,
             "raw": 0.4,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 0.4 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 0.4 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -4018,13 +4018,13 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
-          "value": 9,
+          "value": 10,
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 9 条",
+          "kind": "Bing News RSS 命中 10 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -4053,17 +4053,17 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
           "label": "X 官方公告",
-          "score": 65,
+          "score": 80,
           "weight": 15,
-          "weighted": 9.75,
-          "value": 9,
+          "weighted": 12.0,
+          "value": 10,
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 9 条",
+          "kind": "Bing News RSS 命中 10 条",
           "stale": false,
           "note": ""
         },
@@ -4104,20 +4104,20 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 43.8,
+      "total": 46.0,
       "prev_total": 43.8,
-      "delta": 0.0,
+      "delta": 2.2,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 26,
+      "days_tracked": 27,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
           "label": "Google Trends 失活",
-          "total": 43.8,
+          "total": 46.0,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4127,7 +4127,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 34.8,
+          "total": 37.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4164,23 +4164,23 @@ window.XC_GAMES = {
       "fallbacks": [
         "Fallback: Google Search",
         "Fallback: Reddit（沿用上次值）",
-        "Bing News RSS 命中 9 条"
+        "Bing News RSS 命中 10 条"
       ],
       "stale_sources": [
         "trends",
         "reddit"
       ],
-      "trends_level": 0.49,
+      "trends_level": 0.52,
       "trends_level_raw": 0.4,
-      "trends_level_note": "7d 均值 0.4 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level_note": "7d 均值 0.4 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 18,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
-      "x_state": 9,
+      "trends_anchor_high_raw": 65.1,
+      "x_state": 10,
       "gap_score": 8.0,
       "launch_days": null,
       "guide_posts": 2,
@@ -4195,7 +4195,7 @@ window.XC_GAMES = {
         "key": "unknown",
         "label": "象限未知",
         "rank": 7,
-        "water": 0.49,
+        "water": 0.52,
         "rise": null,
         "trend": null,
         "water_band": null,
@@ -4224,7 +4224,7 @@ window.XC_GAMES = {
       "note": "腾讯天美研发，海外预计 Level Infinite 发行（未官宣）；国服 PC 2026-04-10、移动端 2026-04-17 已上线，海外仅 gamescom 线下试玩、档期未公布（德媒预估 2027，非官方）。cn_guide_score=5：17173 开服保姆攻略/终极攻略/装备属性与最佳搭配，游侠配装与强度提升，角色/装备/副本掉落齐全；gap_level=高：仅 thegameswiki 与 MuMu 零散指南，无 Game8/IGN 完整攻略",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 6.0,
       "signals": {
         "trends": {
@@ -4235,15 +4235,15 @@ window.XC_GAMES = {
           "stale": true,
           "error": "Trends 数据不足（7 日峰值 2 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 0.07,
+            "value": 0.09,
             "raw": 0.1,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 0.1 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 0.1 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -4252,7 +4252,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
@@ -4287,7 +4287,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
@@ -4344,7 +4344,7 @@ window.XC_GAMES = {
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 26,
+      "days_tracked": 27,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -4404,16 +4404,16 @@ window.XC_GAMES = {
         "trends",
         "reddit"
       ],
-      "trends_level": 0.07,
+      "trends_level": 0.09,
       "trends_level_raw": 0.1,
-      "trends_level_note": "7d 均值 0.1 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level_note": "7d 均值 0.1 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 20,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 11,
       "gap_score": 4.0,
       "launch_days": null,
@@ -4429,7 +4429,7 @@ window.XC_GAMES = {
         "key": "unknown",
         "label": "象限未知",
         "rank": 7,
-        "water": 0.07,
+        "water": 0.09,
         "rise": null,
         "trend": null,
         "water_band": null,
@@ -4458,7 +4458,7 @@ window.XC_GAMES = {
       "note": "Hunter Studio 自研、Steam 自发（EA 2024-07-25，1.0 2026-06-10）；国服手游由雷霆游戏发行，2026-10-21 公测。cn_guide_score=4：TapTap 武器/装备攻略与提灯召唤流 build、游侠近战武器及附魔推荐，缺系统化全掉落表；gap_level=中：Game8 有 EA 评测、allthings.how 全成就指南、Steam 社区指南，但无 Game8 wiki/Fandom 完整数据库",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 0.0,
       "signals": {
         "trends": {
@@ -4469,15 +4469,15 @@ window.XC_GAMES = {
           "stale": true,
           "error": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 0.05,
+            "value": 0.04,
             "raw": 0.0,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 0.0 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 0.0 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -4486,7 +4486,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 403"
         },
         "x_twitter": {
           "available": true,
@@ -4521,7 +4521,7 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 403"
         },
         {
           "key": "x_official",
@@ -4565,7 +4565,7 @@ window.XC_GAMES = {
           "score": 0.0,
           "weight": 15,
           "weighted": 0.0,
-          "value": -159,
+          "value": -160,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
@@ -4578,7 +4578,7 @@ window.XC_GAMES = {
       "action_engine": "做数据表占位",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 26,
+      "days_tracked": 27,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -4638,19 +4638,19 @@ window.XC_GAMES = {
         "trends",
         "reddit"
       ],
-      "trends_level": 0.05,
+      "trends_level": 0.04,
       "trends_level_raw": 0.0,
-      "trends_level_note": "7d 均值 0.0 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level_note": "7d 均值 0.0 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 21,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 12,
       "gap_score": 10.0,
-      "launch_days": -159,
+      "launch_days": -160,
       "guide_posts": 0,
       "guide_hits": 0,
       "guide_saturated": false,
@@ -4663,7 +4663,7 @@ window.XC_GAMES = {
         "key": "unknown",
         "label": "象限未知",
         "rank": 7,
-        "water": 0.05,
+        "water": 0.04,
         "rise": null,
         "trend": null,
         "water_band": null,
@@ -4692,7 +4692,7 @@ window.XC_GAMES = {
       "note": "腾讯开放世界 RPG，前网易制作人带队，2026-10-21 22 分钟实机首曝，登陆 PS5/Xbox/PC；英文名为暂定拼音，官方公布后需复核。需人工补：国内攻略成熟度 / 海外供给缺口 / 上线档期",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 0.0,
       "signals": {
         "trends": {
@@ -4703,15 +4703,15 @@ window.XC_GAMES = {
           "stale": true,
           "error": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 0.03,
+            "value": 0.01,
             "raw": 0.0,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 0.0 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 0.0 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -4720,13 +4720,13 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用本款上次有效值）",
           "stale": true,
-          "error": "预算接近用尽（预留给其余源），跳过调用"
+          "error": "Reddit: HTTP 429"
         },
         "x_twitter": {
           "available": true,
-          "value": 11,
+          "value": 12,
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -4755,17 +4755,17 @@ window.XC_GAMES = {
           "origin": "Reddit",
           "kind": "stale（沿用上次有效值）",
           "stale": true,
-          "note": "预算接近用尽（预留给其余源），跳过调用"
+          "note": "Reddit: HTTP 429"
         },
         {
           "key": "x_official",
           "label": "X 官方公告",
-          "score": 90,
+          "score": 100,
           "weight": 15,
-          "weighted": 13.5,
-          "value": 11,
+          "weighted": 15.0,
+          "value": 12,
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 11 条",
+          "kind": "Bing News RSS 命中 12 条",
           "stale": false,
           "note": ""
         },
@@ -4806,20 +4806,20 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 48.5,
+      "total": 50.0,
       "prev_total": 48.5,
-      "delta": 0.0,
+      "delta": 1.5,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 26,
+      "days_tracked": 27,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
           "label": "Google Trends 失活",
-          "total": 48.5,
+          "total": 50.0,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4829,7 +4829,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 35.0,
+          "total": 36.5,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -4866,23 +4866,23 @@ window.XC_GAMES = {
       "fallbacks": [
         "Fallback: Google Search",
         "Fallback: Reddit（沿用上次值）",
-        "Bing News RSS 命中 11 条"
+        "Bing News RSS 命中 12 条"
       ],
       "stale_sources": [
         "trends",
         "reddit"
       ],
-      "trends_level": 0.03,
+      "trends_level": 0.01,
       "trends_level_raw": 0.0,
-      "trends_level_note": "7d 均值 0.0 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level_note": "7d 均值 0.0 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 22,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
-      "x_state": 11,
+      "trends_anchor_high_raw": 65.1,
+      "x_state": 12,
       "gap_score": 10.0,
       "launch_days": null,
       "guide_posts": 0,
@@ -4897,7 +4897,7 @@ window.XC_GAMES = {
         "key": "unknown",
         "label": "象限未知",
         "rank": 7,
-        "water": 0.03,
+        "water": 0.01,
         "rise": null,
         "trend": null,
         "water_band": null,
@@ -4917,7 +4917,7 @@ window.XC_GAMES = {
       "launch_date": null,
       "cn_guide_score": 1,
       "gap_level": "中",
-      "trends_7d": 0.3,
+      "trends_7d": 0.0,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -4926,27 +4926,27 @@ window.XC_GAMES = {
       "note": "候选来源：趣加 FunPlus｜FunPlus《伊莫》全球同步开服，米哈游新作发布预告！｜2026-09-24 08:08｜http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6ada43390b194fd9b11d7ec7d70924d0&url=https%3a%2f%2fm.sohu.com%2fa%2f1080206921_122004016&c=15403086876617453334&mkt=en-us\n需人工补：国内攻略成熟度 / 海外供给缺口 / 上线档期",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 10.0,
       "signals": {
         "trends": {
           "available": true,
-          "value": 0.3,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 65.33,
-            "raw": 50.2,
+            "value": 61.52,
+            "raw": 47.8,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 50.2 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 47.8 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -4959,9 +4959,9 @@ window.XC_GAMES = {
         },
         "x_twitter": {
           "available": true,
-          "value": 10,
+          "value": 11,
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 10 条",
+          "kind": "Bing News RSS 命中 11 条",
           "stale": false,
           "error": null,
           "tier": "P2"
@@ -4974,7 +4974,7 @@ window.XC_GAMES = {
           "score": 30,
           "weight": 20,
           "weighted": 6.0,
-          "value": 0.3,
+          "value": 0.0,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -4995,12 +4995,12 @@ window.XC_GAMES = {
         {
           "key": "x_official",
           "label": "X 官方公告",
-          "score": 80,
+          "score": 90,
           "weight": 15,
-          "weighted": 12.0,
-          "value": 10,
+          "weighted": 13.5,
+          "value": 11,
           "origin": "Bing News RSS",
-          "kind": "Bing News RSS 命中 10 条",
+          "kind": "Bing News RSS 命中 11 条",
           "stale": false,
           "note": ""
         },
@@ -5041,20 +5041,20 @@ window.XC_GAMES = {
           "note": "无确定档期"
         }
       ],
-      "total": 34.5,
-      "prev_total": 33.0,
+      "total": 36.0,
+      "prev_total": 34.5,
       "delta": 1.5,
       "action_engine": "暂不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 25,
+      "days_tracked": 26,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
           "label": "Google Trends 失活",
-          "total": 28.5,
+          "total": 30.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -5064,7 +5064,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 20.0,
+          "total": 21.0,
           "action_engine": "暂不投入",
           "confidence": "中",
           "stale_sources": [
@@ -5101,22 +5101,22 @@ window.XC_GAMES = {
       ],
       "fallbacks": [
         "Fallback: Reddit（沿用上次值）",
-        "Bing News RSS 命中 10 条"
+        "Bing News RSS 命中 11 条"
       ],
       "stale_sources": [
         "reddit"
       ],
-      "trends_level": 65.33,
-      "trends_level_raw": 50.2,
-      "trends_level_note": "7d 均值 50.2 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": 61.52,
+      "trends_level_raw": 47.8,
+      "trends_level_note": "7d 均值 47.8 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 3,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
-      "x_state": 10,
+      "trends_anchor_high_raw": 65.1,
+      "x_state": 11,
       "gap_score": 0.0,
       "launch_days": null,
       "guide_posts": 32,
@@ -5131,11 +5131,11 @@ window.XC_GAMES = {
         "key": "steady",
         "label": "稳定长尾",
         "rank": 4,
-        "water": 65.33,
-        "rise": 0.3,
+        "water": 61.52,
+        "rise": 0.0,
         "trend": "flat",
         "water_band": "high",
-        "note": "水位 65.3 · 7d +0.3%"
+        "note": "水位 61.5 · 7d +0.0%"
       }
     },
     {
@@ -5151,7 +5151,7 @@ window.XC_GAMES = {
       "launch_date": "2026-04-29",
       "cn_guide_score": 4,
       "gap_level": "低",
-      "trends_7d": -0.9,
+      "trends_7d": -11.7,
       "reddit_daily": 25,
       "x_mentions": null,
       "total_score": null,
@@ -5160,27 +5160,27 @@ window.XC_GAMES = {
       "note": "2026-04-29 全球同步公测（PC/移动/PS5/Mac/Epic）；海外攻略生态已成熟，Reddit 实测约 24 篇，供给缺口机会已过，主要看版本节点声量",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 10.0,
       "signals": {
         "trends": {
           "available": true,
-          "value": -0.9,
+          "value": -11.7,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 3.53,
-            "raw": 3.1,
+            "value": 3.55,
+            "raw": 3.0,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 3.1 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 3.0 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -5208,7 +5208,7 @@ window.XC_GAMES = {
           "score": 15,
           "weight": 20,
           "weighted": 3.0,
-          "value": -0.9,
+          "value": -11.7,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -5268,7 +5268,7 @@ window.XC_GAMES = {
           "score": 0.0,
           "weight": 15,
           "weighted": 0.0,
-          "value": -201,
+          "value": -202,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
@@ -5276,12 +5276,12 @@ window.XC_GAMES = {
         }
       ],
       "total": 42.8,
-      "prev_total": 51.8,
-      "delta": -9.0,
+      "prev_total": 42.8,
+      "delta": 0.0,
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 19,
+      "days_tracked": 20,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -5340,19 +5340,19 @@ window.XC_GAMES = {
       "stale_sources": [
         "reddit"
       ],
-      "trends_level": 3.53,
-      "trends_level_raw": 3.1,
-      "trends_level_note": "7d 均值 3.1 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": 3.55,
+      "trends_level_raw": 3.0,
+      "trends_level_note": "7d 均值 3.0 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 11,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 11,
       "gap_score": 0.0,
-      "launch_days": -201,
+      "launch_days": -202,
       "guide_posts": 32,
       "guide_hits": 24,
       "guide_saturated": false,
@@ -5362,14 +5362,14 @@ window.XC_GAMES = {
       "cn_media_titles": [],
       "stale": true,
       "opportunity": {
-        "key": "watch",
-        "label": "只监控",
-        "rank": 5,
-        "water": 3.53,
-        "rise": -0.9,
-        "trend": "flat",
+        "key": "cooling",
+        "label": "不投入",
+        "rank": 6,
+        "water": 3.55,
+        "rise": -11.7,
+        "trend": "falling",
         "water_band": "low",
-        "note": "水位 3.5 · 7d -0.9%"
+        "note": "水位 3.5 · 7d -11.7%"
       }
     },
     {
@@ -5385,7 +5385,7 @@ window.XC_GAMES = {
       "launch_date": "2026-12-14",
       "cn_guide_score": 3,
       "gap_level": "高",
-      "trends_7d": -5.7,
+      "trends_7d": 3.8,
       "reddit_daily": 21,
       "x_mentions": null,
       "total_score": null,
@@ -5394,27 +5394,27 @@ window.XC_GAMES = {
       "note": "2026-10-31 官方宣布 2026-12-14 全球公测（PC/PS5/安卓/iOS 同步），全球预约量破 1000 万，入围 gamescom Best Mobile Game；入库日距上线 43 天，正处关键词占位峰值区。海外供给缺口未实测，gap_level 暂按高估，可采样后调整",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 4.0,
       "signals": {
         "trends": {
           "available": true,
-          "value": -5.7,
+          "value": 3.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
           "error": null,
           "tier": "P1",
           "level": {
-            "value": 10.4,
-            "raw": 9.1,
+            "value": 10.18,
+            "raw": 8.7,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 9.1 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 8.7 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -5439,10 +5439,10 @@ window.XC_GAMES = {
         {
           "key": "trends_rise",
           "label": "Trends 上升",
-          "score": 15,
+          "score": 30,
           "weight": 20,
-          "weighted": 3.0,
-          "value": -5.7,
+          "weighted": 6.0,
+          "value": 3.8,
           "origin": "Google Trends",
           "kind": "P1 主源",
           "stale": false,
@@ -5499,30 +5499,30 @@ window.XC_GAMES = {
         {
           "key": "launch_window",
           "label": "上线窗口近",
-          "score": 68.3,
+          "score": 67.5,
           "weight": 15,
-          "weighted": 10.24,
-          "value": 28,
+          "weighted": 10.12,
+          "value": 27,
           "origin": "官网/游戏日历",
           "kind": "P3 兜底",
           "stale": false,
-          "note": "距上线 28 天"
+          "note": "距上线 27 天"
         }
       ],
-      "total": 59.7,
-      "prev_total": 59.9,
-      "delta": -0.2,
-      "action_engine": "监控不投入",
+      "total": 62.6,
+      "prev_total": 59.7,
+      "delta": 2.9,
+      "action_engine": "做数据表占位",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 16,
+      "days_tracked": 17,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
         {
           "key": "trends_dead",
           "label": "Google Trends 失活",
-          "total": 56.7,
+          "total": 56.6,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -5532,7 +5532,7 @@ window.XC_GAMES = {
         {
           "key": "reddit_dead",
           "label": "Reddit 失活",
-          "total": 46.2,
+          "total": 49.1,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -5542,7 +5542,7 @@ window.XC_GAMES = {
         {
           "key": "x_dead",
           "label": "X/Twitter 失活",
-          "total": 46.2,
+          "total": 49.1,
           "action_engine": "监控不投入",
           "confidence": "中",
           "stale_sources": [
@@ -5552,7 +5552,7 @@ window.XC_GAMES = {
         {
           "key": "p1_all_dead",
           "label": "P1 全部失败",
-          "total": 29.7,
+          "total": 29.6,
           "action_engine": "人工复核（P1 全部不可用）",
           "confidence": "低",
           "stale_sources": [
@@ -5574,19 +5574,19 @@ window.XC_GAMES = {
       "stale_sources": [
         "reddit"
       ],
-      "trends_level": 10.4,
-      "trends_level_raw": 9.1,
-      "trends_level_note": "7d 均值 9.1 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": 10.18,
+      "trends_level_raw": 8.7,
+      "trends_level_note": "7d 均值 8.7 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 6,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 11,
       "gap_score": 6.0,
-      "launch_days": 28,
+      "launch_days": 27,
       "guide_posts": 10,
       "guide_hits": 2,
       "guide_saturated": false,
@@ -5596,14 +5596,14 @@ window.XC_GAMES = {
       "cn_media_titles": [],
       "stale": true,
       "opportunity": {
-        "key": "cooling",
-        "label": "不投入",
-        "rank": 6,
-        "water": 10.4,
-        "rise": -5.7,
-        "trend": "falling",
+        "key": "watch",
+        "label": "只监控",
+        "rank": 5,
+        "water": 10.18,
+        "rise": 3.8,
+        "trend": "flat",
         "water_band": "low",
-        "note": "水位 10.4 · 7d -5.7%"
+        "note": "水位 10.2 · 7d +3.8%"
       }
     },
     {
@@ -5628,7 +5628,7 @@ window.XC_GAMES = {
       "note": "候选来源：米哈游｜《崩坏：因缘精灵》上线在即，米哈游能否破局二次元捉宠新赛道？｜2026-11-05 19:02｜http://www.bing.com/news/apiclick.aspx?ref=FexRss&aid=&tid=6aed3da055dc421595585ae4f6549419&url=https%3a%2f%2fwww.sohu.com%2fa%2f1097673184_122066679&c=623317353749551992&mkt=en-us\n需人工补：国内攻略成熟度 / 海外供给缺口 / 上线档期",
       "signal_source": "P1: Trends+Reddit+X",
       "confidence": "中",
-      "last_update": "2026-11-16",
+      "last_update": "2026-11-17",
       "overseas_supply": 0.0,
       "signals": {
         "trends": {
@@ -5639,15 +5639,15 @@ window.XC_GAMES = {
           "stale": true,
           "error": "Trends 数据不足（7 日峰值 4 低于可信下限 5（批内归一化截断，变化率不可信））",
           "level": {
-            "value": 0.75,
-            "raw": 0.7,
+            "value": 0.72,
+            "raw": 0.6,
             "stale": false,
             "mode": "dual",
             "anchor_low": "mobile game",
-            "anchor_low_raw": 43.6,
+            "anchor_low_raw": 42.6,
             "anchor_high": "video games",
-            "anchor_high_raw": 65.2,
-            "note": "7d 均值 0.7 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）"
+            "anchor_high_raw": 65.1,
+            "note": "7d 均值 0.6 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）"
           }
         },
         "reddit": {
@@ -5748,7 +5748,7 @@ window.XC_GAMES = {
       "action_engine": "监控不投入",
       "action_basis": "规则引擎",
       "base_score_applied": false,
-      "days_tracked": 11,
+      "days_tracked": 12,
       "ranking_eligible": true,
       "ranking_note": "正式排名",
       "scenarios": [
@@ -5809,16 +5809,16 @@ window.XC_GAMES = {
         "trends",
         "reddit"
       ],
-      "trends_level": 0.75,
-      "trends_level_raw": 0.7,
-      "trends_level_note": "7d 均值 0.7 · 冷锚「mobile game」43.6 / 热锚「video games」65.2 → 双锚折线定标（冷锚为 50 分界）",
+      "trends_level": 0.72,
+      "trends_level_raw": 0.6,
+      "trends_level_note": "7d 均值 0.6 · 冷锚「mobile game」42.6 / 热锚「video games」65.1 → 双锚折线定标（冷锚为 50 分界）",
       "trends_level_stale": false,
       "trends_level_mode": "dual",
       "trends_level_rank": 17,
       "trends_anchor_low": "mobile game",
-      "trends_anchor_low_raw": 43.6,
+      "trends_anchor_low_raw": 42.6,
       "trends_anchor_high": "video games",
-      "trends_anchor_high_raw": 65.2,
+      "trends_anchor_high_raw": 65.1,
       "x_state": 12,
       "gap_score": 10.0,
       "launch_days": null,
@@ -5834,11 +5834,11 @@ window.XC_GAMES = {
         "key": "cooling",
         "label": "不投入",
         "rank": 6,
-        "water": 0.75,
+        "water": 0.72,
         "rise": -75.0,
         "trend": "falling",
         "water_band": "low",
-        "note": "水位 0.8 · 7d -75.0% · stale"
+        "note": "水位 0.7 · 7d -75.0% · stale"
       }
     }
   ]
