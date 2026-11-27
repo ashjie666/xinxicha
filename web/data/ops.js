@@ -4,13 +4,13 @@ window.XC_OPS = {
     "title": "中国游戏厂商海外信息差监控",
     "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
     "schema_version": 1,
-    "generated_at_cst": "2026-11-26 17:51:21",
+    "generated_at_cst": "2026-11-27 18:05:17",
     "data_mode": "live",
     "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
     "network": false,
     "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
     "alert": null,
-    "duration_sec": 1700.2,
+    "duration_sec": 1701.9,
     "counts": {
       "tasks": 12,
       "automation": 10,
@@ -955,8 +955,8 @@ window.XC_OPS = {
       "degraded": false,
       "stale": false,
       "status": "正常",
-      "last_success_at": "2026-11-26 17:51:16",
-      "last_attempt_at": "2026-11-26 17:51:16",
+      "last_success_at": "2026-11-27 18:05:11",
+      "last_attempt_at": "2026-11-27 18:05:11",
       "last_error": null
     },
     {
@@ -967,12 +967,12 @@ window.XC_OPS = {
       "manual": false,
       "signal": "玩家讨论、问题类型",
       "fallback": "Discord 公开频道 / F5Bot（P2）",
-      "consecutive_failures": 288,
+      "consecutive_failures": 308,
       "degraded": true,
       "stale": true,
-      "status": "已降级（连续 288 次失败）",
+      "status": "已降级（连续 308 次失败）",
       "last_success_at": "2026-11-10 10:30:27",
-      "last_attempt_at": "2026-11-26 17:51:16",
+      "last_attempt_at": "2026-11-27 18:05:10",
       "last_error": "Reddit: HTTP 404"
     },
     {
@@ -987,8 +987,8 @@ window.XC_OPS = {
       "degraded": false,
       "stale": false,
       "status": "正常",
-      "last_success_at": "2026-11-26 17:51:16",
-      "last_attempt_at": "2026-11-26 17:51:16",
+      "last_success_at": "2026-11-27 18:05:11",
+      "last_attempt_at": "2026-11-27 18:05:11",
       "last_error": null
     },
     {
@@ -1051,8 +1051,8 @@ window.XC_OPS = {
       "degraded": false,
       "stale": false,
       "status": "正常",
-      "last_success_at": "2026-11-26 17:51:16",
-      "last_attempt_at": "2026-11-26 17:51:16",
+      "last_success_at": "2026-11-27 18:05:11",
+      "last_attempt_at": "2026-11-27 18:05:11",
       "last_error": null
     },
     {
@@ -1083,8 +1083,8 @@ window.XC_OPS = {
       "degraded": false,
       "stale": false,
       "status": "正常",
-      "last_success_at": "2026-11-26 17:51:21",
-      "last_attempt_at": "2026-11-26 17:51:21",
+      "last_success_at": "2026-11-27 18:05:17",
+      "last_attempt_at": "2026-11-27 18:05:17",
       "last_error": null
     },
     {
@@ -1099,8 +1099,8 @@ window.XC_OPS = {
       "degraded": false,
       "stale": false,
       "status": "正常",
-      "last_success_at": "2026-11-26 17:51:21",
-      "last_attempt_at": "2026-11-26 17:51:21",
+      "last_success_at": "2026-11-27 18:05:17",
+      "last_attempt_at": "2026-11-27 18:05:17",
       "last_error": null
     }
   ],
@@ -1110,13 +1110,13 @@ window.XC_OPS = {
       "title": "中国游戏厂商海外信息差监控",
       "subtitle": "20 款国产游戏 × 50 个英文 SEO 关键词 · 每日巡检 · 含 P1→P2→P3 回退逻辑",
       "schema_version": 1,
-      "generated_at_cst": "2026-11-26 17:51:21",
+      "generated_at_cst": "2026-11-27 18:05:17",
       "data_mode": "live",
       "spec_sha": "9cd00c7db5c7eaadc02f7596ffc2cb436a7f30f71b359e7206365c9016898d5d",
       "network": false,
       "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
       "alert": null,
-      "duration_sec": 1700.2,
+      "duration_sec": 1701.9,
       "counts": {
         "days": 30,
         "games_logged": 24
@@ -1132,611 +1132,6 @@ window.XC_OPS = {
       "days_tracked": 30
     },
     "days": [
-      {
-        "date": "2026-10-28",
-        "runs": [
-          {
-            "at": "2026-10-28 10:23:19",
-            "network": false,
-            "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
-            "data_mode": "live",
-            "duration_sec": 1716.3,
-            "alert": null,
-            "calls": {
-              "trends": {
-                "attempted": 30,
-                "ok": 4,
-                "failed": 26,
-                "skipped": 0
-              },
-              "reddit": {
-                "attempted": 20,
-                "ok": 20,
-                "failed": 0,
-                "skipped": 10
-              },
-              "x_twitter": {
-                "attempted": 30,
-                "ok": 30,
-                "failed": 0,
-                "skipped": 0
-              },
-              "rss": {
-                "attempted": 30,
-                "ok": 30,
-                "failed": 0,
-                "skipped": 0
-              }
-            },
-            "games": [
-              {
-                "id": "monster-hunter-outlanders",
-                "name_cn": "怪物猎人：旅人",
-                "used": [
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "phantom-blade-zero",
-                "name_cn": "影之刃零",
-                "used": [
-                  "Trends（stale）",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Trends（沿用上次值）",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "roco-kingdom-world",
-                "name_cn": "洛克王国：世界",
-                "used": [
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "star-valley",
-                "name_cn": "星布谷地",
-                "used": [
-                  "Trends（stale）",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Trends（沿用上次值）",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "project-origin",
-                "name_cn": "源初之结",
-                "used": [
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "project-mugen-neverness",
-                "name_cn": "无限大",
-                "used": [
-                  "Trends（stale）",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Trends（沿用上次值）",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "naruto-mobile-global",
-                "name_cn": "火影忍者手游",
-                "used": [
-                  "Trends（stale）",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Trends（沿用上次值）",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "the-outcast",
-                "name_cn": "异人之下",
-                "used": [
-                  "Trends（stale）",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Trends（沿用上次值）",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "where-winds-meet",
-                "name_cn": "燕云十六声",
-                "used": [
-                  "Trends（stale）",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Trends（沿用上次值）",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "last-asylum-plague",
-                "name_cn": "Last Asylum: Plague",
-                "used": [
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "clash-of-critters",
-                "name_cn": "Clash of Critters",
-                "used": [
-                  "Trends（stale）",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Trends（沿用上次值）",
-                  "Bing News RSS 命中 11 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "flamb-merge-cook",
-                "name_cn": "Flambé: Merge & Cook",
-                "used": [
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Bing News RSS 命中 10 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "tasty-travels-merge-game",
-                "name_cn": "Tasty Travels",
-                "used": [
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "genshin-impact",
-                "name_cn": "原神",
-                "used": [
-                  "Trends（stale）",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Trends（沿用上次值）",
-                  "Bing News RSS 命中 11 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "honkai-star-rail",
-                "name_cn": "崩坏：星穹铁道",
-                "used": [
-                  "P1·Trends",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Bing News RSS 命中 11 条"
-                ],
-                "detail": {
-                  "trends": "正常",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "wuthering-waves",
-                "name_cn": "鸣潮",
-                "used": [
-                  "P1·Trends",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "正常",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "honor-of-kings",
-                "name_cn": "王者荣耀国际服",
-                "used": [
-                  "P1·Trends",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Bing News RSS 命中 11 条"
-                ],
-                "detail": {
-                  "trends": "正常",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "arknights",
-                "name_cn": "明日方舟",
-                "used": [
-                  "P1·Trends",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "正常",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "afk-journey",
-                "name_cn": "剑与远征：启程",
-                "used": [
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "rise-of-kingdoms",
-                "name_cn": "万国觉醒",
-                "used": [
-                  "Trends（stale）",
-                  "P1·Reddit",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Trends（沿用上次值）",
-                  "Bing News RSS 命中 11 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "正常",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "hunger",
-                "name_cn": "HUNGER",
-                "used": [
-                  "Trends（stale）",
-                  "Reddit（stale）",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Trends（沿用上次值）",
-                  "Fallback: Reddit（沿用上次值）",
-                  "Bing News RSS 命中 11 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "sword-x-staff",
-                "name_cn": "杖剑传说",
-                "used": [
-                  "Reddit（stale）",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Fallback: Reddit（沿用上次值）",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "wenjian-changsheng",
-                "name_cn": "问剑长生",
-                "used": [
-                  "Reddit（stale）",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Fallback: Reddit（沿用上次值）",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
-                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "tides-of-annihilation",
-                "name_cn": "湮灭之潮",
-                "used": [
-                  "Reddit（stale）",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Fallback: Reddit（沿用上次值）",
-                  "Bing News RSS 命中 11 条"
-                ],
-                "detail": {
-                  "trends": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
-                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "arknights-endfield",
-                "name_cn": "明日方舟：终末地",
-                "used": [
-                  "Trends（stale）",
-                  "Reddit（stale）",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Trends（沿用上次值）",
-                  "Fallback: Reddit（沿用上次值）",
-                  "Bing News RSS 命中 11 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "azur-promilia",
-                "name_cn": "蓝色星原：旅谣",
-                "used": [
-                  "Reddit（stale）",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Fallback: Reddit（沿用上次值）",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "honor-of-kings-world",
-                "name_cn": "王者荣耀世界",
-                "used": [
-                  "Reddit（stale）",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Fallback: Reddit（沿用上次值）",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
-                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "lost-castle-2",
-                "name_cn": "失落城堡 2",
-                "used": [
-                  "Reddit（stale）",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Fallback: Reddit（沿用上次值）",
-                  "Bing News RSS 命中 11 条"
-                ],
-                "detail": {
-                  "trends": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
-                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "renjian-yixiang",
-                "name_cn": "人间异想计划",
-                "used": [
-                  "Reddit（stale）",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Google Search",
-                  "Fallback: Reddit（沿用上次值）",
-                  "Bing News RSS 命中 12 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
-                  "x_twitter": "正常"
-                }
-              },
-              {
-                "id": "aniimo",
-                "name_cn": "伊莫",
-                "used": [
-                  "Trends（stale）",
-                  "Reddit（stale）",
-                  "P2·X"
-                ],
-                "fallbacks": [
-                  "Fallback: Trends（沿用上次值）",
-                  "Fallback: Reddit（沿用上次值）",
-                  "Bing News RSS 命中 11 条"
-                ],
-                "detail": {
-                  "trends": "Trends 限流/异常：The request failed: Google returned a response with code 429",
-                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
-                  "x_twitter": "正常"
-                }
-              }
-            ]
-          }
-        ],
-        "totals": {
-          "monster-hunter-outlanders": 56.6,
-          "phantom-blade-zero": 84.1,
-          "roco-kingdom-world": 62.8,
-          "star-valley": 56.0,
-          "project-origin": 47.0,
-          "project-mugen-neverness": 73.9,
-          "naruto-mobile-global": 66.5,
-          "the-outcast": 51.0,
-          "where-winds-meet": 53.2,
-          "last-asylum-plague": 41.8,
-          "clash-of-critters": 28.5,
-          "flamb-merge-cook": 49.2,
-          "tasty-travels-merge-game": 53.8,
-          "genshin-impact": 63.5,
-          "honkai-star-rail": 54.5,
-          "wuthering-waves": 48.2,
-          "honor-of-kings": 51.8,
-          "arknights": 57.0,
-          "afk-journey": 42.2,
-          "rise-of-kingdoms": 63.5,
-          "hunger": 54.0,
-          "sword-x-staff": 41.2,
-          "wenjian-changsheng": 61.2,
-          "tides-of-annihilation": 50.8,
-          "arknights-endfield": 40.5,
-          "azur-promilia": 49.0,
-          "honor-of-kings-world": 54.5,
-          "lost-castle-2": 59.8,
-          "renjian-yixiang": 50.0,
-          "aniimo": 33.0
-        }
-      },
       {
         "date": "2026-10-29",
         "runs": [
@@ -17334,6 +16729,511 @@ window.XC_OPS = {
           "aniimo": 28.5,
           "neverness-to-everness": 44.2,
           "silver-palace": 60.0,
+          "honkai-nexus-anima": 68.5
+        }
+      },
+      {
+        "date": "2026-11-27",
+        "runs": [
+          {
+            "at": "2026-11-27 18:05:17",
+            "network": false,
+            "probe_detail": "P1 不可达（3s 探测超时被拒），P2 可达（Bing News RSS）",
+            "data_mode": "live",
+            "duration_sec": 1701.9,
+            "alert": null,
+            "calls": {
+              "trends": {
+                "attempted": 24,
+                "ok": 12,
+                "failed": 12,
+                "skipped": 0
+              },
+              "reddit": {
+                "attempted": 20,
+                "ok": 0,
+                "failed": 20,
+                "skipped": 4
+              },
+              "x_twitter": {
+                "attempted": 24,
+                "ok": 24,
+                "failed": 0,
+                "skipped": 0
+              },
+              "rss": {
+                "attempted": 24,
+                "ok": 24,
+                "failed": 0,
+                "skipped": 0
+              }
+            },
+            "games": [
+              {
+                "id": "monster-hunter-outlanders",
+                "name_cn": "怪物猎人：旅人",
+                "used": [
+                  "P1·Trends",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "正常",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "phantom-blade-zero",
+                "name_cn": "影之刃零",
+                "used": [
+                  "P1·Trends",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "正常",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "roco-kingdom-world",
+                "name_cn": "洛克王国：世界",
+                "used": [
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Google Search",
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "Trends 数据不足（7 日峰值 0 低于可信下限 5（批内归一化截断，变化率不可信））",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "star-valley",
+                "name_cn": "星布谷地",
+                "used": [
+                  "Trends（stale）",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Trends（沿用上次值）",
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 10 条"
+                ],
+                "detail": {
+                  "trends": "Trends 数据不足（7 日峰值 2 低于可信下限 5（批内归一化截断，变化率不可信））",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "project-origin",
+                "name_cn": "源初之结",
+                "used": [
+                  "Trends（stale）",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Trends（沿用上次值）",
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 9 条"
+                ],
+                "detail": {
+                  "trends": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "project-mugen-neverness",
+                "name_cn": "无限大",
+                "used": [
+                  "P1·Trends",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 11 条"
+                ],
+                "detail": {
+                  "trends": "正常",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "naruto-mobile-global",
+                "name_cn": "火影忍者手游",
+                "used": [
+                  "Trends（stale）",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Trends（沿用上次值）",
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "Trends 数据不足（7 日峰值 3 低于可信下限 5（批内归一化截断，变化率不可信））",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "the-outcast",
+                "name_cn": "异人之下",
+                "used": [
+                  "Trends（stale）",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Trends（沿用上次值）",
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "where-winds-meet",
+                "name_cn": "燕云十六声",
+                "used": [
+                  "P1·Trends",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "正常",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "last-asylum-plague",
+                "name_cn": "Last Asylum: Plague",
+                "used": [
+                  "P1·Trends",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "正常",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "clash-of-critters",
+                "name_cn": "Clash of Critters",
+                "used": [
+                  "Trends（stale）",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Trends（沿用上次值）",
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "Trends 数据不足（7 日峰值 0 低于可信下限 5（批内归一化截断，变化率不可信））",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "hunger",
+                "name_cn": "HUNGER",
+                "used": [
+                  "P1·Trends",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 11 条"
+                ],
+                "detail": {
+                  "trends": "正常",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "sword-x-staff",
+                "name_cn": "杖剑传说",
+                "used": [
+                  "P1·Trends",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "正常",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "wenjian-changsheng",
+                "name_cn": "问剑长生",
+                "used": [
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Google Search",
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "Trends 数据不足（7 日峰值 0 低于可信下限 5（批内归一化截断，变化率不可信））",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "tides-of-annihilation",
+                "name_cn": "湮灭之潮",
+                "used": [
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Google Search",
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "arknights-endfield",
+                "name_cn": "明日方舟：终末地",
+                "used": [
+                  "P1·Trends",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "正常",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "azur-promilia",
+                "name_cn": "蓝色星原：旅谣",
+                "used": [
+                  "P1·Trends",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "正常",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "honor-of-kings-world",
+                "name_cn": "王者荣耀世界",
+                "used": [
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Google Search",
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "lost-castle-2",
+                "name_cn": "失落城堡 2",
+                "used": [
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Google Search",
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "renjian-yixiang",
+                "name_cn": "人间异想计划",
+                "used": [
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Google Search",
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 9 条"
+                ],
+                "detail": {
+                  "trends": "Trends 数据不足（7 日峰值 1 低于可信下限 5（批内归一化截断，变化率不可信））",
+                  "reddit": "Reddit: HTTP 404",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "aniimo",
+                "name_cn": "伊莫",
+                "used": [
+                  "P1·Trends",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 9 条"
+                ],
+                "detail": {
+                  "trends": "正常",
+                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "neverness-to-everness",
+                "name_cn": "异环",
+                "used": [
+                  "Trends（stale）",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Trends（沿用上次值）",
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "Trends 数据不足（7 日峰值 3 低于可信下限 5（批内归一化截断，变化率不可信））",
+                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "silver-palace",
+                "name_cn": "白银之城",
+                "used": [
+                  "P1·Trends",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "正常",
+                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                  "x_twitter": "正常"
+                }
+              },
+              {
+                "id": "honkai-nexus-anima",
+                "name_cn": "崩坏：因缘精灵",
+                "used": [
+                  "P1·Trends",
+                  "Reddit（stale）",
+                  "P2·X"
+                ],
+                "fallbacks": [
+                  "Fallback: Reddit（沿用上次值）",
+                  "Bing News RSS 命中 12 条"
+                ],
+                "detail": {
+                  "trends": "正常",
+                  "reddit": "预算接近用尽（预留给其余源），跳过调用",
+                  "x_twitter": "正常"
+                }
+              }
+            ]
+          }
+        ],
+        "totals": {
+          "monster-hunter-outlanders": 38.0,
+          "phantom-blade-zero": 48.5,
+          "roco-kingdom-world": 58.8,
+          "star-valley": 45.0,
+          "project-origin": 61.8,
+          "project-mugen-neverness": 63.7,
+          "naruto-mobile-global": 66.5,
+          "the-outcast": 55.0,
+          "where-winds-meet": 44.2,
+          "last-asylum-plague": 41.8,
+          "clash-of-critters": 24.8,
+          "hunger": 50.0,
+          "sword-x-staff": 44.2,
+          "wenjian-changsheng": 62.8,
+          "tides-of-annihilation": 49.2,
+          "arknights-endfield": 45.0,
+          "azur-promilia": 69.0,
+          "honor-of-kings-world": 54.5,
+          "lost-castle-2": 61.2,
+          "renjian-yixiang": 44.8,
+          "aniimo": 26.2,
+          "neverness-to-everness": 44.2,
+          "silver-palace": 59.9,
           "honkai-nexus-anima": 68.5
         }
       }
